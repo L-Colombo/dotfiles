@@ -1,0 +1,6 @@
+require("rustego.plugins-setup")
+require("rustego.core.options")
+require("rustego.core.keymaps")
+require("rustego.plugins.vimtex")
+require("rustego.plugins.lsp")
+require("rustego.plugins.debug")

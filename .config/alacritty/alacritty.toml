@@ -1,0 +1,48 @@
+import = ["/Users/lorenzocolombo/.config/alacritty/hyper-theme.toml"]
+
+[colors.cursor]
+cursor = "#f23dff"
+text = "#ffffff"
+
+[cursor]
+blink_interval = 400
+
+[cursor.style]
+blinking = "Always"
+shape = "Block"
+
+[font]
+size = 16.0
+
+[font.bold]
+family = "IntoneMono Nerd Font Propo"
+style = "Bold"
+
+[font.bold_italic]
+family = "IntoneMono Nerd Font Propo"
+
+[font.italic]
+family = "IntoneMono Nerd Font Propo"
+style = "Italic"
+
+[font.normal]
+family = "IntoneMono Nerd Font Propo"
+style = "Regular"
+
+[[keyboard.bindings]]
+chars = "\u001BF"
+key = "Right"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001BB"
+key = "Left"
+mods = "Alt"
+
+[window]
+decorations = "none"
+opacity = 0.8
+
+[window.padding]
+x = 8
+y = 8

@@ -1,0 +1,709 @@
+#+title: Emacs configuration
+#+author: Lorenzo Colombo
+
+
+* General section 
+
+** Packages and repositories setup
+
+#+begin_src emacs-lisp
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
+
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+#+end_src
+
+This is to ensure that all packages are always up to date:
+
+#+begin_src emacs-lisp
+(use-package auto-package-update
+  :ensure t
+  :config
+  (setq auto-package-update-delete-old-versions t)
+  (setq auto-package-update-hide-results t)
+  (auto-package-update-maybe))
+#+end_src
+
+** Generic settings
+
+*** Defaults
+
+#+begin_src emacs-lisp
+(auto-save-mode -1)
+(tool-bar-mode -1)
+(electric-pair-mode 1)
+(repeat-mode 1)
+(global-display-line-numbers-mode 1)
+(global-hl-line-mode 1)
+
+(setq-default word-wrap t)
+(setq-default tab-width 4)
+(setq display-line-numbers-type 'relative)
+(setq inhibit-startup-screen 't)
+(setq make-backup-files nil)
+(setq auto-save-default nil)
+(setq ring-bell-function 'ignore)
+
+(put 'donwcase-region 'disabled nil)
+
+(set-frame-font "IntoneMono Nerd Font Propo 16" nil t)
+#+end_src
+
+*** Dired
+
+#+begin_src emacs-lisp
+(put 'dired-find-alternate-file 'disabled nil)
+
+(add-hook 'dired-mode-hook
+		  (lambda () (local-set-key (kbd "RET") #'dired-find-alternate-file)))
+#+end_src
+
+*** Window & window movements
+
+These bindings are chosen in order to avoid potential conflicts with other modes or packages that require ~S-<arrows>~ to do stuff.
+
+#+begin_src emacs-lisp
+(global-set-key (kbd "C-c <right>") #'windmove-right)
+(global-set-key (kbd "C-c <left>") #'windmove-left)
+(global-set-key (kbd "C-c <up>") #'windmove-up)
+(global-set-key (kbd "C-c <down>") #'windmove-down)
+#+end_src
+
+This is to remap to ~C-c DEL~ the command ~kill-buffer-and-window~:
+
+#+begin_src emacs-lisp
+(global-set-key (kbd "C-c DEL") #'kill-buffer-and-window)
+#+end_src
+
+*** Set meta key to CMD on MacOs
+
+#+begin_src emacs-lisp
+(setq mac-option-modifier nil
+      mac-command-modifier 'meta
+      x-select-enable-clipboard t)
+#+end_src
+
+*** Colorschemes
+
+The following block is to ensure that the themes usually set as default are installed before being loaded. This step is necessary only for the themes that may be set as default theme on startup to avoid errors.
+
+#+begin_src emacs-lisp
+(use-package naga-theme
+  :ensure t)
+(use-package gruber-darker-theme
+  :ensure t)
+(use-package doom-themes
+  :init
+  (load-theme 'doom-one t)
+  :ensure t)
+(use-package klere-theme
+  :ensure t)
+#+end_src
+
+*** Custom functions and mappings
+
+This function opens an ~eshell~ buffer in a split window at the current working directory
+
+#+begin_src emacs-lisp
+(defun open-eshell-in-split-window ()
+  (interactive)
+  (let ((buf (eshell)))
+	(switch-to-buffer (other-buffer buf))
+	(switch-to-buffer-other-window buf)))
+
+(global-set-key (kbd "C-M-<return>") #'open-eshell-in-split-window)
+#+end_src
+
+This function mimics th ~%~ command of Vi and Vi-like editors, moving the point to the matching parenthesis.
+It is bound to ~C-%~.
+
+#+begin_src emacs-lisp
+(defun goto-matching-par (&optional arg)
+  "Go to the matching parenthesis character if one is adjacent to point."
+  (interactive "^p")
+  (cond ((looking-at "\\s(") (forward-sexp arg))
+        ((looking-back "\\s)" 1) (backward-sexp arg))
+        ;; Now, try to succeed from inside of a bracket
+        ((looking-at "\\s)") (forward-char) (backward-sexp arg))
+        ((looking-back "\\s(" 1) (backward-char) (forward-sexp arg))))
+
+(global-set-key (kbd "C-%") #'goto-matching-par)
+#+end_src
+
+* Packages and Modes
+
+** Helpful
+
+The ~helpful~ package provides a nicer interface for the standard help buffers. To do this more conveniently, it needs to override the standard help keybindings.
+
+#+begin_src emacs-lisp
+(use-package helpful
+  :ensure t
+  :bind (("C-h f" . helpful-callable)
+		 ("C-h v" . helpful-variable)
+		 ("C-h k" . helpful-key)
+		 ("C-h x" . helpful-command)
+		 ("C-c C-d" . helpful-at-point)))
+#+end_src
+
+** Epub reader
+
+#+begin_src emacs-lisp
+(use-package nov
+  :ensure t
+  :init
+  (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode)))
+#+end_src
+
+** GIT interaction
+
+First of all, we need to ensure ~magit~ as our Git client on Emacs;
+
+#+begin_src emacs-lisp
+(use-package magit
+  :ensure t)
+#+end_src
+
+Then, we install the ~git-gutter~ for seamless Git interaction and enable it globally;
+
+#+begin_src emacs-lisp
+(use-package git-gutter
+  :ensure t
+  :config (global-git-gutter-mode 1))
+#+end_src
+
+Finally, we set the folowing key-bindings:
+
+#+begin_src emacs-lisp 
+(global-set-key (kbd "C-c p") 'git-gutter:previous-hunk)
+(global-set-key (kbd "C-c n") 'git-gutter:next-hunk)
+(global-set-key (kbd "C-c v s") 'git-gutter:stage-hunk)
+(global-set-key (kbd "C-c v r") 'git-gutter:revert-hunk)
+#+end_src
+
+** Expand-Region
+
+#+begin_src emacs-lisp
+(use-package expand-region
+  :ensure t
+  :init (pending-delete-mode t)
+  :config (require 'expand-region)
+  :bind ("C-ù" . er/expand-region))
+;; (require 'expand-region)
+;; (global-set-key (kbd "C-ù") 'er/expand-region)
+#+end_src
+
+With ~pending-delete-mode~ enabled, highligted text can be rapidly changed.
+
+** Ace-Jump
+
+#+begin_src emacs-lisp
+(use-package ace-jump-mode
+  :ensure t
+  :bind (("C-c SPC" . ace-jump-mode)
+		 ("C-x SPC" . ace-jump-mode-pop-mark)))
+#+end_src
+
+** Pdf-Tools
+This package is important as it is used with ~AUCTeX~ as pdf viewer.
+
+The list of incompatible modes is set to empty beacuse of conflicts that may arise, especially with line numbers mode.
+
+#+begin_src emacs-lisp
+(use-package pdf-tools
+  :ensure t
+  :init
+  (setq pdf-view-incompatible-modes '())
+  :config
+  (add-hook 'pdf-view-mode-hook (lambda () (display-line-numbers-mode -1)))
+  (pdf-tools-install))
+#+end_src
+
+** LaTeX
+
+The basic package for working with LaTeX on Emacs is the ~AUCTeX~ package.
+
+#+begin_src emacs-lisp
+(use-package auctex
+  :ensure t
+  :init (require 'latex)
+  (setq TeX-parse-self t
+		TeX-view-program-selection '((output-pdf "PDF Tools"))
+		TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view))
+		TeX-source-correlate-start-server t
+		Tex-source-correlate-method '((pdf . synctex)))
+  (TeX-source-correlate-mode)
+  (define-key TeX-source-correlate-map [C-down-mouse-1] #'TeX-view-mouse)
+  (add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer))
+#+end_src
+
+Reftex provides nice automplete features to LaTeX, especially for bibliography and indexes.
+
+#+begin_src emacs-lisp
+(require 'reftex)
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+(setq reftex-plug-into-AUCTeX t)
+#+end_src
+
+** IDO & Vertico
+
+We only need to install ~vertico~ and ~ido-vertical-mode~, as ~ido~ is a built-in package.
+
+#+begin_src emacs-lisp
+(use-package ido-vertical-mode
+  :ensure t
+  :init
+  (require 'ido-vertical-mode)
+  (setq ido-vertical-define-keys 'C-n-and-C-p-only)
+  :config
+  (ido-mode 1)
+  (ido-vertical-mode 1))
+#+end_src
+
+Installation and configuration of ~vertico~.
+
+#+begin_src emacs-lisp
+(use-package vertico
+  :ensure t
+  :config
+  (vertico-mode 1))
+#+end_src
+
+** Org-mode and related
+
+*** Org-Mode itslef
+
+~org-mode~ is built-in, so it needs only to be configured.
+
+#+begin_src emacs-lisp
+(use-package org
+  :ensure t
+  :init
+  (setq org-hide-emphasis-markers t
+		org-startup-folded 'content
+		org-startup-truncated nil
+		org-directory "~/.notes"
+		org-edit-src-content-indentation 0
+		org-src-tab-acts-natively t
+		org-src-preserve-indentation t)
+  :hook (org-mode . org-indent-mode))
+#+end_src
+
+*** Bullets
+~org-bullets~ needs to be installed and attached via hook to ~org-mode~.
+
+#+begin_src emacs-lisp
+(use-package org-bullets
+  :ensure t
+  :hook (org-mode . org-bullets-mode))
+#+end_src
+
+*** Org-agenda & Org-capture
+
+Keybindings for rapid access:
+
+#+begin_src emacs-lisp
+(global-set-key (kbd "C-c a") #'org-agenda)
+(global-set-key (kbd "C-c c") #'org-capture)
+#+end_src
+
+**** Org-agenda:
+
+#+begin_src emacs-lisp
+(setq org-agenda-files '("~/.notes/agenda.org"))
+(setq org-agenda-span 'month)
+#+end_src
+
+**** Org-capture:
+
+#+begin_src emacs-lisp
+(setq org-default-notes-file (concat org-directory "/notes.org"))
+#+end_src
+
+** Company-mode
+
+This takes care of installing and enabling ~company-mode~ globally.
+
+#+begin_src emacs-lisp
+(use-package company
+  :ensure t
+  :init
+  (setq company-minimum-prefix-length 1
+		company-selection-wrap-around t
+		company-tooltip-align-annotations t
+		company-tooltip-annotation-padding 2
+		company-tooltip-limit 9
+		company-show-quick-access 'left)
+   :config
+  (global-company-mode))
+#+end_src
+
+~eglot~ might cause interference with ~company-mode~, especially with ~company-yasnippet~: this hook solves the conflict:
+
+#+begin_src emacs-lisp
+(defun add-company-yasnippet ()
+	(setq company-backends '((company-capf :with company-yasnippet)
+							 (company-files :with company-yasnippet))))
+
+(add-hook 'lsp-managed-mode-hook #'add-company-yasnippet)
+#+end_src
+
+** Prescient
+
+#+begin_src emacs-lisp
+(use-package company-prescient
+  :ensure t
+  :after company
+  :config
+  (company-prescient-mode 1))
+#+end_src
+
+** LSP
+
+#+begin_src emacs-lisp
+(use-package flycheck
+  :ensure t)
+#+end_src
+
+~Lsp-mode~ itself
+
+#+begin_src emacs-lisp
+(use-package lsp-mode
+  :ensure t
+  :init
+  (setq lsp-keymap-prefix "C-c l"
+		lsp-diagnostics-provider :flycheck
+		lsp-auto-guess-root t
+		lsp-headerline-breadcrumb-enable nil
+		lsp-modeline-code-actions-segments '(count icon name))
+  :hook
+  ((c-mode . lsp-deferred)
+   (c++-mode . lsp-deferred)
+   (php-mode . lsp-deferred)
+   (ruby-mode . lsp-deferred)
+   (java-mode . lsp-deferred))
+  :commands (lsp lsp-deferred))
+#+end_src
+
+~Lsp-ui~
+
+#+begin_src emacs-lisp
+(use-package lsp-ui
+  :ensure t
+  :hook
+  (lsp-mode . lsp-ui-mode)
+  :init
+  (setq lsp-ui-sideline-enable t
+		lsp-ui-sideline-show-hover nil
+		lsp-ui-sideline-show-diagnostics t
+		lsp-ui-sideline-show-code-actions nil
+		lsp-ui-sideline-update-mode 'line
+		lsp-ui-sideline-delay 0.0))
+#+end_src
+
+** DAP-mode
+#+begin_src emacs-lisp
+(use-package dap-mode
+  :ensure t
+  :hook
+  (dap-stopped . (lambda (arg) (call-interactively #'dap-hydra))))
+#+end_src
+
+** Yasnippet
+
+We need to install both ~yasnippet~ and a snippets' collection:
+
+#+begin_src emacs-lisp
+(use-package yasnippet
+  :ensure t
+  :bind ("C-c y" . company-yasnippet)
+  :config
+  (yas-global-mode 1))
+(use-package yasnippet-snippets
+  :ensure t)
+#+end_src
+
+** Dashboard
+
+We first need to install the ~dashboard~ package and the ~all-the-icons~ package to add the icons. Remember that ~all-the-icons~ needs to initialize with the comand ~M-x all-the-icons-install-fonts RET~.
+
+#+begin_src emacs-lisp
+(use-package all-the-icons
+  :ensure t)
+
+(use-package dashboard
+  :ensure t
+  :init
+  (require 'dashboard)
+  (setq dashboard-icon-type 'all-the-icons)
+  (setq dashboard-set-heading-icons nil)
+  (setq dashboard-set-file-icons t)
+  (setq dashboard-items '((bookmarks . 7)
+						  (recents . 7)
+						  (projects . 7)))
+  :config
+  (dashboard-setup-startup-hook))
+#+end_src
+
+** Projectile
+
+#+begin_src emacs-lisp
+(use-package projectile
+  :ensure t
+  :bind-keymap
+  ("C-c p" . projectile-command-map)
+  :config
+  (define-key projectile-command-map (kbd "s") 'projectile-ripgrep)
+  (projectile-mode +1))
+#+end_src
+
+~ripgrep.el~, to have Ripgrep capabilities with ~projectile-ripgrep~ command
+
+#+begin_src emacs-lisp
+(use-package ripgrep
+  :ensure t)
+#+end_src
+
+** Move-text
+
+Installation and configuration to use default key-bindings:
+
+#+begin_src emacs-lisp
+(use-package move-text
+  :ensure t
+  :init
+  (move-text-default-bindings))
+#+end_src
+
+And this is a function to auto indent when moving a line:
+
+#+begin_src emacs-lisp
+(defun indent-region-advice (&rest ignored)
+  (let ((deactivate deactivate-mark))
+    (if (region-active-p)
+      (indent-region (region-beginning) (region-end))
+      (indent-region (line-beginning-position) (line-end-position)))
+    (setq deactivate-mark deactivate)))
+(advice-add 'move-text-up :after 'indent-region-advice)
+(advice-add 'move-text-down :after 'indent-region-advice)
+#+end_src
+
+** Mode line (~doom-modeline~)
+
+Install ~doom-modeline~ package and the ~nerd-icons~ package; in order for this to run properly, it is required to run the command ~M-x nerd-icons-install-fonts RET~.
+
+#+begin_src emacs-lisp
+(use-package nerd-icons
+  :ensure t)
+(use-package doom-modeline
+  :ensure t
+  :config
+  (require 'doom-modeline)
+  (doom-modeline-mode 1))
+#+end_src
+
+** Tree file explorer (neotree)
+
+Install the ~neotree~ package and the ~all-the-icons~ package:
+
+#+begin_src emacs-lisp
+(use-package neotree
+  :ensure t
+  :bind ("C-c e" . neotree-toggle)
+  :init
+  (require 'neotree)
+  (setq neo-smart-open t)
+  (when (display-graphic-p) (require 'all-the-icons))
+  (setq neo-theme (if (display-graphic-p) 'icons 'arrow)))
+#+end_src
+
+** Wrap-region
+
+#+begin_src emacs-lisp
+(use-package wrap-region
+  :ensure t
+  :init
+  (setq wrap-region-except-modes 'dired-mode)
+  :config
+  (require 'wrap-region)
+  (wrap-region-mode t))
+#+end_src
+
+** Undo-tree
+
+#+begin_src emacs-lisp
+(use-package undo-tree
+  :ensure t
+  :config
+  (require 'undo-tree)
+  (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
+  (global-undo-tree-mode))
+#+end_src
+
+** Treesitter
+
+#+begin_src emacs-lisp
+(use-package tree-sitter
+  :ensure t
+  :config
+  (global-tree-sitter-mode)
+  :hook
+  (tree-sitter-after-on . tree-sitter-hl-mode))
+(use-package tree-sitter-langs
+  :ensure t)
+#+end_src
+
+** Highlight-indent-mode
+
+#+begin_src emacs-lisp
+(use-package highlight-indent-guides
+  :ensure t
+  :hook
+  (prog-mode . highlight-indent-guides-mode)
+  :init
+  (setq highlight-indent-guides-method 'character
+		highlight-indent-guides-auto-enabled nil
+		highlight-indent-guides-auto-odd-face-perc 80
+		highlight-indent-guides-auto-even-face-perc 80
+		highlight-indent-guides-auto-charachter-face-perc 100))
+#+end_src
+
+* Language specific modes 
+
+** Markdown
+
+#+begin_src emacs-lisp
+(use-package markdown-mode
+  :ensure t)
+#+end_src
+
+** Web-Mode
+
+#+begin_src emacs-lisp
+(use-package web-mode
+  :ensure t
+  :init
+  (setq web-mode-markup-indent-offset 4
+		web-mode-css-indent-offset 4
+		web-mode-code-indent-offset 4)
+  (add-to-list 'auto-mode-alist '("\\.html.twig\\'" . web-mode))
+  :config
+  (require 'web-mode))
+#+end_src
+
+** PHP
+
+#+begin_src emacs-lisp
+(use-package php-mode
+  :ensure t
+  :hook (php-mode . lsp-deferred))
+#+end_src
+
+** CSV
+
+#+begin_src emacs-lisp
+(use-package csv-mode
+  :ensure t)
+#+end_src
+
+** Emmet-mode
+
+#+begin_src emacs-lisp
+(use-package emmet-mode
+  :ensure t
+  :config
+  (add-hook 'sgml-mode-hook 'emmet-mode))
+#+end_src
+
+** JavaScript
+
+#+begin_src emacs-lisp
+(use-package js2-mode
+  :ensure t
+  :init
+  (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+  :hook ((js-mode . lsp-deferred)
+		 (js-mode .  js2-minor-mode))
+  :config
+  (require 'dap-node)
+  (dap-node-setup))
+#+end_src
+
+** Python
+
+#+begin_src emacs-lisp
+(use-package lsp-pyright
+  :ensure t
+  :hook (python-mode . (lambda ()
+                          (require 'lsp-pyright)
+                          (lsp))))  
+#+end_src
+
+** Dotenv-mode
+
+#+begin_src emacs-lisp
+(use-package dotenv-mode
+  :ensure t)
+#+end_src
+
+** Yaml-mode
+
+#+begin_src emacs-lisp
+(use-package yaml-mode
+  :ensure t)
+#+end_src
+
+** Haskell-mode
+
+#+begin_src emacs-lisp
+(use-package haskell-mode
+  :ensure t
+  :config
+  (add-to-list 'exec-path (concat (getenv "HOME") "/.ghcup/bin")))
+
+(use-package lsp-haskell
+  :ensure t)
+#+end_src
+
+** Ruby-mode
+
+This is so that lsp-mode can find ~solargraph~ language server (which needs to be installed manually by running ~gem install solargraph~) in ~PATH~ and ~lsp-mode~ is able to connect.
+
+#+begin_src emacs-lisp
+(add-to-list 'exec-path (concat (getenv "HOME") "/.rbenv/versions/3.2.2/bin"))
+(add-to-list 'exec-path (concat (getenv "HOME") "/.rbenv/shims/"))
+#+end_src
+
+** Java
+
+#+begin_src emacs-lisp
+(use-package lsp-java
+  :ensure t)
+#+end_src
+
+** Tailwindcss (~lsp-mode~ integration)
+
+Note that ~lsp-tailwindcss~ has to be manually cloned from the GitHub repo [[https://github.com/merrickluo/lsp-tailwindcss]].
+
+#+begin_src emacs-lisp
+(add-to-list 'load-path "~/.emacs.d/lsp-tailwindcss")
+(add-to-list 'lsp-language-id-configuration '("\\.twig$" . "html"))
+(add-to-list 'lsp-language-id-configuration '("\\.blade.php" . "html"))
+(require 'lsp-tailwindcss)
+(setq lsp-tailwindcss-add-on-mode t
+	  lsp-tailwindcss-skip-config-check t
+	  lsp-tailwindcss-major-modes '(web-mode)) ;; so that it does not interfere with typescript-mode
+(add-hook 'web-mode-hook #'lsp-deferred)
+#+end_src
+
+** Typescritp-mode
+
+#+begin_src emacs-lisp
+(use-package typescript-mode
+  :ensure t
+  :hook (typescript-mode . lsp-deferred)
+  :config
+  (setq typescript-indent-level 4))
+#+end_src
