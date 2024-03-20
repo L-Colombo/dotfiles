@@ -1,4 +1,4 @@
-import = ["/Users/lorenzocolombo/.config/alacritty/hyper-theme.toml"]
+import = ["~/.config/alacritty/hyper-theme.toml"]
 
 [colors.cursor]
 cursor = "#f23dff"
