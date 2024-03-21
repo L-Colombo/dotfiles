@@ -33,10 +33,10 @@
 		"cpu",
 		"custom/left-arrow-light",
 		"custom/left-arrow-dark",
-		"battery",
+        "disk",
 		"custom/left-arrow-light",
 		"custom/left-arrow-dark",
-		"disk",
+        "battery",
 		"custom/left-arrow-light",
 		"custom/left-arrow-dark",
 		"tray",
@@ -129,7 +129,7 @@
 	},
 	"disk": {
 		"interval": 5,
-		"format": " {percentage_used:2}%",
+		"format": "{percentage_used:2}%",
 		"path": "/"
 	},
 	"tray": {
