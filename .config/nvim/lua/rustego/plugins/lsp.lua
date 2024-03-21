@@ -10,6 +10,7 @@ require("mason").setup({})
 require("mason-lspconfig").setup({
     ensure_installed = {
         'tsserver',
+        'volar',
         'solargraph',
         'jdtls',
         'eslint',
@@ -38,13 +39,19 @@ lsp.format_on_save({
     servers = {
         ['lua_ls'] = { 'lua' },
         ['pyright'] = { 'python' },
-        ['tsserver'] = { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact' },
         ['unocss'] = { 'css' },
         ['html'] = { 'html' },
         ['jsonls'] = { 'JSON' },
         ['clangd'] = { 'c', 'cpp' },
         ['bashls'] = { 'bash' },
-        ['intelephense'] = { 'php' }
+        ['intelephense'] = { 'php' },
+        ['volar'] = { 'vue' },
+        ['tsserver'] = {
+            'javascript',
+            'typescript',
+            'javascriptreact',
+            'typescriptreact'
+        },
     }
 })
 
@@ -53,6 +60,7 @@ require("lspconfig").clangd.setup({})
 require("lspconfig").tailwindcss.setup({})
 require("lspconfig").solargraph.setup({})
 require("lspconfig").jdtls.setup({})
+require("lspconfig").volar.setup({})
 
 
 lsp.setup()
