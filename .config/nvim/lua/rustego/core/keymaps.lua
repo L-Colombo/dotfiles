@@ -9,13 +9,14 @@ keymap.set("n", "<leader>nh", ":nohls<CR>")
 keymap.set("n", "x", '"_x')
 keymap.set('i', '<C-f>', '<Right>')
 keymap.set('i', '<C-b>', '<Left>')
-keymap.set('n', '<leader>y', '^y$')
+keymap.set('n', '<leader>ww', '<cmd>set nowrap<cr>')
 
 -- make
 keymap.set('n', '<leader>mm', ':make<cr>')
 keymap.set('n', '<leader>mr', ':make run<cr>')
 
-keymap.set("n", "<C-h>", ":wincmd h<cr>") -- moving across split panes
+-- moving across split panes
+keymap.set("n", "<C-h>", ":wincmd h<cr>")
 keymap.set("n", "<C-j>", ":wincmd j<cr>")
 keymap.set("n", "<C-k>", ":wincmd k<cr>")
 keymap.set("n", "<C-l>", ":wincmd l<cr>")
@@ -28,12 +29,14 @@ keymap.set('v', "<down>", "gj")
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
-keymap.set('n', 'n', 'nzz') --center screen afer search and pgUp/pgDown
+--center screen afer search and pgUp/pgDown
+keymap.set('n', 'n', 'nzz')
 keymap.set('n', 'N', 'Nzz')
 keymap.set('n', '<C-d>', '<C-d>zz')
 keymap.set('n', '<C-u>', '<C-u>zz')
 
-keymap.set('n', '<S-l>', ':bn<cr>') --buffer related
+--buffer related
+keymap.set('n', '<S-l>', ':bn<cr>')
 keymap.set('n', '<S-h>', ':bp<cr>')
 keymap.set('n', '<leader>x', ':bd!<cr>')
 keymap.set('n', '<leader>tt', ':terminal<cr>') --open terminal buffer
@@ -82,3 +85,13 @@ key("i", "<c-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
 key("s", "<Tab>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
 key("i", "<c-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
 key("s", "<S-Tab>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
+
+-- Gitsigns
+keymap.set("n", "<leader>gr", "<cmd>Gitsigns reset_hunk<cr>")
+keymap.set("n", "<leader>gs", "<cmd>Gitsigns stage_hunk<cr>")
+
+-- LSP
+keymap.set("n", "<leader>li", "<cmd>lua vim.lsp.buf.hover()<cr>")
+keymap.set("n", "<leader>ld", "<cmd>lua vim.lsp.buf.definition()<cr>")
+keymap.set("n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>")
+keymap.set("n", "<leader>lf", "<cmd>lua vim.diagnostic.open_float()<cr>")
