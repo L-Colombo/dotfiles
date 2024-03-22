@@ -23,6 +23,14 @@ require("lazy").setup({
             event = "BufWrite"
         },
         {
+            "NeogitOrg/neogit",
+            dependencies = {
+                "nvim-lua/plenary.nvim",
+                "nvim-telescope/telescope.nvim"
+            },
+            config = true
+        },
+        {
             "tpope/vim-dadbod",
             lazy = true,
         },
