@@ -20,6 +20,8 @@ require("lazy").setup({
         "mbbill/undotree",
         {
             "NeogitOrg/neogit",
+            lazy = true,
+            event = "insertEnter",
             dependencies = {
                 "nvim-lua/plenary.nvim",
                 "nvim-telescope/telescope.nvim"
