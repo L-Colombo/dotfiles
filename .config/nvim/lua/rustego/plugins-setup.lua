@@ -19,10 +19,6 @@ require("lazy").setup({
         "tpope/vim-surround",
         "mbbill/undotree",
         {
-            "tpope/vim-fugitive",
-            event = "BufWrite"
-        },
-        {
             "NeogitOrg/neogit",
             dependencies = {
                 "nvim-lua/plenary.nvim",
