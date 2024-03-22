@@ -86,9 +86,10 @@ key("s", "<Tab>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
 key("i", "<c-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
 key("s", "<S-Tab>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
 
--- Gitsigns
+-- Neogit/Gitsigns
 keymap.set("n", "<leader>gr", "<cmd>Gitsigns reset_hunk<cr>")
 keymap.set("n", "<leader>gs", "<cmd>Gitsigns stage_hunk<cr>")
+keymap.set("n", "<leader>ng", "<cmd>Neogit<cr>")
 
 -- LSP
 keymap.set("n", "<leader>li", "<cmd>lua vim.lsp.buf.hover()<cr>")
