@@ -9,7 +9,7 @@ keymap.set("n", "<leader>nh", ":nohls<CR>")
 keymap.set("n", "x", '"_x')
 keymap.set('i', '<C-f>', '<Right>')
 keymap.set('i', '<C-b>', '<Left>')
-keymap.set('n', '<leader>ww', '<cmd>set nowrap<cr>')
+keymap.set('n', '<leader>ww', '<cmd>set wrap!<cr>')
 
 -- make
 keymap.set('n', '<leader>mm', ':make<cr>')
