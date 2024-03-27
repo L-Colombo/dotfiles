@@ -243,12 +243,11 @@ require("lazy").setup({
             "ellisonleao/gruvbox.nvim",
             opts = { italic = { strings = false }, contrast = "hard" }
         },
-        "rose-pine/neovim",
+        "axvr/photon.vim",
+        "widatama/vim-phoenix",
+        "dikiaap//minimalist",
         "sfi0zy/atlantic-dark.vim",
         "ribru17/bamboo.nvim",
-        "craftzdog/solarized-osaka.nvim",
-        "adisen99/apprentice.nvim",
-        "keiyakeiya/PapilioDehaanii.vim",
 
         --debugger
         { "mfussenegger/nvim-dap", dependencies = "theHamsta/nvim-dap-virtual-text", lazy = true },
