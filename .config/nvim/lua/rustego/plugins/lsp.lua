@@ -91,6 +91,7 @@ cmp.setup({
     sources = {
         { name = 'luasnip' },
         { name = 'nvim_lsp' },
+        { name = 'path' },
     },
     snippet = {
         expand = function(args)
