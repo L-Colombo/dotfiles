@@ -244,7 +244,8 @@ require("lazy").setup({
             opts = { italic = { strings = false }, contrast = "hard" }
         },
         "axvr/photon.vim",
-        "widatama/vim-phoenix",
+        "eldritch-theme/eldritch.nvim",
+        "-themewidatama/vim-phoenix",
         "dikiaap//minimalist",
         "sfi0zy/atlantic-dark.vim",
         "ribru17/bamboo.nvim",
