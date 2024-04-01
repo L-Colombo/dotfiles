@@ -10,6 +10,7 @@ keymap.set("n", "x", '"_x')
 keymap.set('i', '<C-f>', '<Right>')
 keymap.set('i', '<C-b>', '<Left>')
 keymap.set('n', '<leader>ww', '<cmd>set wrap!<cr>')
+keymap.set('n', '<leader>k', '<cmd>set colorcolumn=82<cr>')
 
 -- make
 keymap.set('n', '<leader>mm', ':make<cr>')
