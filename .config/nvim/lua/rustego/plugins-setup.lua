@@ -169,6 +169,13 @@ require("lazy").setup({
         "L3MON4D3/LuaSnip",
         "saadparwaiz1/cmp_luasnip",
         "rafamadriz/friendly-snippets",
+        {
+            "chrisgrieser/nvim-scissors",
+            dependencies = "nvim-telescope/telescope.nvim",
+            opts = {
+                snippetDir = "~/.config/nvim/snippets"
+            }
+        },
 
 
         "lervag/vimtex",

@@ -45,7 +45,6 @@ keymap.set('n', '<leader>tt', ':terminal<cr>') --open terminal buffer
 --split windows
 keymap.set("n", "<leader>sv", "<C-w>v")
 keymap.set("n", "<leader>sh", "<C-w>s")
-keymap.set("n", "<leader>se", "<C-w>=")
 keymap.set("n", "<leader>sx", ":close<CR>")
 
 --tab commands
@@ -97,3 +96,7 @@ keymap.set("n", "<leader>li", "<cmd>lua vim.lsp.buf.hover()<cr>")
 keymap.set("n", "<leader>ld", "<cmd>lua vim.lsp.buf.definition()<cr>")
 keymap.set("n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>")
 keymap.set("n", "<leader>lf", "<cmd>lua vim.diagnostic.open_float()<cr>")
+
+-- Scissors
+keymap.set("n", "<leader>se", function() require("scissors").editSnippet() end)
+keymap.set({ "n", "x" }, "<leader>sa", function() require("scissors").addNewSnippet() end)
