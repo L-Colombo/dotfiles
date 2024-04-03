@@ -116,7 +116,7 @@
 			]
 		},
 		"scroll-step": 5,
-		"on-click": "pavucontrol"
+		"on-click": "pamixer -t"
 	},
 	"memory": {
 		"interval": 5,
