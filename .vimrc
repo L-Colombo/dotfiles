@@ -1,5 +1,5 @@
 set background=dark
-colorscheme desert
+colorscheme default
 set number
 set relativenumber
 set nocompatible
