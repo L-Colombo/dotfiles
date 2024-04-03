@@ -243,10 +243,9 @@ require("lazy").setup({
             "ellisonleao/gruvbox.nvim",
             opts = { italic = { strings = false }, contrast = "hard" }
         },
-        "axvr/photon.vim",
         "eldritch-theme/eldritch.nvim",
-        "-themewidatama/vim-phoenix",
-        "dikiaap//minimalist",
+        "sekke276/dark_flat.nvim",
+        "EdenEast/nightfox.nvim",
         "sfi0zy/atlantic-dark.vim",
         "ribru17/bamboo.nvim",
 
@@ -254,7 +253,9 @@ require("lazy").setup({
         { "mfussenegger/nvim-dap", dependencies = "theHamsta/nvim-dap-virtual-text", lazy = true },
         {
             "rcarriga/nvim-dap-ui",
-            dependencies = "mfussenegger/nvim-dap",
+            dependencies = {
+                "mfussenegger/nvim-dap",
+                "nvim-neotest/nvim-nio" },
             config = function()
                 require("dapui").setup()
             end,
