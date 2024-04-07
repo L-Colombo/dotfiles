@@ -22,7 +22,7 @@ map("n", "<C-j>", ":wincmd j<cr>")
 map("n", "<C-k>", ":wincmd k<cr>")
 map("n", "<C-l>", ":wincmd l<cr>")
 
--- moving e motion
+-- moving and motion
 map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 map('v', "<up>", "gk")
