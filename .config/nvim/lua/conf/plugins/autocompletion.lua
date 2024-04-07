@@ -11,7 +11,9 @@ return {
         local cmp = require('cmp') --autocompletion
 
         require("luasnip.loaders.from_vscode").lazy_load()
-        require("luasnip.loaders.from_vscode").load({ paths = "~/.config/nvim/snippets" })
+        require("luasnip.loaders.from_vscode").load({ paths = "~/.config/nvim/snippets" }) -- load custom snippets
+        -- uncomment to have blade snippets in Laravel projects
+        -- require("luasnip").filetype_extend("php", { "blade" })
         cmp.setup({
             mapping = {
                 ["<C-p>"] = cmp.mapping.select_prev_item(),
