@@ -24,4 +24,5 @@ return {
     "EdenEast/nightfox.nvim",
     "sfi0zy/atlantic-dark.vim",
     "ribru17/bamboo.nvim",
+    "bluz71/vim-moonfly-colors"
 }
