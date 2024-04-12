@@ -4,12 +4,16 @@ return {
 
     {
         "JasonBoyett/Goethe.nvim",
-        opts = {
-            default_theme = "habamax",
-            auto_persist = true,
-        }
+        opts = { default_theme = "habamax", auto_persist = true, }
     },
-
+    {
+        "neanias/everforest-nvim",
+        config = function()
+            require("everforest").setup({
+                background = "hard"
+            })
+        end
+    },
     {
         "blazkowolf/gruber-darker.nvim",
         opts = { italic = { strings = false } }
