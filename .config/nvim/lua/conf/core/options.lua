@@ -18,8 +18,8 @@ vim.g.netrw_list_hide = vim.fn["netrw_gitignore#Hide"]()
 vim.g.netrw_banner = 0
 
 --tab & indent
-opt.tabstop = 4
-opt.shiftwidth = 4
+opt.tabstop = 2
+opt.shiftwidth = 2
 opt.expandtab = true
 opt.autoindent = true
 
@@ -31,7 +31,6 @@ opt.smartcase = true
 opt.termguicolors = true
 opt.background = "dark"
 opt.signcolumn = "yes"
-
 
 --backspace
 opt.backspace = "indent,eol,start"
