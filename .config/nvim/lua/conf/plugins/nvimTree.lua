@@ -3,6 +3,15 @@ return {
     version = "*",
     lazy = false,
     config = function()
-        require("nvim-tree").setup({ view = { relativenumber = true } })
+        require("nvim-tree").setup({
+            view = {
+                relativenumber = true
+            },
+            renderer = {
+                indent_markers = {
+                    enable = true
+                }
+            }
+        })
     end
 }
