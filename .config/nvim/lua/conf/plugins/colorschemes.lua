@@ -16,17 +16,32 @@ return {
     },
     {
         "blazkowolf/gruber-darker.nvim",
-        opts = { italic = { strings = false } }
+        opts = {
+            italic = {
+                strings = false
+            }
+        }
     },
     {
         "ellisonleao/gruvbox.nvim",
-        opts = { italic = { strings = false }, contrast = "hard" }
+        opts = {
+            italic = {
+                strings = false
+            },
+            contrast = "hard"
+        }
     },
-
-    "eldritch-theme/eldritch.nvim",
-    "sekke276/dark_flat.nvim",
+    {
+        "MyyPo/borrowed.nvim",
+        config = function()
+            require("borrowed").setup({
+                cursor = {
+                    enable = false,
+                }
+            })
+        end
+    },
     "EdenEast/nightfox.nvim",
     "sfi0zy/atlantic-dark.vim",
     "ribru17/bamboo.nvim",
-    "bluz71/vim-moonfly-colors"
 }
