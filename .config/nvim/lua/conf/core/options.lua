@@ -35,7 +35,7 @@ opt.signcolumn = "yes"
 --backspace
 opt.backspace = "indent,eol,start"
 
---clipboaed
+--clipboard
 opt.clipboard:append("unnamedplus")
 
 --split windows
