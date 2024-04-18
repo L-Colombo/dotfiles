@@ -4,7 +4,6 @@ vim.cmd([[autocmd TermOpen * startinsert]])
 
 opt.guicursor = "n-v-c-i:block"
 opt.linebreak = true
-opt.scrolloff = 10
 opt.relativenumber = true
 opt.number = true
 opt.swapfile = false

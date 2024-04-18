@@ -3,7 +3,7 @@ return {
   priority = 1000,
   opts = {
     options = {
-      theme = 'moonfly',
+      theme = 'codedark',
       section_separators = '',
       component_separators = '',
     },
