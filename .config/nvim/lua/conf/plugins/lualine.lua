@@ -3,28 +3,28 @@ return {
   priority = 1000,
   opts = {
     options = {
-      theme = 'codedark',
-      section_separators = '',
-      component_separators = '',
+      theme = "auto",
+      section_separators = "",
+      component_separators = "",
     },
     sections = {
       lualine_b = { {
-        'branch'
+        "branch"
       } },
       lualine_c = {
         {
-          'buffers',
+          "buffers",
           hide_filename_extension = true,
           mode = 4,
           symbols = {
-            modified = ' ',
-            alternate_file = '',
+            modified = " ",
+            alternate_file = "",
           }
         }
       },
       lualine_x = {
         {
-          'diagnostics'
+          "diagnostics"
         }
       }
     }
