@@ -36,7 +36,7 @@ return {
     config = function()
       require("borrowed").setup({
         cursor = {
-          enable = false,
+          enable = true,
         }
       })
     end
