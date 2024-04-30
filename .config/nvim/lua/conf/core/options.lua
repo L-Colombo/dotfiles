@@ -17,8 +17,8 @@ vim.g.netrw_list_hide = vim.fn["netrw_gitignore#Hide"]()
 vim.g.netrw_banner = 0
 
 --tab & indent
-opt.tabstop = 2
-opt.shiftwidth = 2
+opt.tabstop = 4
+opt.shiftwidth = 4
 opt.expandtab = true
 opt.autoindent = true
 
