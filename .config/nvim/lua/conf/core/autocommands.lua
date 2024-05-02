@@ -1,15 +1,34 @@
+local autocmd = vim.api.nvim_create_autocmd
+local augroup = vim.api.nvim_create_augroup
+
+
 -- highlight on yank
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+autocmd("TextYankPost", {
+  desc = "Highlight when yanking (copying) text",
+  group = augroup("kickstart-highlight-yank", { clear = true }),
   callback = function()
     vim.highlight.on_yank()
   end,
 })
 
 -- active buffer highlight in lualine
-vim.api.nvim_create_autocmd('ColorScheme', {
+autocmd("ColorScheme", {
   callback = function()
-    vim.cmd.highlight('lualine_c_buffers_active guifg=#3e8fb0')
+    vim.cmd.highlight("lualine_c_buffers_active guifg=#3e8fb0")
   end
+})
+
+-- set indentation to 2 for specific filetypes
+autocmd("Filetype", {
+  group = augroup("setIndent", { clear = true }),
+  pattern = {
+    "javascript",
+    "typescript",
+    "lua",
+    "jsx",
+    "tsx",
+    "typescriptreact",
+    "javascriptreact"
+  },
+  command = "setlocal shiftwidth=2 tabstop=2"
 })
