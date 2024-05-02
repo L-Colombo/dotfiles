@@ -101,3 +101,6 @@ map("n", "<leader>lf", "<cmd>lua vim.diagnostic.open_float()<cr>")
 -- Scissors
 map("n", "<leader>se", function() require("scissors").editSnippet() end)
 map({ "n", "x" }, "<leader>sa", function() require("scissors").addNewSnippet() end)
+
+-- dbee
+map("n", "<leader>dt", "<cmd>Dbee toggle<cr>")
