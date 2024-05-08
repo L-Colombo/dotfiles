@@ -48,7 +48,7 @@ This is to ensure that all packages are always up to date:
 
 (put 'donwcase-region 'disabled nil)
 
-(set-frame-font "IntoneMono Nerd Font Propo 16" nil t)
+(set-frame-font "Iosevka Nerd Font Propo 16" nil t)
 #+end_src
 
 *** Dired
