@@ -1,8 +1,8 @@
 import = ["~/.config/alacritty/hyper-theme.toml"]
 
 [colors.cursor]
-cursor = "#f23dff"
-text = "#ffffff"
+cursor = "#3e8fb0"
+text = "#000000"
 
 [cursor]
 blink_interval = 400
@@ -12,7 +12,7 @@ blinking = "Always"
 shape = "Block"
 
 [font]
-size = 14.0
+size = 15.0
 
 [font.bold]
 family = "Iosevka Nerd Font Propo"
