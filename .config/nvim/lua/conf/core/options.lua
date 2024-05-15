@@ -2,7 +2,7 @@ local opt = vim.opt
 
 vim.cmd([[autocmd TermOpen * startinsert]])
 
-opt.guicursor = "n-v-c-i:block"
+-- opt.guicursor = "n-v-c-i:block"
 opt.linebreak = true
 opt.relativenumber = true
 opt.number = true

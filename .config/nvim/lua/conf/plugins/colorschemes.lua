@@ -42,6 +42,7 @@ return {
     end
   },
   "EdenEast/nightfox.nvim",
-  "sfi0zy/atlantic-dark.vim",
+  -- "sfi0zy/atlantic-dark.vim",
+  "L-Colombo/atlantic-dark.nvim",
   "e-q/okcolors.nvim",
 }

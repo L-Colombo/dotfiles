@@ -14,7 +14,7 @@ autocmd("TextYankPost", {
 -- active buffer highlight in lualine
 autocmd("ColorScheme", {
   callback = function()
-    vim.cmd.highlight("lualine_c_buffers_active guifg=#3e8fb0")
+    vim.cmd.highlight("lualine_c_buffers_active guifg=#0087ff")
   end
 })
 
