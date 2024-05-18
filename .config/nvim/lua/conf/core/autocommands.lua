@@ -11,12 +11,6 @@ autocmd("TextYankPost", {
   end,
 })
 
--- active buffer highlight in lualine
-autocmd("ColorScheme", {
-  callback = function()
-    vim.cmd.highlight("lualine_c_buffers_active guifg=#0087ff")
-  end
-})
 
 -- set indentation to 2 for specific filetypes
 autocmd("Filetype", {
