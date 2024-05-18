@@ -6,6 +6,7 @@ map("t", "jk", "<C-\\><C-n>")
 map("n", "<leader>nh", ":nohls<CR>")
 map("n", "x", '"_x')
 map("n", "<leader>ww", "<cmd>set wrap!<cr>")
+map("n", "<leader>ss", "<cmd>set spell!<cr>")
 
 -- insert mode moving left & right
 map("i", "<C-h>", "<Left>")
