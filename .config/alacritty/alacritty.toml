@@ -1,7 +1,7 @@
 import = ["~/.config/alacritty/hyper-theme.toml"]
 
 [colors.cursor]
-cursor = "#3e8fb0"
+cursor = "#0087ff"
 text = "#000000"
 
 [cursor]
