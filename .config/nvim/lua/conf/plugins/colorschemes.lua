@@ -14,15 +14,6 @@ return {
     }
   },
   {
-    "ellisonleao/gruvbox.nvim",
-    opts = {
-      italic = {
-        strings = false
-      },
-      contrast = "hard"
-    }
-  },
-  {
     "MyyPo/borrowed.nvim",
     config = function()
       require("borrowed").setup({
