@@ -96,7 +96,7 @@ The following block is to ensure that the themes usually set as default are inst
   :ensure t)
 (use-package doom-themes
   :init
-  (load-theme 'klere t)
+  (load-theme 'gruber-darker t)
   :ensure t)
 (use-package klere-theme
   :ensure t)
