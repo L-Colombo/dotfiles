@@ -16,6 +16,7 @@ autocmd("TextYankPost", {
 autocmd("Filetype", {
   group = augroup("setIndent", { clear = true }),
   pattern = {
+    "c",
     "javascript",
     "typescript",
     "lua",
