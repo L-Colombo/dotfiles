@@ -98,6 +98,7 @@ map("n", "<leader>li", "<cmd>lua vim.lsp.buf.hover()<cr>")
 map("n", "<leader>ld", "<cmd>lua vim.lsp.buf.definition()<cr>")
 map("n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>")
 map("n", "<leader>lf", "<cmd>lua vim.diagnostic.open_float()<cr>")
+map("i", "<C-e>", function() require("lsp_signature").toggle_float_win() end, { silent = true, noremap = true })
 
 -- Scissors
 map("n", "<leader>se", function() require("scissors").editSnippet() end)
