@@ -4,6 +4,9 @@ add_newline = false
 success_symbol = '[\$](bold white)'
 error_symbol = '[\$](bold white)'
 
+[cmd_duration]
+disabled = true
+
 [directory]
 read_only = ' 󰌾'
 truncation_length = 3
