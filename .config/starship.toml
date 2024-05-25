@@ -20,9 +20,9 @@ format = 'on [$symbol$branch ( $remote_name/$remote_branch)]($style) '
 disabled = false
 
 [git_status]
-diverged = '[\($count⇕\)](green)'
-ahead = '[\($count⇡\)](green)'
-behind = '[\($count⇣\)](green)'
+diverged = '[\($count⇕ \)](green)'
+ahead = '[\($count⇡ \)](green)'
+behind = '[\($count⇣ \)](green)'
 untracked = '[\($count?\)](blue)'
 modified = '[\($count!\)](yellow)'
 stashed = '[\($count \$\)](green)'
