@@ -9,7 +9,7 @@ disabled = true
 
 [directory]
 read_only = ' 󰌾'
-truncation_length = 3
+truncation_length = 10
 truncate_to_repo = false
 
 ####### GIT #######
