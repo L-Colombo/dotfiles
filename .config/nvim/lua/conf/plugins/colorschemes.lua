@@ -6,12 +6,7 @@ return {
     opts = { default_theme = "habamax", auto_persist = true, }
   },
   {
-    "blazkowolf/gruber-darker.nvim",
-    opts = {
-      italic = {
-        strings = false
-      }
-    }
+    "catppuccin/nvim"
   },
   {
     "MyyPo/borrowed.nvim",
