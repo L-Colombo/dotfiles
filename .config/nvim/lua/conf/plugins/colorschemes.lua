@@ -6,7 +6,7 @@ return {
     opts = { default_theme = "habamax", auto_persist = true, }
   },
   {
-    "catppuccin/nvim"
+    "rebelot/kanagawa.nvim"
   },
   {
     "MyyPo/borrowed.nvim",
