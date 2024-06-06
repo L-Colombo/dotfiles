@@ -34,3 +34,5 @@ set recolor-lightcolor "#123456" #00
 set recolor-darkcolor "#ffffff" #06
 set recolor-reverse-video "true"
 set recolor-keephue "true"
+
+set font "Iosevka Nerd Font Propo 16"
