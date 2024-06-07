@@ -19,4 +19,5 @@ return {
     end
   },
   "L-Colombo/atlantic-dark.nvim",
+  "oprearocks/allhallowseve.nvim",
 }
