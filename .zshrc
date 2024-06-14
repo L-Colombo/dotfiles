@@ -24,6 +24,7 @@ eval "$(fzf --zsh)"
 ############### Variables ########################
 export EDITOR="nvim"
 export PATH="$HOME/.rbenv:$PATH"
+export PATH="$PATH:$HOME/.config/composer/vendor/bin/"
 
 ############### Zinit plugin manager #############
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
