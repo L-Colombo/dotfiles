@@ -1,4 +1,5 @@
 ##################################################
+#
 #  _     ____           _____    _              
 # | |   / ___|         |__  /___| |__  _ __ ___ 
 # | |  | |      _____    / // __| '_ \| '__/ __|
@@ -38,6 +39,8 @@ zinit load zsh-users/zsh-completions
 zinit load zsh-users/zsh-autosuggestions
 zinit load Aloxaf/fzf-tab
 
+zinit snippet OMZP::colored-man-pages
+
 ############### Other settings ###################
 
 # Init completions
@@ -65,6 +68,3 @@ setopt hist_ignore_space
 setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
-
-# Add colors to man pages
-source ~/scripts/color.zsh
