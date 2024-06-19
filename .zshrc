@@ -52,7 +52,7 @@ zstyle ':completion:*' list-colors '${(s.:.)LS_COLORS}'
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
-# keybindings for autosuggestions Emacs style
+# Keybindings for autosuggestions Emacs style
 bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
@@ -68,3 +68,6 @@ setopt hist_ignore_space
 setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
+
+# Unalias `zi` to avoid conflict between Zoxide and Zinit
+unalias zi
