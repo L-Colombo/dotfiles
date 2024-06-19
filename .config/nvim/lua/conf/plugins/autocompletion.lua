@@ -33,11 +33,11 @@ return {
       formatting = {
         format = lspkind.cmp_format({
           mode = "symbol",
-          maxwidth = 50,
+          -- maxwidth = 50,
           ellipsis_char = "...",
           show_labelDetails = true,
           before = function(entry, vim_item)
-            vim_item.abbr = string.sub(vim_item.abbr, 1, 20)
+            vim_item.abbr = string.sub(vim_item.abbr, 1, 50)
             return vim_item
           end
         })
@@ -46,6 +46,7 @@ return {
         { name = 'luasnip' },
         { name = 'nvim_lsp' },
         { name = 'path' },
+        { name = 'nvim_lsp_signature_help' },
       },
       snippet = {
         expand = function(args)
