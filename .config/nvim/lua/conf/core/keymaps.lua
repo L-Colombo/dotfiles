@@ -32,7 +32,7 @@ map("v", "K", ":m '<-2<CR>gv=gv")
 map("v", "<", "<gv", { noremap = true, silent = true })
 map("v", ">", ">gv", { noremap = true, silent = true })
 
---center screen afer search and pgUp/pgDown and paragraf moving
+--center screen afer search and pgUp/pgDown and paragraph moving
 map("n", "n", "nzz")
 map("n", "N", "Nzz")
 map("n", "<C-d>", "<C-d>zz")
