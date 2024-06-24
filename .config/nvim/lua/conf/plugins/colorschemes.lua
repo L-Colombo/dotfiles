@@ -6,9 +6,6 @@ return {
     opts = { default_theme = "habamax", auto_persist = true, }
   },
   {
-    "rebelot/kanagawa.nvim"
-  },
-  {
     "MyyPo/borrowed.nvim",
     config = function()
       require("borrowed").setup({
@@ -20,4 +17,5 @@ return {
   },
   "L-Colombo/atlantic-dark.nvim",
   "oprearocks/allhallowseve.nvim",
+  "bluz71/vim-nightfly-colors",
 }
