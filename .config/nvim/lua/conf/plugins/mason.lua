@@ -8,15 +8,9 @@ return {
     require("mason-lspconfig").setup({
       ensure_installed = {
         'tsserver',
-        'volar',
-        'solargraph',
-        'jdtls',
-        'eslint',
-        'pyright',
         'html',
         'cssls',
         'lua_ls',
-        'texlab',
         'clangd',
         'intelephense',
       },
