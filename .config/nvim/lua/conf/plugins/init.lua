@@ -3,4 +3,5 @@ return {
   "nvim-lua/plenary.nvim",
   "tpope/vim-surround",
   "mbbill/undotree",
+  "easymotion/vim-easymotion"
 }
