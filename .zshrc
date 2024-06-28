@@ -14,7 +14,7 @@ alias t="tmux"
 alias p="pandoc"
 alias r="ranger"
 alias exa="exa --all --long --header --color=always --icons --git-ignore --sort=type"
-alias tree="exa --long --header --color=always --icons --git-ignore --sort=type -T"
+alias tree="eza --color=always --icons --git-ignore --sort=type -T"
 
 ############### Evals ############################
 eval "$(zoxide init zsh)"
