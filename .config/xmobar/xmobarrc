@@ -1,33 +1,24 @@
-Config { font = "IntoneMono Nerd Font Propo 16"
-       , additionalFonts = ["DejaVu Sans Mono italic 9"]
-       , borderColor = "black"
-       , border = FullB
-       , bgColor = "black"
-       , fgColor = "whitesmoke"
-       , alpha = 255
-       , position = TopH 36
-       , textOffset = -1
-       , iconOffset = -1
-       , lowerOnStart = True
-       , pickBroadest = True
-       , persistent = False
-       , hideOnStart = False
-       , iconRoot = "."
+Config { overrideRedirect = False
+       , font     = "Iosevka Nerd Font Propo 16"
+       , bgColor  = "#202020"
+       , fgColor  = "#f8f8f2"
        , allDesktops = True
-       , overrideRedirect = True
-       , textOutputFormat = Ansi
-       , commands = [ Run Network "wlp2s0" ["-L","0","-H","32", "--normal","green","--high","red"] 10
-                    , Run Wireless "wlp2s0" ["-t", "󱚻 <essid>" ] 10
-                    , Run Network "eth1" ["-L","0","-H","32", "--normal","green","--high","red"] 10
-                    , Run Cpu ["-t", "<fn=2>\xf108</fn> <total>%","-H","50","--high","red"] 20
-                    , Run DiskU [("/", "<fn=2>\xf0c7</fn> <free> free")] [] 60
-                    , Run Memory ["-t","<fn=2>\xf233</fn> <usedratio>%"] 10
-                    , Run Date " %b %_d %Y <fn=2>\xf017</fn> %H:%M" "date" 10
+       , position = TopSize L 90 32
+       , commands = [ --Run Com "~/scripts/battStat.sh" [] "bat" 10000
+                     Run Cpu
+                        [ "-L", "3"
+                        , "-H", "50"
+                        , "--high"  , "red"
+                        , "--normal", "green"
+                        ] 10
+                    -- , Run Memory ["--template", "Mem: <usedratio>%"] 10
+                    , Run Com "pamixer" ["--get-volume-human"] "volume" 10
+                    , Run Com "scripts/memFormatted.sh" [] "mem" 10
+                    , Run Com "scripts/battStat.sh" [] "battery" 3600
+                    , Run Date "%a %d-%m-%Y %H:%M" "date" 10
                     , Run XMonadLog
-                    , Run Com "uname" ["-o"] "" 36000
                     ]
-       , sepChar = "%"
+       , sepChar  = "%"
        , alignSep = "}{"
-       , template = " %XMonadLog% | <fc=#0e9a54>%cpu%</fc> | <fc=#1273de>%memory%</fc> | <fc=#de12a4>%disku%</fc>}\
-                    \{ <fc=#ee9a00>%date%</fc> | <fc=#8c46d8>%wlp2s0wi%</fc> | <fc=#006b76> %uname%</fc> "
+       , template = "%XMonadLog% }{  <fc=#1273de> %volume%</fc> | <fc=#8c46d8> %mem%</fc> | <fc=#de6b76>%battery%</fc>| <fc=#ee9a00> %date%</fc> "
        }
