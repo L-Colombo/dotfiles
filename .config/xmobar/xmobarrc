@@ -3,6 +3,7 @@ Config { overrideRedirect = False
        , bgColor  = "#202020"
        , fgColor  = "#f8f8f2"
        , allDesktops = True
+       , pickBroadest = True
        , position = TopSize L 90 32
        , commands = [ --Run Com "~/scripts/battStat.sh" [] "bat" 10000
                      Run Cpu

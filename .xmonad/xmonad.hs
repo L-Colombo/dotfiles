@@ -231,7 +231,7 @@ myLogHook = return ()
 myStartupHook = do
   spawnOnce "trayer --edge top --align right --SetDockType true \
             \--SetPartialStrut true --expand true --width 10 \
-            \--transparent false --tint 0x000000 --height 32"
+            \--transparent false --tint 0x000000 --height 32 --monitor 1"
 
 
 myXmobarPP :: PP
