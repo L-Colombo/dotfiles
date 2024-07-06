@@ -111,8 +111,8 @@
 		"format-icons": {
 			"headphones": "",
 			"default": [
-				"",
-				""
+				" ",
+				" "
 			]
 		},
 		"scroll-step": 5,
@@ -134,16 +134,16 @@
 		},
 		"format": "{icon} {capacity}%",
 		"format-icons": [
-			"",
-			"",
-			"",
-			"",
-			""
+			" ",
+			" ",
+			" ",
+			" ",
+			" "
 		]
 	},
 	"disk": {
 		"interval": 5,
-		"format": "{percentage_used:2}%",
+		"format": " {percentage_used:2}%",
 		"path": "/"
 	},
 	"tray": {
