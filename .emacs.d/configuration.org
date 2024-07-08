@@ -48,7 +48,7 @@ This is to ensure that all packages are always up to date:
 
 (put 'donwcase-region 'disabled nil)
 
-(set-frame-font "Iosevka Nerd Font Propo 16" nil t)
+(set-frame-font "IosevkaTermSlab Nerd Font Propo 16" nil t)
 #+end_src
 
 *** Dired
@@ -178,8 +178,8 @@ Finally, we set the folowing key-bindings:
 #+begin_src emacs-lisp 
 (global-set-key (kbd "C-c p") 'git-gutter:previous-hunk)
 (global-set-key (kbd "C-c n") 'git-gutter:next-hunk)
-(global-set-key (kbd "C-c v s") 'git-gutter:stage-hunk)
-(global-set-key (kbd "C-c v r") 'git-gutter:revert-hunk)
+(global-set-key (kbd "C-c g s") 'git-gutter:stage-hunk)
+(global-set-key (kbd "C-c g r") 'git-gutter:revert-hunk)
 #+end_src
 
 ** Expand-Region
@@ -220,6 +220,13 @@ The list of incompatible modes is set to empty beacuse of conflicts that may ari
   (pdf-tools-install))
 #+end_src
 
+** Markdown
+#+end_src
+
+#+begin_src emacs-lisp
+(use-package markdown-mode
+  :ensure t)
+#+end_src
 ** LaTeX
 
 The basic package for working with LaTeX on Emacs is the ~AUCTeX~ package.
@@ -360,49 +367,6 @@ This takes care of installing and enabling ~company-mode~ globally.
   (company-prescient-mode 1))
 #+end_src
 
-** LSP
-
-#+begin_src emacs-lisp
-(use-package flycheck
-  :ensure t)
-#+end_src
-
-~Lsp-mode~ itself
-
-#+begin_src emacs-lisp
-(use-package lsp-mode
-  :ensure t
-  :init
-  (setq lsp-keymap-prefix "C-c l"
-		lsp-diagnostics-provider :flycheck
-		lsp-auto-guess-root t
-		lsp-headerline-breadcrumb-enable nil
-		lsp-modeline-code-actions-segments '(count icon name))
-  :hook
-  ((c-mode . lsp-deferred)
-   (c++-mode . lsp-deferred)
-   (php-mode . lsp-deferred)
-   (ruby-mode . lsp-deferred)
-   (java-mode . lsp-deferred))
-  :commands (lsp lsp-deferred))
-#+end_src
-
-~Lsp-ui~
-
-#+begin_src emacs-lisp
-(use-package lsp-ui
-  :ensure t
-  :hook
-  (lsp-mode . lsp-ui-mode)
-  :init
-  (setq lsp-ui-sideline-enable t
-		lsp-ui-sideline-show-hover nil
-		lsp-ui-sideline-show-diagnostics t
-		lsp-ui-sideline-show-code-actions nil
-		lsp-ui-sideline-update-mode 'line
-		lsp-ui-sideline-delay 0.0))
-#+end_src
-
 ** Yasnippet
 
 We need to install both ~yasnippet~ and a snippets' collection:
@@ -534,157 +498,3 @@ Install the ~neotree~ package and the ~all-the-icons~ package:
   (tree-sitter-after-on . tree-sitter-hl-mode))
 (use-package tree-sitter-langs
   :ensure t)
-#+end_src
-
-** Highlight-indent-mode
-
-#+begin_src emacs-lisp
-(use-package highlight-indent-guides
-  :ensure t
-  :hook
-  (prog-mode . highlight-indent-guides-mode)
-  :init
-  (setq highlight-indent-guides-method 'character
-		highlight-indent-guides-auto-enabled nil
-		highlight-indent-guides-auto-odd-face-perc 80
-		highlight-indent-guides-auto-even-face-perc 80
-		highlight-indent-guides-auto-charachter-face-perc 100))
-#+end_src
-
-* Language specific modes 
-
-** Markdown
-
-#+begin_src emacs-lisp
-(use-package markdown-mode
-  :ensure t)
-#+end_src
-
-** Web-Mode
-
-#+begin_src emacs-lisp
-(use-package web-mode
-  :ensure t
-  :init
-  (setq web-mode-markup-indent-offset 4
-		web-mode-css-indent-offset 4
-		web-mode-code-indent-offset 4)
-  (add-to-list 'auto-mode-alist '("\\.html.twig\\'" . web-mode))
-  :config
-  (require 'web-mode))
-#+end_src
-
-** PHP
-
-#+begin_src emacs-lisp
-(use-package php-mode
-  :ensure t
-  :hook (php-mode . lsp-deferred))
-#+end_src
-
-** CSV
-
-#+begin_src emacs-lisp
-(use-package csv-mode
-  :ensure t)
-#+end_src
-
-** Emmet-mode
-
-#+begin_src emacs-lisp
-(use-package emmet-mode
-  :ensure t
-  :config
-  (add-hook 'sgml-mode-hook 'emmet-mode))
-#+end_src
-
-** JavaScript
-
-#+begin_src emacs-lisp
-(use-package js2-mode
-  :ensure t
-  :init
-  (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-  :hook ((js-mode . lsp-deferred)
-		 (js-mode .  js2-minor-mode))
-  :config
-  (require 'dap-node)
-  (dap-node-setup))
-#+end_src
-
-** Python
-
-#+begin_src emacs-lisp
-(use-package lsp-pyright
-  :ensure t
-  :hook (python-mode . (lambda ()
-                          (require 'lsp-pyright)
-                          (lsp))))  
-#+end_src
-
-** Dotenv-mode
-
-#+begin_src emacs-lisp
-(use-package dotenv-mode
-  :ensure t)
-#+end_src
-
-** Yaml-mode
-
-#+begin_src emacs-lisp
-(use-package yaml-mode
-  :ensure t)
-#+end_src
-
-** Haskell-mode
-
-#+begin_src emacs-lisp
-(use-package haskell-mode
-  :ensure t
-  :config
-  (add-to-list 'exec-path (concat (getenv "HOME") "/.ghcup/bin")))
-
-(use-package lsp-haskell
-  :ensure t)
-#+end_src
-
-** Ruby-mode
-
-This is so that lsp-mode can find ~solargraph~ language server (which needs to be installed manually by running ~gem install solargraph~) in ~PATH~ and ~lsp-mode~ is able to connect.
-
-#+begin_src emacs-lisp
-(add-to-list 'exec-path (concat (getenv "HOME") "/.rbenv/versions/3.2.2/bin"))
-(add-to-list 'exec-path (concat (getenv "HOME") "/.rbenv/shims/"))
-#+end_src
-
-** Java
-
-#+begin_src emacs-lisp
-(use-package lsp-java
-  :ensure t)
-#+end_src
-
-** Tailwindcss (~lsp-mode~ integration)
-
-Note that ~lsp-tailwindcss~ has to be manually cloned from the GitHub repo [[https://github.com/merrickluo/lsp-tailwindcss]].
-
-#+begin_src emacs-lisp
-(add-to-list 'load-path "~/.emacs.d/lsp-tailwindcss")
-(add-to-list 'lsp-language-id-configuration '("\\.twig$" . "html"))
-(add-to-list 'lsp-language-id-configuration '("\\.blade.php" . "html"))
-(require 'lsp-tailwindcss)
-(setq lsp-tailwindcss-add-on-mode t
-	  lsp-tailwindcss-skip-config-check t
-	  lsp-tailwindcss-major-modes '(web-mode)) ;; so that it does not interfere with typescript-mode
-(add-hook 'web-mode-hook #'lsp-deferred)
-#+end_src
-
-** Typescritp-mode
-
-#+begin_src emacs-lisp
-(use-package typescript-mode
-  :ensure t
-  :hook (typescript-mode . lsp-deferred)
-  :config
-  (setq typescript-indent-level 4))
-#+end_src
