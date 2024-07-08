@@ -55,7 +55,7 @@ This is to ensure that all packages are always up to date:
 
 #+begin_src emacs-lisp
 (put 'dired-find-alternate-file 'disabled nil)
-
+(setq dired-listing-switches "--group-directories-first -al")
 (add-hook 'dired-mode-hook
 		  (lambda () (local-set-key (kbd "RET") #'dired-find-alternate-file)))
 #+end_src
