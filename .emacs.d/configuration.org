@@ -221,12 +221,12 @@ The list of incompatible modes is set to empty beacuse of conflicts that may ari
 #+end_src
 
 ** Markdown
-#+end_src
 
 #+begin_src emacs-lisp
 (use-package markdown-mode
   :ensure t)
 #+end_src
+
 ** LaTeX
 
 The basic package for working with LaTeX on Emacs is the ~AUCTeX~ package.
@@ -498,3 +498,26 @@ Install the ~neotree~ package and the ~all-the-icons~ package:
   (tree-sitter-after-on . tree-sitter-hl-mode))
 (use-package tree-sitter-langs
   :ensure t)
+  #+end_src
+
+** Spell check
+
+It is necessary to have ~hunspell~ and the dictionary packages installed on the system. If the language package of the current locale is not installed or not found, ~flyspell~ might throw an error; in that case, setting the environment variable ~$DICPAT~ may solve the issue (eg: by evaluating ~(setenv "DICPATH" "/path/to//hunspell")~)
+
+#+begin_src emacs-lisp
+(setq ispell-program-name "hunspell")
+(add-hook 'org-mode-hook 'flyspell-mode)
+(add-hook 'markdown-mode-hook 'flyspell-mode)
+(add-hook 'LaTeX-mode-hook 'flyspell-mode)
+(add-hook 'nroff-mode-hook 'flyspell-mode)
+#+end_src
+
+This custom interactive function is to set the spelling to Italian an run ~flyspell-buffer~.
+
+#+begin_src emacs-lisp
+(defun spell-it ()
+  (interactive)
+  "Sets the spelling language to Italian and spell checks the buffer"
+  (ispell-change-dictionary "italiano")
+  (flyspell-buffer))
+#+end_src
