@@ -133,6 +133,18 @@ It is bound to ~C-%~.
 
 * Packages and Modes
 
+** Multiple cursors
+
+#+begin_src emacs-lisp
+(use-package multiple-cursors
+  :ensure t
+  :init
+  (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+  (global-set-key (kbd "C->") 'mc/mark-next-like-this)
+  (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+  (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this))
+#+end_src
+
 ** Helpful
 
 The ~helpful~ package provides a nicer interface for the standard help buffers. To do this more conveniently, it needs to override the standard help keybindings.
