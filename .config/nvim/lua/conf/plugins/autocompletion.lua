@@ -6,11 +6,9 @@ return {
     "L3MON4D3/LuaSnip",
     "saadparwaiz1/cmp_luasnip",
     "rafamadriz/friendly-snippets",
-    "onsails/lspkind.nvim",
   },
   config = function()
     local cmp = require("cmp") --autocompletion
-    local lspkind = require("lspkind")
 
     require("luasnip.loaders.from_vscode").lazy_load()
     require("luasnip.loaders.from_vscode").load({ paths = "~/.config/nvim/snippets" }) -- load custom snippets
@@ -31,16 +29,7 @@ return {
         documentation = cmp.config.window.bordered(),
       },
       formatting = {
-        format = lspkind.cmp_format({
-          mode = "symbol",
-          -- maxwidth = 50,
-          ellipsis_char = "...",
-          show_labelDetails = true,
-          before = function(entry, vim_item)
-            vim_item.abbr = string.sub(vim_item.abbr, 1, 50)
-            return vim_item
-          end
-        })
+        format = require("nvim-highlight-colors").format
       },
       sources = {
         { name = 'luasnip' },
