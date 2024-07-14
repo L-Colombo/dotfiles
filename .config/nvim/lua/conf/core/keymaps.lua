@@ -98,11 +98,15 @@ map("n", "<leader>gs", "<cmd>Gitsigns stage_hunk<cr>")
 map("n", "<leader>ng", "<cmd>Neogit<cr>")
 
 -- LSP
-map("n", "<leader>li", "<cmd>lua vim.lsp.buf.hover()<cr>")
-map("n", "<leader>ld", "<cmd>lua vim.lsp.buf.definition()<cr>")
-map("n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>")
-map("n", "<leader>lf", "<cmd>lua vim.diagnostic.open_float()<cr>")
-map("i", "<C-e>", function() require("lsp_signature").toggle_float_win() end, { silent = true, noremap = true })
+map("n", "gF", vim.lsp.buf.format, {})
+map("n", "K", vim.lsp.buf.hover, {})
+map("n", "gd", vim.lsp.buf.definition, {})
+map("n", "gD", vim.lsp.buf.declaration, {})
+map("n", "gr", vim.lsp.buf.references, {})
+map("n", "go", vim.lsp.buf.type_definition, {})
+map("n", "gf", vim.diagnostic.open_float, {})
+map("n", "cA", vim.lsp.buf.code_action, {})
+map('n', 'rn', vim.lsp.buf.rename, {})
 
 -- Scissors
 map("n", "<leader>se", function() require("scissors").editSnippet() end)

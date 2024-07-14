@@ -1,47 +1,33 @@
 return {
-  "VonHeikemen/lsp-zero.nvim",
-  branch = "v3.x",
-  dependencies = {
-    "neovim/nvim-lspconfig",
-  },
+  "neovim/nvim-lspconfig",
+  lazy = false,
   config = function()
-    local lsp = require('lsp-zero').preset({})
-    lsp.on_attach(function(client, bufnr)
-      lsp.default_keymaps({ buffer = bufnr })
-    end)
-    lsp.format_on_save({
-      format_opts = {
-        async = false,
-        timeout_ms = 10000,
-      },
+    local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-      servers = {
-        ['lua_ls'] = { 'lua' },
-        ['pyright'] = { 'python' },
-        ['unocss'] = { 'css' },
-        ['html'] = { 'html' },
-        ['jsonls'] = { 'JSON' },
-        ['clangd'] = { 'c', 'cpp' },
-        ['bashls'] = { 'bash' },
-        ['intelephense'] = { 'php' },
-        ['volar'] = { 'vue' },
-        ['tsserver'] = {
-          'javascript',
-          'typescript',
-          'javascriptreact',
-          'typescriptreact'
-        },
-      }
+    local lspconfig = require("lspconfig")
+    lspconfig.clangd.setup({  -- clangd
+      capabilities = capabilities
     })
-
-    require("lspconfig").intelephense.setup({})
-    require("lspconfig").clangd.setup({})
-    require("lspconfig").tailwindcss.setup({})
-    require("lspconfig").solargraph.setup({})
-    require("lspconfig").jdtls.setup({})
-    require("lspconfig").volar.setup({})
-
-
-    lsp.setup()
+    lspconfig.html.setup({  -- html
+      capabilities = capabilities
+    })
+    lspconfig.intelephense.setup({  -- intelephense
+      capabilities = capabilities
+    })
+    lspconfig.jdtls.setup({  -- jdtls
+      capabilities = capabilities
+    })
+    lspconfig.lua_ls.setup({  -- lua_ls
+      capabilities = capabilities
+    })
+    lspconfig.solargraph.setup({  -- solargraph
+      capabilities = capabilities
+    })
+    lspconfig.tailwindcss.setup({  -- tailwindcss
+      capabilities = capabilities
+    })
+    lspconfig.tsserver.setup({  -- tsserver
+      capabilities = capabilities
+    })
   end
 }
