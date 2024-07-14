@@ -1,4 +1,5 @@
 return {
+
   "nvim-lualine/lualine.nvim",
   priority = 1000,
   opts = {
@@ -15,16 +16,14 @@ return {
         {
           "filename",
           symbols = {
-            modified = " ",
+            modified = "",
           },
           fmt = function(name, _)
-            local icon = require("nvim-web-devicons").get_icon(name, nil, { default = true })
-            local _, i = string.find(name, ".", 1, true)
-            if i ~= nil then
-              local new_name = string.sub(name, 1, i - 1)
-              return icon .. " " .. new_name
-            else
+            local icon = require("nvim-web-devicons").get_icon(name, nil, { default = false })
+            if icon ~= nil then
               return icon .. " " .. name
+            else
+              return name
             end
           end
         },
