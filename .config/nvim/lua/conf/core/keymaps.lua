@@ -93,9 +93,12 @@ key("i", "<c-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
 key("s", "<S-Tab>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
 
 -- Neogit/Gitsigns
+map("n", "<leader>ng", "<cmd>Neogit<cr>")
 map("n", "<leader>gr", "<cmd>Gitsigns reset_hunk<cr>")
 map("n", "<leader>gs", "<cmd>Gitsigns stage_hunk<cr>")
-map("n", "<leader>ng", "<cmd>Neogit<cr>")
+map("n", "<leader>ph", "<cmd>Gitsigns preview_hunk<cr>")
+map('n', ']c', function() if vim.wo.diff then vim.cmd.normal({']c', bang = true}) else require("gitsigns").nav_hunk('next') end end)
+map('n', '[c', function() if vim.wo.diff then vim.cmd.normal({'[c', bang = true}) else require("gitsigns").nav_hunk('prev') end end)
 
 -- LSP
 map("n", "gF", vim.lsp.buf.format, {})
