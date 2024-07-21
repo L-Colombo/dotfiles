@@ -20,6 +20,7 @@ alias nv="nvim"
 alias t="tmux"
 alias p="pandoc"
 alias r="ranger"
+alias emacs="emacs -nw"
 alias exa="exa --all --long --header --color=always --icons --git-ignore --sort=type"
 alias tree="eza --long --header --color=always --icons --git-ignore --sort=type -T"
 
