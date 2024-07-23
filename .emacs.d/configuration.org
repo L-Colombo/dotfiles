@@ -90,15 +90,15 @@ This is to remap to ~C-c DEL~ the command ~kill-buffer-and-window~:
 The following block is to ensure that the themes usually set as default are installed before being loaded. This step is necessary only for the themes that may be set as default theme on startup to avoid errors.
 
 #+begin_src emacs-lisp
-(use-package naga-theme
+(use-package zenburn-theme
   :ensure t)
 (use-package gruber-darker-theme
   :ensure t)
-(use-package klere-theme
+(use-package dracula-theme
   :init
-  (load-theme 'klere t)
-  (set-cursor-color "#ffffff")
   :ensure t)
+  (load-theme 'dracula t)
+  (set-cursor-color "#ffa500")
 #+end_src
 
 *** Custom functions and mappings
@@ -307,7 +307,8 @@ Installation and configuration of ~vertico~.
 		org-edit-src-content-indentation 0
 		org-src-tab-acts-natively t
 		org-src-preserve-indentation t)
-  :hook (org-mode . org-indent-mode))
+  :hook
+  (org-mode . org-indent-mode))
 #+end_src
 
 *** Bullets
@@ -389,6 +390,7 @@ We need to install both ~yasnippet~ and a snippets' collection:
   :bind ("C-c y" . company-yasnippet)
   :config
   (yas-global-mode 1))
+
 (use-package yasnippet-snippets
   :ensure t)
 #+end_src
@@ -408,9 +410,9 @@ We first need to install the ~dashboard~ package and the ~all-the-icons~ package
   (setq dashboard-icon-type 'all-the-icons)
   (setq dashboard-set-heading-icons nil)
   (setq dashboard-set-file-icons t)
-  (setq dashboard-items '((bookmarks . 7)
-						  (recents . 7)
-						  (projects . 7)))
+  (setq dashboard-items '((bookmarks . 10)
+						  (recents . 10)
+						  (projects . 10)))
   :config
   (dashboard-setup-startup-hook))
 #+end_src
@@ -514,7 +516,7 @@ Install the ~neotree~ package and the ~all-the-icons~ package:
 
 ** Spell check
 
-It is necessary to have ~hunspell~ and the dictionary packages installed on the system. If the language package of the current locale is not installed or not found, ~flyspell~ might throw an error; in that case, setting the environment variable ~$DICPAT~ may solve the issue (eg: by evaluating ~(setenv "DICPATH" "/path/to//hunspell")~)
+It is necessary to have ~hunspell~ and the dictionary packages installed on the system. If the language package of the current locale is not installed or not found, ~flyspell~ might throw an error; in that case, setting the environment variable ~$DICPAT~ may solve the issue (eg: by evaluating ~(setenv "DICPATH" "/path/to/hunspell")~)
 
 #+begin_src emacs-lisp
 (setq ispell-program-name "hunspell")
