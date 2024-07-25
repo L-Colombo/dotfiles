@@ -15,7 +15,7 @@ Config { overrideRedirect = False
                     -- , Run Memory ["--template", "Mem: <usedratio>%"] 10
                     , Run Com "pamixer" ["--get-volume-human"] "volume" 10
                     , Run Com "scripts/memFormatted.sh" [] "mem" 10
-                    , Run Com "scripts/battStat.sh" [] "battery" 3600
+                    , Run Com "scripts/battStat.sh" [] "battery" 500
                     , Run Date "%a %d-%m-%Y %H:%M" "date" 10
                     , Run XMonadLog
                     ]
