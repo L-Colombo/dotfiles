@@ -2,7 +2,7 @@
 #+author: Lorenzo Colombo
 
 
-* General section 
+* General section
 
 ** Packages and repositories setup
 
@@ -294,7 +294,14 @@ Installation and configuration of ~vertico~.
 
 *** Org-Mode itslef
 
-~org-mode~ is built-in, so it needs only to be configured.
+We first make sure that a directory in our ~$HOME~ directory is created (*if it doesn't already*) to store our ~.org~ files.
+
+#+begin_src emacs-lisp
+(unless (file-exists-p "~/Documents/OrgFiles")
+  (make-directory "~/Documents/OrgFiles"))
+#+end_src
+
+Then, we can take care of the rest. As ~org-mode~ is built-in, it needs only to be configured.
 
 #+begin_src emacs-lisp
 (use-package org
@@ -303,7 +310,7 @@ Installation and configuration of ~vertico~.
   (setq org-hide-emphasis-markers t
 		org-startup-folded 'content
 		org-startup-truncated nil
-		org-directory "~/.notes"
+		org-directory "~/Documents/OrgFiles"
 		org-edit-src-content-indentation 0
 		org-src-tab-acts-natively t
 		org-src-preserve-indentation t)
@@ -332,14 +339,43 @@ Keybindings for rapid access:
 **** Org-agenda:
 
 #+begin_src emacs-lisp
-(setq org-agenda-files '("~/.notes/agenda.org"))
-(setq org-agenda-span 'month)
+(setq org-agenda-span 'year)
 #+end_src
 
 **** Org-capture:
 
 #+begin_src emacs-lisp
-(setq org-default-notes-file (concat org-directory "/notes.org"))
+(unless (file-exists-p "~/Documents/OrgFiles/capture")
+		(make-directory "~/Documents/OrgFiles/capture"))
+(setq org-default-notes-file (concat org-directory "capture/notes.org"))
+#+end_src
+
+Here are the custom ~org-capture~ templates:
+
+#+begin_src emacs-lisp
+(setq org-capture-templates
+      '(("t" "Todo" entry (file+headline "~/Documents/OrgFiles/capture/todos.org" "Tasks")
+         "* TODO %?\n %U\n  %i\n")
+        ("n" "Notes" entry (file+headline  "~/Docuements/OrgFiles/capture/notes.org" "Notes")
+         "* %?\nEntered on %U\n  %i\n")))
+#+end_src
+
+*** Org-Roam
+
+We need to make sure that a directory for ~org-roam~ exists, so we create it in case it doesn't.
+
+#+begin_src emacs-lisp
+(unless (file-exists-p "~/Documents/OrgFiles/org-roam")
+  (make-directory "~/Documents/OrgFiles/org-roam"))
+#+end_src
+
+#+begin_src emacs-lisp
+(use-package org-roam
+  :ensure t
+  :init
+  (setq org-roam-directory (file-truename "~/Documents/OrgFiles/org-roam/"))
+	(setq find-file-visit-truename t)
+	(org-roam-db-autosync-mode))
 #+end_src
 
 ** Company-mode
@@ -410,9 +446,10 @@ We first need to install the ~dashboard~ package and the ~all-the-icons~ package
   (setq dashboard-icon-type 'all-the-icons)
   (setq dashboard-set-heading-icons nil)
   (setq dashboard-set-file-icons t)
+  (setq dashboard-projects-backend 'projectile)
   (setq dashboard-items '((bookmarks . 10)
-						  (recents . 10)
-						  (projects . 10)))
+						  (projects . 10)
+						  (recents . 10)))
   :config
   (dashboard-setup-startup-hook))
 #+end_src
