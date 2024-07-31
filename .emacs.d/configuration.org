@@ -97,7 +97,7 @@ The following block is to ensure that the themes usually set as default are inst
 (use-package dracula-theme
   :init
   :ensure t)
-  (load-theme 'dracula t)
+  (load-theme 'gruber-darker t)
   (set-cursor-color "#ffa500")
 #+end_src
 
