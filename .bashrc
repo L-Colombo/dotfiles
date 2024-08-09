@@ -45,7 +45,7 @@ bind 'TAB:menu-complete'
 bind '"\e[Z": menu-complete-backward' # Shift-TAB to cycle backward
 bind 'set menu-complete-display-prefix on'
 bind 'set completion-ignore-case on'
-bind 'set show-all-if-ambiguous on'
+# bind 'set show-all-if-ambiguous on'
 
 # History of searches and commands
 HISTSIZE=5000

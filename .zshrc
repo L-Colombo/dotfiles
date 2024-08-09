@@ -58,6 +58,11 @@ bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 
+# Command line edit (open command in a text editor)
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey "^X^E" edit-command-line
+
 # History of searches and commands
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
