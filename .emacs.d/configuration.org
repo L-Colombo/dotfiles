@@ -108,7 +108,7 @@ This function opens an ~eshell~ buffer in a split window at the current working 
 #+begin_src emacs-lisp
 (defun open-eshell-in-split-window ()
   (interactive)
-  (let ((buf (eshell)))
+  (let ((buf (term "/bin/zsh")))
 	(switch-to-buffer (other-buffer buf))
 	(switch-to-buffer-other-window buf)))
 
