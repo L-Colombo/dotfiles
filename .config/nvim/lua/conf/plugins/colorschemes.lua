@@ -15,6 +15,7 @@ return {
       })
     end
   },
+  "volskaya/irrelevant.nvim",
   "L-Colombo/atlantic-dark.nvim",
   "oprearocks/allhallowseve.nvim",
   "bluz71/vim-nightfly-colors",
