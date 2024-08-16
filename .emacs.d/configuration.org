@@ -145,6 +145,15 @@ It is bound to ~C-%~.
   (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this))
 #+end_src
 
+** Rainbow-delimiters
+
+#+begin_src emacs-lisp
+(use-package rainbow-delimiters
+  :ensure t
+  :hook
+  (prog-mode . rainbow-delimiters-mode))
+#+end_src
+
 ** Helpful
 
 The ~helpful~ package provides a nicer interface for the standard help buffers. To do this more conveniently, it needs to override the standard help keybindings.
