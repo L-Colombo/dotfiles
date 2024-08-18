@@ -40,6 +40,7 @@ This is to ensure that all packages are always up to date:
 
 (setq-default word-wrap t)
 (setq-default tab-width 4)
+(setq-default isearch-lazy-count t)
 (setq display-line-numbers-type 'relative)
 (setq inhibit-startup-screen 't)
 (setq make-backup-files nil)
@@ -48,8 +49,42 @@ This is to ensure that all packages are always up to date:
 
 (put 'donwcase-region 'disabled nil)
 
-(set-frame-font "IosevkaTermSlab Nerd Font Propo 16" nil t)
+(set-frame-font "IntoneMono Nerd Font Propo 15" nil t)
 #+end_src
+
+*** Mark
+
+#+begin_src emacs-lisp
+(setq mark-ring-max 6
+	    global-mark-ring-max 8)
+(setq-default set-mark-comand-repeat t)
+#+end_src
+
+*** Whitespace
+
+I really just want some of the numerous available highlights.
+
+#+begin_src emacs-lisp
+(setq-default whitespace-style '(face spaces empty tabs trailing space-mark tab-mark)
+			    whitespace-display-mappings '((space-mark 32 [183] [46])
+											(tab-mark ?\t [187 ?\t] [62 ?\t])))
+#+end_src
+
+By default the highlight of ~whitespace-mode~ marks are too flashy; this sets them to a more muted gray color.
+
+#+begin_src emacs-lisp
+(custom-set-faces
+ `(whitespace-space ((t (:foreground "#aaaaaa"))))
+ `(whitespace-tab   ((t (:foreground "#aaaaaa" :bold t)))))
+#+end_src
+
+An finally here is a handy keymap to toggle ~whitespace-mode~:
+
+#+begin_src emacs-lisp
+(global-set-key (kbd "C-c w w") 'whitespace-mode)
+#+end_src
+
+
 
 *** Dired
 
@@ -71,7 +106,7 @@ These bindings are chosen in order to avoid potential conflicts with other modes
 (global-set-key (kbd "C-c <down>") #'windmove-down)
 #+end_src
 
-This is to remap to ~C-c DEL~ the command ~kill-buffer-and-window~:
+This is to bind to ~C-c DEL~ the command ~kill-buffer-and-window~:
 
 #+begin_src emacs-lisp
 (global-set-key (kbd "C-c DEL") #'kill-buffer-and-window)
@@ -94,11 +129,13 @@ The following block is to ensure that the themes usually set as default are inst
   :ensure t)
 (use-package gruber-darker-theme
   :ensure t)
+(use-package nyx-theme
+  :ensure t)
 (use-package dracula-theme
   :init
   :ensure t)
-  (load-theme 'klere t)
-  (set-cursor-color "#ffa500")
+  (load-theme 'nyx t)
+;;  (set-cursor-color "#ffa500")
 #+end_src
 
 *** Custom functions and mappings
