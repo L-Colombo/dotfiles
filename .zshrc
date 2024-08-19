@@ -77,3 +77,10 @@ setopt hist_find_no_dups
 
 # Unalias `zi` to avoid conflict between Zoxide and Zinit
 unalias zi
+
+# Custom functions
+
+#opens zatura and dishowns the process
+zz () {
+    zathura $1  & ; disown && exit
+}
