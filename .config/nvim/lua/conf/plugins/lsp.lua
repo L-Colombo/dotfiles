@@ -20,6 +20,9 @@ return {
     lspconfig.lua_ls.setup({  -- lua_ls
       capabilities = capabilities
     })
+    lspconfig.pyright.setup({
+      capabilities = capabilities
+    })
     lspconfig.solargraph.setup({  -- solargraph
       capabilities = capabilities
     })

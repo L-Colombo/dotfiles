@@ -41,6 +41,7 @@ This is to ensure that all packages are always up to date:
 (setq-default word-wrap t)
 (setq-default tab-width 4)
 (setq-default isearch-lazy-count t)
+(setq-default indent-tab-mode nil)
 (setq display-line-numbers-type 'relative)
 (setq inhibit-startup-screen 't)
 (setq make-backup-files nil)
@@ -83,7 +84,6 @@ An finally here is a handy keymap to toggle ~whitespace-mode~:
 #+begin_src emacs-lisp
 (global-set-key (kbd "C-c w w") 'whitespace-mode)
 #+end_src
-
 
 
 *** Dired
