@@ -28,7 +28,7 @@ This is to ensure that all packages are always up to date:
 
 ** Generic settings
 
-*** Defaults
+n*** Defaults
 
 #+begin_src emacs-lisp
 (auto-save-mode -1)
@@ -360,9 +360,7 @@ We only need to install ~vertico~ and ~ido-vertical-mode~, as ~ido~ is a built-i
 #+begin_src emacs-lisp
 (use-package ido-vertical-mode
   :ensure t
-  :init
-  (require 'ido-vertical-mode)
-  (setq ido-vertical-define-keys 'C-n-and-C-p-only)
+  :init (setq ido-vertical-define-keys 'C-n-and-C-p-only)
   :config
   (ido-mode 1)
   (ido-vertical-mode 1))
@@ -373,13 +371,19 @@ Installation and configuration of ~vertico~.
 #+begin_src emacs-lisp
 (use-package vertico
   :ensure t
-  :config
-  (vertico-mode 1))
+  :config (vertico-mode 1))
+#+end_src
+
+Mind that by default ~C-n~ and ~C-p~ are bound in the minibuffer to ~next-line~ and ~previous-line~, which ~vertico~ rebinds to ~vertico-next~ and ~vertico-previous~; we need to correct that, otherwise it would conflict with our global rebinding of ~C-n~ and ~C-p~ to ~my-next-line~ and ~my-previous-line~.
+
+#+begin_src emacs-lisp
+(keymap-set minibuffer-local-map "C-n" #'vertico-next)
+(keymap-set minibuffer-local-map "C-p" #'vertico-previous)
 #+end_src
 
 ** Org-mode and related
 
-*** Org-Mode itslef
+*** Org-Mode itself
 
 We first make sure that a directory in our ~$HOME~ directory is created (*if it doesn't already*) to store our ~.org~ files.
 
