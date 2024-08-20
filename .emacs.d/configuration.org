@@ -188,6 +188,26 @@ This function kills all the open buffers except the one displayed in the current
 (global-set-key (kbd "C-x C-k") #'kill-all-other-buffers)
 #+end_src
 
+**** ~my-previous-line~ and ~my-next-line~
+These functions are convenient when dealing with lines that wraps. If the functions are called with non ~nil~ prefix, they invoke the command ~next-logical-line~; otherwise, ~next-line~ is called.
+
+#+begin_src emacs-lisp
+(defun my-next-line (&optional arg)
+  (interactive "^P")
+  (if (not (eq arg nil))
+	  (next-logical-line arg)
+	(next-line)))
+
+(defun my-previous-line (&optional arg)
+  (interactive "^P")
+  (if (not (eq arg nil))
+	  (previous-logical-line arg)
+	(previous-line)))
+
+(global-set-key (kbd "C-n") #'my-next-line)
+(global-set-key (kbd "C-p") #'my-previous-line)
+#+end_src
+
 * Packages and Modes
 
 ** Multiple cursors
