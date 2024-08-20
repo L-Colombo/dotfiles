@@ -130,11 +130,11 @@ The following block is to ensure that the themes usually set as default are inst
   :ensure t)
 (use-package nyx-theme
   :ensure t)
-(use-package dracula-theme
-  :init
+(use-package klere-theme
   :ensure t)
-  (load-theme 'nyx t)
-;;  (set-cursor-color "#ffa500")
+
+(load-theme 'nyx t)
+;;  (set-cursor-color "#ffa500") ;cursor color: rust/orange
 #+end_src
 
 *** Custom functions and mappings
@@ -236,16 +236,12 @@ Then, we install the ~git-gutter~ for seamless Git interaction and enable it glo
 #+begin_src emacs-lisp
 (use-package git-gutter
   :ensure t
-  :config (global-git-gutter-mode 1))
-#+end_src
-
-Finally, we set the folowing key-bindings:
-
-#+begin_src emacs-lisp 
-(global-set-key (kbd "C-c p") 'git-gutter:previous-hunk)
-(global-set-key (kbd "C-c n") 'git-gutter:next-hunk)
-(global-set-key (kbd "C-c g s") 'git-gutter:stage-hunk)
-(global-set-key (kbd "C-c g r") 'git-gutter:revert-hunk)
+  :bind (("C-c p" . 'git-gutter:previous-hunk)
+		("C-c n" . 'git-gutter:next-hunk)
+		("C-c g s" . 'git-gutter:stage-hunk)
+		("C-c g r" . 'git-gutter:revert-hunk))
+  :config
+  (global-git-gutter-mode 1))
 #+end_src
 
 ** Expand-Region
@@ -254,10 +250,7 @@ Finally, we set the folowing key-bindings:
 (use-package expand-region
   :ensure t
   :init (pending-delete-mode t)
-  :config (require 'expand-region)
-  :bind ("C-ù" . er/expand-region))
-;; (require 'expand-region)
-;; (global-set-key (kbd "C-ù") 'er/expand-region)
+  :bind ("C-." . er/expand-region))
 #+end_src
 
 With ~pending-delete-mode~ enabled, highligted text can be rapidly changed.
@@ -267,14 +260,13 @@ With ~pending-delete-mode~ enabled, highligted text can be rapidly changed.
 #+begin_src emacs-lisp
 (use-package avy
   :ensure t
-  :bind
-  ("C-c SPC" . 'avy-goto-char))
+  :bind ("C-c SPC" . 'avy-goto-char))
 #+end_src
 
 ** Pdf-Tools
 This package is important as it is used with ~AUCTeX~ as pdf viewer.
 
-The list of incompatible modes is set to empty beacuse of conflicts that may arise, especially with line numbers mode.
+The list of incompatible modes is set to empty beacuse of conflicts that may arise, especially with ~line-numbers-mode~.
 
 #+begin_src emacs-lisp
 (use-package pdf-tools
@@ -440,14 +432,14 @@ This takes care of installing and enabling ~company-mode~ globally.
 (use-package company
   :ensure t
   :init
-  (setq company-minimum-prefix-length 1
+  (setq company-minimum-prefix-length 2
 		company-selection-wrap-around t
 		company-tooltip-align-annotations t
 		company-tooltip-annotation-padding 2
 		company-tooltip-limit 9
 		company-show-quick-access 'left)
-   :config
-  (global-company-mode))
+  :hook (eglot-mode . 'add-company-yasnipper)  
+  :config (global-company-mode))
 #+end_src
 
 ~eglot~ might cause interference with ~company-mode~, especially with ~company-yasnippet~: this hook solves the conflict:
@@ -457,7 +449,7 @@ This takes care of installing and enabling ~company-mode~ globally.
 	(setq company-backends '((company-capf :with company-yasnippet)
 							 (company-files :with company-yasnippet))))
 
-(add-hook 'lsp-managed-mode-hook #'add-company-yasnippet)
+;(add-hook 'lsp-managed-mode-hook #'add-company-yasnippet)
 #+end_src
 
 ** Prescient
@@ -466,8 +458,7 @@ This takes care of installing and enabling ~company-mode~ globally.
 (use-package company-prescient
   :ensure t
   :after company
-  :config
-  (company-prescient-mode 1))
+  :config (company-prescient-mode 1))
 #+end_src
 
 ** Yasnippet
@@ -478,8 +469,7 @@ We need to install both ~yasnippet~ and a snippets' collection:
 (use-package yasnippet
   :ensure t
   :bind ("C-c y" . company-yasnippet)
-  :config
-  (yas-global-mode 1))
+  :config (yas-global-mode 1))
 
 (use-package yasnippet-snippets
   :ensure t)
@@ -495,17 +485,14 @@ We first need to install the ~dashboard~ package and the ~all-the-icons~ package
 
 (use-package dashboard
   :ensure t
-  :init
-  (require 'dashboard)
-  (setq dashboard-icon-type 'all-the-icons)
-  (setq dashboard-set-heading-icons nil)
-  (setq dashboard-set-file-icons t)
-  (setq dashboard-projects-backend 'projectile)
-  (setq dashboard-items '((bookmarks . 10)
-						  (projects . 10)
-						  (recents . 10)))
-  :config
-  (dashboard-setup-startup-hook))
+  :init (setq dashboard-icon-type 'all-the-icons
+			  dashboard-set-heading-icons nil
+			  dashboard-set-file-icons t
+			  dashboard-projects-backend 'projectile
+			  dashboard-items '((bookmarks . 10)
+								(projects . 10)
+								(recents . 10)))
+  :config (dashboard-setup-startup-hook))
 #+end_src
 
 ** Projectile
@@ -513,8 +500,7 @@ We first need to install the ~dashboard~ package and the ~all-the-icons~ package
 #+begin_src emacs-lisp
 (use-package projectile
   :ensure t
-  :bind-keymap
-  ("C-c p" . projectile-command-map)
+  :bind-keymap ("C-c p" . projectile-command-map)
   :config
   (define-key projectile-command-map (kbd "s") 'projectile-ripgrep)
   (projectile-mode +1))
@@ -534,8 +520,7 @@ Installation and configuration to use default key-bindings:
 #+begin_src emacs-lisp
 (use-package move-text
   :ensure t
-  :init
-  (move-text-default-bindings))
+  :init (move-text-default-bindings))
 #+end_src
 
 And this is a function to auto indent when moving a line:
@@ -560,9 +545,7 @@ Install ~doom-modeline~ package and the ~nerd-icons~ package; in order for this 
   :ensure t)
 (use-package doom-modeline
   :ensure t
-  :config
-  (require 'doom-modeline)
-  (doom-modeline-mode 1))
+  :config (doom-modeline-mode 1))
 #+end_src
 
 ** Tree file explorer (neotree)
@@ -574,7 +557,6 @@ Install the ~neotree~ package and the ~all-the-icons~ package:
   :ensure t
   :bind ("C-c e" . neotree-toggle)
   :init
-  (require 'neotree)
   (setq neo-smart-open t)
   (when (display-graphic-p) (require 'all-the-icons))
   (setq neo-theme (if (display-graphic-p) 'icons 'arrow)))
@@ -585,11 +567,8 @@ Install the ~neotree~ package and the ~all-the-icons~ package:
 #+begin_src emacs-lisp
 (use-package wrap-region
   :ensure t
-  :init
-  (setq wrap-region-except-modes 'dired-mode)
-  :config
-  (require 'wrap-region)
-  (wrap-region-mode t))
+  :init (setq wrap-region-except-modes 'dired-mode)
+  :config (wrap-region-mode t))
 #+end_src
 
 ** Treesitter
@@ -597,20 +576,20 @@ Install the ~neotree~ package and the ~all-the-icons~ package:
 #+begin_src emacs-lisp
 (use-package tree-sitter
   :ensure t
-  :config
-  (global-tree-sitter-mode)
-  :hook
-  (tree-sitter-after-on . tree-sitter-hl-mode))
+  :config (global-tree-sitter-mode)
+  :hook (tree-sitter-after-on . tree-sitter-hl-mode))
+
 (use-package tree-sitter-langs
   :ensure t)
   #+end_src
 
 ** Spell check
 
-It is necessary to have ~hunspell~ and the dictionary packages installed on the system. If the language package of the current locale is not installed or not found, ~flyspell~ might throw an error; in that case, setting the environment variable ~$DICPAT~ may solve the issue (eg: by evaluating ~(setenv "DICPATH" "/path/to/hunspell")~)
+It is necessary to have ~hunspell~ and the dictionary packages installed on the system. If the language package of the current locale is not installed or not found, ~flyspell~ might throw an error; in that case, setting the environment variable ~$DICPAT~ may solve the issue (eg: by evaluating ~(setenv "DICPATH" "/path/to/hunspell")~). Given that ~hunspell~ seems not to work correctly on MacOs, we set it only on non-darwin systems.
 
 #+begin_src emacs-lisp
-(setq ispell-program-name "hunspell")
+(unless (eq system-type 'darwin)
+  (setq ispell-program-name "hunspell"))
 (add-hook 'org-mode-hook 'flyspell-mode)
 (add-hook 'markdown-mode-hook 'flyspell-mode)
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
