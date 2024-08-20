@@ -183,6 +183,7 @@ This function kills all the open buffers except the one displayed in the current
 	(dolist (buf (buffer-list))
 	  (unless (eq current-buf buf)
 		(kill-buffer buf))))
+  (delete-other-windows)
   (message "all buffers have been killed"))
 
 (global-set-key (kbd "C-x C-k") #'kill-all-other-buffers)
