@@ -37,6 +37,7 @@ This is to ensure that all packages are always up to date:
 (repeat-mode 1)
 (global-display-line-numbers-mode 1)
 (global-hl-line-mode 1)
+(column-number-mode 1)
 
 (setq-default word-wrap t)
 (setq-default tab-width 4)
@@ -139,18 +140,22 @@ The following block is to ensure that the themes usually set as default are inst
 
 *** Custom functions and mappings
 
-This function opens an ~eshell~ buffer in a split window at the current working directory
+**** ~open-terminal-in-split-window~
+This function opens a terminal in a split window at the current working directory.
+It is bound to ~C-M-<return>~.
 
 #+begin_src emacs-lisp
-(defun open-eshell-in-split-window ()
+(defun open-terminal-in-split-window ()
+  "Open a terminal in a split window"
   (interactive)
   (let ((buf (term "/bin/zsh")))
 	(switch-to-buffer (other-buffer buf))
 	(switch-to-buffer-other-window buf)))
 
-(global-set-key (kbd "C-M-<return>") #'open-eshell-in-split-window)
+(global-set-key (kbd "C-M-<return>") #'open-terminal-in-split-window)
 #+end_src
 
+**** ~goto-matching-par~
 This function mimics th ~%~ command of Vi and Vi-like editors, moving the point to the matching parenthesis.
 It is bound to ~C-%~.
 
@@ -165,6 +170,22 @@ It is bound to ~C-%~.
         ((looking-back "\\s(" 1) (backward-char) (forward-sexp arg))))
 
 (global-set-key (kbd "C-%") #'goto-matching-par)
+#+end_src
+
+**** ~kill-all-other-buffers~
+This function kills all the open buffers except the one displayed in the current window.
+
+#+begin_src emacs-lisp
+(defun kill-all-other-buffers ()
+  "Kill all the open buffers except the one displayed in the current window"
+  (interactive)
+  (let ((current-buf (window-buffer)))
+	(dolist (buf (buffer-list))
+	  (unless (eq current-buf buf)
+		(kill-buffer buf))))
+  (message "all buffers have been killed"))
+
+(global-set-key (kbd "C-x C-k") #'kill-all-other-buffers)
 #+end_src
 
 * Packages and Modes
