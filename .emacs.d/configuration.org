@@ -27,8 +27,7 @@ This is to ensure that all packages are always up to date:
 #+end_src
 
 ** Generic settings
-
-n*** Defaults
+*** Defaults
 
 #+begin_src emacs-lisp
 (auto-save-mode -1)
@@ -39,15 +38,15 @@ n*** Defaults
 (global-hl-line-mode 1)
 (column-number-mode 1)
 
-(setq-default word-wrap t)
-(setq-default tab-width 4)
-(setq-default isearch-lazy-count t)
-(setq-default indent-tab-mode nil)
-(setq display-line-numbers-type 'relative)
-(setq inhibit-startup-screen 't)
-(setq make-backup-files nil)
-(setq auto-save-default nil)
-(setq ring-bell-function 'ignore)
+(setq-default word-wrap t
+			    tab-width 4
+			    isearch-lazy-count t
+			    indent-tab-mode nil)
+(setq display-line-numbers-type 'relative
+	    inhibit-startup-screen 't
+	    make-backup-files nil
+	    auto-save-default nil
+	    ring-bell-function 'ignore)
 
 (put 'donwcase-region 'disabled nil)
 
