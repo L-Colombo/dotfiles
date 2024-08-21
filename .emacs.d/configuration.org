@@ -76,8 +76,8 @@ By default the highlight of ~whitespace-mode~ marks are too flashy; this sets th
 
 #+begin_src emacs-lisp
 (custom-set-faces
- `(whitespace-space ((t (:foreground "#aaaaaa"))))
- `(whitespace-tab   ((t (:foreground "#aaaaaa" :bold t)))))
+ `(whitespace-space ((t (:foreground "#555555"))))
+ `(whitespace-tab   ((t (:foreground "#555555" :bold t)))))
 #+end_src
 
 An finally here is a handy keymap to toggle ~whitespace-mode~:
