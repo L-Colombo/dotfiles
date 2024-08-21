@@ -20,7 +20,10 @@ return {
     lspconfig.lua_ls.setup({  -- lua_ls
       capabilities = capabilities
     })
-    lspconfig.pyright.setup({
+    lspconfig.pyright.setup({ -- pyright
+      capabilities = capabilities
+    })
+    lspconfig.rust_analyzer.setup({
       capabilities = capabilities
     })
     lspconfig.solargraph.setup({  -- solargraph
