@@ -469,7 +469,8 @@ We need to make sure that a directory for ~org-roam~ exists, so we create it in 
 	(org-roam-db-autosync-mode))
 #+end_src
 
-** Company-mode
+** Completions
+*** Company-mode
 
 This takes care of installing and enabling ~company-mode~ globally.
 
@@ -477,17 +478,17 @@ This takes care of installing and enabling ~company-mode~ globally.
 (use-package company
   :ensure t
   :init
-  (setq company-minimum-prefix-length 2
+  (setq company-minimum-prefix-length 1
 		company-selection-wrap-around t
 		company-tooltip-align-annotations t
 		company-tooltip-annotation-padding 2
 		company-tooltip-limit 9
 		company-show-quick-access 'left)
-  :hook (eglot-mode . 'add-company-yasnipper)  
+  :hook (lsp-mode . 'add-company-yasnippet)  
   :config (global-company-mode))
 #+end_src
 
-~eglot~ might cause interference with ~company-mode~, especially with ~company-yasnippet~: this hook solves the conflict:
+This function ensures better completion with ~yasnippet~
 
 #+begin_src emacs-lisp
 (defun add-company-yasnippet ()
@@ -497,13 +498,14 @@ This takes care of installing and enabling ~company-mode~ globally.
 ;(add-hook 'lsp-managed-mode-hook #'add-company-yasnippet)
 #+end_src
 
-** Prescient
+*** Orderless
 
 #+begin_src emacs-lisp
-(use-package company-prescient
+(use-package orderless
   :ensure t
-  :after company
-  :config (company-prescient-mode 1))
+  :init (setq completion-styles '(orderless partial-completion basic)
+			    completion-category-defaults nil
+				completion-category-overrides nil))
 #+end_src
 
 ** Yasnippet
@@ -513,7 +515,7 @@ We need to install both ~yasnippet~ and a snippets' collection:
 #+begin_src emacs-lisp
 (use-package yasnippet
   :ensure t
-  :bind ("C-c y" . company-yasnippet)
+;  :bind ("C-c y" . company-yasnippet)
   :config (yas-global-mode 1))
 
 (use-package yasnippet-snippets
@@ -649,4 +651,19 @@ This custom interactive function is to set the spelling to Italian an run ~flysp
   "Sets the spelling language to Italian and spell checks the buffer"
   (ispell-change-dictionary "italiano")
   (flyspell-buffer))
+#+end_src
+
+** LSP mode
+
+#+begin_src emacs-lisp
+(use-package lsp-mode
+  :ensure t
+  :commands (lsp lsp-deferred)
+  :init (setq lsp-keymap-prefix "C-c l")
+  :config (setq lsp-enable-symbol-highlighting nil
+				lsp-lens-enable nil
+				lsp-headerline-breadcrumb-enable nil
+				lsp-ui-sideline-enable nil
+				lsp-eldoc-enable-hover nil)
+  :hook (rust-mode . lsp-deferred))
 #+end_src
