@@ -242,7 +242,7 @@ The ~helpful~ package provides a nicer interface for the standard help buffers. 
 		 ("C-h v" . helpful-variable)
 		 ("C-h k" . helpful-key)
 		 ("C-h x" . helpful-command)
-		 ("C-c C-d" . helpful-at-point)))
+		 ("C-h ." . helpful-at-point)))
 #+end_src
 
 ** Marginalia
