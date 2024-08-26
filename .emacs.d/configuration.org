@@ -638,7 +638,8 @@ Install the ~neotree~ package and the ~all-the-icons~ package:
   :ensure t
   :bind ("C-c e" . neotree-toggle)
   :init
-  (setq neo-smart-open t)
+  (setq neo-smart-open t
+		neo-window-width 35)
   (when (display-graphic-p) (require 'all-the-icons))
   (setq neo-theme (if (display-graphic-p) 'icons 'arrow)))
 #+end_src
