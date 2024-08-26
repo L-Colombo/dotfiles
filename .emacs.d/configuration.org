@@ -228,7 +228,19 @@ These functions are convenient when dealing with lines that wraps. If the functi
 (use-package rainbow-delimiters
   :ensure t
   :hook
-  (prog-mode . rainbow-delimiters-mode))
+  ((lisp-mode . rainbow-delimiters-mode)
+   (emacs-lisp-mode . rainbow-delimiters-mode)))
+#+end_src
+
+** Yafolding
+
+#+begin_src emacs-lisp
+(use-package yafolding
+  :ensure t
+  :bind (("C-c z o" . yafolding-toggle-element)
+		 ("C-c z a" . yafolding-toggle-all))
+  :config (setq yafolding-ellipsis-content " ▼")
+  :init (yafolding-mode +1))
 #+end_src
 
 ** Helpful
