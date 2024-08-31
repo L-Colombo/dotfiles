@@ -498,9 +498,32 @@ We need to make sure that a directory for ~org-roam~ exists, so we create it in 
 #+end_src
 
 ** Completions
+*** Corfu
+
+~corfu~ is an amazing completion package, but in my experience, ~company~ works better with ~lsp-mode~ and ~yasnippet~. Since ~lsp-mode~ automatically enables ~company-mode~, we can enable ~corfu~ globally, and disable it when ~lsp-mode~ kicks in.
+
+#+begin_src emacs-lisp
+(use-package corfu
+  :ensure t
+  :custom
+  (corfu-cycle t)
+  (corfu-quit-at-boundary t)
+  (corfu-preselect 'first)
+  (corfu-auto t)
+  (corfu-auto-delay 0.2)
+  (corfu-auto-prefix 2)
+  :bind (:map corfu-map
+			  ("C-n" . corfu-next)
+			  ("C-p" . corfu-previous)
+			  ("C-q" . corfu-quick-insert)
+			  ("M-q" . corfu-quick-complete))
+  :hook (lsp-mode . (lambda () (corfu-mode -1)))
+  :init (global-corfu-mode))
+#+end_src
+
 *** Company-mode
 
-This takes care of installing and enabling ~company-mode~ globally.
+Company mode is used essentially only for ~lsp-mode~ auto completion and snippets provided via ~yasnippet~; it is disabled by default and enabled automatically by ~lsp-mode~.
 
 #+begin_src emacs-lisp
 (use-package company
@@ -524,29 +547,6 @@ This function ensures better completion with ~yasnippet~
 							 (company-files :with company-yasnippet))))
 
 (add-hook 'lsp-managed-mode-hook #'add-company-yasnippet)
-#+end_src
-
-*** Corfu
-
-~corfu~ is an amazing completion package, but in my experience, ~company~ works better with ~lsp-mode~ and ~yasnippet~. Since ~lsp-mode~ automatically enables ~company-mode~, we can enable ~corfu~ globally, and disable it when ~lsp-mode~ kicks in.
-
-#+begin_src emacs-lisp
-(use-package corfu
-  :ensure t
-  :custom
-  (corfu-cycle t)
-  (corfu-quit-at-boundary t)
-  (corfu-preselect 'first)
-  (corfu-auto t)
-  (corfu-auto-delay 0.2)
-  (corfu-auto-prefix 2)
-  :bind (:map corfu-map
-			  ("C-n" . corfu-next)
-			  ("C-p" . corfu-previous)
-			  ("C-q" . corfu-quick-insert)
-			  ("M-q" . corfu-quick-complete))
-  :hook (lsp-mode . (lambda () (corfu-mode -1)))
-  :init (global-corfu-mode))
 #+end_src
 
 *** Orderless
