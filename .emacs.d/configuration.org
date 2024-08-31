@@ -119,7 +119,7 @@ This is to bind to ~C-c DEL~ the command ~kill-buffer-and-window~:
       x-select-enable-clipboard t)
 #+end_src
 
-*** Colorschemes
+*** Color themes
 
 The following block is to ensure that the themes usually set as default are installed before being loaded. This step is necessary only for the themes that may be set as default theme on startup to avoid errors.
 
@@ -133,8 +133,8 @@ The following block is to ensure that the themes usually set as default are inst
 (use-package klere-theme
   :ensure t)
 
-(load-theme 'monokai-pro-spectrum t)
-;;  (set-cursor-color "#ffa500") ;cursor color: rust/orange
+(load-theme 'klere t)
+(set-cursor-color "#ffa500") ;cursor color: rust/orange
 #+end_src
 
 *** Custom functions and mappings
@@ -239,7 +239,7 @@ These functions are convenient when dealing with lines that wraps. If the functi
   :ensure t
   :bind (("C-c z o" . yafolding-toggle-element)
 		 ("C-c z a" . yafolding-toggle-all))
-  :config (setq yafolding-ellipsis-content " ▼")
+  :config (setq yafolding-ellipsis-content "▼")
   :init (yafolding-mode +1))
 #+end_src
 

@@ -1,18 +1,19 @@
 # Lorenzo Colombo - Dotfiles
 
-This is my dotfiles repo, which contains my configuration files for the applications I use in my day-to-day workflow. It is tested to work on GNU/Linux systems (mainly on Fedora and Arch) and on MacOs (in this case window managers are not considered). To use it, you can download the repo in your home directory and, using [GNU Stow](https://www.gnu.org/software/stow/) within the `dotfiles/` directory give the command `stow .`, which generates symbolic links to the file configuration files and directories.
+This is my dotfiles repository, which contains my configuration files for the applications I use in my day-to-day workflow. It is tested to work on GNU/Linux systems (mainly on Fedora and Arch) and on MacOs (in this case window managers are not considered). To use it, you can download the repo in your $HOME directory and, using [GNU Stow](https://www.gnu.org/software/stow/) within the `dotfiles/` directory give the command `stow .`, which generates symbolic links to the file configuration files and directories.
 
 ## Dependencies
 
-For the configuration is generally required a patched font. I personally use the IntoneMono Nerd Font, which can be downloaded [here](https://www.nerdfonts.com/). **XMonad** and **Hyprland** are configured to used some applications by default, like [feh](https://wiki.archlinux.org/title/feh) to set the wallpaper[^1] and [Thuar](https://docs.xfce.org/xfce/thunar/start) as a GUI file manager.
+For the configuration a patched font is generally required. I personally use the Iosevka Nerd Font, which can be downloaded [here](https://www.nerdfonts.com/). **XMonad** and **Hyprland** are configured to used some applications by default, like [feh](https://wiki.archlinux.org/title/feh) to set the wallpaper[^1] and [Thuar](https://docs.xfce.org/xfce/thunar/start) as a GUI file manager.
 
 Other dependencies/programs I use in the configs might be:
 
 - [Pamixer](https://github.com/cdemoulins/pamixer), to manage audio controls;
 - [Brightnessctl](https://github.com/Hummer12007/brightnessctl), to control screen bightnes;
 - [feh](https://wiki.archlinux.org/title/feh) and [swaybg](https://github.com/swaywm/swaybg), to set the wallpapers;
-- [Wofi](https://hg.sr.ht/~scoopta/wofi) and [dmenu](https://tools.suckless.org/dmenu/) as application finders and more.
+- [bemenu](https://github.com/Cloudef/bemenu) and [dmenu](https://tools.suckless.org/dmenu/) as application finders and more.
 
+Anyways, the rule of thumb is to double check within the appropriate configuration file what dependencies might be needed, instead of blindly adopting a configuration.
 
 # Software configurations in the repo
 
@@ -20,6 +21,7 @@ Other dependencies/programs I use in the configs might be:
 Other than that, it contains also the configuration for the [XMonad window manager](https://xmonad.org/) and XMobar, the most commonly used with Xmonad, as well as my configuration for the [Hyprland compositor](https://hyprland.org/) and [Waybar](https://github.com/Alexays/Waybar).
 
 ## Programs
+The main programs for which I have configuration files in this repository are:
 
 ### Alacritty
 
@@ -37,7 +39,7 @@ I don't use vim that much, preferring Neovim for any real work, therefore my `.v
 
 ### Gnu Emacs
 
-My configuration for Gnu Emacs is done via the `configuration.org` file, which is quite descriptive; you might direclty refere to that.
+My configuration for Gnu Emacs is done via the `configuration.org` file, which is quite descriptive; you might direclty refer to that.
 
 ### Tmux
 
