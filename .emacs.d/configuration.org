@@ -32,11 +32,13 @@ This is to ensure that all packages are always up to date:
 #+begin_src emacs-lisp
 (auto-save-mode -1)
 (tool-bar-mode -1)
+(menu-bar-mode -1)
 (electric-pair-mode 1)
 (repeat-mode 1)
 (global-display-line-numbers-mode 1)
 (global-hl-line-mode 1)
 (column-number-mode 1)
+(set-fringe-mode 28)
 
 (setq-default word-wrap t
 			    tab-width 4
@@ -223,6 +225,26 @@ the end of a line"
 	(while (search-forward "." nil t)
 	  (unless (eq (char-after) 10) ;; "10" is the line feed character
 		(insert ?\n)))))
+#+end_src
+
+**** ~tt~ (toggle transparency)
+
+Self explanatory, this function toggles the current frame transparency.
+It is bound to ~"C-t"~.
+
+#+begin_src emacs-lisp
+(defun tt ()
+   (interactive)
+   (let ((alpha (frame-parameter nil 'alpha)))
+     (set-frame-parameter
+      nil 'alpha
+      (if (eql (cond ((numberp alpha) alpha)
+                     ((numberp (cdr alpha)) (cdr alpha))
+                     ;; Also handle undocumented (<active> <inactive>) form.
+                     ((numberp (cadr alpha)) (cadr alpha)))
+               100)
+          '(85 . 50) '(100 . 100)))))
+(global-set-key (kbd "C-t") #'tt)
 #+end_src
 
 * Packages and Modes
@@ -646,7 +668,7 @@ Install ~doom-modeline~ package and the ~nerd-icons~ package; in order for this 
   :config (doom-modeline-mode 1))
 #+end_src
 
-** Tree file explorer (neotree)
+** Tree file explorer (~neotree~)
 
 Install the ~neotree~ package and the ~all-the-icons~ package:
 
