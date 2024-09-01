@@ -83,6 +83,7 @@ An finally here is a handy keymap to toggle ~whitespace-mode~:
 
 #+begin_src emacs-lisp
 (global-set-key (kbd "C-c w w") 'whitespace-mode)
+(add-hook 'before-save-hook 'whitespace-cleanup)
 #+end_src
 
 *** Dired
@@ -223,7 +224,7 @@ the end of a line"
 	  (unless (eq (char-after) 10) ;; "10" is the line feed character
 		(insert ?\n)))))
 #+end_src
-        
+
 * Packages and Modes
 
 ** Multiple cursors
@@ -535,7 +536,7 @@ Company mode is used essentially only for ~lsp-mode~ auto completion and snippet
 		company-tooltip-annotation-padding 2
 		company-tooltip-limit 9
 		company-show-quick-access 'left)
-  :hook (lsp-mode . 'add-company-yasnippet)  
+  :hook (lsp-mode . 'add-company-yasnippet)
   :config (global-company-mode -1))
 #+end_src
 
