@@ -363,10 +363,11 @@ The list of incompatible modes is set to empty beacuse of conflicts that may ari
 #+begin_src emacs-lisp
 (use-package pdf-tools
   :ensure t
-  :init
-  (setq pdf-view-incompatible-modes '())
+  :init (setq pdf-view-incompatible-modes '()
+			  pdf-view-midnight-colors (cons "#ffffff" "#242424"))
   :config
   (add-hook 'pdf-view-mode-hook (lambda () (display-line-numbers-mode -1)))
+  (add-hook 'pdf-view-mode-hook 'pdf-view-midnight-minor-mode)
   (pdf-tools-install))
 #+end_src
 
@@ -448,16 +449,14 @@ Then, we can take care of the rest. As ~org-mode~ is built-in, it needs only to 
 #+begin_src emacs-lisp
 (use-package org
   :ensure t
-  :init
-  (setq org-hide-emphasis-markers t
-		org-startup-folded 'content
-		org-startup-truncated nil
-		org-directory "~/Documents/OrgFiles"
-		org-edit-src-content-indentation 0
-		org-src-tab-acts-natively t
-		org-src-preserve-indentation t)
-  :hook
-  (org-mode . org-indent-mode))
+  :init (setq org-hide-emphasis-markers t
+			  org-startup-folded 'content
+			  org-startup-truncated nil
+			  org-directory "~/Documents/OrgFiles"
+			  org-edit-src-content-indentation 0
+			  org-src-tab-acts-natively t
+			  org-src-preserve-indentation t)
+  :hook (org-mode . org-indent-mode))
 #+end_src
 
 *** Bullets
