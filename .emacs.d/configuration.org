@@ -480,7 +480,8 @@ Keybindings for rapid access:
 **** Org-agenda:
 
 #+begin_src emacs-lisp
-(setq org-agenda-span 'year)
+(setq org-agenda-span 'year
+	  org-agenda-files '("~/Documents/OrgFiles/capture/agenda.org"))
 #+end_src
 
 **** Org-capture:
@@ -495,10 +496,12 @@ Here are the custom ~org-capture~ templates:
 
 #+begin_src emacs-lisp
 (setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "~/Documents/OrgFiles/capture/todos.org" "Tasks")
-         "* TODO %?\n %U\n  %i\n")
-        ("n" "Notes" entry (file+headline  "~/Docuements/OrgFiles/capture/notes.org" "Notes")
-         "* %?\nEntered on %U\n  %i\n")))
+      '(("a" "Agenda" entry (file+headline "~/Documents/OrgFiles/capture/agenda.org" "Agenda")
+         "* %?\n SCHEDULED: %T %i\n")
+		("n" "Notes" entry (file+headline  "~/Docuements/OrgFiles/capture/notes.org" "Notes")
+         "* %?\nEntered on %U\n %i\n")
+		("t" "Todo" entry (file+headline "~/Documents/OrgFiles/capture/todos.org" "Tasks")
+         "* TODO %?\n %U\n %i\n")))
 #+end_src
 
 *** Org-Roam
