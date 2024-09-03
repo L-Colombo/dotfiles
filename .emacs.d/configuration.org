@@ -524,6 +524,27 @@ Here are the custom ~org-capture~ templates:
          "* TODO %?\n DEADLINE: %T\n %i\n")))
 #+end_src
 
+These functions are run after a new entry is added to the agenda or the to-do list, so that they are ordered in their files from the nearest to the farthest.
+
+#+begin_src emacs-lisp
+(defun sort-agenda ()
+  (interactive)
+  (let ((buf (find-file-noselect (concat org-directory "/capture/agenda.org"))))
+	(set-buffer buf)
+	(org-sort-entries nil ?s)
+	(save-buffer)))
+
+(defun sort-todos ()
+  (interactive)
+  (let ((buf (find-file-noselect (concat org-directory "/capture/todos.org"))))
+	(set-buffer buf)
+	(org-sort-entries nil ?d)
+	(save-buffer)))
+
+(add-hook 'org-capture-after-finalize-hook #'sort-agenda)
+(add-hook 'org-capture-after-finalize-hook #'sort-todos)
+#+end_src
+
 **** Org-agenda:
 
 #+begin_src emacs-lisp
