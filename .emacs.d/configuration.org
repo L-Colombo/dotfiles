@@ -142,19 +142,19 @@ The following block is to ensure that the themes usually set as default are inst
 
 *** Custom functions and mappings
 
-**** ~open-terminal-in-split-window~
+**** ~open-eshell-in-split-window~
 This function opens a terminal in a split window at the current working directory.
 It is bound to ~C-M-<return>~.
 
 #+begin_src emacs-lisp
-(defun open-terminal-in-split-window ()
+(defun open-eshell-in-split-window ()
   "Open a terminal in a split window"
   (interactive)
-  (let ((buf (term "/bin/zsh")))
+  (let ((buf (eshell)))
 	(switch-to-buffer (other-buffer buf))
 	(switch-to-buffer-other-window buf)))
 
-(global-set-key (kbd "C-M-<return>") #'open-terminal-in-split-window)
+(global-set-key (kbd "C-M-<return>") #'open-eshell-in-split-window)
 #+end_src
 
 **** ~goto-matching-par~
@@ -248,6 +248,33 @@ It is bound to ~"C-t"~.
 #+end_src
 
 * Packages and Modes
+
+** Eshell
+To configure ~eshell~ is best to create a custom function that loads the configurations and call it with a hook.
+
+#+begin_src emacs-lisp
+(defun lc/configure-eshell ()
+  (add-hook 'eshell-pre-command-hook 'eshell-save-some-history)
+  (setq eshell-history-size         10000
+        eshell-buffer-maximum-lines 10000
+        eshell-hist-ignoredups t
+        eshell-scroll-to-bottom-on-input t))
+#+end_src
+
+#+begin_src emacs-lisp
+(use-package eshell
+  :ensure t
+  :hook (eshell-first-time-mode . lc/configure-eshell))
+#+end_src
+
+Then, it would be nice to have a better prompt:
+
+#+begin_src emacs-lisp
+(use-package eshell-prompt-extras
+  :ensure t
+  :init (setq eshell-highlight-prompt 'nil
+		 eshell-prompt-function 'epe-theme-multiline-with-status))
+#+end_src
 
 ** Multiple cursors
 
@@ -477,13 +504,6 @@ Keybindings for rapid access:
 (global-set-key (kbd "C-c c") #'org-capture)
 #+end_src
 
-**** Org-agenda:
-
-#+begin_src emacs-lisp
-(setq org-agenda-span 'year
-	  org-agenda-files '("~/Documents/OrgFiles/capture/agenda.org"))
-#+end_src
-
 **** Org-capture:
 
 #+begin_src emacs-lisp
@@ -501,7 +521,14 @@ Here are the custom ~org-capture~ templates:
 		("n" "Notes" entry (file+headline  "~/Docuements/OrgFiles/capture/notes.org" "Notes")
          "* %?\nEntered on %U\n %i\n")
 		("t" "Todo" entry (file+headline "~/Documents/OrgFiles/capture/todos.org" "Tasks")
-         "* TODO %?\n %U\n %i\n")))
+         "* TODO %?\n DEADLINE: %T\n %i\n")))
+#+end_src
+
+**** Org-agenda:
+
+#+begin_src emacs-lisp
+(setq org-agenda-span 'year
+	  org-agenda-files '("~/Documents/OrgFiles/capture"))
 #+end_src
 
 *** Org-Roam
