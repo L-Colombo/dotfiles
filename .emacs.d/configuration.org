@@ -492,6 +492,7 @@ Then, we can take care of the rest. As ~org-mode~ is built-in, it needs only to 
 #+begin_src emacs-lisp
 (use-package org-bullets
   :ensure t
+  :custom (org-bullets-bullet-list '(""))
   :hook (org-mode . org-bullets-mode))
 #+end_src
 
