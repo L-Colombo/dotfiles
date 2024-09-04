@@ -529,16 +529,18 @@ These functions are run after a new entry is added to the agenda or the to-do li
 
 #+begin_src emacs-lisp
 (defun sort-agenda ()
-  (let ((buf (find-file-noselect (concat org-directory "/capture/agenda.org"))))
-	(set-buffer buf)
-	(org-sort-entries nil ?s)
-	(save-buffer)))
+  (ignore-errors
+	(let ((buf (find-file-noselect (concat org-directory "/capture/agenda.org"))))
+	  (set-buffer buf)
+	  (org-sort-entries nil ?s)
+	  (save-buffer))))
 
 (defun sort-todos ()
-  (let ((buf (find-file-noselect (concat org-directory "/capture/todos.org"))))
-	(set-buffer buf)
-	(org-sort-entries nil ?d)
-	(save-buffer)))
+  (ignore-errors
+	(let ((buf (find-file-noselect (concat org-directory "/capture/todos.org"))))
+	  (set-buffer buf)
+	  (org-sort-entries nil ?d)
+	  (save-buffer))))
 
 (add-hook 'org-capture-after-finalize-hook #'sort-agenda)
 (add-hook 'org-capture-after-finalize-hook #'sort-todos)
