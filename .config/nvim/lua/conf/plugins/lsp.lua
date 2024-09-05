@@ -32,7 +32,7 @@ return {
     lspconfig.tailwindcss.setup({  -- tailwindcss
       capabilities = capabilities
     })
-    lspconfig.tsserver.setup({  -- tsserver
+    lspconfig.ts_ls.setup({  -- tsserver
       capabilities = capabilities
     })
   end
