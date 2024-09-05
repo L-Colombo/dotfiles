@@ -533,14 +533,16 @@ These functions are run after a new entry is added to the agenda or the to-do li
 	(let ((buf (find-file-noselect (concat org-directory "/capture/agenda.org"))))
 	  (set-buffer buf)
 	  (org-sort-entries nil ?s)
-	  (save-buffer))))
+	  (save-buffer)))
+  (kill-buffer "agenda.org"))
 
 (defun sort-todos ()
   (ignore-errors
 	(let ((buf (find-file-noselect (concat org-directory "/capture/todos.org"))))
 	  (set-buffer buf)
 	  (org-sort-entries nil ?d)
-	  (save-buffer))))
+	  (save-buffer)))
+  (kill-buffer "todos.org"))
 
 (add-hook 'org-capture-after-finalize-hook #'sort-agenda)
 (add-hook 'org-capture-after-finalize-hook #'sort-todos)
