@@ -1,11 +1,11 @@
 ##################################################
 #
-#  _     ____           _____    _              
-# | |   / ___|         |__  /___| |__  _ __ ___ 
+#  _     ____           _____    _
+# | |   / ___|         |__  /___| |__  _ __ ___
 # | |  | |      _____    / // __| '_ \| '__/ __|
-# | |__| |___  |_____|  / /_\__ \ | | | | | (__ 
+# | |__| |___  |_____|  / /_\__ \ | | | | | (__
 # |_____\____|         /____|___/_| |_|_|  \___|
-#                                               
+#
 #
 ############### Aliases ##########################
 alias q="exit"
@@ -13,7 +13,6 @@ alias nv="nvim"
 alias t="tmux"
 alias p="pandoc"
 alias r="ranger"
-alias emacs="emacs -nw"
 alias exa="exa --all --long --header --color=always --icons --git-ignore --sort=type"
 alias tree="eza --color=always --icons --git-ignore --sort=type -T"
 

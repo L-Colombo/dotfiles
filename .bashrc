@@ -1,9 +1,9 @@
 ##################################################
-#  
-#  _     ____           ____            _              
-# | |   / ___|         | __ )  __ _ ___| |__  _ __ ___ 
+#
+#  _     ____           ____            _
+# | |   / ___|         | __ )  __ _ ___| |__  _ __ ___
 # | |  | |      _____  |  _ \ / _` / __| '_ \| '__/ __|
-# | |__| |___  |_____| | |_) | (_| \__ \ | | | | | (__ 
+# | |__| |___  |_____| | |_) | (_| \__ \ | | | | | (__
 # |_____\____|         |____/ \__,_|___/_| |_|_|  \___|
 #
 #
@@ -20,7 +20,6 @@ alias nv="nvim"
 alias t="tmux"
 alias p="pandoc"
 alias r="ranger"
-alias emacs="emacs -nw"
 alias exa="exa --all --long --header --color=always --icons --git-ignore --sort=type"
 alias tree="eza --long --header --color=always --icons --git-ignore --sort=type -T"
 
