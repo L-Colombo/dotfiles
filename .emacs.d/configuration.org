@@ -819,6 +819,7 @@ This custom interactive function is to set the spelling to Italian an run ~flysp
 				lsp-lens-enable nil
 				lsp-headerline-breadcrumb-enable nil
 				lsp-ui-sideline-enable nil
-				lsp-eldoc-enable-hover nil)
-  :hook (rust-mode . lsp-deferred))
+				lsp-eldoc-enable-hover nil
+				lsp-signature-render-documentation nil)
+    :hook (rust-mode . lsp-deferred))
 #+end_src
