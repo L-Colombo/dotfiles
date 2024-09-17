@@ -795,8 +795,7 @@ It is necessary to have ~hunspell~ and the dictionary packages installed on the 
 The key-binding I use for ~expand regiorn~, ~C-.~ conflicts with flyspell-correct-word, so we need to disable it when flyspell is running:
 
 #+begin_src emacs-lisp
-(when (eq flyspell-mode t)
-  (unbind-key "C-." 'flyspell-mode-map))
+(add-hook 'flyspell-mode-hook (lambda () (unbind-key "C-." 'flyspell-mode-map)))
 #+end_src
 
 This custom interactive function is to set the spelling to Italian an run ~flyspell-buffer~.
