@@ -19,12 +19,10 @@ alias tree="eza --color=always --icons --git-ignore --sort=type -T"
 ############### Evals ############################
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
-eval "$(rbenv init -)"
 eval "$(fzf --zsh)"
 
 ############### Variables ########################
 export EDITOR="nvim"
-export PATH="$HOME/.rbenv:$PATH"
 export PATH="$PATH:$HOME/.config/composer/vendor/bin/"
 
 ############### Zinit plugin manager #############
