@@ -582,15 +582,17 @@ We need to make sure that a directory for ~org-roam~ exists, so we create it in 
   :custom
   (org-roam-directory (file-truename "~/Documents/OrgFiles/org-roam/"))
   (find-file-visit-truename t)
-  (org-roam-capture-templates '(("d" "default" plain "%?"
+  (org-roam-capture-templates '(("f" "Fleeting notes" plain "%?"
 								   :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n"))
-								  ("l" "Literature notes" plain "\n* Source\n\nAuthor: %^{Author}\nTitle: ${title}\nYear: %^{Year}\n\n** Summary\n\n%?"
-								   :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n"))))
-  :bind (("C-c C-x r d" . org-roam-buffer-display-dedicated)
-		   ("C-c C-x r f" . org-roam-node-find)
-		   ("C-c C-x r g" . org-roam-graph)
-		   ("C-c C-x r i" . org-roam-node-insert)
-		   ("C-c C-x r c" . org-roam-capture))
+								  ("l" "Literature notes" plain "#+STARTUP: showeverything\n* Source\n\nAuthor: %^{Author}\nTitle: ${title}\nYear: %^{Year}\nType: %^{Type}\n** Notes\n\n%?"
+								   :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n"))
+                                ("p" "Permanent notes" plain "\n* ${title}\n%?"
+                                 :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n"))))
+  :bind (("C-c r d" . org-roam-buffer-display-dedicated)
+		   ("C-c r f" . org-roam-node-find)
+		   ("C-c r g" . org-roam-graph)
+		   ("C-c r i" . org-roam-node-insert)
+		   ("C-c r c" . org-roam-capture))
   :config
   (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
   (org-roam-db-autosync-mode)
