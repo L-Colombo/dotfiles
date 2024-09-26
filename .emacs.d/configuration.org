@@ -222,8 +222,7 @@ These functions are convenient when dealing with lines that wraps. If the functi
 #+end_src
 
 **** ~break-at-period~
-This function inserts a new line character after every period, unless the period is already at the end of a line. It is meant to be used in text files (Markdown, LaTeX, Groff etc...) as a formatting function.
-Since it is usually invoked /una tantum/, it is not necessary to bind it to any special key sequence.
+This function inserts a new line character after every period, unless the period is already at the end of a line. It is meant to be used in text files (Markdown, LaTeX, Groff etc...) as a formatting function. Since it is usually invoked /una tantum/, it is not necessary to bind it to any special key sequence.
 
 #+begin_src emacs-lisp
 (defun break-at-period ()
@@ -233,7 +232,8 @@ the end of a line"
   (save-excursion
 	(beginning-of-buffer)
 	(while (search-forward "." nil t)
-	  (unless (eq (char-after) 10) ;; "10" is the line feed character
+	  (when (eq (char-after) 32) ;; "32" is the whitespace char
+        (delete-char 1)
 		(insert ?\n)))))
 #+end_src
 
