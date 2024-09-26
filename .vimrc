@@ -1,5 +1,5 @@
 set background=dark
-colorscheme retrobox
+colorscheme default
 set number
 set relativenumber
 set nocompatible
