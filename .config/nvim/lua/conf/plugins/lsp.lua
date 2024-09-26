@@ -26,9 +26,6 @@ return {
     lspconfig.rust_analyzer.setup({
       capabilities = capabilities
     })
-    lspconfig.solargraph.setup({  -- solargraph
-      capabilities = capabilities
-    })
     lspconfig.tailwindcss.setup({  -- tailwindcss
       capabilities = capabilities
     })
