@@ -257,6 +257,28 @@ It is bound to ~"C-t"~.
 (global-set-key (kbd "C-t") #'tt)
 #+end_src
 
+**** ~accented~
+
+Convenience function to insert at point an accented character.
+It is bound ~"C-`"~.
+
+#+begin_src emacs-lisp
+(defun accented ()
+  (interactive)
+  (let ((char-option (completing-read "-> " '("A" "E" "I" "O" "U" "C" "N" "S"))))
+
+    (let ((my-char-list (cond ((string= char-option "A") '("á" "Á" "à" "À" "â" "Â" "ä" "Ä" "ã" "Ã" "å" "Å" "æ" "Æ"))
+                              ((string= char-option "E") '("é" "É" "è" "È" "ê" "Ê" "ë" "Ë"))
+                              ((string= char-option "I") '("í" "Í" "ì" "Ì" "î" "Î" "ï" "Ï"))
+                              ((string= char-option "O") '("ó" "Ó" "ò" "Ò" "ô" "Ô" "ö" "Ö" "õ" "Õ" "ø" "Ø" "œ" "Œ"))
+                              ((string= char-option "U") '("ü" "Ü" "ù" "Ù" "ú" "Ú" "û" "Û"))
+                              ((string= char-option "C") '("ç" "Ç"))
+                              ((string= char-option "N") '("ñ" "Ñ"))
+                              ((string= char-option "S") '("ß")))))
+      (insert (completing-read "-> " my-char-list)))))
+(global-set-key (kbd "C-`") #'accented)
+#+end_src
+
 * Packages and Modes
 
 ** Eshell
