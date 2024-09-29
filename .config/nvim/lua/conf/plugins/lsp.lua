@@ -23,7 +23,10 @@ return {
     lspconfig.pyright.setup({ -- pyright
       capabilities = capabilities
     })
-    lspconfig.rust_analyzer.setup({
+    lspconfig.solargraph.setup({
+      capabilities = capabilities
+    })
+    lspconfig.rust_analyzer.setup({ -- rust
       capabilities = capabilities
     })
     lspconfig.tailwindcss.setup({  -- tailwindcss

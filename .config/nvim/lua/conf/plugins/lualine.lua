@@ -3,7 +3,7 @@ return {
   "nvim-lualine/lualine.nvim",
   priority = 1000,
   config = function()
-    local custom_theme = require("lualine.themes.codedark")
+    local custom_theme = require("lualine.themes.16color")
     custom_theme.normal.c.fg = "#0087ff"
     require("lualine").setup({
       options = {
