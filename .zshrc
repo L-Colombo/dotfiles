@@ -23,6 +23,8 @@ eval "$(fzf --zsh)"
 
 ############### Variables ########################
 export EDITOR="nvim"
+export GEM_HOME="$(gem env user_gemhome)"
+export PATH="$PATH:$GEM_HOME/bin"
 export PATH="$PATH:$HOME/.config/composer/vendor/bin/"
 
 ############### Zinit plugin manager #############
