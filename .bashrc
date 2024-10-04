@@ -26,10 +26,11 @@ alias tree="eza --long --header --color=always --icons --git-ignore --sort=type 
 ############### Evals ############################
 eval "$(fzf --bash)"
 eval "$(zoxide init bash)"
+eval "$(~/.rbenv/bin/rbenv init - --no-rehash zsh)"
 
 ############### Variables ########################
 export EDITOR="nvim"
-export PATH="$HOME/.rbenv:$PATH"
+export PATH="$HOME/.local/share/gem/ruby/3.2.0/bin/:$PATH"
 export PATH="$PATH:$HOME/.config/composer/vendor/bin/"
 
 ############### Prompt Style #####################
