@@ -9,8 +9,8 @@ map("n", "<leader>ww", "<cmd>set wrap!<cr>")
 map("n", "<leader>ss", "<cmd>set spell!<cr>")
 
 -- insert mode moving left & right
-map("i", "<C-h>", "<Left>")
-map("i", "<C-l>", "<Right>")
+-- map("i", "<C-h>", "<Left>")
+-- map("i", "<C-l>", "<Right>")
 
 -- make
 map("n", "<leader>mm", ":make<cr>")
@@ -43,8 +43,8 @@ map("n", "}", "}zz")
 map("n", "{", "{zz")
 
 --buffer related
-map("n", "<S-l>", ":bn<cr>")
-map("n", "<S-h>", ":bp<cr>")
+map("n", "]b", ":bn<cr>")
+map("n", "[b", ":bp<cr>")
 map("n", "<leader>x", ":bd!<cr>")
 map("n", "<leader>tt", ":terminal<cr>") --open terminal buffer
 
@@ -75,9 +75,6 @@ map("n", "<leader>fm", "<cmd>Telescope marks<cr>")
 map("n", "<leader>fj", "<cmd>Telescope jumplist<cr>")
 map("n", "<leader>ft", "<cmd>TodoTelescope<cr>")
 
---VimTex
-map("n", "<leader>c", ":VimtexCompileSS<CR>")
-
 --UndoTree
 map("n", "<leader>ut", ":UndotreeToggle <bar> :UndotreeFocus<cr>")
 
@@ -97,8 +94,10 @@ map("n", "<leader>ng", "<cmd>Neogit<cr>")
 map("n", "<leader>gr", "<cmd>Gitsigns reset_hunk<cr>")
 map("n", "<leader>gs", "<cmd>Gitsigns stage_hunk<cr>")
 map("n", "<leader>ph", "<cmd>Gitsigns preview_hunk<cr>")
-map('n', ']c', function() if vim.wo.diff then vim.cmd.normal({']c', bang = true}) else require("gitsigns").nav_hunk('next') end end)
-map('n', '[c', function() if vim.wo.diff then vim.cmd.normal({'[c', bang = true}) else require("gitsigns").nav_hunk('prev') end end)
+map('n', ']c',
+  function() if vim.wo.diff then vim.cmd.normal({ ']c', bang = true }) else require("gitsigns").nav_hunk('next') end end)
+map('n', '[c',
+  function() if vim.wo.diff then vim.cmd.normal({ '[c', bang = true }) else require("gitsigns").nav_hunk('prev') end end)
 
 -- LSP
 map("n", "gF", vim.lsp.buf.format, {})
@@ -114,6 +113,3 @@ map('n', 'rn', vim.lsp.buf.rename, {})
 -- Scissors
 map("n", "<leader>se", function() require("scissors").editSnippet() end)
 map({ "n", "x" }, "<leader>sa", function() require("scissors").addNewSnippet() end)
-
--- dbee
-map("n", "<leader>dt", "<cmd>Dbee toggle<cr>")

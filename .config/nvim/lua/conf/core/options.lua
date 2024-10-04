@@ -10,40 +10,40 @@ opt.swapfile = false
 opt.cursorline = true
 opt.cursorlineopt = "number,line"
 
---netrw file explorer
+-- netrw file explorer
 vim.g.netrw_winsize = 30
 vim.g.netrw_liststyle = 3
 vim.g.netrw_list_hide = vim.fn["netrw_gitignore#Hide"]()
 vim.g.netrw_banner = 0
 
---tab & indent
+-- tab & indent
 opt.tabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true
 opt.autoindent = true
 
---search settings
+-- search settings
 opt.ignorecase = true
 opt.smartcase = true
 
---apearance
+-- apearance
 opt.termguicolors = true
 opt.background = "dark"
 opt.signcolumn = "yes"
 
---backspace
+-- backspace
 opt.backspace = "indent,eol,start"
 
---clipboard
+-- clipboard
 opt.clipboard:append("unnamedplus")
 
---split windows
+-- split windows
 opt.splitright = true
 opt.splitbelow = true
 
 opt.iskeyword:append("-")
 
---folding authomatically enabled
+-- folding authomatically enabled
 opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.cmd("set nofoldenable")

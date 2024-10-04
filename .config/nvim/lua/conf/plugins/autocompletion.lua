@@ -22,7 +22,7 @@ return {
         ["<C-p>"] = cmp.mapping.select_prev_item(),
         ["<C-n>"] = cmp.mapping.select_next_item(),
         ["<C-e>"] = cmp.mapping.abort(),
-        ['<CR>'] = cmp.mapping.confirm({ select = true }),
+        ["<CR>"] = cmp.mapping.confirm({ select = true }),
       },
       window = {
         completion = cmp.config.window.bordered(),
@@ -32,14 +32,14 @@ return {
         format = require("nvim-highlight-colors").format
       },
       sources = {
-        { name = 'luasnip' },
-        { name = 'nvim_lsp' },
-        { name = 'path' },
-        { name = 'nvim_lsp_signature_help' },
+        { name = "luasnip" },
+        { name = "nvim_lsp" },
+        { name = "path" },
+        { name = "nvim_lsp_signature_help" },
       },
       snippet = {
         expand = function(args)
-          require('luasnip').lsp_expand(args.body)
+          require("luasnip").lsp_expand(args.body)
         end,
       }
     })

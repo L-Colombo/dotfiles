@@ -1,6 +1,5 @@
 return {
   "xiyaowong/transparent.nvim",
-
   {
     "JasonBoyett/Goethe.nvim",
     opts = { default_theme = "habamax", auto_persist = true, }

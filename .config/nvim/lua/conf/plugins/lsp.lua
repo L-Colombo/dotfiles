@@ -5,34 +5,34 @@ return {
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
     local lspconfig = require("lspconfig")
-    lspconfig.clangd.setup({  -- clangd
+    lspconfig.clangd.setup({ -- c/c++
       capabilities = capabilities
     })
-    lspconfig.html.setup({  -- html
+    lspconfig.html.setup({ -- html
       capabilities = capabilities
     })
-    lspconfig.intelephense.setup({  -- intelephense
+    lspconfig.intelephense.setup({ -- php
       capabilities = capabilities
     })
-    lspconfig.jdtls.setup({  -- jdtls
+    lspconfig.jdtls.setup({ -- java
       capabilities = capabilities
     })
-    lspconfig.lua_ls.setup({  -- lua_ls
+    lspconfig.lua_ls.setup({  -- lua
       capabilities = capabilities
     })
-    lspconfig.pyright.setup({ -- pyright
+    lspconfig.pyright.setup({ -- python
       capabilities = capabilities
     })
-    lspconfig.solargraph.setup({
+    lspconfig.solargraph.setup({ -- ruby
       capabilities = capabilities
     })
     lspconfig.rust_analyzer.setup({ -- rust
       capabilities = capabilities
     })
-    lspconfig.tailwindcss.setup({  -- tailwindcss
+    lspconfig.tailwindcss.setup({ -- tailwindcss
       capabilities = capabilities
     })
-    lspconfig.ts_ls.setup({  -- tsserver
+    lspconfig.ts_ls.setup({ -- typescript/javascript
       capabilities = capabilities
     })
   end

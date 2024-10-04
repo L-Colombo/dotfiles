@@ -6,12 +6,13 @@ return {
     require("mason").setup()
     require("mason-lspconfig").setup({
       ensure_installed = {
-        'ts_ls',
-        'html',
-        'cssls',
-        'lua_ls',
-        'clangd',
-        'intelephense',
+        "ts_ls",
+        "html",
+        "cssls",
+        "lua_ls",
+        "clangd",
+        "intelephense",
+        "rust_analyzer",
       },
     })
   end
