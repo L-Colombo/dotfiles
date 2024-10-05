@@ -12,7 +12,6 @@ alias q="exit"
 alias nv="nvim"
 alias t="tmux"
 alias p="pandoc"
-alias r="ranger"
 alias exa="exa --all --long --header --color=always --icons --git-ignore --sort=type"
 alias tree="eza --color=always --icons --git-ignore --sort=type -T"
 
@@ -80,7 +79,17 @@ unalias zi
 
 # Custom functions
 
-#opens zatura and dishowns the process
-zz () {
+# Opens zatura and dishowns the process
+function zz () {
     zathura $1  & ; disown && exit
+}
+
+# Change directory when closing yazi
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
 }
