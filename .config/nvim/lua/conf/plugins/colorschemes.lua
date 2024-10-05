@@ -15,6 +15,7 @@ return {
     end
   },
   "L-Colombo/atlantic-dark.nvim",
+  "glitchcandy/glitchcandy-nvim",
   "oprearocks/allhallowseve.nvim",
   "tpope/vim-vividchalk",
 }
