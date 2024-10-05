@@ -94,10 +94,8 @@ map("n", "<leader>ng", "<cmd>Neogit<cr>")
 map("n", "<leader>gr", "<cmd>Gitsigns reset_hunk<cr>")
 map("n", "<leader>gs", "<cmd>Gitsigns stage_hunk<cr>")
 map("n", "<leader>ph", "<cmd>Gitsigns preview_hunk<cr>")
-map('n', ']c',
-  function() if vim.wo.diff then vim.cmd.normal({ ']c', bang = true }) else require("gitsigns").nav_hunk('next') end end)
-map('n', '[c',
-  function() if vim.wo.diff then vim.cmd.normal({ '[c', bang = true }) else require("gitsigns").nav_hunk('prev') end end)
+map("n", "<leader>gn", "<cmd>Gitsigns next_hunk<cr>")
+map("n", "<leader>gp", "<cmd>Gitsigns prev_hunk<cr>")
 
 -- LSP
 map("n", "gF", vim.lsp.buf.format, {})
