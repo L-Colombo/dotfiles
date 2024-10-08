@@ -850,36 +850,10 @@ This custom interactive function is to set the spelling to Italian an run ~flysp
   (flyspell-buffer))
 #+end_src
 
-** LSP mode
-
-#+begin_src emacs-lisp
-(use-package lsp-mode
-  :ensure t
-  :commands (lsp lsp-deferred)
-  :init (setq lsp-keymap-prefix "C-c l")
-  :config (setq lsp-enable-symbol-highlighting nil
-				lsp-lens-enable nil
-				lsp-headerline-breadcrumb-enable nil
-				lsp-ui-sideline-enable nil
-				lsp-eldoc-enable-hover nil
-				lsp-signature-render-documentation nil)
-  :hook (rust-mode . lsp-deferred))
-#+end_src
-
 ** Indent-bars
 
 #+begin_src emacs-lisp
 (use-package indent-bars
   :ensure t)
 (global-set-key (kbd "C-c w i") 'indent-bars-mode)
-#+end_src
-
-** Rust mode
-
-#+begin_src emacs-lisp
-(use-package rust-mode
-  :ensure t
-  :config (setq rust-format-on-save t
-                rust-mode-treesitter-derive t)
-  :hook ((rust-mode . prettify-symbols-mode)))
 #+end_src
