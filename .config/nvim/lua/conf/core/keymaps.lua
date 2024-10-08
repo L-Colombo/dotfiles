@@ -8,19 +8,9 @@ map("n", "x", '"_x')
 map("n", "<leader>ww", "<cmd>set wrap!<cr>")
 map("n", "<leader>ss", "<cmd>set spell!<cr>")
 
--- insert mode moving left & right
--- map("i", "<C-h>", "<Left>")
--- map("i", "<C-l>", "<Right>")
-
 -- make
 map("n", "<leader>mm", ":make<cr>")
 map("n", "<leader>mr", ":make run<cr>")
-
--- moving across split panes
-map("n", "<C-h>", ":wincmd h<cr>")
-map("n", "<C-j>", ":wincmd j<cr>")
-map("n", "<C-k>", ":wincmd k<cr>")
-map("n", "<C-l>", ":wincmd l<cr>")
 
 -- moving and motion
 map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
