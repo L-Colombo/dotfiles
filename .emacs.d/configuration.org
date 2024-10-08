@@ -622,7 +622,8 @@ We need to make sure that a directory for ~org-roam~ exists, so we create it in 
   (find-file-visit-truename t)
   (org-roam-capture-templates '(("f" "Fleeting notes" plain "%?"
 								   :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n"))
-								  ("l" "Literature notes" plain "#+STARTUP: showeverything\n* Source\n\nAuthor: %^{Author}\nTitle: ${title}\nYear: %^{Year}\nType: %^{Type}\n** Notes\n\n%?"
+								  ("l" "Literature notes" plain
+                                 "#+STARTUP: showeverything\n* ${title}\nAuthor: %^{Author}\nYear: %^{Year}\nType: %^{Type}\n** Notes\n\n%?"
 								   :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n"))
                                 ("p" "Permanent notes" plain "\n* ${title}\n%?"
                                  :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n"))))
