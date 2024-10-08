@@ -36,7 +36,7 @@ This is to ensure that all packages are always up to date:
 (electric-pair-mode 1)
 (repeat-mode 1)
 (global-display-line-numbers-mode 1)
-(global-hl-line-mode 1)
+(global-hl-line-mode -1)
 (column-number-mode 1)
 (set-fringe-mode 28)
 
@@ -260,22 +260,32 @@ It is bound to ~"C-t"~.
 **** ~accented~
 
 Convenience function to insert at point an accented character.
+This function was perfected by ~u/thetemp_~ on a Reddit thread.
 It is bound ~"C-`"~.
 
 #+begin_src emacs-lisp
 (defun accented ()
   (interactive)
-  (let ((char-option (completing-read "-> " '("A" "E" "I" "O" "U" "C" "N" "S"))))
-
-    (let ((my-char-list (cond ((string= char-option "A") '("á" "Á" "à" "À" "â" "Â" "ä" "Ä" "ã" "Ã" "å" "Å" "æ" "Æ"))
-                              ((string= char-option "E") '("é" "É" "è" "È" "ê" "Ê" "ë" "Ë"))
-                              ((string= char-option "I") '("í" "Í" "ì" "Ì" "î" "Î" "ï" "Ï"))
-                              ((string= char-option "O") '("ó" "Ó" "ò" "Ò" "ô" "Ô" "ö" "Ö" "õ" "Õ" "ø" "Ø" "œ" "Œ"))
-                              ((string= char-option "U") '("ü" "Ü" "ù" "Ù" "ú" "Ú" "û" "Û"))
-                              ((string= char-option "C") '("ç" "Ç"))
-                              ((string= char-option "N") '("ñ" "Ñ"))
-                              ((string= char-option "S") '("ß")))))
-      (insert (completing-read "-> " my-char-list)))))
+  (let* ((char-alist '((?a "á" "Á" "à" "À" "â" "Â" "ä" "Ä" "ã" "Ã" "å" "Å" "æ" "Æ")
+                       (?e "é" "É" "è" "È" "ê" "Ê" "ë" "Ë")
+                       (?i "í" "Í" "ì" "Ì" "î" "Î" "ï" "Ï")
+                       (?o "ó" "Ó" "ò" "Ò" "ô" "Ô" "ö" "Ö" "õ" "Õ" "ø" "Ø" "œ" "Œ")
+                       (?u "ü" "Ü" "ù" "Ù" "ú" "Ú" "û" "Û")
+                       (?c "ç" "Ç")
+                       (?n "ñ" "Ñ")
+                       (?s "ß")))
+         (char-keys (mapcar #'car char-alist))
+         (chosen-key (read-char-choice
+                      ;; Generate prompt using list of keys from `char-alist'
+                      (concat "Accent a character: "
+                              (mapconcat (lambda (k) (make-string 1 k)) char-keys " ")
+                              " ")
+                      char-keys))
+         (chosen-char-list (alist-get chosen-key char-alist))
+         (chosen-char (if (= (length chosen-char-list) 1)
+                          (car chosen-char-list)
+                        (completing-read "-> " chosen-char-list))))
+    (insert chosen-char)))
 (global-set-key (kbd "C-`") #'accented)
 #+end_src
 
@@ -494,10 +504,9 @@ Mind that by default ~C-n~ and ~C-p~ are bound in the minibuffer to ~next-line~ 
 
 ** Org-mode and related
 
-*** Org-Mode itsel
-f
+*** Org-Mode itself
 
-We first make sure that a directory in our ~$HOME~ directory is created (*if it doesn't already*) to store our ~.org~ files.
+We first make sure that a directory in our ~~/Documents~ directory is created (*if it doesn't already exist*) to store our ~.org~ files.
 
 #+begin_src emacs-lisp
 (unless (file-exists-p "~/Documents/OrgFiles")
@@ -518,6 +527,13 @@ Then, we can take care of the rest. As ~org-mode~ is built-in, it needs only to 
             org-ellipsis " 󱞣"
 			  org-src-preserve-indentation t)
   :hook (org-mode . org-indent-mode))
+#+end_src
+
+~Citeproc~ is a neat package that helps formatting footnotes and bibliography when exporting from Org mode using ~org-export~.
+
+#+begin_src emacs-lisp
+(use-package citeproc
+  :ensure t)
 #+end_src
 
 *** Bullets
