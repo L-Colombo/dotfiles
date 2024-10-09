@@ -14,6 +14,15 @@ return {
       })
     end
   },
+  {
+    "blazkowolf/gruber-darker.nvim",
+    opts = {
+      bold = true,
+      italic = {
+        strings = false,
+      },
+    },
+  },
   "L-Colombo/atlantic-dark.nvim",
   "glitchcandy/glitchcandy-nvim",
   "oprearocks/allhallowseve.nvim",

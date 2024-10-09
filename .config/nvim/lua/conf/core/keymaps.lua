@@ -22,7 +22,7 @@ map("v", "K", ":m '<-2<CR>gv=gv")
 map("v", "<", "<gv", { noremap = true, silent = true })
 map("v", ">", ">gv", { noremap = true, silent = true })
 
---center screen afer search and pgUp/pgDown and paragraph moving
+-- center screen afer search and pgUp/pgDown and paragraph moving
 map("n", "n", "nzz")
 map("n", "N", "Nzz")
 map("n", "<C-d>", "<C-d>zz")
@@ -32,27 +32,27 @@ map("n", "(", "(zz")
 map("n", "}", "}zz")
 map("n", "{", "{zz")
 
---buffer related
+-- buffer related
 map("n", "]b", ":bn<cr>")
 map("n", "[b", ":bp<cr>")
 map("n", "<leader>x", ":bd!<cr>")
-map("n", "<leader>tt", ":terminal<cr>") --open terminal buffer
+map("n", "<leader>tt", ":terminal<cr>") -- open terminal buffer
 
---split windows
+-- split windows
 map("n", "<leader>sv", "<C-w>v")
 map("n", "<leader>sh", "<C-w>s")
 map("n", "<leader>sx", ":close<CR>")
 
---tab commands
+-- tab commands
 map("n", "<leader>to", ":tabnew<CR>")
 map("n", "<leader>tx", ":tabclose<CR>")
 map("n", "<leader>tn", ":tabn<CR>")
 map("n", "<leader>tp", ":tabp<CR>")
 
--- Toggle Explorer
+-- toggle explorer
 map("n", "<leader>e", ":NvimTreeToggle<CR>")
 
---telescope
+-- telescope
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
 map("n", "<leader>fs", "<cmd>Telescope live_grep<cr>")
 map("n", "<leader>fw", "<cmd>Telescope grep_string<cr>")
@@ -65,13 +65,13 @@ map("n", "<leader>fm", "<cmd>Telescope marks<cr>")
 map("n", "<leader>fj", "<cmd>Telescope jumplist<cr>")
 map("n", "<leader>ft", "<cmd>TodoTelescope<cr>")
 
---UndoTree
+-- undotree
 map("n", "<leader>ut", ":UndotreeToggle <bar> :UndotreeFocus<cr>")
 
---Transparency Toggle
+-- transparency toggle
 map("n", "<leader>tr", ":TransparentToggle<cr>")
 
--- LuaSnip
+-- luasnip
 local key = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 key("i", "<c-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
@@ -79,7 +79,7 @@ key("s", "<Tab>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
 key("i", "<c-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
 key("s", "<S-Tab>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
 
--- Neogit/Gitsigns
+-- neogit/gitsigns
 map("n", "<leader>ng", "<cmd>Neogit<cr>")
 map("n", "<leader>gr", "<cmd>Gitsigns reset_hunk<cr>")
 map("n", "<leader>gs", "<cmd>Gitsigns stage_hunk<cr>")
@@ -87,7 +87,7 @@ map("n", "<leader>ph", "<cmd>Gitsigns preview_hunk<cr>")
 map("n", "<leader>gn", "<cmd>Gitsigns next_hunk<cr>")
 map("n", "<leader>gp", "<cmd>Gitsigns prev_hunk<cr>")
 
--- LSP
+-- lsp
 map("n", "gF", vim.lsp.buf.format, {})
 map("n", "K", vim.lsp.buf.hover, {})
 map("n", "gd", vim.lsp.buf.definition, {})
@@ -96,8 +96,8 @@ map("n", "gr", vim.lsp.buf.references, {})
 map("n", "go", vim.lsp.buf.type_definition, {})
 map("n", "gf", vim.diagnostic.open_float, {})
 map("n", "cA", vim.lsp.buf.code_action, {})
-map('n', 'rn', vim.lsp.buf.rename, {})
+map("n", "rn", vim.lsp.buf.rename, {})
 
--- Scissors
+-- scissors
 map("n", "<leader>se", function() require("scissors").editSnippet() end)
 map({ "n", "x" }, "<leader>sa", function() require("scissors").addNewSnippet() end)

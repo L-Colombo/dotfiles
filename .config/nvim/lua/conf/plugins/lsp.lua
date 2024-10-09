@@ -14,9 +14,6 @@ return {
     lspconfig.intelephense.setup({ -- php
       capabilities = capabilities
     })
-    lspconfig.jdtls.setup({ -- java
-      capabilities = capabilities
-    })
     lspconfig.lua_ls.setup({  -- lua
       capabilities = capabilities
     })
