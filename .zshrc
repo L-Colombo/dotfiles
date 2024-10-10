@@ -15,6 +15,8 @@ alias p="pandoc"
 alias exa="exa --all --long --header --color=always --icons --git-ignore --sort=type"
 alias tree="eza --color=always --icons --git-ignore --sort=type -T"
 alias rust_repl="evcxr"
+alias cp="cp -v"
+alias mv="mv -v"
 
 ############### Evals ############################
 eval "$(zoxide init zsh)"
@@ -74,6 +76,9 @@ setopt hist_ignore_space
 setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
+
+# Other options
+setopt interactivecomments
 
 # Unalias `zi` to avoid conflict between Zoxide and Zinit
 unalias zi

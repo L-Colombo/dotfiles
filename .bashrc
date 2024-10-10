@@ -22,6 +22,8 @@ alias p="pandoc"
 alias r="ranger"
 alias exa="exa --all --long --header --color=always --icons --git-ignore --sort=type"
 alias tree="eza --long --header --color=always --icons --git-ignore --sort=type -T"
+alias cp="cp -v"
+alias mv="mv -v"
 
 ############### Evals ############################
 eval "$(fzf --bash)"
