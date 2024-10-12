@@ -1,6 +1,6 @@
 local map = vim.keymap.set
 
---general keymaps
+-- general keymaps
 map({ "i", "v", "s" }, "jk", "<esc>")
 map("t", "jk", "<C-\\><C-n>")
 map("n", "<leader>nh", ":nohls<CR>")
@@ -36,7 +36,7 @@ map("n", "{", "{zz")
 map("n", "]b", ":bn<cr>")
 map("n", "[b", ":bp<cr>")
 map("n", "<leader>x", ":bd!<cr>")
-map("n", "<leader>tt", ":terminal<cr>") -- open terminal buffer
+map("n", "<leader>tt", ":terminal<cr>")
 
 -- split windows
 map("n", "<leader>sv", "<C-w>v")
@@ -63,6 +63,7 @@ map("n", "<leader>fd", "<cmd>Telescope diagnostics<cr>")
 map("n", "<leader>fr", "<cmd>Telescope registers<cr>")
 map("n", "<leader>fm", "<cmd>Telescope marks<cr>")
 map("n", "<leader>fj", "<cmd>Telescope jumplist<cr>")
+map("n", "<leader>fg", "<cmd>Telescope git_status<cr>")
 map("n", "<leader>ft", "<cmd>TodoTelescope<cr>")
 
 -- undotree

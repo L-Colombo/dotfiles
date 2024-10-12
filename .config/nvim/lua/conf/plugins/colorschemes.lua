@@ -27,4 +27,5 @@ return {
   "glitchcandy/glitchcandy-nvim",
   "oprearocks/allhallowseve.nvim",
   "tpope/vim-vividchalk",
+  "rebelot/kanagawa.nvim",
 }
