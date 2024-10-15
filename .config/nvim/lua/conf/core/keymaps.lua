@@ -102,6 +102,7 @@ map("n", "rn", vim.lsp.buf.rename, {})
 -- lsp + telescope
 map("n", "<leader>lr", "<cmd>Telescope lsp_references<cr>")
 map("n", "<leader>ls", "<cmd>Telescope lsp_workspace_symbols<cr>")
+map("n", "<leader>ld", "<cmd>Telescope lsp_document_symbols<cr>")
 
 -- scissors
 map("n", "<leader>se", function() require("scissors").editSnippet() end)
