@@ -24,6 +24,7 @@ alias exa="exa --all --long --header --color=always --icons --git-ignore --sort=
 alias tree="eza --long --header --color=always --icons --git-ignore --sort=type -T"
 alias cp="cp -v"
 alias mv="mv -v"
+alias rm="rm -v"
 
 ############### Evals ############################
 eval "$(fzf --bash)"

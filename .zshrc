@@ -17,6 +17,7 @@ alias tree="eza --color=always --icons --git-ignore --sort=type -T"
 alias rust_repl="evcxr"
 alias cp="cp -v"
 alias mv="mv -v"
+alias rm="rm -v"
 
 ############### Evals ############################
 eval "$(zoxide init zsh)"
