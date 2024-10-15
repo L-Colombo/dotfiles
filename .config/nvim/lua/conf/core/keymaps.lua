@@ -99,6 +99,10 @@ map("n", "gf", vim.diagnostic.open_float, {})
 map("n", "cA", vim.lsp.buf.code_action, {})
 map("n", "rn", vim.lsp.buf.rename, {})
 
+-- lsp + telescope
+map("n", "<leader>lr", "<cmd>Telescope lsp_references<cr>")
+map("n", "<leader>ls", "<cmd>Telescope lsp_workspace_symbols<cr>")
+
 -- scissors
 map("n", "<leader>se", function() require("scissors").editSnippet() end)
 map({ "n", "x" }, "<leader>sa", function() require("scissors").addNewSnippet() end)
