@@ -100,3 +100,5 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+
+[ -f "/home/lc/.ghcup/env" ] && . "/home/lc/.ghcup/env" # ghcup-env

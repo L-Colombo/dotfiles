@@ -11,6 +11,9 @@ return {
     lspconfig.clangd.setup({ -- c/c++
       capabilities = capabilities
     })
+    lspconfig.hls.setup({ -- haskell
+      capabilities = capabilities
+    })
     lspconfig.html.setup({ -- html
       capabilities = capabilities
     })

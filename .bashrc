@@ -55,3 +55,4 @@ HISTSIZE=5000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
+[ -f "/home/lc/.ghcup/env" ] && . "/home/lc/.ghcup/env" # ghcup-env
