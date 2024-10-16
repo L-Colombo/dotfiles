@@ -662,34 +662,6 @@ We need to make sure that a directory for ~org-roam~ exists, so we create it in 
   :init (global-corfu-mode))
 #+end_src
 
-*** Company-mode
-
-Company mode is used essentially only for ~lsp-mode~ auto completion and snippets provided via ~yasnippet~; it is disabled by default and enabled automatically by ~lsp-mode~.
-
-#+begin_src emacs-lisp
-(use-package company
-  :ensure t
-  :init
-  (setq company-minimum-prefix-length 1
-		company-selection-wrap-around t
-		company-tooltip-align-annotations t
-		company-tooltip-annotation-padding 2
-		company-tooltip-limit 9
-		company-show-quick-access 'left)
-  :hook (lsp-mode . 'add-company-yasnippet)
-  :config (global-company-mode -1))
-#+end_src
-
-This function ensures better completion with ~yasnippet~
-
-#+begin_src emacs-lisp
-(defun add-company-yasnippet ()
-	(setq company-backends '((company-capf :with company-yasnippet)
-							 (company-files :with company-yasnippet))))
-
-(add-hook 'lsp-managed-mode-hook #'add-company-yasnippet)
-#+end_src
-
 *** Orderless
 
 #+begin_src emacs-lisp
@@ -698,20 +670,6 @@ This function ensures better completion with ~yasnippet~
   :init (setq completion-styles '(orderless partial-completion basic)
 			    completion-category-defaults nil
 				completion-category-overrides nil))
-#+end_src
-
-*** Yasnippet
-
-We need to install both ~yasnippet~ and a snippets' collection:
-
-#+begin_src emacs-lisp
-(use-package yasnippet
-  :ensure t
-  :bind ("C-c y" . company-yasnippet)
-  :config (yas-global-mode 1))
-
-(use-package yasnippet-snippets
-  :ensure t)
 #+end_src
 
 ** Dashboard
@@ -809,18 +767,6 @@ Install the ~neotree~ package and the ~all-the-icons~ package:
   :init (setq wrap-region-except-modes 'dired-mode)
   :config (wrap-region-mode t))
 #+end_src
-
-** Treesitter
-
-#+begin_src emacs-lisp
-(use-package tree-sitter
-  :ensure t
-  :config (global-tree-sitter-mode)
-  :hook (tree-sitter-after-on . tree-sitter-hl-mode))
-
-(use-package tree-sitter-langs
-  :ensure t)
-  #+end_src
 
 ** Spell check
 
