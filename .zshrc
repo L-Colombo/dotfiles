@@ -30,6 +30,7 @@ export EDITOR="nvim"
 export GEM_HOME="$(gem env user_gemhome)"
 export PATH="$PATH:$GEM_HOME/bin"
 export PATH="$PATH:$HOME/.config/composer/vendor/bin/"
+export PATH="$PATH:$HOME/.local/bin"
 
 ############### Zinit plugin manager #############
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
