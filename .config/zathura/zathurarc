@@ -30,9 +30,10 @@ set notification-bg "#90A959" #0B
 set notification-fg "#151515" #00
 
 set recolor "true"
-set recolor-lightcolor "#252525" #00
-set recolor-darkcolor "#ffffff" #06
+set recolor-lightcolor "#202020" #00
+set recolor-darkcolor "#33ff00" #06
 set recolor-reverse-video "true"
 set recolor-keephue "true"
 
-set font "Iosevka Nerd Font Propo 16"
+set page-padding 12
+set font "ZedMono Nerd Font Propo 14"
