@@ -40,7 +40,7 @@ key = "Left"
 mods = "Alt"
 
 [window]
-decorations = "none"
+decorations = "Full"
 opacity = 0.8
 
 [window.padding]
