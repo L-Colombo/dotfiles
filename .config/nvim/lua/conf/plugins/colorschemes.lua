@@ -25,7 +25,7 @@ return {
   },
   "L-Colombo/atlantic-dark.nvim",
   "glitchcandy/glitchcandy-nvim",
-  "oprearocks/allhallowseve.nvim",
+  "iruzo/matrix-nvim",
   "tpope/vim-vividchalk",
   "rebelot/kanagawa.nvim",
 }
