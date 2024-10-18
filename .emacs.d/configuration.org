@@ -15,17 +15,6 @@
   (package-install 'use-package))
 #+end_src
 
-This is to ensure that all packages are always up to date:
-
-#+begin_src emacs-lisp
-(use-package auto-package-update
-  :ensure t
-  :config
-  (setq auto-package-update-delete-old-versions t)
-  (setq auto-package-update-hide-results t)
-  (auto-package-update-maybe))
-#+end_src
-
 ** Generic settings
 *** Defaults
 
@@ -34,11 +23,8 @@ This is to ensure that all packages are always up to date:
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (electric-pair-mode 1)
-(repeat-mode 1)
 (global-display-line-numbers-mode 1)
-(global-hl-line-mode -1)
 (column-number-mode 1)
-(set-fringe-mode 28)
 
 (setq-default word-wrap t
 			    tab-width 4
@@ -51,8 +37,15 @@ This is to ensure that all packages are always up to date:
 	    ring-bell-function 'ignore)
 
 (put 'donwcase-region 'disabled nil)
+(add-to-list 'default-frame-alist '(height . 34))
+(add-to-list 'default-frame-alist '(width . 102))
 
-(set-frame-font "Iosevka Nerd Font Propo 15" nil t)
+(setq gc-cons-threshold (* 50 1000 1000))
+
+(add-hook 'after-init-hook (lambda ()
+                             (load "~/.emacs.d/custom.el")
+                             (repeat-mode 1)
+                             (set-frame-font "Iosevka Nerd Font Propo 15" nil t)))
 #+end_src
 
 *** Mark
@@ -136,18 +129,19 @@ The following block is to ensure that the themes usually set as default are inst
 
 #+begin_src emacs-lisp
 (use-package gruvbox-theme
+  :defer t
   :ensure t)
 (use-package gruber-darker-theme
+  :defer t
   :ensure t)
 (use-package naga-theme
+  :defer t
   :ensure t)
 (use-package klere-theme
-  :ensure t)
-(use-package humanoid-themes
+  :defer t
   :ensure t)
 
 (load-theme 'naga t)
-;;(set-cursor-color "#ffa500") ;;cursor color: rust/orange
 #+end_src
 
 *** Custom functions and mappings
@@ -288,7 +282,6 @@ It is bound ~"C-`"~.
     (insert chosen-char)))
 (global-set-key (kbd "C-`") #'accented)
 #+end_src
-
 * Packages and Modes
 
 ** Eshell
@@ -309,21 +302,13 @@ To configure ~eshell~ is best to create a custom function that loads the configu
   :hook (eshell-first-time-mode . lc/configure-eshell))
 #+end_src
 
-Then, it would be nice to have a better prompt:
-
-#+begin_src emacs-lisp
-(use-package eshell-prompt-extras
-  :ensure t
-  :init (setq eshell-highlight-prompt 'nil
-		 eshell-prompt-function 'epe-theme-multiline-with-status))
-#+end_src
-
 ** Multiple cursors
 
 #+begin_src emacs-lisp
 (use-package multiple-cursors
   :ensure t
-  :init
+  :defer 5
+  :config
   (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
   (global-set-key (kbd "C->") 'mc/mark-next-like-this)
   (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
@@ -335,20 +320,9 @@ Then, it would be nice to have a better prompt:
 #+begin_src emacs-lisp
 (use-package rainbow-delimiters
   :ensure t
-  :hook
-  ((lisp-mode . rainbow-delimiters-mode)
-   (emacs-lisp-mode . rainbow-delimiters-mode)))
-#+end_src
-
-** Yafolding
-
-#+begin_src emacs-lisp
-(use-package yafolding
-  :ensure t
-  :bind (("C-c z o" . yafolding-toggle-element)
-		 ("C-c z a" . yafolding-toggle-all))
-  :config (setq yafolding-ellipsis-content " 󱞣")
-  :init (yafolding-mode +1))
+  :defer t
+  :hook ((lisp-mode . rainbow-delimiters-mode)
+         (emacs-lisp-mode . rainbow-delimiters-mode)))
 #+end_src
 
 ** Helpful
@@ -369,6 +343,7 @@ The ~helpful~ package provides a nicer interface for the standard help buffers. 
 
 #+begin_src emacs-lisp
 (use-package marginalia
+  :defer t
   :ensure t
   :init
   (marginalia-mode))
@@ -378,6 +353,7 @@ The ~helpful~ package provides a nicer interface for the standard help buffers. 
 
 #+begin_src emacs-lisp
 (use-package nov
+  :defer 5
   :ensure t
   :init
   (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode)))
@@ -389,6 +365,7 @@ First of all, we need to ensure ~magit~ as our Git client on Emacs;
 
 #+begin_src emacs-lisp
 (use-package magit
+  :defer t
   :ensure t)
 #+end_src
 
@@ -401,14 +378,14 @@ Then, we install the ~git-gutter~ for seamless Git interaction and enable it glo
 		("C-c n" . 'git-gutter:next-hunk)
 		("C-c g s" . 'git-gutter:stage-hunk)
 		("C-c g r" . 'git-gutter:revert-hunk))
-  :config
-  (global-git-gutter-mode 1))
+  :config (global-git-gutter-mode 1))
 #+end_src
 
 ** Expand-Region
 
 #+begin_src emacs-lisp
 (use-package expand-region
+  :defer 2
   :ensure t
   :init (pending-delete-mode t)
   :bind ("C-." . er/expand-region))
@@ -420,6 +397,7 @@ With ~pending-delete-mode~ enabled, highligted text can be rapidly changed.
 
 #+begin_src emacs-lisp
 (use-package avy
+  :defer 3
   :ensure t
   :bind ("C-c SPC" . 'avy-goto-char))
 #+end_src
@@ -431,9 +409,10 @@ The list of incompatible modes is set to empty beacuse of conflicts that may ari
 
 #+begin_src emacs-lisp
 (use-package pdf-tools
+  :defer t
   :ensure t
   :init (setq pdf-view-incompatible-modes '()
-			  pdf-view-midnight-colors (cons "#ffffff" "#242424"))
+			  pdf-view-midnight-colors (cons "#33ff00" "#000000"))
   :config
   (add-hook 'pdf-view-mode-hook (lambda () (display-line-numbers-mode -1)))
   (add-hook 'pdf-view-mode-hook 'pdf-view-midnight-minor-mode)
@@ -444,6 +423,7 @@ The list of incompatible modes is set to empty beacuse of conflicts that may ari
 
 #+begin_src emacs-lisp
 (use-package markdown-mode
+  :defer t
   :ensure t)
 #+end_src
 
@@ -453,6 +433,7 @@ The basic package for working with LaTeX on Emacs is the ~AUCTeX~ package.
 
 #+begin_src emacs-lisp
 (use-package auctex
+  :defer t
   :ensure t
   :init (require 'latex)
   (setq TeX-parse-self t
@@ -517,6 +498,7 @@ Then, we can take care of the rest. As ~org-mode~ is built-in, it needs only to 
 
 #+begin_src emacs-lisp
 (use-package org
+  :defer t
   :ensure t
   :init (setq org-hide-emphasis-markers t
 			  org-startup-folded 'content
@@ -533,6 +515,7 @@ Then, we can take care of the rest. As ~org-mode~ is built-in, it needs only to 
 
 #+begin_src emacs-lisp
 (use-package citeproc
+  :defer t
   :ensure t)
 #+end_src
 
@@ -541,6 +524,7 @@ Then, we can take care of the rest. As ~org-mode~ is built-in, it needs only to 
 
 #+begin_src emacs-lisp
 (use-package org-bullets
+  :defer 3
   :ensure t
   :custom (org-bullets-bullet-list '(""))
   :hook (org-mode . org-bullets-mode))
@@ -616,6 +600,7 @@ We need to make sure that a directory for ~org-roam~ exists, so we create it in 
 
 #+begin_src emacs-lisp
 (use-package org-roam
+  :defer t
   :ensure t
   :custom
   (org-roam-directory (file-truename "~/Documents/OrgFiles/org-roam/"))
@@ -645,6 +630,7 @@ We need to make sure that a directory for ~org-roam~ exists, so we create it in 
 
 #+begin_src emacs-lisp
 (use-package corfu
+  :defer 3
   :ensure t
   :custom
   (corfu-cycle t)
@@ -658,7 +644,6 @@ We need to make sure that a directory for ~org-roam~ exists, so we create it in 
 			  ("C-p" . corfu-previous)
 			  ("C-q" . corfu-quick-insert)
 			  ("M-q" . corfu-quick-complete))
-  :hook (lsp-mode . (lambda () (corfu-mode -1)))
   :init (global-corfu-mode))
 #+end_src
 
@@ -667,7 +652,7 @@ We need to make sure that a directory for ~org-roam~ exists, so we create it in 
 #+begin_src emacs-lisp
 (use-package orderless
   :ensure t
-  :init (setq completion-styles '(orderless partial-completion basic)
+  :config (setq completion-styles '(orderless partial-completion basic)
 			    completion-category-defaults nil
 				completion-category-overrides nil))
 #+end_src
@@ -678,6 +663,7 @@ We first need to install the ~dashboard~ package and the ~all-the-icons~ package
 
 #+begin_src emacs-lisp
 (use-package all-the-icons
+  :defer 10
   :ensure t)
 
 (use-package dashboard
@@ -686,8 +672,7 @@ We first need to install the ~dashboard~ package and the ~all-the-icons~ package
 			  dashboard-set-heading-icons nil
 			  dashboard-set-file-icons t
 			  dashboard-projects-backend 'projectile
-			  dashboard-items '((projects . 12)
-								(recents . 12)))
+			  dashboard-items '((recents . 8)))
   :config (dashboard-setup-startup-hook))
 #+end_src
 
@@ -695,6 +680,7 @@ We first need to install the ~dashboard~ package and the ~all-the-icons~ package
 
 #+begin_src emacs-lisp
 (use-package projectile
+  :defer t
   :ensure t
   :bind-keymap ("C-c p" . projectile-command-map)
   :config
@@ -706,6 +692,7 @@ We first need to install the ~dashboard~ package and the ~all-the-icons~ package
 
 #+begin_src emacs-lisp
 (use-package ripgrep
+  :defer 10
   :ensure t)
 #+end_src
 
@@ -715,6 +702,7 @@ Installation and configuration to use default key-bindings:
 
 #+begin_src emacs-lisp
 (use-package move-text
+  :defer t
   :ensure t
   :init (move-text-default-bindings))
 #+end_src
@@ -738,6 +726,7 @@ Install ~doom-modeline~ package and the ~nerd-icons~ package; in order for this 
 
 #+begin_src emacs-lisp
 (use-package nerd-icons
+  :defer 10
   :ensure t)
 (use-package doom-modeline
   :ensure t
@@ -750,6 +739,7 @@ Install the ~neotree~ package and the ~all-the-icons~ package:
 
 #+begin_src emacs-lisp
 (use-package neotree
+  :defer 10
   :ensure t
   :bind ("C-c e" . neotree-toggle)
   :init
@@ -763,6 +753,7 @@ Install the ~neotree~ package and the ~all-the-icons~ package:
 
 #+begin_src emacs-lisp
 (use-package wrap-region
+  :defer t
   :ensure t
   :init (setq wrap-region-except-modes 'dired-mode)
   :config (wrap-region-mode t))
@@ -795,12 +786,4 @@ This custom interactive function is to set the spelling to Italian an run ~flysp
   "Sets the spelling language to Italian and spell checks the buffer"
   (ispell-change-dictionary "italiano")
   (flyspell-buffer))
-#+end_src
-
-** Indent-bars
-
-#+begin_src emacs-lisp
-(use-package indent-bars
-  :ensure t)
-(global-set-key (kbd "C-c w i") 'indent-bars-mode)
 #+end_src
