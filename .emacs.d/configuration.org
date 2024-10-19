@@ -413,7 +413,7 @@ The list of incompatible modes is set to empty beacuse of conflicts that may ari
   :ensure t
   :init (setq pdf-view-incompatible-modes '()
 			  pdf-view-midnight-colors (cons "#33ff00" "#000000"))
-  :config
+  :init
   (add-hook 'pdf-view-mode-hook (lambda () (display-line-numbers-mode -1)))
   (add-hook 'pdf-view-mode-hook 'pdf-view-midnight-minor-mode)
   (pdf-tools-install))
