@@ -35,6 +35,8 @@ eval "$(~/.rbenv/bin/rbenv init - --no-rehash zsh)"
 export EDITOR="nvim"
 export PATH="$HOME/.local/share/gem/ruby/3.2.0/bin/:$PATH"
 export PATH="$PATH:$HOME/.config/composer/vendor/bin/"
+export WORDCHARS=${WORDCHARS/\/}
+export WORDCHARS=${WORDCHARS/_}
 
 ############### Prompt Style #####################
 PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
