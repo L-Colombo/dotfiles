@@ -16,6 +16,25 @@
 #+end_src
 
 ** Generic settings
+
+*** Init
+
+This section contains the hooks that run at startup and when emacsclient is launched.
+
+#+begin_src emacs-lisp
+(add-hook
+ 'after-init-hook (lambda ()
+                    (repeat-mode 1)
+                    (set-frame-font "Iosevka Nerd Font Propo 15" nil t)))
+(add-hook
+ 'server-after-make-frame-hook (lambda ()
+                                 (add-to-list 'default-frame-alist '(height . 34))
+                                 (add-to-list 'default-frame-alist '(width . 102))
+                                 (set-frame-font "Iosevka Nerd Font Propo 15" nil t)))
+
+(setq initial-buffer-choice (lambda () (get-buffer-create dashboard-buffer-name)))
+#+end_src
+
 *** Defaults
 
 #+begin_src emacs-lisp
@@ -37,15 +56,11 @@
 	    ring-bell-function 'ignore)
 
 (put 'donwcase-region 'disabled nil)
+
 (add-to-list 'default-frame-alist '(height . 34))
 (add-to-list 'default-frame-alist '(width . 102))
 
 (setq gc-cons-threshold (* 50 1000 1000))
-
-(add-hook 'after-init-hook (lambda ()
-                             (load "~/.emacs.d/custom.el")
-                             (repeat-mode 1)
-                             (set-frame-font "Iosevka Nerd Font Propo 15" nil t)))
 #+end_src
 
 *** Mark
@@ -672,7 +687,7 @@ We first need to install the ~dashboard~ package and the ~all-the-icons~ package
 			  dashboard-set-heading-icons nil
 			  dashboard-set-file-icons t
 			  dashboard-projects-backend 'projectile
-			  dashboard-items '((recents . 8)))
+			  dashboard-items '((recents . 18)))
   :config (dashboard-setup-startup-hook))
 #+end_src
 
