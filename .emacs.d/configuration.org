@@ -30,9 +30,9 @@ This section contains the hooks that run at startup and when emacsclient is laun
  'server-after-make-frame-hook (lambda ()
                                  (add-to-list 'default-frame-alist '(height . 34))
                                  (add-to-list 'default-frame-alist '(width . 102))
+                                 (dashboard-open)
+                                 (set-cursor-color "#ff5500")
                                  (set-frame-font "Iosevka Nerd Font Propo 15" nil t)))
-
-(setq initial-buffer-choice (lambda () (get-buffer-create dashboard-buffer-name)))
 #+end_src
 
 *** Defaults
@@ -156,7 +156,8 @@ The following block is to ensure that the themes usually set as default are inst
   :defer t
   :ensure t)
 
-(load-theme 'naga t)
+(load-theme 'klere t)
+(set-cursor-color "#ff5500")
 #+end_src
 
 *** Custom functions and mappings
@@ -521,7 +522,7 @@ Then, we can take care of the rest. As ~org-mode~ is built-in, it needs only to 
 			  org-directory "~/Documents/OrgFiles"
 			  org-edit-src-content-indentation 0
 			  org-src-tab-acts-natively t
-            org-ellipsis " 󱞣"
+            org-ellipsis " [...]"
 			  org-src-preserve-indentation t)
   :hook (org-mode . org-indent-mode))
 #+end_src
