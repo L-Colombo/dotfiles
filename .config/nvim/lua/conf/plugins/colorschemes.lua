@@ -28,4 +28,5 @@ return {
   "iruzo/matrix-nvim",
   "tpope/vim-vividchalk",
   "rebelot/kanagawa.nvim",
+  "ibash/nour2",
 }
