@@ -688,7 +688,8 @@ We first need to install the ~dashboard~ package and the ~all-the-icons~ package
 			  dashboard-set-heading-icons nil
 			  dashboard-set-file-icons t
 			  dashboard-projects-backend 'projectile
-			  dashboard-items '((recents . 18)))
+			  dashboard-items '((agenda . 5)
+                                (recents . 10)))
   :config (dashboard-setup-startup-hook))
 #+end_src
 
