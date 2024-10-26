@@ -6,7 +6,6 @@ set nocompatible
 filetype on
 filetype plugin on
 filetype indent on
-set cursorline
 set scrolloff=10
 set ignorecase
 set incsearch

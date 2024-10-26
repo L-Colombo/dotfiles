@@ -29,4 +29,5 @@ return {
   "tpope/vim-vividchalk",
   "rebelot/kanagawa.nvim",
   "ibash/nour2",
+  "aktersnurra/no-clown-fiesta.nvim",
 }
