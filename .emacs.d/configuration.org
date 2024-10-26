@@ -21,10 +21,11 @@
 #+begin_src emacs-lisp
 (auto-save-mode -1)
 (tool-bar-mode -1)
-(menu-bar-mode -1)
+(menu-bar-mode 1)
 (electric-pair-mode 1)
 (global-display-line-numbers-mode 1)
 (column-number-mode 1)
+(repeat-mode 1)
 
 (setq-default word-wrap t
 			    tab-width 4
@@ -41,6 +42,7 @@
 (add-to-list 'default-frame-alist '(height . 34))
 (add-to-list 'default-frame-alist '(width . 102))
 
+(set-frame-font "UbuntuMono Nerd Font Propo 16" nil t)
 (setq gc-cons-threshold (* 50 1000 1000))
 #+end_src
 
@@ -124,12 +126,6 @@ This is to bind to ~C-c DEL~ the command ~kill-buffer-and-window~:
 The following block is to ensure that the themes usually set as default are installed before being loaded. This step is necessary only for the themes that may be set as default theme on startup to avoid errors.
 
 #+begin_src emacs-lisp
-(use-package gruvbox-theme
-  :defer t
-  :ensure t)
-(use-package gruber-darker-theme
-  :defer t
-  :ensure t)
 (use-package naga-theme
   :defer t
   :ensure t)
@@ -503,7 +499,7 @@ Then, we can take care of the rest. As ~org-mode~ is built-in, it needs only to 
 			  org-directory "~/Documents/OrgFiles"
 			  org-edit-src-content-indentation 0
 			  org-src-tab-acts-natively t
-            org-ellipsis " [...]"
+            org-ellipsis " "
 			  org-src-preserve-indentation t)
   :hook (org-mode . org-indent-mode))
 #+end_src
