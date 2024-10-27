@@ -12,8 +12,6 @@ return {
         "intelephense",
         "lua_ls",
         "pyright",
-        "rust_analyzer",
-        "solargraph",
         "tailwindcss",
         "ts_ls",
       },

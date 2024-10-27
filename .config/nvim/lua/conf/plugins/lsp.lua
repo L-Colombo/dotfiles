@@ -5,13 +5,13 @@ return {
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
     local lspconfig = require("lspconfig")
-    lspconfig.bashls.setup({
+    lspconfig.bashls.setup({ -- bash
       capabilities = capabilities
     })
     lspconfig.clangd.setup({ -- c/c++
       capabilities = capabilities
     })
-    lspconfig.hls.setup({ -- haskell
+    lspconfig.hls.setup({ -- haskell (*)
       capabilities = capabilities
     })
     lspconfig.html.setup({ -- html
@@ -26,10 +26,7 @@ return {
     lspconfig.pyright.setup({ -- python
       capabilities = capabilities
     })
-    lspconfig.solargraph.setup({ -- ruby
-      capabilities = capabilities
-    })
-    lspconfig.rust_analyzer.setup({ -- rust
+    lspconfig.rust_analyzer.setup({ -- rust (*)
       capabilities = capabilities
     })
     lspconfig.tailwindcss.setup({ -- tailwindcss
@@ -40,3 +37,4 @@ return {
     })
   end
 }
+-- (*): server installed with the toolchain
