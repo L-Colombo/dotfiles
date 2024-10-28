@@ -43,6 +43,12 @@ map("n", "<leader>sv", "<C-w>v")
 map("n", "<leader>sh", "<C-w>s")
 map("n", "<leader>sx", ":close<CR>")
 
+-- moving across split windows
+map("n", "<C-h>", "<C-w>h")
+map("n", "<C-j>", "<C-w>j")
+map("n", "<C-k>", "<C-w>k")
+map("n", "<C-l>", "<C-w>l")
+
 -- tab commands
 map("n", "<leader>to", ":tabnew<CR>")
 map("n", "<leader>tx", ":tabclose<CR>")
@@ -90,7 +96,7 @@ map("n", "<leader>gp", "<cmd>Gitsigns prev_hunk<cr>")
 
 -- lsp
 map("n", "gF", vim.lsp.buf.format, {})
-map("n", "K", vim.lsp.buf.hover, {})
+map("n", "K", require("hoversplit").vsplit_remain_focused, {})
 map("n", "gd", vim.lsp.buf.definition, {})
 map("n", "gD", vim.lsp.buf.declaration, {})
 map("n", "gr", vim.lsp.buf.references, {})
