@@ -5,16 +5,6 @@ return {
     opts = { default_theme = "habamax", auto_persist = true, }
   },
   {
-    "MyyPo/borrowed.nvim",
-    config = function()
-      require("borrowed").setup({
-        cursor = {
-          enable = true,
-        }
-      })
-    end
-  },
-  {
     "blazkowolf/gruber-darker.nvim",
     opts = {
       bold = true,
@@ -23,11 +13,17 @@ return {
       },
     },
   },
+  {
+    "loctvl842/monokai-pro.nvim",
+    config = function ()
+      require("monokai-pro").setup({
+        devicons = true,
+        filter = "spectrum",
+      })
+    end
+  },
   "L-Colombo/atlantic-dark.nvim",
-  "glitchcandy/glitchcandy-nvim",
-  "iruzo/matrix-nvim",
   "tpope/vim-vividchalk",
   "rebelot/kanagawa.nvim",
-  "ibash/nour2",
-  "aktersnurra/no-clown-fiesta.nvim",
+  "folke/tokyonight.nvim",
 }
