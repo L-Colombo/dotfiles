@@ -8,10 +8,7 @@
 #
 #
 ############### Aliases ##########################
-alias q="exit"
 alias nv="nvim"
-alias t="tmux"
-alias p="pandoc"
 alias exa="exa --all --long --header --color=always --icons --git-ignore --sort=type"
 alias tree="eza --color=always --icons --git-ignore --sort=type -T"
 alias rust_repl="evcxr"

@@ -15,11 +15,7 @@
 ############### Aliases ##########################
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
-alias q='exit'
 alias nv="nvim"
-alias t="tmux"
-alias p="pandoc"
-alias r="ranger"
 alias exa="exa --all --long --header --color=always --icons --git-ignore --sort=type"
 alias tree="eza --long --header --color=always --icons --git-ignore --sort=type -T"
 alias cp="cp -v"
