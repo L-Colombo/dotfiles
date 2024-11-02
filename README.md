@@ -1,17 +1,20 @@
 # Lorenzo Colombo - Dotfiles
 
-This is my dotfiles repository, which contains my configuration files for the applications I use in my day-to-day workflow. It is tested to work on GNU/Linux systems (mainly on Fedora and Arch) and on MacOs (in this case window managers are not considered). To use it, you can download the repo in your $HOME directory and, using [GNU Stow](https://www.gnu.org/software/stow/) within the `dotfiles/` directory give the command `stow .`, which generates symbolic links to the file configuration files and directories.
+This is my dotfiles repository, which contains my configuration files for the applications I use in my day-to-day workflow.
+It is tested to work on GNU/Linux systems (mainly on Fedora and Arch) and on MacOs (in this case window managers are not considered).
+To use it, you can download the repo in your `$HOME` directory and, using [GNU Stow](https://www.gnu.org/software/stow/) within the `dotfiles/` directory give the command `stow .`, which generates symbolic links to the file configuration files and directories.
 
 ## Dependencies
 
-For the configuration a patched font is generally required. I personally use the Iosevka Nerd Font, which can be downloaded [here](https://www.nerdfonts.com/). **XMonad** and **Hyprland** are configured to used some applications by default, like [feh](https://wiki.archlinux.org/title/feh) to set the wallpaper[^1] and [Thuar](https://docs.xfce.org/xfce/thunar/start) as a GUI file manager.
+For the configuration a patched font is generally required, which can be downloaded [here](https://www.nerdfonts.com/).
+**XMonad** and **Hyprland** are configured to used some applications by default, like [feh](https://wiki.archlinux.org/title/feh) to set the wallpaper[^1] and [Thuar](https://docs.xfce.org/xfce/thunar/start) as a GUI file manager.
 
 Other dependencies/programs I use in the configs might be:
 
 - [Pamixer](https://github.com/cdemoulins/pamixer), to manage audio controls;
 - [Brightnessctl](https://github.com/Hummer12007/brightnessctl), to control screen bightnes;
 - [feh](https://wiki.archlinux.org/title/feh) and [swaybg](https://github.com/swaywm/swaybg), to set the wallpapers;
-- [bemenu](https://github.com/Cloudef/bemenu) and [dmenu](https://tools.suckless.org/dmenu/) as application finders and more.
+- [bemenu](https://github.com/Cloudef/bemenu) and [dmenu](https://tools.suckless.org/dmenu/) as application launchers and more.
 
 Anyways, the rule of thumb is to double check within the appropriate configuration file what dependencies might be needed, instead of blindly adopting a configuration.
 
@@ -25,13 +28,16 @@ The main programs for which I have configuration files in this repository are:
 
 ### Alacritty
 
-[Alacritty](https://alacritty.org/) is a very good, cross-platform terminal emulator written in the Rust programming language. It is configured in the `alacritty.toml` file. In most situations, changes to the configuration file are applied as soon as the modified file is saved.
+[Alacritty](https://alacritty.org/) is a very good, cross-platform terminal emulator written in the Rust programming language.
+It is configured in the `alacritty.toml` file.
+In most situations, changes to the configuration file are applied as soon as the modified file is saved.
 
 The `alacritty/` directory also contains a theme, in the `hyper.toml` file, which was downloaded from the official [alacritty themes repo](https://github.com/alacritty/alacritty-theme/tree/master), where you can also find other themes.
 
 ### Neovim
 
-My neovim config is based on the [Lazy package manager](https://github.com/folke/lazy.nvim). It is wired to work best with the programming language I mostly use and it is in some way inspired by [this](https://github.com/josean-dev/dev-environment-files/tree/main/.config/nvim) configuration.
+My neovim config is based on the [Lazy package manager](https://github.com/folke/lazy.nvim).
+It is wired to work best with the programming language I mostly use and it is in some way inspired by [this](https://github.com/josean-dev/dev-environment-files/tree/main/.config/nvim) configuration.
 
 ### Vim
 
@@ -40,12 +46,25 @@ I don't use vim that much, preferring Neovim for any real work, therefore my `.v
 ### Gnu Emacs
 
 My configuration for Gnu Emacs is done via the `configuration.org` file, which is quite descriptive; you might direclty refer to that.
+I use mainly Emacs as a writing platform, minimally for programming.
+
+### Picom
+
+Picom is needed to provide feature like transparency in standalone window managers.
+The configuration just deals with some rough corners o the out-of-box picom experience.
+
+### Starship
+
+I like to have my full path and git information in my shell prompt and, to my experience, no one does it better than Starship.
 
 ### Tmux
 
 I think [Tmux](https://github.com/tmux/tmux/wiki) works great out of the box, so I don't use any external plugins and my configuration file is really bare-bones.
 
+### Zathura
 
+Zathura is my go-to PDF reader.
+By default I like to have bright green text on a pitch-black screen.
 
 ====
-[^1]: Note that the path to the wallpaper is hard-coded in the configuration files; you would have to set your own for it to work.
+[^1]: Note that the path to the wallpaper used in the Hyprland config is hard-coded; you would have to set your own for it to work.
