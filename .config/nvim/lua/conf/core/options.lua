@@ -49,4 +49,4 @@ opt.iskeyword:append("-")
 -- folding authomatically enabled
 opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.cmd("set nofoldenable")
+opt.foldlevelstart = 99
