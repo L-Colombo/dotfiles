@@ -22,8 +22,15 @@ return {
       })
     end
   },
+  {
+    "folke/tokyonight.nvim",
+    config = function ()
+      require("tokyonight").setup({
+        style = "night"
+      })
+    end
+  },
   "L-Colombo/atlantic-dark.nvim",
   "tpope/vim-vividchalk",
   "rebelot/kanagawa.nvim",
-  "folke/tokyonight.nvim",
 }
