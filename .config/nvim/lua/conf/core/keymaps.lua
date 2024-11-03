@@ -39,9 +39,10 @@ map("n", "<leader>x", ":bd!<cr>")
 map("n", "<leader>tt", ":terminal<cr>")
 
 -- split windows
-map("n", "<leader>sv", "<C-w>v")
-map("n", "<leader>sh", "<C-w>s")
-map("n", "<leader>sx", ":close<CR>")
+map("n", "<C-x>0", ":close<CR>")
+map("n", "<C-x>1", "<C-w>o")
+map("n", "<C-x>2", "<C-w>s")
+map("n", "<C-x>3", "<C-w>v")
 
 -- moving across split windows
 map("n", "<C-h>", "<C-w>h")
