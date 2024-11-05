@@ -88,7 +88,6 @@ key("i", "<c-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
 key("s", "<S-Tab>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
 
 -- neogit/gitsigns
-map("n", "<leader>ng", "<cmd>Neogit<cr>")
 map("n", "<leader>gr", "<cmd>Gitsigns reset_hunk<cr>")
 map("n", "<leader>gs", "<cmd>Gitsigns stage_hunk<cr>")
 map("n", "<leader>ph", "<cmd>Gitsigns preview_hunk<cr>")
