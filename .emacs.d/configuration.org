@@ -42,6 +42,7 @@
 (add-to-list 'default-frame-alist '(height . 34))
 (add-to-list 'default-frame-alist '(width . 102))
 
+(set-frame-font "Mononoki Nerd Font Propo 14" nil t)
 (setq gc-cons-threshold (* 50 1000 1000))
 #+end_src
 
@@ -292,19 +293,6 @@ To configure ~eshell~ is best to create a custom function that loads the configu
 (use-package eshell
   :ensure t
   :hook (eshell-first-time-mode . lc/configure-eshell))
-#+end_src
-
-** Multiple cursors
-
-#+begin_src emacs-lisp
-(use-package multiple-cursors
-  :ensure t
-  :defer 5
-  :config
-  (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-  (global-set-key (kbd "C->") 'mc/mark-next-like-this)
-  (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-  (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this))
 #+end_src
 
 ** Rainbow-delimiters
