@@ -101,4 +101,22 @@ function y() {
 	rm -f -- "$tmp"
 }
 
+# Tmux StartUp. Opens new tmux session in poject with a default window layout
+function tsu() {
+    CURRENT_SESSION=$(basename "$PWD")
+
+    tmux has-session -t $CURRENT_SESSION 2>/dev/null
+
+    if (( $? == 0 )); then
+        tmux attach-session -t $CURRENT_SESSION
+    else
+        tmux new-session -d -s $CURRENT_SESSION nvim;
+        tmux new-window -d -n run;
+        tmux new-window -d lazygit;
+
+        tmux attach-session -t $CURRENT_SESSION;
+    fi
+}
+
+
 [ -f "/home/lc/.ghcup/env" ] && . "/home/lc/.ghcup/env" # ghcup-env
