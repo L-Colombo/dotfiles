@@ -20,12 +20,9 @@ alias rm="rm -v"
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 eval "$(fzf --zsh)"
-eval "$(~/.rbenv/bin/rbenv init - --no-rehash zsh)"
 
 ############### Variables ########################
 export EDITOR="nvim"
-export GEM_HOME="$(gem env user_gemhome)"
-export PATH="$PATH:$GEM_HOME/bin"
 export PATH="$PATH:$HOME/.config/composer/vendor/bin/"
 export PATH="$PATH:$HOME/.local/bin"
 export WORDCHARS=${WORDCHARS/\/}
