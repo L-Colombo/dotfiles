@@ -11,6 +11,9 @@ return {
     lspconfig.clangd.setup({ -- c/c++
       capabilities = capabilities
     })
+    lspconfig.gopls.setup({
+      capabilities = capabilities
+    })
     lspconfig.hls.setup({ -- haskell (*)
       capabilities = capabilities
     })
@@ -30,6 +33,9 @@ return {
       capabilities = capabilities
     })
     lspconfig.tailwindcss.setup({ -- tailwindcss
+      capabilities = capabilities
+    })
+    lspconfig.texlab.setup({ -- LaTeX (**)
       capabilities = capabilities
     })
     lspconfig.ts_ls.setup({ -- typescript/javascript
