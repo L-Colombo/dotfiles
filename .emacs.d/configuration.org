@@ -789,3 +789,26 @@ This custom interactive function is to set the spelling to Italian an run ~flysp
   (ispell-change-dictionary "italiano")
   (flyspell-buffer))
 #+end_src
+
+** Languagetool
+
+Languagetool is a neat program that provides language, grammar and syntax analysis. It needs to be installed on the system outside of Emacs with the package manager.
+
+#+begin_src emacs-lisp
+(use-package languagetool
+  :ensure t
+  :defer t
+  :commands (languagetool-check
+             languagetool-clear-suggestions
+             languagetool-correct-at-point
+             languagetool-correct-buffer
+             languagetool-set-language
+             languagetool-server-mode
+             languagetool-server-start
+             languagetool-server-stop)
+  :config
+  (setq languagetool-java-arguments '("-Dfile.encoding=UTF-8"
+                                    "-cp" "/usr/share/languagetool:/usr/share/java/languagetool/*")
+      languagetool-console-command "org.languagetool.commandline.Main"
+      languagetool-server-command "org.languagetool.server.HTTPServer"))
+#+end_src
