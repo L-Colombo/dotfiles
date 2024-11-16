@@ -18,8 +18,7 @@ map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 map("v", "<up>", "gk")
 map("v", "<down>", "gj")
 map("v", "J", ":m '>+1<CR>gv=gv")
-map("v", "K", ":m '<-2<CR>gv=gv")
-map("v", "<", "<gv", { noremap = true, silent = true })
+map("v", "K", ":m '<-2<CR>gv=gv") map("v", "<", "<gv", { noremap = true, silent = true })
 map("v", ">", ">gv", { noremap = true, silent = true })
 
 -- center screen afer search and pgUp/pgDown and paragraph moving
@@ -96,7 +95,8 @@ map("n", "<leader>gp", "<cmd>Gitsigns prev_hunk<cr>")
 
 -- lsp
 map("n", "gF", vim.lsp.buf.format, {})
-map("n", "K", require("hoversplit").vsplit_remain_focused, {})
+map("n", "K", vim.lsp.buf.hover, {})
+map("n", "<leader>d", require("hoversplit").vsplit_remain_focused, {})
 map("n", "gd", vim.lsp.buf.definition, {})
 map("n", "gD", vim.lsp.buf.declaration, {})
 map("n", "gr", vim.lsp.buf.references, {})

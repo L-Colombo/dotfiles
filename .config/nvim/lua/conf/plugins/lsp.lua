@@ -44,3 +44,4 @@ return {
   end
 }
 -- (*): server installed with the toolchain
+-- (**): server installed with package manager
