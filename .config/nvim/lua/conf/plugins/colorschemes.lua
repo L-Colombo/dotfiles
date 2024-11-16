@@ -33,4 +33,6 @@ return {
   "L-Colombo/atlantic-dark.nvim",
   "tpope/vim-vividchalk",
   "rebelot/kanagawa.nvim",
+  "cwshugg/dwarrowdelf",
+  "ronwoch/hotline-vim",
 }
