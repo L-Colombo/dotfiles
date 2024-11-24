@@ -42,7 +42,7 @@
 (add-to-list 'default-frame-alist '(height . 34))
 (add-to-list 'default-frame-alist '(width . 102))
 
-(set-frame-font "Iosevka Nerd Font Propo 16" nil t)
+(set-frame-font "Iosevka Nerd Font Propo 15" nil t)
 (setq gc-cons-threshold (* 50 1000 1000))
 #+end_src
 
@@ -132,19 +132,22 @@ The following block is to ensure that the themes usually set as default are inst
 (use-package klere-theme
   :defer t
   :ensure t)
+(use-package miasma-theme
+  :defer t
+  :ensure t)
 
-(load-theme 'naga t)
+(load-theme 'miasma t)
 (set-cursor-color "#ff5500")
 #+end_src
 
 *** Custom functions and mappings
 
-**** ~open-eshell-in-split-window~
+**** ~open-shell-in-split-window~
 This function opens a terminal in a split window at the current working directory.
 It is bound to ~C-M-<return>~.
 
 #+begin_src emacs-lisp
-(defun open-eshell-in-split-window ()
+(defun open-shell-in-split-window ()
   "Open a terminal in a split window"
   (interactive)
   (let ((buf (term "/usr/bin/zsh")))
