@@ -735,7 +735,9 @@ Install ~doom-modeline~ package and the ~nerd-icons~ package; in order for this 
   :ensure t)
 (use-package doom-modeline
   :ensure t
-  :config (doom-modeline-mode 1))
+  :config
+  (doom-modeline-mode 1)
+  (setq doom-modeline-enable-word-count t))
 #+end_src
 
 ** Tree file explorer (~neotree~)
