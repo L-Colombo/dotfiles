@@ -596,13 +596,15 @@ We need to make sure that a directory for ~org-roam~ exists, so we create it in 
   :custom
   (org-roam-directory (file-truename "~/Documents/OrgFiles/org-roam/"))
   (find-file-visit-truename t)
-  (org-roam-capture-templates '(("f" "Fleeting notes" plain "%?"
+  (org-roam-capture-templates '(("c" "Concept Notes" plain "#+STARTUP: content\n\n* Description\n%?\n\n* Projects\n\n* Bibliography"
+								   :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${concept}"))
+
+                                ("l" "Literature notes" plain
+                                 "#+STARTUP: content\n\n* ${title}\nAuthor: %^{Author}\nFull title: %^{FullTitle}\nYear: %^{Year}\nType: %^{Type}\nFull reference: %^{FullReference}\n\n* Notes\n\n\n%?"
 								   :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n"))
-								  ("l" "Literature notes" plain
-                                 "#+STARTUP: content\n* ${title}\nAuthor: %^{Author}\nFull title: %^{FullTitle}\nYear: %^{Year}\nType: %^{Type}\nFull reference: %^{FullReference}\n\n* Notes\n\n\n%?"
-								   :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n"))
-                                ("p" "Permanent notes" plain "#+STARTUP: showeverything\n* ${title}\n%?"
-                                 :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n"))))
+
+                                ("p" "Project Notes" plain "#+STARTUP: content\n\n* ${title}\nType: %^{Type}\n\n* Structure\n** %? \n\n* Concepts\n"
+                                 :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}"))))
   :bind (("C-c r d" . org-roam-buffer-display-dedicated)
 		   ("C-c r f" . org-roam-node-find)
 		   ("C-c r g" . org-roam-graph)
