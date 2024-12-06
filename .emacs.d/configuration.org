@@ -600,7 +600,7 @@ We need to make sure that a directory for ~org-roam~ exists, so we create it in 
 								   :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${concept}"))
 
                                 ("l" "Literature notes" plain
-                                 "#+STARTUP: content\n\n* ${title}\nAuthor: %^{Author}\nFull title: %^{FullTitle}\nYear: %^{Year}\nType: %^{Type}\nFull reference: %^{FullReference}\n\n* Notes\n\n\n%?"
+                                 "#+STARTUP: show2levels\n\n* ${title}\nAuthor: %^{Author}\nFull title: %^{FullTitle}\nYear: %^{Year}\nType: %^{Type}\nFull reference: %^{FullReference}\n\n* Notes\n\n\n%?"
 								   :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n"))
 
                                 ("p" "Project Notes" plain "#+STARTUP: content\n\n* ${title}\nType: %^{Type}\n\n* Structure\n** %? \n\n* Concepts\n"
