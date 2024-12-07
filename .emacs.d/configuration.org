@@ -597,14 +597,12 @@ We need to make sure that a directory for ~org-roam~ exists, so we create it in 
   (org-roam-directory (file-truename "~/Documents/OrgFiles/org-roam/"))
   (find-file-visit-truename t)
   (org-roam-capture-templates '(("c" "Concept Notes" plain "#+STARTUP: content\n\n* Description\n%?\n\n* Projects\n\n* Bibliography"
-								   :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${concept}"))
-
+								   :if-new (file+head "con_${slug}.org" "#+title: con_${concept}"))
                                 ("l" "Literature notes" plain
-                                 "#+STARTUP: show2levels\n\n* ${title}\nAuthor: %^{Author}\nFull title: %^{FullTitle}\nYear: %^{Year}\nType: %^{Type}\nFull reference: %^{FullReference}\n\n* Notes\n\n\n%?"
-								   :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n"))
-
+                                 "#+STARTUP: show2levels\n\n* lit_${title}\nAuthor: %^{Author}\nFull title: %^{FullTitle}\nYear: %^{Year}\nType: %^{Type}\nFull reference: %^{FullReference}\n\n* Notes\n\n\n%?"
+								   :if-new (file+head "lit_${slug}.org" "#+title: ${title}\n"))
                                 ("p" "Project Notes" plain "#+STARTUP: content\n\n* ${title}\nType: %^{Type}\n\n* Structure\n** %? \n\n* Concepts\n"
-                                 :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}"))))
+                                 :if-new (file+head "pj_${slug}.org" "#+title: pj_${title}"))))
   :bind (("C-c r d" . org-roam-buffer-display-dedicated)
 		   ("C-c r f" . org-roam-node-find)
 		   ("C-c r g" . org-roam-graph)
@@ -614,6 +612,16 @@ We need to make sure that a directory for ~org-roam~ exists, so we create it in 
   (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
   (org-roam-db-autosync-mode)
   (require 'org-roam-protocol))
+#+end_src
+
+*** Org-Roam-UI
+
+~Org Roam UI~ provides a nice visualization tool to see your nodes in a web browser. The version available from MELPA is plug-and-play, so it just needs to be installed
+
+#+begin_src emacs-lisp
+(use-package org-roam-ui
+  :ensure t
+  :after org-mode)
 #+end_src
 
 ** Completions
