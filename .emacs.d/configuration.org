@@ -154,7 +154,7 @@ It is bound to ~C-M-<return>~.
 	(switch-to-buffer (other-buffer buf))
 	(switch-to-buffer-other-window buf)))
 
-(global-set-key (kbd "C-M-<return>") #'open-eshell-in-split-window)
+(global-set-key (kbd "C-M-<return>") #'open-shell-in-split-window)
 #+end_src
 
 **** ~goto-matching-par~
