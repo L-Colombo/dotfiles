@@ -42,7 +42,7 @@
 (add-to-list 'default-frame-alist '(height . 34))
 (add-to-list 'default-frame-alist '(width . 102))
 
-(set-frame-font "Iosevka Nerd Font Propo 15" nil t)
+(set-frame-font "UbuntuMono Nerd Font Propo 15" nil t)
 (setq gc-cons-threshold (* 50 1000 1000))
 #+end_src
 
@@ -596,12 +596,12 @@ We need to make sure that a directory for ~org-roam~ exists, so we create it in 
   :custom
   (org-roam-directory (file-truename "~/Documents/OrgFiles/org-roam/"))
   (find-file-visit-truename t)
-  (org-roam-capture-templates '(("c" "Concept Notes" plain "#+STARTUP: content\n\n* Description\n%?\n\n* Projects\n\n* Bibliography"
+  (org-roam-capture-templates '(("c" "Concept Notes" plain "#+STARTUP: content\n\n* Description\n%?\n\n* Related Concepts\n* Bibliography"
 								   :if-new (file+head "con_${slug}.org" "#+title: con_${concept}"))
                                 ("l" "Literature notes" plain
                                  "#+STARTUP: show2levels\n\n* lit_${title}\nAuthor: %^{Author}\nFull title: %^{FullTitle}\nYear: %^{Year}\nType: %^{Type}\nFull reference: %^{FullReference}\n\n* Notes\n\n\n%?"
 								   :if-new (file+head "lit_${slug}.org" "#+title: ${title}\n"))
-                                ("p" "Project Notes" plain "#+STARTUP: content\n\n* ${title}\nType: %^{Type}\n\n* Structure\n** %? \n\n* Concepts\n"
+                                ("p" "Project Notes" plain "#+STARTUP: content\n\n* ${title}\nType: %^{Type}\n\n* Description\n%?\n\n* Structure\n \n\n* Concepts\n"
                                  :if-new (file+head "pj_${slug}.org" "#+title: pj_${title}"))))
   :bind (("C-c r d" . org-roam-buffer-display-dedicated)
 		   ("C-c r f" . org-roam-node-find)
@@ -689,6 +689,7 @@ We first need to install the ~dashboard~ package and the ~all-the-icons~ package
                                 (projects . 5)
                                 (recents . 10)))
   :config (dashboard-setup-startup-hook))
+(global-set-key (kbd "C-c d o") 'dashboard-open)
 #+end_src
 
 ** Projectile
