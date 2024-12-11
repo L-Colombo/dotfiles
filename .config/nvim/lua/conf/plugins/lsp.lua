@@ -11,7 +11,7 @@ return {
     lspconfig.clangd.setup({ -- c/c++
       capabilities = capabilities
     })
-    lspconfig.gopls.setup({
+    lspconfig.gopls.setup({ -- go (**)
       capabilities = capabilities
     })
     lspconfig.hls.setup({ -- haskell (*)
