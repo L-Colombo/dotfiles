@@ -15,7 +15,7 @@ return {
   },
   {
     "loctvl842/monokai-pro.nvim",
-    config = function ()
+    config = function()
       require("monokai-pro").setup({
         devicons = true,
         filter = "spectrum",
@@ -24,7 +24,7 @@ return {
   },
   {
     "folke/tokyonight.nvim",
-    config = function ()
+    config = function()
       require("tokyonight").setup({
         style = "night"
       })
@@ -34,5 +34,5 @@ return {
   "tpope/vim-vividchalk",
   "rebelot/kanagawa.nvim",
   "cwshugg/dwarrowdelf",
-  "ronwoch/hotline-vim",
+  "ficcdaf/ashen.nvim",
 }
