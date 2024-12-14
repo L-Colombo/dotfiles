@@ -10,24 +10,34 @@ autocmd("TextYankPost", {
   end,
 })
 
--- set right color
+-- set indent guides color
 autocmd("BufEnter", {
   desc = "Set the right indent guides colors",
   group = augroup("Visual", { clear = true }),
-  callback = function ()
-      vim.cmd.highlight("IndentLine guifg=#666666")
-      vim.cmd.highlight("IndentLineCurrent guifg=#666666")
+  callback = function()
+    vim.cmd.highlight("IndentLine guifg=#666666")
+    vim.cmd.highlight("IndentLineCurrent guifg=#666666")
+  end
+})
+
+-- format on save
+autocmd("BufWritePre", {
+  desc = "Format code on save",
+  group = augroup("Formatting", { clear = true }),
+  callback = function()
+    local bufnr = vim.fn.winbufnr(0)
+    if vim.lsp.buf_is_attached(bufnr) then
+      vim.lsp.buf.format()
     end
+  end
 })
 
 -- set indentation to 2 for specific filetypes
 autocmd("Filetype", {
   group = augroup("setIndent", { clear = true }),
   pattern = {
-    "c",
     "javascript",
     "typescript",
-    "haskell",
     "lua",
     "jsx",
     "tsx",
