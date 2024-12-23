@@ -23,10 +23,23 @@ return {
     lspconfig.intelephense.setup({ -- php
       capabilities = capabilities
     })
-    lspconfig.lua_ls.setup({  -- lua
-      capabilities = capabilities
+    lspconfig.lua_ls.setup({ -- lua
+      capabilities = capabilities,
     })
     lspconfig.pyright.setup({ -- python
+      capabilities = capabilities,
+      settings = {
+        pyright = {
+          disableOrganizeImports = true,
+        },
+        python = {
+          analysis = {
+            ignore = { "*" },
+          }
+        }
+      }
+    })
+    lspconfig.ruff.setup({ -- python
       capabilities = capabilities
     })
     lspconfig.rust_analyzer.setup({ -- rust (*)

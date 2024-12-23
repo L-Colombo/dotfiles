@@ -12,6 +12,7 @@ return {
         "intelephense",
         "lua_ls",
         "pyright",
+        "ruff",
         "tailwindcss",
         "ts_ls",
       },
