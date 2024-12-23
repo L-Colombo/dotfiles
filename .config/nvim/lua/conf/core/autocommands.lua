@@ -10,16 +10,6 @@ autocmd("TextYankPost", {
   end,
 })
 
--- set indent guides color
-autocmd("BufEnter", {
-  desc = "Set the right indent guides colors",
-  group = augroup("Visual", { clear = true }),
-  callback = function()
-    vim.cmd.highlight("IndentLine guifg=#666666")
-    vim.cmd.highlight("IndentLineCurrent guifg=#666666")
-  end
-})
-
 -- format on save
 autocmd("BufWritePre", {
   desc = "Format code on save",
@@ -45,4 +35,24 @@ autocmd("Filetype", {
     "javascriptreact"
   },
   command = "setlocal shiftwidth=2 tabstop=2"
+})
+
+-- set indent highlight as block in python files
+autocmd("Filetype", {
+  group = augroup("python indent highlight", { clear = true }),
+  pattern = { "python" },
+  callback = function()
+    local highlight = {
+      "CursorColumn",
+      "Whitespace",
+    }
+    require("ibl").setup {
+      indent = { highlight = highlight, char = "" },
+      whitespace = {
+        highlight = highlight,
+        remove_blankline_trail = false,
+      },
+      scope = { enabled = false },
+    }
+  end
 })
