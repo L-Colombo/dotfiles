@@ -603,7 +603,7 @@ We need to make sure that a directory for ~org-roam~ exists, so we create it in 
 								   :if-new (file+head "con_${slug}.org" "#+title: con_${concept}"))
                                 ("l" "Literature notes" plain
                                  "#+STARTUP: show2levels\n\n* lit_${title}\nAuthor: %^{Author}\nFull title: %^{FullTitle}\nYear: %^{Year}\nType: %^{Type}\nFull reference: %^{FullReference}\n\n* Notes\n\n\n%?"
-								   :if-new (file+head "lit_${slug}.org" "#+title: ${title}\n"))
+								   :if-new (file+head "lit_${slug}.org" "#+title: lit_${title}\n"))
                                 ("p" "Project Notes" plain "#+STARTUP: content\n\n* ${title}\nType: %^{Type}\n\n* Description\n%?\n\n* Structure\n \n\n* Concepts\n"
                                  :if-new (file+head "pj_${slug}.org" "#+title: pj_${title}"))))
   :bind (("C-c r d" . org-roam-buffer-display-dedicated)
