@@ -73,7 +73,7 @@ return {
             jump = function(direction) require('luasnip').jump(direction) end,
         },
         sources = {
-            default = { "lsp", "path", "luasnip", "buffer" },
+            default = { "lsp", "path", "snippets", "luasnip", "buffer" },
         },
     },
     opts_extend = { "sources.default" }
