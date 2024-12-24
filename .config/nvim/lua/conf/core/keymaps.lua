@@ -4,7 +4,7 @@ local map = vim.keymap.set
 map({ "i", "v", "s" }, "jk", "<esc>")
 map("t", "jk", "<C-\\><C-n>")
 map("n", "<leader>nh", ":nohls<CR>")
-map({"n", "v"}, "x", '"_x')
+map({ "n", "v" }, "x", '"_x')
 map("n", "<leader>ww", "<cmd>set wrap!<cr>")
 map("n", "<leader>ss", "<cmd>set spell!<cr>")
 
@@ -18,7 +18,8 @@ map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 map("v", "<up>", "gk")
 map("v", "<down>", "gj")
 map("v", "J", ":m '>+1<CR>gv=gv")
-map("v", "K", ":m '<-2<CR>gv=gv") map("v", "<", "<gv", { noremap = true, silent = true })
+map("v", "K", ":m '<-2<CR>gv=gv")
+map("v", "<", "<gv", { noremap = true, silent = true })
 map("v", ">", ">gv", { noremap = true, silent = true })
 
 -- center screen afer search and pgUp/pgDown and paragraph moving

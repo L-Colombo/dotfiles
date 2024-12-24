@@ -1,6 +1,6 @@
 return {
-  "roobert/hoversplit.nvim",
-  config = function()
-    require("hoversplit").setup({})
-  end,
+    "roobert/hoversplit.nvim",
+    config = function()
+        require("hoversplit").setup({})
+    end,
 }
