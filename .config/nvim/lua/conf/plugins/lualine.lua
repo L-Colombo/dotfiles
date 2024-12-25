@@ -8,13 +8,11 @@ return {
         require("lualine").setup({
             options = {
                 theme = custom_theme,
-                section_separators = "",
-                component_separators = "",
+                component_separators = { left = '', right = '' },
+                section_separators = { left = '', right = '' },
             },
             sections = {
-                lualine_b = { {
-                    "branch"
-                } },
+                lualine_b = { { "branch" } },
                 lualine_c = {
                     {
                         "buffers",
