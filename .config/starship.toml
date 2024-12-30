@@ -26,7 +26,7 @@ truncate_to_repo = false
 [git_branch]
 symbol = ' '
 always_show_remote = true
-format = 'on [$symbol$branch ( $remote_name/$remote_branch)]($style) '
+format = 'on [$symbol$branch ( $remote_name/$remote_branch)]($style) '
 
 [git_metrics]
 disabled = false
