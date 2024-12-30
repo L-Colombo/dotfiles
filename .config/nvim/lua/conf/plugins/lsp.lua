@@ -39,7 +39,7 @@ return {
                 }
             }
         })
-        lspconfig.ruff.setup({ -- python
+        lspconfig.ruff.setup({ -- python (**)
             capabilities = capabilities
         })
         lspconfig.rust_analyzer.setup({ -- rust (*)
