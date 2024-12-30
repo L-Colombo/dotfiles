@@ -18,7 +18,7 @@ return {
         config = function()
             require("monokai-pro").setup({
                 devicons = true,
-                filter = "spectrum",
+                filter = "classic",
             })
         end
     },
