@@ -20,11 +20,11 @@ return {
         lspconfig.html.setup({ -- html
             capabilities = capabilities
         })
-        lspconfig.intelephense.setup({ -- php
-            capabilities = capabilities
-        })
         lspconfig.lua_ls.setup({ -- lua
             capabilities = capabilities,
+        })
+        lspconfig.phpactor.setup({
+            capabilities = capabilities
         })
         lspconfig.pyright.setup({ -- python
             capabilities = capabilities,
@@ -57,4 +57,4 @@ return {
     end
 }
 -- (*): server installed with the toolchain
--- (**): server installed with package manager
+-- (**): server installed with OS package manager
