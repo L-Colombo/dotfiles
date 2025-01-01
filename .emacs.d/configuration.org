@@ -113,6 +113,12 @@ This is to bind to ~C-c DEL~ the command ~kill-buffer-and-window~:
 (global-set-key (kbd "C-c DEL") #'kill-buffer-and-window)
 #+end_src
 
+This rebinds ~C-x C-o~ to the command ~window-swap-states~.
+
+#+begin_src emacs-lisp
+(global-set-key (kbd "C-x C-o") #'window-swap-states)
+#+end_src
+
 *** Set meta key to CMD on MacOs
 
 #+begin_src emacs-lisp
