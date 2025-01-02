@@ -252,7 +252,7 @@ It is bound to ~"C-t"~.
                      ;; Also handle undocumented (<active> <inactive>) form.
                      ((numberp (cadr alpha)) (cadr alpha)))
                100)
-          '(95 . 50) '(100 . 100)))))
+          '(90 . 50) '(100 . 100)))))
 (global-set-key (kbd "C-t") #'tt)
 #+end_src
 
@@ -694,7 +694,8 @@ We first need to install the ~dashboard~ package and the ~all-the-icons~ package
 			  dashboard-set-heading-icons nil
 			  dashboard-set-file-icons t
 			  dashboard-projects-backend 'projectile
-			  dashboard-items '((agenda . 5)
+			  dashboard-items '((bookmarks . 5)
+                                (agenda . 5)
                                 (projects . 5)
                                 (recents . 10)))
   :config (dashboard-setup-startup-hook))
