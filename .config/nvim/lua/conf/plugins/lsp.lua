@@ -23,8 +23,11 @@ return {
         lspconfig.lua_ls.setup({ -- lua
             capabilities = capabilities,
         })
-        lspconfig.phpactor.setup({
-            capabilities = capabilities
+        lspconfig.phpactor.setup({ -- php
+            capabilities = capabilities,
+            init_options = {
+                ["language_server_completion.trim_leading_dollar"] = true,
+            }
         })
         lspconfig.pyright.setup({ -- python
             capabilities = capabilities,
