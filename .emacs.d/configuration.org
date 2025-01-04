@@ -42,7 +42,7 @@
 (add-to-list 'default-frame-alist '(height . 34))
 (add-to-list 'default-frame-alist '(width . 102))
 
-(set-frame-font "Mononoki Nerd Font Propo 15" nil t)
+(set-frame-font "ZedMono Nerd Font Propo 15" nil t)
 (setq gc-cons-threshold (* 50 1000 1000))
 #+end_src
 
@@ -507,7 +507,8 @@ Then, we can take care of the rest. As ~org-mode~ is built-in, it needs only to 
 			  org-edit-src-content-indentation 0
 			  org-src-tab-acts-natively t
             org-ellipsis " "
-			  org-src-preserve-indentation t)
+			  org-src-preserve-indentation t
+            org-capture-bookmark nil)
   :hook (org-mode . org-indent-mode))
 #+end_src
 
@@ -605,11 +606,11 @@ We need to make sure that a directory for ~org-roam~ exists, so we create it in 
   :custom
   (org-roam-directory (file-truename "~/Documents/OrgFiles/org-roam/"))
   (find-file-visit-truename t)
-  (org-roam-capture-templates '(("c" "Concept Notes" plain "#+STARTUP: content\n\n* Description\n%?\n\n* Related Concepts\n* Bibliography"
+  (org-roam-capture-templates '(("c" "Concept Notes" plain "#+STARTUP: content\n\n* Description\n%?\n\n* Bibliography\n\n* Primary sources"
 								   :if-new (file+head "con_${slug}.org" "#+title: con_${concept}"))
                                 ("l" "Literature notes" plain
                                  "#+STARTUP: show2levels\n\n* lit_${title}\nAuthor: %^{Author}\nFull title: %^{FullTitle}\nYear: %^{Year}\nType: %^{Type}\nFull reference: %^{FullReference}\n\n* Notes\n\n\n%?"
-								   :if-new (file+head "lit_${slug}.org" "#+title: lit_${title}\n"))
+								   :if-new (file+head "lit_${slug}.org" "#+title: lit_${title}\n#+filetags: lit_${title}"))
                                 ("p" "Project Notes" plain "#+STARTUP: content\n\n* ${title}\nType: %^{Type}\n\n* Description\n%?\n\n* Structure\n \n\n* Concepts\n"
                                  :if-new (file+head "pj_${slug}.org" "#+title: pj_${title}"))))
   :bind (("C-c r d" . org-roam-buffer-display-dedicated)
