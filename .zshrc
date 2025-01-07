@@ -20,6 +20,7 @@ alias rm="rm -v"
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 eval "$(fzf --zsh)"
+eval "$(~/.rbenv/bin/rbenv init - --no-rehash zsh)"
 
 ############### Variables ########################
 export EDITOR="nvim"
