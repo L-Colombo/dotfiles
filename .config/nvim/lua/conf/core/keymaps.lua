@@ -58,6 +58,7 @@ map("n", "<leader>tp", ":tabp<CR>")
 
 -- toggle explorer
 map("n", "<leader>e", ":NvimTreeToggle<CR>")
+map("n", "<leader>E", ":NvimTreeFindFile<CR>")
 
 -- telescope
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
