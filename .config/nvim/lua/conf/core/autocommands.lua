@@ -26,12 +26,8 @@ autocmd("BufWritePre", {
 autocmd("Filetype", {
     group = augroup("setIndent", { clear = true }),
     pattern = {
-        "javascript",
-        "typescript",
-        "jsx",
-        "tsx",
-        "typescriptreact",
-        "javascriptreact"
+        "c",
+        "cpp"
     },
     command = "setlocal shiftwidth=2 tabstop=2"
 })
