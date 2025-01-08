@@ -42,6 +42,9 @@ return {
                 }
             }
         })
+        lspconfig.ruby_lsp.setup({ -- ruby (*)
+            capabilities = capabilities,
+        })
         lspconfig.ruff.setup({ -- python (**)
             capabilities = capabilities
         })
