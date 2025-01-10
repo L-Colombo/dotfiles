@@ -5,7 +5,8 @@ return {
     config = function()
         require("nvim-tree").setup({
             view = {
-                relativenumber = true
+                relativenumber = true,
+                side = "right"
             },
             renderer = {
                 indent_markers = {

@@ -35,4 +35,5 @@ return {
     "rebelot/kanagawa.nvim",
     "cwshugg/dwarrowdelf",
     "ficcdaf/ashen.nvim",
+    "oprearocks/allhallowseve.nvim",
 }
