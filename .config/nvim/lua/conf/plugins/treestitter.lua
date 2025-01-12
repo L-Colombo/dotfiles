@@ -5,7 +5,10 @@ return {
         ts_update()
     end,
     config = function()
-        require "nvim-treesitter.configs".setup {
+        require("nvim-treesitter.configs").setup {
+            endwise = {
+                enable = true
+            },
             sync_install = false,
             auto_install = true,
             highlight = { enable = true },
