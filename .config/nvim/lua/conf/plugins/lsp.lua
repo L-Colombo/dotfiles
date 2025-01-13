@@ -18,7 +18,11 @@ return {
             capabilities = capabilities
         })
         lspconfig.html.setup({ -- html
-            capabilities = capabilities
+            capabilities = capabilities,
+            filetypes = {
+                "html",
+                "eruby"
+            }
         })
         lspconfig.lua_ls.setup({ -- lua
             capabilities = capabilities,
