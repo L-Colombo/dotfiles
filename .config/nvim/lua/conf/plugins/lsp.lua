@@ -48,6 +48,10 @@ return {
         })
         lspconfig.ruby_lsp.setup({ -- ruby (*)
             capabilities = capabilities,
+            init_options = {
+                formatter = "standard",
+                linters = { "standard" },
+            }
         })
         lspconfig.ruff.setup({ -- python (**)
             capabilities = capabilities
