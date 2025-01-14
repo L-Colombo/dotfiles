@@ -31,7 +31,6 @@ return {
         end
     },
     "L-Colombo/atlantic-dark.nvim",
-    "tpope/vim-vividchalk",
     "rebelot/kanagawa.nvim",
     "cwshugg/dwarrowdelf",
     "ficcdaf/ashen.nvim",

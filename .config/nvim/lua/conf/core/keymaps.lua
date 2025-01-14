@@ -99,7 +99,6 @@ map("n", "<leader>gp", "<cmd>Gitsigns prev_hunk<cr>")
 -- lsp
 map("n", "gF", vim.lsp.buf.format, {})
 map("n", "K", vim.lsp.buf.hover, {})
-map("n", "<leader>d", require("hoversplit").vsplit_remain_focused, {})
 map("n", "gd", vim.lsp.buf.definition, {})
 map("n", "gD", vim.lsp.buf.declaration, {})
 map("n", "gr", vim.lsp.buf.references, {})
