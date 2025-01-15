@@ -6,12 +6,27 @@ return {
             change       = { text = '~' },
             changedelete = { text = '%' },
         }
+
     },
     config = function()
-        vim.keymap.set("n", "<leader>gr", "<cmd>Gitsigns reset_hunk<cr>")
-        vim.keymap.set("n", "<leader>gs", "<cmd>Gitsigns stage_hunk<cr>")
-        vim.keymap.set("n", "<leader>ph", "<cmd>Gitsigns preview_hunk<cr>")
-        vim.keymap.set("n", "<leader>gn", "<cmd>Gitsigns next_hunk<cr>")
-        vim.keymap.set("n", "<leader>gp", "<cmd>Gitsigns prev_hunk<cr>")
+        require('gitsigns').setup {
+            on_attach = function(bufnr)
+                local gitsigns = require('gitsigns')
+
+                local function map(mode, l, r, opts)
+                    opts = opts or {}
+                    opts.buffer = bufnr
+                    vim.keymap.set(mode, l, r, opts)
+                end
+
+                map('n', '<leader>gs', gitsigns.stage_hunk)
+                map('n', '<leader>gr', gitsigns.reset_hunk)
+                map('n', '<leader>gu', gitsigns.undo_stage_hunk)
+                map('n', '<leader>gh', gitsigns.preview_hunk)
+                map('n', '<leader>gp', gitsigns.prev_hunk)
+                map('n', '<leader>gn', gitsigns.next_hunk)
+            end
+        }
     end
+
 }
