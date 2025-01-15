@@ -1,3 +1,6 @@
+-- NB: All the plugins that have their own config file
+-- have their keymaps defined there
+
 local map = vim.keymap.set
 
 -- general keymaps
@@ -56,46 +59,6 @@ map("n", "<leader>tx", ":tabclose<CR>")
 map("n", "<leader>tn", ":tabn<CR>")
 map("n", "<leader>tp", ":tabp<CR>")
 
--- toggle explorer
-map("n", "<leader>e", ":NvimTreeToggle<CR>")
-map("n", "<leader>E", ":NvimTreeFindFile<CR>")
-
--- telescope
-map("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
-map("n", "<leader>fs", "<cmd>Telescope live_grep<cr>")
-map("n", "<leader>fw", "<cmd>Telescope grep_string<cr>")
-map("n", "<leader>fc", "<cmd>Telescope colorscheme<cr>")
-map("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
-map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
-map("n", "<leader>fd", "<cmd>Telescope diagnostics<cr>")
-map("n", "<leader>fr", "<cmd>Telescope registers<cr>")
-map("n", "<leader>fo", "<cmd>Telescope oldfiles<cr>")
-map("n", "<leader>fm", "<cmd>Telescope marks<cr>")
-map("n", "<leader>fj", "<cmd>Telescope jumplist<cr>")
-map("n", "<leader>fg", "<cmd>Telescope git_status<cr>")
-map("n", "<leader>ft", "<cmd>TodoTelescope<cr>")
-
--- undotree
-map("n", "<leader>ut", ":UndotreeToggle <bar> :UndotreeFocus<cr>")
-
--- transparency toggle
-map("n", "<leader>tr", ":TransparentToggle<cr>")
-
--- luasnip
-local key = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
-key("i", "<c-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
-key("s", "<Tab>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
-key("i", "<c-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
-key("s", "<S-Tab>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
-
--- neogit/gitsigns
-map("n", "<leader>gr", "<cmd>Gitsigns reset_hunk<cr>")
-map("n", "<leader>gs", "<cmd>Gitsigns stage_hunk<cr>")
-map("n", "<leader>ph", "<cmd>Gitsigns preview_hunk<cr>")
-map("n", "<leader>gn", "<cmd>Gitsigns next_hunk<cr>")
-map("n", "<leader>gp", "<cmd>Gitsigns prev_hunk<cr>")
-
 -- lsp
 map("n", "gF", vim.lsp.buf.format, {})
 map("n", "K", vim.lsp.buf.hover, {})
@@ -107,11 +70,9 @@ map("n", "gf", vim.diagnostic.open_float, {})
 map("n", "cA", vim.lsp.buf.code_action, {})
 map("n", "rn", vim.lsp.buf.rename, {})
 
--- lsp + telescope
-map("n", "<leader>lr", "<cmd>Telescope lsp_references<cr>")
-map("n", "<leader>ls", "<cmd>Telescope lsp_workspace_symbols<cr>")
-map("n", "<leader>ld", "<cmd>Telescope lsp_document_symbols<cr>")
-
--- scissors
-map("n", "<leader>se", function() require("scissors").editSnippet() end)
-map({ "n", "x" }, "<leader>sa", function() require("scissors").addNewSnippet() end)
+-- PLUGINS
+--
+-- undotree
+map("n", "<leader>ut", ":UndotreeToggle <bar> :UndotreeFocus<cr>")
+-- transparency toggle
+map("n", "<leader>tr", ":TransparentToggle<cr>")

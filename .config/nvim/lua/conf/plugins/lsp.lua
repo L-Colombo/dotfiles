@@ -3,15 +3,12 @@ return {
     lazy = false,
     config = function()
         local capabilities = require("blink.cmp").get_lsp_capabilities()
-
         local lspconfig = require("lspconfig")
+
         lspconfig.bashls.setup({ -- bash
             capabilities = capabilities
         })
         lspconfig.clangd.setup({ -- c/c++
-            capabilities = capabilities
-        })
-        lspconfig.gopls.setup({ -- go (**)
             capabilities = capabilities
         })
         lspconfig.hls.setup({ -- haskell (*)
