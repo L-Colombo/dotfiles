@@ -680,6 +680,21 @@ We need to make sure that a directory for ~org-roam~ exists, so we create it in 
 				completion-category-overrides nil))
 #+end_src
 
+** Consult
+The ~consult~ package gives an experience similar to Neovim's Telescope.
+
+#+begin_src emacs-lisp
+(use-package consult
+  :defer
+  :ensure t
+  :bind
+  (("C-c f f" . consult-find)
+   ("C-c f s" . consult-ripgrep)
+   ("C-c f m" . consult-mark)
+   ("C-c f b" . consult-buffer)
+   ("C-c f t" . consult-themes )))
+#+end_src
+
 ** Dashboard
 
 We first need to install the ~dashboard~ package and the ~all-the-icons~ package to add the icons. Remember that ~all-the-icons~ needs to initialize with the comand ~M-x all-the-icons-install-fonts RET~.
