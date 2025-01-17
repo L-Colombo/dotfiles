@@ -132,9 +132,6 @@ This rebinds ~C-x C-o~ to the command ~window-swap-states~.
 The following block is to ensure that the themes usually set as default are installed before being loaded. This step is necessary only for the themes that may be set as default theme on startup to avoid errors.
 
 #+begin_src emacs-lisp
-(use-package naga-theme
-  :defer t
-  :ensure t)
 (use-package klere-theme
   :defer t
   :ensure t)
@@ -692,7 +689,7 @@ The ~consult~ package gives an experience similar to Neovim's Telescope.
    ("C-c f s" . consult-ripgrep)
    ("C-c f m" . consult-mark)
    ("C-c f b" . consult-buffer)
-   ("C-c f t" . consult-themes )))
+   ("C-c f t" . consult-theme)))
 #+end_src
 
 ** Dashboard

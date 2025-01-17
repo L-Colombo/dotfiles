@@ -9,7 +9,7 @@
 #
 ############### Aliases ##########################
 alias nv="nvim"
-alias exa="exa --all --long --header --color=always --icons --git-ignore --sort=type"
+alias exa="exa --long --header --color=always --icons --git-ignore --sort=type"
 alias tree="eza --color=always --icons --git-ignore --sort=type -T"
 alias rust_repl="evcxr"
 alias cp="cp -v"
