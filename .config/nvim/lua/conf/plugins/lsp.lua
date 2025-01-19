@@ -11,6 +11,9 @@ return {
         lspconfig.clangd.setup({ -- c/c++
             capabilities = capabilities
         })
+        lspconfig.emmet_language_server.setup({
+            capabilities = capabilities
+        })
         lspconfig.hls.setup({ -- haskell (*)
             capabilities = capabilities
         })

@@ -52,11 +52,3 @@ autocmd("Filetype", {
     end
 })
 
--- autoclose eruby angle brackets
-autocmd("Filetype", {
-    group = augroup("eruby autoclose angle brackets", { clear = true }),
-    pattern = { "eruby" },
-    callback = function()
-        vim.keymap.set("i", "<%", "<% %><C-o>2T%")
-    end
-})
