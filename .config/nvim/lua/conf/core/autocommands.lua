@@ -17,7 +17,9 @@ autocmd("BufWritePre", {
     callback = function()
         local bufnr = vim.fn.winbufnr(0)
         if vim.lsp.buf_is_attached(bufnr) then
-            vim.lsp.buf.format()
+            if vim.bo.filetype ~= "eruby" then -- avoid weird eruby formatting from ruby-lsp
+                vim.lsp.buf.format()
+            end
         end
     end
 })
@@ -27,7 +29,8 @@ autocmd("Filetype", {
     group = augroup("setIndent", { clear = true }),
     pattern = {
         "c",
-        "cpp"
+        "cpp",
+        "haskell",
     },
     command = "setlocal shiftwidth=2 tabstop=2"
 })
@@ -51,4 +54,3 @@ autocmd("Filetype", {
         }
     end
 })
-
