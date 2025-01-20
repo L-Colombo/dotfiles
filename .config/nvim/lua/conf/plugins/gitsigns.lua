@@ -19,9 +19,8 @@ return {
                     vim.keymap.set(mode, l, r, opts)
                 end
 
-                map('n', '<leader>gs', gitsigns.stage_hunk)
+                map('n', '<leader>gs', gitsigns.stage_hunk) -- this actualy as a toggle staged/unstaged status for hunk
                 map('n', '<leader>gr', gitsigns.reset_hunk)
-                map('n', '<leader>gu', gitsigns.undo_stage_hunk)
                 map('n', '<leader>gh', gitsigns.preview_hunk)
                 map('n', '<leader>gp', gitsigns.prev_hunk)
                 map('n', '<leader>gn', gitsigns.next_hunk)
