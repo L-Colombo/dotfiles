@@ -1,5 +1,8 @@
 local autocmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
+local command = vim.api.nvim_create_user_command
+
+-- AUTOCOMMANDS
 
 -- highlight on yank
 autocmd("TextYankPost", {
@@ -8,20 +11,6 @@ autocmd("TextYankPost", {
     callback = function()
         vim.highlight.on_yank()
     end,
-})
-
--- format on save
-autocmd("BufWritePre", {
-    desc = "Format code on save",
-    group = augroup("Formatting", { clear = true }),
-    callback = function()
-        local bufnr = vim.fn.winbufnr(0)
-        if vim.lsp.buf_is_attached(bufnr) then
-            if vim.bo.filetype ~= "eruby" then -- avoid weird eruby formatting from ruby-lsp
-                vim.lsp.buf.format()
-            end
-        end
-    end
 })
 
 -- set indentation to 2 for specific filetypes
@@ -54,3 +43,24 @@ autocmd("Filetype", {
         }
     end
 })
+
+
+-- COMMANDS
+
+-- generate ctags in current directory
+command("MakeTags", function()
+    os.execute("ctags -R .")
+end, {})
+
+-- format with confort with range (optional)
+command("Format", function(args)
+    local range = nil
+    if args.count ~= -1 then
+        local end_line = vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
+        range = {
+            start = { args.line1, 0 },
+            ["end"] = { args.line2, end_line:len() },
+        }
+    end
+    require("conform").format({ async = true, lsp_format = "fallback", range = range })
+end, { range = true })
