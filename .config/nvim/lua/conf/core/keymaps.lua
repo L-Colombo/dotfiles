@@ -10,6 +10,7 @@ map("n", "<leader>nh", ":nohls<CR>")
 map({ "n", "v" }, "x", '"_x')
 map("n", "<leader>ww", "<cmd>set wrap!<cr>")
 map("n", "<leader>ss", "<cmd>set spell!<cr>")
+map("n", "<Tab>", "==")
 
 -- make
 map("n", "<leader>mm", ":make<cr>")
