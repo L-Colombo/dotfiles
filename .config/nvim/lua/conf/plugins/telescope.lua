@@ -1,14 +1,6 @@
 return {
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
-    opts = {
-        defaults = {
-            layout_config = {
-                preview_cutoff = 1,
-            },
-        },
-
-    },
     dependencies = {
         "nvim-telescope/telescope-fzf-native.nvim",
         build = "make",
@@ -17,7 +9,24 @@ return {
         end
     },
     config = function()
-        -- telescope
+        local actions = require("telescope.actions")
+        require("telescope").setup({
+            defaults = {
+                layout_config = {
+                    preview_cutoff = 1,
+                },
+            },
+            pickers = {
+                buffers = {
+                    mappings = {
+                        i = {
+                            ["<c-d>"] = actions.delete_buffer
+                        },
+                    },
+                }
+            }
+        })
+        -- keymaps
         vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
         vim.keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>")
         vim.keymap.set("n", "<leader>fw", "<cmd>Telescope grep_string<cr>")
