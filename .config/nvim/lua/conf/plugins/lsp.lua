@@ -11,7 +11,10 @@ return {
         lspconfig.clangd.setup({ -- c/c++
             capabilities = capabilities
         })
-        lspconfig.emmet_language_server.setup({
+        lspconfig.cssls.setup({ -- css
+            capabilities = capabilities
+        })
+        lspconfig.emmet_language_server.setup({ -- emmet
             capabilities = capabilities
         })
         lspconfig.hls.setup({ -- haskell (*)
@@ -19,10 +22,7 @@ return {
         })
         lspconfig.html.setup({ -- html
             capabilities = capabilities,
-            filetypes = {
-                "html",
-                "eruby"
-            }
+            filetypes = { "html", "eruby" }
         })
         lspconfig.lua_ls.setup({ -- lua
             capabilities = capabilities,
@@ -36,22 +36,13 @@ return {
         lspconfig.pyright.setup({ -- python
             capabilities = capabilities,
             settings = {
-                pyright = {
-                    disableOrganizeImports = true,
-                },
-                python = {
-                    analysis = {
-                        ignore = { "*" },
-                    }
+                pyright = { disableOrganizeImports = true, },
+                python = { analysis = { ignore = { "*" }, }
                 }
             }
         })
         lspconfig.ruby_lsp.setup({ -- ruby (*)
             capabilities = capabilities,
-            init_options = {
-                formatter = "standard",
-                linters = { "standard" },
-            }
         })
         lspconfig.ruff.setup({ -- python (**)
             capabilities = capabilities

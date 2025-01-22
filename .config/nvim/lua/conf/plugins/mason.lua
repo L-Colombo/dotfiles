@@ -8,6 +8,8 @@ return {
             ensure_installed = {
                 "bashls",
                 "clangd",
+                "cssls",
+                "emmet_language_server",
                 "html",
                 "lua_ls",
                 "phpactor",
