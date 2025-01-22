@@ -1,0 +1,1 @@
+{"lett":{"prefix":"lett","body":["\\item \\label{no_data_${1:num}\\}","","    Senza Data, ${2:intestazione}","","    \\begin{quotation}\\em\\small","    $0   ","","    Link: \\emph{\\url{monumentasymoniniana.org\/letters\/no_date_${3:slug}}}","    \\end{quotation}"]}}
