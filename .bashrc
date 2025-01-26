@@ -31,6 +31,7 @@ eval "$(~/.rbenv/bin/rbenv init - --no-rehash zsh)"
 export EDITOR="nvim"
 export PATH="$HOME/.local/share/gem/ruby/3.2.0/bin/:$PATH"
 export PATH="$PATH:$HOME/.config/composer/vendor/bin/"
+export PATH="$PATH:$HOME/scripts"
 export WORDCHARS=${WORDCHARS/\/}
 export WORDCHARS=${WORDCHARS/_}
 
