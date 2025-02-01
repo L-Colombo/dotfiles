@@ -10,7 +10,7 @@ return {
             nerd_font_variant = "mono",
         },
         keymap = {
-            preset = "enter",
+            preset = "default",
             ['<A-1>'] = { function(cmp) cmp.accept({ index = 1 }) end },
             ['<A-2>'] = { function(cmp) cmp.accept({ index = 2 }) end },
             ['<A-3>'] = { function(cmp) cmp.accept({ index = 3 }) end },
