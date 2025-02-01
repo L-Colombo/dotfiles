@@ -62,11 +62,11 @@ return {
                 border = "single",
             },
         },
-        snippets = {
-            preset = "luasnip"
-        },
+        -- snippets = {
+        --     preset = "luasnip"
+        -- },
         sources = {
-            default = { "snippets", "lsp", "path", "buffer" },
+            default = { "lsp", "snippets", "path", "buffer" },
         },
     },
     opts_extend = { "sources.default" }
