@@ -142,11 +142,8 @@ The following block is to ensure that the themes usually set as default are inst
 (use-package color-theme-modern
   :defer t
   :ensure t)
-(use-package miasma-theme
-  :defer t
-  :ensure t)
 
-(load-theme 'euphoria t)
+(load-theme 'klere t)
 (set-cursor-color "#ff5500")
 #+end_src
 
@@ -669,7 +666,6 @@ We first need to install the ~dashboard~ package and the ~all-the-icons~ package
   :init (setq dashboard-icon-type 'all-the-icons
               dashboard-set-heading-icons nil
               dashboard-set-file-icons t
-              dashboard-projects-backend 'projectile
               dashboard-agenda-sort-strategy '(time-up)
               dashboard-items '((bookmarks . 5)
                                 (agenda . 5)
