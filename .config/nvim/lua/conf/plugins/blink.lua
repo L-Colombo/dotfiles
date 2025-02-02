@@ -1,7 +1,7 @@
 return {
     "saghen/blink.cmp",
     version = "*",
-    dependencies = { "L3MON4D3/LuaSnip", version = "v2.*" },
+    -- dependencies = { "L3MON4D3/LuaSnip", version = "v2.*" },
     ---@module "blink.cmp"
     ---@type blink.cmp.Config
     opts = {
@@ -24,6 +24,8 @@ return {
 
             -- custom
             ["<A-space>"] = { "show", "show_documentation", "hide_documentation" },
+            ["<c-j>"] = { "snippet_forward", "fallback" },
+            ["<c-k>"] = { "snippet_backward", "fallback" },
             ["<Tab>"] = {},
             ["<S-Tab>"] = {},
             ["<C-space>"] = {},
@@ -62,9 +64,6 @@ return {
                 border = "single",
             },
         },
-        -- snippets = {
-        --     preset = "luasnip"
-        -- },
         sources = {
             default = { "lsp", "snippets", "path", "buffer" },
         },

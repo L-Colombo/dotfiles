@@ -3,4 +3,5 @@ return {
     "nvim-lua/plenary.nvim",
     "easymotion/vim-easymotion",
     "tpope/vim-surround",
+    "rafamadriz/friendly-snippets",
 }
