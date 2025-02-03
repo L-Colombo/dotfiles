@@ -25,8 +25,8 @@ autocmd("Filetype", {
 
 -- set indent highlight as block in python files
 autocmd("Filetype", {
-    group = augroup("python indent highlight", { clear = true }),
-    pattern = { "python" },
+    group = augroup("python and haskell indent highlight", { clear = true }),
+    pattern = { "python", "haskell" },
     callback = function()
         local highlight = {
             "CursorColumn",
