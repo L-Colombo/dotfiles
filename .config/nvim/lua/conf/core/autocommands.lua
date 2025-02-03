@@ -19,7 +19,6 @@ autocmd("Filetype", {
     pattern = {
         "c",
         "cpp",
-        "haskell",
     },
     command = "setlocal shiftwidth=2 tabstop=2"
 })
