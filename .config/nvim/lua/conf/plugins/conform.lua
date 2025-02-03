@@ -5,7 +5,7 @@ return {
         require("conform").setup({
             formatters_by_ft = {
                 eruby = { "erb_format" },
-                haskell = { "ormolu" },
+                haskell = { "fourmolu" },
                 python = { "ruff" },
                 rust = { "rustfmt", lsp_format = "fallback" },
             },
