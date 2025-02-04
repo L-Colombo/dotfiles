@@ -54,7 +54,7 @@
 (add-to-list 'default-frame-alist '(height . 34))
 (add-to-list 'default-frame-alist '(width . 102))
 
-(set-frame-font "Mononoki Nerd Font Propo 15" nil t)
+(set-frame-font "Iosevka Nerd Font Propo 15" nil t)
 
 ;; MARK SETTINGS
 (setq mark-ring-max 6
@@ -223,10 +223,6 @@ the end of a line"
   (marginalia-mode))
 
 ;; GIT
-(use-package magit
-  :defer t
-  :ensure t)
-
 (use-package git-gutter
   :ensure t
   :bind (("C-c p" . 'git-gutter:previous-hunk)
