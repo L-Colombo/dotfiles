@@ -23,7 +23,7 @@ autocmd("Filetype", {
     command = "setlocal shiftwidth=2 tabstop=2"
 })
 
--- set indent highlight as block in python files
+-- set indent highlight as block in python and haskell files
 autocmd("Filetype", {
     group = augroup("python and haskell indent highlight", { clear = true }),
     pattern = { "python", "haskell" },
@@ -43,6 +43,12 @@ autocmd("Filetype", {
     end
 })
 
+-- set filetype for blade files
+vim.filetype.add({
+    pattern = {
+        [".*%.blade%.php"] = "blade",
+    },
+})
 
 -- COMMANDS
 
