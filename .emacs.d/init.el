@@ -132,20 +132,6 @@
   (message "all buffers have been killed"))
 (global-set-key (kbd "C-x C-k") #'kill-all-other-buffers)
 
-(defun my-next-line (&optional arg)
-  (interactive "^P")
-  (if (not (eq arg nil))
-      (next-logical-line arg)
-    (next-line)))
-(global-set-key (kbd "C-n") #'my-next-line)
-
-(defun my-previous-line (&optional arg)
-  (interactive "^P")
-  (if (not (eq arg nil))
-      (previous-logical-line arg)
-    (previous-line)))
-(global-set-key (kbd "C-p") #'my-previous-line)
-
 (defun break-at-period ()
   "Insert a line feed character after every period that is not already at
 the end of a line"
