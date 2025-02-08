@@ -256,7 +256,7 @@ the end of a line"
         TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view))
         TeX-source-correlate-start-server t
         Tex-source-correlate-method '((pdf . synctex)))
-  (setq-default TeX-master "main")
+;;  (setq-default TeX-master "main")
   (TeX-source-correlate-mode)
   (define-key TeX-source-correlate-map [C-down-mouse-1] #'TeX-view-mouse)
   (add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer))
