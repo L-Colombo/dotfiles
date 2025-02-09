@@ -29,6 +29,8 @@ export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/scripts"
 export WORDCHARS=${WORDCHARS/\/}
 export WORDCHARS=${WORDCHARS/_}
+# to fix whatsapp-for-linux errors
+export WEBKIT_DISABLE_COMPOSITING_MODE=1
 
 ############### Zinit plugin manager #############
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
