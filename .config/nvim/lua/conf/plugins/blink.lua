@@ -35,9 +35,10 @@ return {
                 },
             },
             menu = {
-                auto_show = function(ctx)
-                    return ctx.mode ~= "cmdline"
-                end,
+                -- this is commented out to allow tab-completion in command mode
+                -- auto_show = function(ctx)
+                --     return ctx.mode ~= "cmdline"
+                -- end,
                 border = "single",
                 draw = {
                     columns = {
