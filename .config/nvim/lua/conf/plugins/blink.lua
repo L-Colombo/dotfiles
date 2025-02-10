@@ -10,7 +10,7 @@ return {
             nerd_font_variant = "mono",
         },
         keymap = {
-            preset = "default",
+            preset = "super-tab",
             ['<A-1>'] = { function(cmp) cmp.accept({ index = 1 }) end },
             ['<A-2>'] = { function(cmp) cmp.accept({ index = 2 }) end },
             ['<A-3>'] = { function(cmp) cmp.accept({ index = 3 }) end },
@@ -26,8 +26,6 @@ return {
             ["<A-space>"] = { "show", "show_documentation", "hide_documentation" },
             ["<c-j>"] = { "snippet_forward", "fallback" },
             ["<c-k>"] = { "snippet_backward", "fallback" },
-            ["<Tab>"] = {},
-            ["<S-Tab>"] = {},
             ["<C-space>"] = {},
         },
         completion = {
