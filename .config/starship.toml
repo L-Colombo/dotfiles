@@ -2,12 +2,12 @@ add_newline = false
 [username]
 disabled = false
 show_always = true
-format = '[\[$user](bold blue)@'
+format = '\[[$user](blue)@'
 
 [hostname]
 ssh_symbol = ' '
 ssh_only = false
-format = '[$hostname\]](bold blue) in '
+format = '[$hostname](red)\] in '
 
 [character]
 success_symbol = '[\$](bold white)'
