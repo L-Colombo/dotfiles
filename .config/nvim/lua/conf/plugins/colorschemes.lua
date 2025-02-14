@@ -13,4 +13,5 @@ return {
     "ficcdaf/ashen.nvim",
     "oprearocks/allhallowseve.nvim",
     "vimoxide/vim-cinnabar",
+    "vim-scripts/Relaxed-Green",
 }
