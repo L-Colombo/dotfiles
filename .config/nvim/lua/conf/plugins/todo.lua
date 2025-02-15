@@ -1,7 +1,14 @@
 return {
     "folke/todo-comments.nvim",
     dependencies = "nvim-lua/plenary.nvim",
-    opts = {},
+    opts = {
+        keywords = {
+            FIX = { color = "#dd0000" },
+            TODO = { color = "#367588" },
+            HACK = { color = "#e5fb02" },
+            NOTE = { color = "#666666" },
+        }
+    },
     lazy = true,
     event = { "BufEnter" },
 }
