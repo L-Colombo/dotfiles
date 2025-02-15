@@ -9,6 +9,7 @@ return {
         end
     },
     "L-Colombo/atlantic-dark.nvim",
+    "L-Colombo/oldschool.nvim",
     "tpope/vim-vividchalk",
     "ficcdaf/ashen.nvim",
     "oprearocks/allhallowseve.nvim",
