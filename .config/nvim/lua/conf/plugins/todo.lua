@@ -4,7 +4,6 @@ return {
     opts = {
         keywords = {
             FIX = { color = "#dd0000" },
-            TODO = { color = "#367588" },
             HACK = { color = "#e5fb02" },
             NOTE = { color = "#666666" },
         }
