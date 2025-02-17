@@ -15,4 +15,5 @@ return {
     "oprearocks/allhallowseve.nvim",
     "vimoxide/vim-cinnabar",
     "vim-scripts/Relaxed-Green",
+    -- { dir = "~/Programming/0_projects/oldschool.nvim" }
 }
