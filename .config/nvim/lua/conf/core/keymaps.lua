@@ -71,10 +71,3 @@ map("n", "go", vim.lsp.buf.type_definition, {})
 map("n", "gf", vim.diagnostic.open_float, {})
 map("n", "cA", vim.lsp.buf.code_action, {})
 map("n", "rn", vim.lsp.buf.rename, {})
-
--- PLUGINS
---
--- undotree
-map("n", "<leader>ut", ":UndotreeToggle <bar> :UndotreeFocus<cr>")
--- transparency toggle
-map("n", "<leader>tr", ":TransparentToggle<cr>")
