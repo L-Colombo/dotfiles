@@ -18,6 +18,9 @@ return {
                     command = "npx prettier . --write",
                     stop_after_first = true
                 },
+                ocaml = {
+                    "ocamlformat"
+                },
                 python = { "ruff" },
                 php = { "pint", lsp_format = "fallback" },
                 rust = { "rustfmt", lsp_format = "fallback" },

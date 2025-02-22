@@ -119,5 +119,8 @@ function tsu() {
     fi
 }
 
+ # ghcup-env
+[ -f "/home/lc/.ghcup/env" ] && . "/home/lc/.ghcup/env"
 
-[ -f "/home/lc/.ghcup/env" ] && . "/home/lc/.ghcup/env" # ghcup-env
+# opam
+[[ ! -r '/home/lc/.opam/opam-init/init.zsh' ]] || source '/home/lc/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null

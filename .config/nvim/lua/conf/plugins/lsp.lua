@@ -26,6 +26,9 @@ return {
         lspconfig.lua_ls.setup({ -- lua
             capabilities = capabilities,
         })
+        lspconfig.ocamllsp.setup({ -- OCaml (*)
+            capabilities = capabilities
+        })
         lspconfig.phpactor.setup({ -- php
             capabilities = capabilities,
             init_options = {
