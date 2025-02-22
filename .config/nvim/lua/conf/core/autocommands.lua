@@ -19,6 +19,7 @@ autocmd("Filetype", {
     pattern = {
         "c",
         "cpp",
+        "ocaml",
     },
     command = "setlocal shiftwidth=2 tabstop=2"
 })
