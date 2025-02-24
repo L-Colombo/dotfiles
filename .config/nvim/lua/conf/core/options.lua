@@ -38,7 +38,7 @@ opt.backspace = "indent,eol,start"
 opt.clipboard:append("unnamedplus")
 
 -- scrolloff
-opt.scrolloff = 5
+opt.scrolloff = 2
 
 -- split windows
 opt.splitright = true
