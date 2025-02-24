@@ -230,17 +230,6 @@ the end of a line"
   :ensure t
   :bind ("C-c SPC" . 'avy-goto-char))
 
-;; PDF-TOOLS
-(use-package pdf-tools
-  :defer t
-  :ensure t
-  :init (setq pdf-view-incompatible-modes '()
-              pdf-view-midnight-colors (cons "#33ff00" "#000000"))
-  :init
-  (add-hook 'pdf-view-mode-hook (lambda () (display-line-numbers-mode -1)))
-  (add-hook 'pdf-view-mode-hook 'pdf-view-midnight-minor-mode)
-  (pdf-tools-install))
-
 ;; MARKDOWN
 (use-package markdown-mode
   :defer t
@@ -252,8 +241,8 @@ the end of a line"
   :ensure t
   :init (require 'latex)
   (setq TeX-parse-self t
-        TeX-view-program-selection '((output-pdf "PDF Tools"))
-        TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view))
+        TeX-view-program-selection '((output-pdf "Zathura"))
+        TeX-view-program-list '(("Zathura" TeX-pdf-tools-sync-view))
         TeX-source-correlate-start-server t
         Tex-source-correlate-method '((pdf . synctex)))
 ;;  (setq-default TeX-master "main")
