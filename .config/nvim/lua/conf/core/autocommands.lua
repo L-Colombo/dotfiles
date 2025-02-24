@@ -51,12 +51,20 @@ vim.filetype.add({
     },
 })
 
+-- activate spell check in LaTex and Org-mode files
+autocmd("Filetype", {
+    group = augroup("setIndent", { clear = true }),
+    pattern = {
+        "tex",
+        "org",
+        "gitcommit"
+    },
+    command = "set spell"
+})
+
 -- COMMANDS
 
 -- generate ctags in current directory
-command("MakeTags", function()
-    os.execute("ctags -R .")
-end, {})
 
 -- format with confort with range (optional)
 command("Format", function(args)
