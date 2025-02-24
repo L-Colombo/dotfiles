@@ -13,15 +13,6 @@ return {
             auto_install = false,
             highlight = { enable = true },
             indent = { enable = true },
-            incremental_selection = {
-                enable = true,
-                keymaps = {
-                    init_selection = "+",
-                    node_incremental = "+",
-                    scope_incremental = "+",
-                    node_decremental = "-"
-                }
-            }
         }
         local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
         parser_config.blade = {
