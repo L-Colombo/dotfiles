@@ -7,7 +7,7 @@ return {
     "L-Colombo/atlantic-dark.nvim",
     {
         "L-Colombo/oldschool.nvim",
-        config = true
+        opts = { blue = "#0099f8" }
     },
     -- { dir = "~/Programming/0_projects/oldschool.nvim", config = true }
 }
