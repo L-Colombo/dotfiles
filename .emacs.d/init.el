@@ -436,6 +436,8 @@ the end of a line"
 ;; SPELL-CHECK
 (unless (eq system-type 'darwin)
   (setq ispell-program-name "hunspell"))
+;; fixes error popping up during autocompletion
+(setq text-mode-ispell-word-completion nil)
 (add-hook 'org-mode-hook 'flyspell-mode)
 (add-hook 'markdown-mode-hook 'flyspell-mode)
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
