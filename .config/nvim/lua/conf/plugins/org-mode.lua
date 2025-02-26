@@ -12,6 +12,10 @@ return {
                     description = "Agenda",
                     template = "* %?\n %T \n"
                 }
+            },
+            org_blank_before_new_entry = {
+                heading = false,
+                plain_list = false
             }
         })
     end,
