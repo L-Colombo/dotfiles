@@ -9,5 +9,5 @@ return {
         "L-Colombo/oldschool.nvim",
         opts = { blue = "#0099f8" }
     },
-    -- { dir = "~/Programming/0_projects/oldschool.nvim", config = true }
+    -- { dir = "~/Programming/0_projects/oldschool.nvim", opts = {} }
 }

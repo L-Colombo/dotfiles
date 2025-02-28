@@ -1,6 +1,5 @@
 return {
     "nvim-lualine/lualine.nvim",
-    event = "InsertEnter",
     config = function()
         -- local custom_theme = require("lualine.themes.codedark")
         -- custom_theme.normal.c.fg = "#cc0d0e"

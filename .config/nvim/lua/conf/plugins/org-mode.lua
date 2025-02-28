@@ -18,6 +18,8 @@ return {
                 plain_list_item = false
             },
             org_startup_folded = "content",
+            org_ellipsis = " ",
+            org_hide_emphasis_markers = true,
         })
     end,
 }
