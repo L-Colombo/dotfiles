@@ -17,9 +17,11 @@ return {
                 heading = false,
                 plain_list_item = false
             },
-            org_startup_folded = "content",
-            org_ellipsis = " ",
+            org_adapt_indentation = false,
             org_hide_emphasis_markers = true,
+            org_ellipsis = " ",
+            org_startup_folded = "content",
+            org_startup_indented = true,
         })
     end,
 }
