@@ -99,7 +99,7 @@
   :defer t
   :ensure t)
 
-(load-theme 'klere t)
+(load-theme 'euphoria t)
 (set-cursor-color "#ff5500")
 
 ;; CUSTOM FUNCTIONS
