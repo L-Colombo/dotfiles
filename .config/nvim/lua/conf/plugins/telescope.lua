@@ -15,6 +15,9 @@ return {
                 layout_config = {
                     preview_cutoff = 1,
                 },
+                file_ignore_patterns = {
+                    "dune"
+                },
             },
             pickers = {
                 buffers = {
