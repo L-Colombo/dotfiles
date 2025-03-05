@@ -284,6 +284,7 @@ the end of a line"
               org-src-tab-acts-natively t
               org-ellipsis " "
               org-src-preserve-indentation t
+              org-tags-column 0
               org-capture-bookmark nil)
   :hook (org-mode . org-indent-mode))
 (global-set-key (kbd "C-c a") #'org-agenda)
