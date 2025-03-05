@@ -54,7 +54,7 @@
 (add-to-list 'default-frame-alist '(height . 34))
 (add-to-list 'default-frame-alist '(width . 102))
 
-(set-frame-font "Iosevka Nerd Font Propo 15" nil t)
+(set-frame-font "JetBrains Mono NL 14" nil t)
 
 ;; MARK SETTINGS
 (setq mark-ring-max 6
@@ -322,12 +322,12 @@ the end of a line"
   (org-roam-directory (file-truename "~/Documents/OrgFiles/org-roam/"))
   (find-file-visit-truename t)
   (org-roam-capture-templates '(("c" "Concept Notes" plain "#+STARTUP: content\n\n* Description\n%?\n\n* Bibliography\n\n* Primary sources"
-                                 :if-new (file+head "con_${slug}.org" "#+title: con_${concept}"))
+                                 :if-new (file+head "1_${slug}.org" "#+title: con_${concept}"))
                                 ("l" "Literature notes" plain
-                                 "#+STARTUP: show2levels\n\n* lit_${title}\nAuthor: %^{Author}\nFull title: %^{FullTitle}\nYear: %^{Year}\nType: %^{Type}\nFull reference: %^{FullReference}\n\n* Notes\n\n\n%?"
-                                 :if-new (file+head "lit_${slug}.org" "#+title: lit_${title}\n#+filetags: lit_${title}"))
+                                 "#+STARTUP: show2levels\n\n*  %^{FullTitle}\nAuthor: %^{Author}\nYear: %^{Year}\nType: %^{Type}\nFull reference: %^{FullReference}\n\n* Notes\n%?"
+                                 :if-new (file+head "${slug}.org" "#+title: lit_${title}\n#+filetags: lit_${title}"))
                                 ("p" "Project Notes" plain "#+STARTUP: content\n\n* ${title}\nType: %^{Type}\n\n* Description\n%?\n\n* Structure\n \n\n* Concepts\n"
-                                 :if-new (file+head "pj_${slug}.org" "#+title: pj_${title}"))))
+                                 :if-new (file+head "2_${slug}.org" "#+title: pj_${title}"))))
   :bind (("C-c r d" . org-roam-buffer-display-dedicated)
          ("C-c r f" . org-roam-node-find)
          ("C-c r g" . org-roam-graph)
