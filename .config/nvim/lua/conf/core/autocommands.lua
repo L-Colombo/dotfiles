@@ -27,7 +27,10 @@ autocmd("Filetype", {
 -- set indent highlight as block in python and haskell files
 autocmd("Filetype", {
     group = augroup("python and haskell indent highlight", { clear = true }),
-    pattern = { "python", "haskell" },
+    pattern = {
+        "python",
+        "haskell",
+        "ocaml" },
     callback = function()
         local highlight = {
             "CursorColumn",
@@ -53,7 +56,7 @@ vim.filetype.add({
 
 -- activate spell check in LaTex and Org-mode files
 autocmd("Filetype", {
-    group = augroup("setIndent", { clear = true }),
+    group = augroup("setSpell", { clear = true }),
     pattern = {
         "tex",
         "org",
