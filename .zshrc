@@ -15,6 +15,7 @@ alias rust_repl="evcxr"
 alias cp="cp -v"
 alias mv="mv -v"
 alias rm="rm -v"
+alias ls="ls --color=always"
 
 ############### Evals ############################
 eval "$(zoxide init zsh)"
