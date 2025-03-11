@@ -23,7 +23,10 @@ return {
             ['<A-0>'] = { function(cmp) cmp.accept({ index = 10 }) end },
 
             -- custom
-            ["<A-space>"] = { "show", "show_documentation", "hide_documentation" },
+            ["<A-space>"] = { "show",
+                "show_documentation",
+                "hide_documentation"
+            },
             ["<c-j>"] = { "snippet_forward", "fallback" },
             ["<c-k>"] = { "snippet_backward", "fallback" },
             ["<C-space>"] = {},
@@ -35,10 +38,10 @@ return {
                 },
             },
             menu = {
-                -- this is commented out to allow tab-completion in command mode
-                -- auto_show = function(ctx)
-                --     return ctx.mode ~= "cmdline"
-                -- end,
+                -- This prevent blink from being active in the command line
+                auto_show = function(ctx)
+                    return ctx.mode ~= "cmdline"
+                end,
                 border = "single",
                 draw = {
                     columns = {
