@@ -167,6 +167,7 @@ the end of a line"
                         (completing-read "-> " chosen-char-list))))
     (insert chosen-char)))
 (global-set-key (kbd "C-`") #'accented)
+(global-set-key (kbd "C-c C-x `") #'accented)
 
 (defun spell-it ()
   (interactive)
