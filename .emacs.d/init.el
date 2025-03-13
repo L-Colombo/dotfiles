@@ -327,7 +327,7 @@ the end of a line"
                                  :if-new (file+head "1_${slug}.org" "#+title: con_${concept}"))
                                 ("l" "Literature notes" plain
                                  "#+STARTUP: show2levels\n\n*  %^{FullTitle}\nAuthor: %^{Author}\nYear: %^{Year}\nType: %^{Type}\nFull reference: %^{FullReference}\n\n* Notes\n%?"
-                                 :if-new (file+head "${slug}.org" "#+title: ${title}\n#+filetags: lit_${title}"))
+                                 :if-new (file+head "${slug}.org" "#+title: ${title}\n#+filetags: ${title}"))
                                 ("p" "Project Notes" plain "#+STARTUP: content\n\n* ${title}\nType: %^{Type}\n\n* Description\n%?\n\n* Structure\n \n\n* Concepts\n"
                                  :if-new (file+head "2_${slug}.org" "#+title: pj_${title}"))))
   :bind (("C-c r d" . org-roam-buffer-display-dedicated)
