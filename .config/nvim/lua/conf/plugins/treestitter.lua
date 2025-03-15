@@ -12,7 +12,10 @@ return {
             sync_install = false,
             auto_install = false,
             highlight = { enable = true },
-            indent = { enable = true },
+            indent = {
+                enable = true,
+                disable = { "ocaml" }
+            },
         }
         local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
         parser_config.blade = {
