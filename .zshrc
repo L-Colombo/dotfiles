@@ -88,11 +88,6 @@ unalias zi
 
 # Custom functions
 
-# Opens zatura and dishowns the process
-function zz () {
-    zathura $1  & ; disown && exit
-}
-
 # Change directory when closing yazi
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"

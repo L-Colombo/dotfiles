@@ -1,4 +1,4 @@
-;;  _     ____           _____
+;  _     ____           _____
 ;; | |   / ___|         | ____|_ __ ___   __ _  ___ ___
 ;; | |  | |      _____  |  _| | '_ ` _ \ / _` |/ __/ __|
 ;; | |__| |___  |_____| | |___| | | | | | (_| | (__\__ \
@@ -54,7 +54,7 @@
 (add-to-list 'default-frame-alist '(height . 34))
 (add-to-list 'default-frame-alist '(width . 102))
 
-(set-frame-font "JetBrains Mono NL 14" nil t)
+(set-frame-font "UbuntuMono Nerd Font Propo 16" nil t)
 
 ;; MARK SETTINGS
 (setq mark-ring-max 6
