@@ -51,8 +51,8 @@
 
 (put 'donwcase-region 'disabled nil)
 
-(add-to-list 'default-frame-alist '(height . 34))
-(add-to-list 'default-frame-alist '(width . 102))
+;; (add-to-list 'default-frame-alist '(height . 34))
+;; (add-to-list 'default-frame-alist '(width . 102))
 
 (set-frame-font "UbuntuMono Nerd Font Propo 16" nil t)
 
@@ -95,11 +95,14 @@
 (use-package klere-theme
   :defer t
   :ensure t)
+(use-package gruber-darker-theme
+  :defer t
+  :ensure t)
 (use-package color-theme-modern
   :defer t
   :ensure t)
 
-(load-theme 'euphoria t)
+(load-theme 'gruber-darker t)
 (set-cursor-color "#ff5500")
 
 ;; CUSTOM FUNCTIONS
