@@ -29,7 +29,7 @@ autocmd("Filetype", {
     group = augroup("python and haskell indent highlight", { clear = true }),
     pattern = {
         "python",
-        "haskell",
+        -- "haskell",
         "ocaml" },
     callback = function()
         local highlight = {

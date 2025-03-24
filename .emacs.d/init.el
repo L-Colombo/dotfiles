@@ -102,7 +102,7 @@
   :defer t
   :ensure t)
 
-(load-theme 'euphoria t)
+(load-theme 'gruber-darker t)
 (set-cursor-color "#ff5500")
 
 ;; CUSTOM FUNCTIONS
