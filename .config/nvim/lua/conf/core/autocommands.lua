@@ -19,6 +19,7 @@ autocmd("Filetype", {
     pattern = {
         "c",
         "cpp",
+        "haskell",
         "ocaml",
     },
     command = "setlocal shiftwidth=2 tabstop=2"
@@ -29,8 +30,8 @@ autocmd("Filetype", {
     group = augroup("python and haskell indent highlight", { clear = true }),
     pattern = {
         "python",
-        -- "haskell",
-        "ocaml" },
+        "ocaml"
+    },
     callback = function()
         local highlight = {
             "CursorColumn",
@@ -65,9 +66,14 @@ autocmd("Filetype", {
     command = "set spell"
 })
 
--- COMMANDS
+-- run linters
+autocmd("BufWritePost", {
+    callback = function()
+        require("lint").try_lint()
+    end
+})
 
--- generate ctags in current directory
+-- COMMANDS
 
 -- format with confort with range (optional)
 command("Format", function(args)
