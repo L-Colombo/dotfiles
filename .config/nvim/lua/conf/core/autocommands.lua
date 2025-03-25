@@ -1,6 +1,5 @@
 local autocmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
-local command = vim.api.nvim_create_user_command
 
 -- AUTOCOMMANDS
 
@@ -19,6 +18,7 @@ autocmd("Filetype", {
     pattern = {
         "c",
         "cpp",
+        "haskell",
         "ocaml",
     },
     command = "setlocal shiftwidth=2 tabstop=2"
@@ -29,8 +29,8 @@ autocmd("Filetype", {
     group = augroup("python and haskell indent highlight", { clear = true }),
     pattern = {
         "python",
-        -- "haskell",
-        "ocaml" },
+        "ocaml"
+    },
     callback = function()
         local highlight = {
             "CursorColumn",
@@ -64,20 +64,3 @@ autocmd("Filetype", {
     },
     command = "set spell"
 })
-
--- COMMANDS
-
--- generate ctags in current directory
-
--- format with confort with range (optional)
-command("Format", function(args)
-    local range = nil
-    if args.count ~= -1 then
-        local end_line = vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
-        range = {
-            start = { args.line1, 0 },
-            ["end"] = { args.line2, end_line:len() },
-        }
-    end
-    require("conform").format({ async = true, lsp_format = "fallback", range = range })
-end, { range = true })

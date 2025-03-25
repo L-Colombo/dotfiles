@@ -63,7 +63,7 @@ map("n", "<leader>tn", ":tabn<CR>")
 map("n", "<leader>tp", ":tabp<CR>")
 
 -- lsp
-map("n", "g=", "<cmd>Format<cr>") -- format with conform
+map("n", "g=", vim.lsp.buf.format, {})
 map("n", "K", vim.lsp.buf.hover, {})
 map("n", "gd", vim.lsp.buf.definition, {})
 map("n", "gD", vim.lsp.buf.declaration, {})
