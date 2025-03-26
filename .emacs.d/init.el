@@ -1,4 +1,4 @@
-;  _     ____           _____
+;;  _     ____           _____
 ;; | |   / ___|         | ____|_ __ ___   __ _  ___ ___
 ;; | |  | |      _____  |  _| | '_ ` _ \ / _` |/ __/ __|
 ;; | |__| |___  |_____| | |___| | | | | | (_| | (__\__ \
@@ -54,7 +54,7 @@
 ;; (add-to-list 'default-frame-alist '(height . 34))
 ;; (add-to-list 'default-frame-alist '(width . 102))
 
-(set-frame-font "IntoneMono Nerd Font Propo 14" nil t)
+(set-frame-font "JetBrains Mono NL 16" nil t)
 
 ;; MARK SETTINGS
 (setq mark-ring-max 6
@@ -329,7 +329,7 @@ the end of a line"
   (org-roam-capture-templates '(("c" "Concept Notes" plain "#+STARTUP: content\n\n* Description\n%?\n\n* Bibliography\n\n* Primary sources"
                                  :if-new (file+head "1_${slug}.org" "#+title: con_${concept}"))
                                 ("l" "Literature notes" plain
-                                 "#+STARTUP: show2levels\n\n*  %^{FullTitle}\nAuthor: %^{Author}\nYear: %^{Year}\nType: %^{Type}\nFull reference: %^{FullReference}\n\n* Notes\n%?"
+                                 "#+STARTUP: show2levels\n\n*  %^{FullTitle}\nAuthor: %^{Author}\nYear: %^{Year}\nType: %^{Type}\nFull reference: %^{FullReference}\n* Notes\n%?"
                                  :if-new (file+head "${slug}.org" "#+title: ${title}\n#+filetags: ${title}"))
                                 ("p" "Project Notes" plain "#+STARTUP: content\n\n* ${title}\nType: %^{Type}\n\n* Description\n%?\n\n* Structure\n \n\n* Concepts\n"
                                  :if-new (file+head "2_${slug}.org" "#+title: pj_${title}"))))
