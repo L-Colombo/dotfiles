@@ -132,12 +132,11 @@
       (unless (eq current-buf buf)
         (kill-buffer buf))))
   (delete-other-windows)
-  (message "all buffers have been killed"))
+  (message "All buffers have been killed"))
 (global-set-key (kbd "C-x C-k") #'kill-all-other-buffers)
 
 (defun break-at-period ()
-  "Insert a line feed character after every period that is not already at
-the end of a line"
+  "Break line after every period not at EOL"
   (interactive)
   (save-excursion
     (beginning-of-buffer)
