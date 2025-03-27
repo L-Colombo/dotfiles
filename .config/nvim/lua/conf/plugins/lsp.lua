@@ -17,9 +17,9 @@ return {
         lspconfig.emmet_language_server.setup({ -- emmet
             capabilities = capabilities
         })
-        -- lspconfig.hls.setup({ -- haskell (*)
-        --     capabilities = capabilities
-        -- })
+        lspconfig.hls.setup({ -- haskell (*)
+            capabilities = capabilities
+        })
         lspconfig.html.setup({ -- html
             capabilities = capabilities,
         })

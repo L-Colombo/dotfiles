@@ -8,7 +8,7 @@ opt.relativenumber = true
 opt.number = true
 opt.swapfile = false
 opt.cursorline = true
-opt.cursorlineopt = "number,line"
+opt.cursorlineopt = "number"
 opt.conceallevel = 2
 opt.concealcursor = "nc"
 
