@@ -10,13 +10,9 @@ map("n", "<leader>nh", ":nohls<CR>")
 map({ "n", "v" }, "x", '"_x')
 map("n", "<leader>ww", "<cmd>set wrap!<cr>")
 map("n", "<leader>ss", "<cmd>set spell!<cr>")
-map("n", "<Tab>", "==")
+map({ "n", "v" }, "<Tab>", "==")
 map("n", "<leader>L", "<cmd>Lazy<cr>")
 map("n", "<leader>tr", "<cmd>hi Normal guibg=None<cr>")
-
--- make
-map("n", "<leader>mm", ":make<cr>")
-map("n", "<leader>mr", ":make run<cr>")
 
 -- moving and motion
 map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
@@ -39,8 +35,6 @@ map("n", "}", "}zz")
 map("n", "{", "{zz")
 
 -- buffer related
-map("n", "]b", ":bn<cr>")
-map("n", "[b", ":bp<cr>")
 map("n", "<leader>x", ":bd!<cr>")
 map("n", "<leader>tt", ":terminal<cr>")
 
@@ -61,14 +55,3 @@ map("n", "<leader>to", ":tabnew<CR>")
 map("n", "<leader>tx", ":tabclose<CR>")
 map("n", "<leader>tn", ":tabn<CR>")
 map("n", "<leader>tp", ":tabp<CR>")
-
--- lsp
-map("n", "g=", vim.lsp.buf.format, {})
-map("n", "K", vim.lsp.buf.hover, {})
-map("n", "gd", vim.lsp.buf.definition, {})
-map("n", "gD", vim.lsp.buf.declaration, {})
-map("n", "gr", vim.lsp.buf.references, {})
-map("n", "go", vim.lsp.buf.type_definition, {})
-map("n", "gf", vim.diagnostic.open_float, {})
-map("n", "cA", vim.lsp.buf.code_action, {})
-map("n", "rn", vim.lsp.buf.rename, {})

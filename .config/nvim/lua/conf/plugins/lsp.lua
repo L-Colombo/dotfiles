@@ -61,14 +61,6 @@ return {
         lspconfig.ts_ls.setup({ -- typescript/javascript
             capabilities = capabilities
         })
-
-        -- Little UI enhancements
-        vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-            border = "rounded",
-        })
-        vim.diagnostic.config {
-            float = { border = "rounded" }
-        }
     end
 }
 -- (*): server installed with the toolchain
