@@ -11,7 +11,6 @@ return {
         priority = 1000,
         opts = {
             blue = "#0099f8",
-            opaque_white = "#aaaaaa"
         }
     },
     -- { dir = "~/Programming/0_projects/oldschool.nvim", opts = {} }
