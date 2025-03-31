@@ -5,6 +5,11 @@ return {
     config = function()
         require("org-roam").setup({
             directory = "~/Documents/OrgFiles/org-roam",
+            extensions = {
+                dailies = {
+                    directory = "/tmp/daily"
+                }
+            },
             templates = {
                 c = {
                     description = "Concept notes",
