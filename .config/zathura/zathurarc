@@ -31,7 +31,7 @@ set notification-fg "#151515" #00
 
 set recolor "true"
 set recolor-lightcolor "#000000" #00
-set recolor-darkcolor "#33ff00" #06
+set recolor-darkcolor "#cccccc" #06
 set recolor-reverse-video "true"
 set recolor-keephue "true"
 
