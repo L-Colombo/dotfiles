@@ -16,6 +16,7 @@ alias cp="cp -v"
 alias mv="mv -v"
 alias rm="rm -v"
 alias ls="ls --color=always"
+alias laf="ls --color=always -lhAF"
 
 ############### Evals ############################
 eval "$(zoxide init zsh)"
