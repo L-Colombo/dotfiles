@@ -170,6 +170,13 @@
     (insert chosen-char)))
 (global-set-key (kbd "C-c C-x `") #'accented)
 
+(defun my-kill-region ()
+  (interactive)
+  "kill region only when the region is highlighted"
+  (when (use-region-p)
+    (kill-region (region-beginning) (region-end))))
+(global-set-key (kbd "C-w") #'my-kill-region)
+
 (defun spell-it ()
   (interactive)
   "Sets the spelling language to Italian and spell checks the buffer"
