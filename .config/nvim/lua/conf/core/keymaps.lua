@@ -55,3 +55,6 @@ map("n", "<leader>to", ":tabnew<CR>")
 map("n", "<leader>tx", ":tabclose<CR>")
 map("n", "<leader>tn", ":tabn<CR>")
 map("n", "<leader>tp", ":tabp<CR>")
+
+-- diagnostic
+map("n", "gf", vim.diagnostic.open_float)
