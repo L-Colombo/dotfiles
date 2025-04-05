@@ -170,12 +170,12 @@
     (insert chosen-char)))
 (global-set-key (kbd "C-c C-x `") #'accented)
 
-(defun my-kill-region ()
-  (interactive)
-  "kill region only when the region is highlighted"
-  (when (use-region-p)
-    (kill-region (region-beginning) (region-end))))
-(global-set-key (kbd "C-w") #'my-kill-region)
+(defadvice kill-region (before unix-werase activate compile)
+  "When called interactively with no active region, delete a single word
+    backwards instead."
+  (interactive
+   (if mark-active (list (region-beginning) (region-end))
+     (list (save-excursion (backward-word 1) (point)) (point)))))
 
 (defun spell-it ()
   (interactive)
