@@ -66,13 +66,6 @@ autocmd("Filetype", {
     command = "set spell"
 })
 
--- run linters
-autocmd("BufWritePost", {
-    callback = function()
-        require("lint").try_lint()
-    end
-})
-
 -- COMMANDS
 
 -- format with confort with range (optional)
