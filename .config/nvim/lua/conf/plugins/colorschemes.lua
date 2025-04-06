@@ -1,8 +1,7 @@
 return {
-    "tpope/vim-vividchalk",
     "oprearocks/allhallowseve.nvim",
-    "vimoxide/vim-cinnabar",
-    "nyngwang/midnight-club.nvim",
+    "sjl/badwolf",
+    "scottmckendry/cyberdream.nvim",
 
     -- my colorschemes
     "L-Colombo/atlantic-dark.nvim",
