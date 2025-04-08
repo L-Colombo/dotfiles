@@ -102,7 +102,7 @@
   :defer t
   :ensure t)
 
-(load-theme 'gruber-darker t)
+(load-theme 'klere t)
 (set-cursor-color "#ff5500")
 
 ;; CUSTOM FUNCTIONS
@@ -252,7 +252,7 @@
   :init (require 'latex)
   (setq TeX-parse-self t
         TeX-view-program-selection '((output-pdf "Zathura"))
-        TeX-view-program-list '(("Zathura" TeX-pdf-tools-sync-view))
+;;        TeX-view-program-list '(("Zathura" TeX-pdf-tools-sync-view))
         TeX-source-correlate-start-server t
         Tex-source-correlate-method '((pdf . synctex)))
 ;;  (setq-default TeX-master "main")
@@ -413,6 +413,11 @@
                                 (recents . 10)))
   :config (dashboard-setup-startup-hook))
 (global-set-key (kbd "C-c d o") 'dashboard-open)
+
+;; MAGIT
+(use-package magit
+  :defer t
+  :ensure t)
 
 ;; MOVE-TEXT
 (use-package move-text
