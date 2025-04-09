@@ -54,7 +54,7 @@
 ;; (add-to-list 'default-frame-alist '(height . 34))
 ;; (add-to-list 'default-frame-alist '(width . 102))
 
-(set-frame-font "Iosevka Nerd Font Propo 16" nil t)
+(set-frame-font "Inconsolata Nerd Font Propo 18" nil t)
 
 ;; MARK SETTINGS
 (setq mark-ring-max 6
