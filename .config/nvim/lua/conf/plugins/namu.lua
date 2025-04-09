@@ -7,9 +7,9 @@ return {
                 options = {},
             },
             colorscheme = {
-                enable = true,
+                enable = false,
                 options = {
-                    persist = true,
+                    persist = false,
                     write_shada = false,
                 },
             },
