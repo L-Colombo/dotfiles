@@ -145,6 +145,15 @@
         (delete-char 1)
         (insert ?\n)))))
 
+(defun deundescore ()
+  "Substitutes all undescore in the current line with whitespace"
+  (interactive)
+  (save-excursion
+    (let ((beg (point)))
+      (replace-region-contents beg (beginning-of-line)
+                               (query-replace "_" " ")))))
+(global-set-key (kbd "C-c C-x SPC") #'deundescore)
+
 (defun accented ()
   (interactive)
   (let* ((char-alist '((?a "á" "Á" "à" "À" "â" "Â" "ä" "Ä" "ã" "Ã" "å" "Å" "æ" "Æ")
