@@ -16,18 +16,18 @@ shape = "Block"
 size = 15.0
 
 [font.bold]
-family = "Inconsolata Nerd Font Propo"
+family = "Iosevka Nerd Font Propo"
 style = "Bold"
 
 [font.bold_italic]
-family = "Inconsolata Nerd Font Propo"
+family = "Iosevka Nerd Font Propo"
 
 [font.italic]
-family = "Inconsolata Nerd Font Propo"
+family = "Iosevka Nerd Font Propo"
 style = "Italic"
 
 [font.normal]
-family = "Inconsolata Nerd Font Propo"
+family = "Iosevka Nerd Font Propo"
 style = "Regular"
 
 [[keyboard.bindings]]
