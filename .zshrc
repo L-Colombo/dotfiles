@@ -15,8 +15,8 @@ alias rust_repl="evcxr"
 alias cp="cp -v"
 alias mv="mv -v"
 alias rm="rm -v"
-alias ls="ls --color=always"
-alias laf="ls --color=always -lhAF"
+alias ls="ls --color=always --group-directories-firs"
+alias laf="ls --color=always -lhAF --group-directories-first"
 
 ############### Evals ############################
 eval "$(zoxide init zsh)"
