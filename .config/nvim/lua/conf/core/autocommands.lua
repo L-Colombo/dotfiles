@@ -25,7 +25,7 @@ autocmd("Filetype", {
     command = "setlocal shiftwidth=2 tabstop=2"
 })
 
--- set indent highlight as block in python and haskell files
+-- set indent highlight as block in python and ocaml files
 autocmd("Filetype", {
     group = augroup("python and haskell indent highlight", { clear = true }),
     pattern = {
@@ -64,6 +64,20 @@ autocmd("Filetype", {
         "gitcommit"
     },
     command = "set spell"
+})
+
+-- remove double window border in Telescope
+autocmd("User", {
+    pattern = "TelescopeFindPre",
+    callback = function()
+        vim.opt_local.winborder = "none"
+        autocmd("WinLeave", {
+            once = true,
+            callback = function()
+                vim.opt_local.winborder = "rounded"
+            end,
+        })
+    end,
 })
 
 -- COMMANDS

@@ -57,3 +57,6 @@ opt.foldlevelstart = 99
 vim.diagnostic.config({
     virtual_text = true
 })
+
+-- window border
+vim.o.winborder = "rounded"
