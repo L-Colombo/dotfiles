@@ -54,7 +54,7 @@
 ;; (add-to-list 'default-frame-alist '(height . 34))
 ;; (add-to-list 'default-frame-alist '(width . 102))
 
-(set-frame-font "Iosevka Nerd Font Propo 18" nil t)
+(set-frame-font "Pragmasevka Nerd Font 18" nil t)
 
 ;; MARK SETTINGS
 (setq mark-ring-max 6
@@ -114,6 +114,15 @@
     (switch-to-buffer-other-window buf)))
 (global-set-key (kbd "C-M-<return>") #'open-shell-in-split-window)
 
+(defun copy-current-line ()
+  "Copy the current line from begin to end"
+  (interactive)
+  (save-excursion
+    (kill-ring-save
+     (progn (beginning-of-line) (point))
+     (progn (end-of-line) (point)))))
+(global-set-key (kbd "C-S-c") #'copy-current-line)
+
 (defun goto-matching-par (&optional arg)
   "Go to the matching parenthesis character if one is adjacent to point."
   (interactive "^p")
@@ -155,7 +164,8 @@
 (global-set-key (kbd "C-c C-x SPC") #'deundescore)
 
 (defun accented ()
-  (interactive)
+  "Easily inser an accented character"
+ (interactive)
   (let* ((char-alist '((?a "á" "Á" "à" "À" "â" "Â" "ä" "Ä" "ã" "Ã" "å" "Å" "æ" "Æ")
                        (?e "é" "É" "è" "È" "ê" "Ê" "ë" "Ë")
                        (?i "í" "Í" "ì" "Ì" "î" "Î" "ï" "Ï")
@@ -187,6 +197,7 @@
      (list (save-excursion (backward-word 1) (point)) (point)))))
 
 (defun spell-it ()
+  "Change spelling dictionary to Italian and check buffer"
   (interactive)
   "Sets the spelling language to Italian and spell checks the buffer"
   (ispell-change-dictionary "italiano")
@@ -489,3 +500,10 @@
 
 ;; Load the custom-file; we're ready to roll
 (load "~/.emacs.d/custom.el")
+
+(load "~/Programming/emacs-hacking/tagger-emacs-wrapper/tagger.el")
+(setq tagger/tagger-directory "~/Documents/OrgFiles/org-roam")
+(global-set-key (kbd "C-c 1") #'tagger/search)
+(global-set-key (kbd "C-c 2") #'tagger/tags-all)
+(global-set-key (kbd "C-c 3") #'tagger/tags-file)
+(global-set-key (kbd "C-c 4") #'tagger/refile)
