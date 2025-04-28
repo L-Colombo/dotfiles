@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# pull the dotfiles
+
+(
+    cd ~/dotfiles ;
+    git pull
+)
+
+# pull ST config and recompile
+
+(
+    cd ~/.suckless/st ;
+    git pull ;
+    rm config.h ;
+    make && sudo make clean install
+)
+
+#
+(
+    cd ~/.suckless/dwm ;
+    git pull ;
+    rm config.h ;
+    make && sudo make clean install
+)
