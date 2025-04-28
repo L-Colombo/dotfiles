@@ -1,6 +1,6 @@
 return {
     "oprearocks/allhallowseve.nvim",
-    "sjl/badwolf",
+    "forest-nvim/sequoia.nvim",
     "scottmckendry/cyberdream.nvim",
     "maxmx03/retrolegends.nvim",
 

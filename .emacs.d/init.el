@@ -199,7 +199,6 @@
 (defun spell-it ()
   "Change spelling dictionary to Italian and check buffer"
   (interactive)
-  "Sets the spelling language to Italian and spell checks the buffer"
   (ispell-change-dictionary "italiano")
   (flyspell-buffer))
 
@@ -498,12 +497,15 @@
       languagetool-console-command "org.languagetool.commandline.Main"
       languagetool-server-command "org.languagetool.server.HTTPServer"))
 
+(use-package tagger
+  :load-path "~/Programming/emacs-hacking/tagger-emacs-wrapper"
+  :bind (("C-c 1" . #'tagger/search)
+         ("C-c 2" . #'tagger/tags-all)
+         ("C-c 3" . #'tagger/tags-file)
+         ("C-c 4" . #'tagger/refile)
+         ("C-c 5" . #'tagger/locate))
+  :init (setq tagger/tagger-directory
+              "~/Documents/OrgFiles/org-roam"))
+
 ;; Load the custom-file; we're ready to roll
 (load "~/.emacs.d/custom.el")
-
-(load "~/Programming/emacs-hacking/tagger-emacs-wrapper/tagger.el")
-(setq tagger/tagger-directory "~/Documents/OrgFiles/org-roam")
-(global-set-key (kbd "C-c 1") #'tagger/search)
-(global-set-key (kbd "C-c 2") #'tagger/tags-all)
-(global-set-key (kbd "C-c 3") #'tagger/tags-file)
-(global-set-key (kbd "C-c 4") #'tagger/refile)
