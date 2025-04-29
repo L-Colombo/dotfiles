@@ -66,6 +66,16 @@ autocmd("Filetype", {
     command = "set spell"
 })
 
+-- set conceallevel only on org files
+autocmd("Filetype", {
+    group = augroup("conceal", { clear = true }),
+    pattern = { "org" },
+    callback = function()
+        vim.opt.conceallevel = 2
+        vim.opt.concealcursor = "nc"
+    end
+})
+
 -- remove double window border in Telescope
 autocmd("User", {
     pattern = "TelescopeFindPre",

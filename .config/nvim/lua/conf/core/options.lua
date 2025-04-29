@@ -9,8 +9,6 @@ opt.number = true
 opt.swapfile = false
 opt.cursorline = true
 opt.cursorlineopt = "number"
-opt.conceallevel = 2
-opt.concealcursor = "nc"
 
 -- netrw file explorer
 vim.g.netrw_winsize = 30
