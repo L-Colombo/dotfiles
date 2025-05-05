@@ -25,22 +25,18 @@
   (package-install 'use-package))
 
 ;; DEFAULT SETTINGS
-(auto-save-mode -1)
-(tool-bar-mode -1)
-(menu-bar-mode 1)
-(electric-pair-mode 1)
-(global-display-line-numbers-mode 1)
-(column-number-mode 1)
-(repeat-mode 1)
-
 (setq-default word-wrap t
               tab-width 4
               isearch-lazy-count t
-              indent-tabs-mode nil)
+              indent-tabs-mode nil
+              set-mark-comand-repeat nil)
 
 (setq display-line-numbers-type 'relative
       inhibit-startup-screen 't
+      message-log-max nil ;; prints message to echo area, but does not creat a *Messages* buffer
       make-backup-files nil
+      mark-ring-max 6
+      global-mark-ring-max 8
       auto-save-default nil
       ring-bell-function 'ignore
       recentf-exclude '("~/dotfiles/.emacs.d/custom.el"
@@ -49,17 +45,20 @@
                         "~/Documents/OrgFiles/capture/todos.org"
                         "~/Documents/OrgFiles/capture/agenda.org"))
 
+(auto-save-mode -1)
+(tool-bar-mode -1)
+(menu-bar-mode 1)
+(electric-pair-mode 1)
+(global-display-line-numbers-mode 1)
+(column-number-mode 1)
+(repeat-mode 1)
+
 (put 'donwcase-region 'disabled nil)
 
 ;; (add-to-list 'default-frame-alist '(height . 34))
 ;; (add-to-list 'default-frame-alist '(width . 102))
 
 (set-frame-font "BlexMono Nerd Font Propo 16" nil t)
-
-;; MARK SETTINGS
-(setq mark-ring-max 6
-      global-mark-ring-max 8)
-(setq-default set-mark-comand-repeat nil)
 
 ;; WHITESPACE SETTINGS
 (setq-default whitespace-style '(face spaces empty tabs trailing space-mark tab-mark)
