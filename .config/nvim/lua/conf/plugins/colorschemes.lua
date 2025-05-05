@@ -2,7 +2,7 @@ return {
     "oprearocks/allhallowseve.nvim",
     "forest-nvim/sequoia.nvim",
     "scottmckendry/cyberdream.nvim",
-    "maxmx03/retrolegends.nvim",
+    "cpplain/flexoki.nvim",
 
     -- my colorschemes
     "L-Colombo/atlantic-dark.nvim",
