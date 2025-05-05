@@ -30,5 +30,7 @@ return {
                 lsp_format = "fallback"
             }
         })
+
+        vim.keymap.set("n", "g=", "<cmd>Format<cr>")
     end
 }
