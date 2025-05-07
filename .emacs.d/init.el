@@ -120,7 +120,7 @@
     (let ((beg (progn (beginning-of-line) (point)))
           (end (progn (end-of-line) (point))))
       (kill-ring-save beg end)
-      (pulse-momentary-highlight-region beg end))))
+      (pulse-momentary-highlight-one-line))))
 (global-set-key (kbd "C-S-c") #'copy-current-line)
 
 (defun goto-matching-par (&optional arg)
