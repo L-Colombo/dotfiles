@@ -117,9 +117,10 @@
   "Copy the current line from begin to end"
   (interactive)
   (save-excursion
-    (kill-ring-save
-     (progn (beginning-of-line) (point))
-     (progn (end-of-line) (point)))))
+    (let ((beg (progn (beginning-of-line) (point)))
+          (end (progn (end-of-line) (point))))
+      (kill-ring-save beg end)
+      (pulse-momentary-highlight-region beg end))))
 (global-set-key (kbd "C-S-c") #'copy-current-line)
 
 (defun goto-matching-par (&optional arg)
