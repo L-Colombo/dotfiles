@@ -8,6 +8,7 @@
 #
 #
 ############### Aliases ##########################
+alias adog="git log --all --decorate --oneline --graph"
 alias nv="nvim"
 alias exa="exa --long --header --color=always --icons --git-ignore --sort=type"
 alias tree="eza --color=always --icons --git-ignore --sort=type -T"
