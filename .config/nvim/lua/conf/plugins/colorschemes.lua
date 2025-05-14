@@ -1,7 +1,6 @@
 return {
     "oprearocks/allhallowseve.nvim",
-    "forest-nvim/sequoia.nvim",
-    "scottmckendry/cyberdream.nvim",
+    "kamwitsta/vinyl.nvim",
     "cpplain/flexoki.nvim",
 
     -- my colorschemes
