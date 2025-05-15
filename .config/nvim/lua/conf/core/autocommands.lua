@@ -21,6 +21,10 @@ autocmd("Filetype", {
         "cpp",
         "haskell",
         "ocaml",
+        "javascript",
+        "typescript",
+        "javascriptreact",
+        "typescriptreact"
     },
     command = "setlocal shiftwidth=2 tabstop=2"
 })
