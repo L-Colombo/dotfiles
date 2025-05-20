@@ -102,7 +102,7 @@
   :ensure t)
 
 (load-theme 'klere t)
-(set-cursor-color "#ff5500")
+(set-cursor-color "#fc0fc0")
 
 ;; CUSTOM FUNCTIONS
 (defun open-shell-in-split-window ()
@@ -498,7 +498,7 @@
       languagetool-server-command "org.languagetool.server.HTTPServer"))
 
 (use-package tagger
-  :load-path "~/Programming/emacs-hacking/tagger-emacs-wrapper"
+  :load-path "~/Programming/0_projects/tagger-emacs-wrapper"
   :bind (("C-c 1" . #'tagger/search)
          ("C-c 2" . #'tagger/tags-all)
          ("C-c 3" . #'tagger/tags-file)
