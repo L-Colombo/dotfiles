@@ -102,9 +102,14 @@
   :ensure t)
 
 (load-theme 'klere t)
-(set-cursor-color "#fc0fc0")
+
 
 ;; CUSTOM FUNCTIONS
+(defun cursor-color ()
+  "Convenience to set the cursor color"
+  (interactive)
+  (set-cursor-color "#fc0fc0"))
+
 (defun open-shell-in-split-window ()
   "Open a terminal in a split window"
   (interactive)
@@ -509,3 +514,4 @@
 
 ;; Load the custom-file; we're ready to roll
 (load "~/.emacs.d/custom.el")
+(cursor-color)
