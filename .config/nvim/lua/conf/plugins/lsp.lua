@@ -11,10 +11,16 @@ return {
         lspconfig.clangd.setup({ -- c/c++
             capabilities = capabilities
         })
+        lspconfig.clojure_lsp.setup({ -- clojure (**)
+            capabilities = capabilities
+        })
         lspconfig.cssls.setup({ -- css
             capabilities = capabilities
         })
         lspconfig.emmet_language_server.setup({ -- emmet
+            capabilities = capabilities
+        })
+        lspconfig.gleam.setup({ --gleam (*)
             capabilities = capabilities
         })
         lspconfig.hls.setup({ -- haskell (*)
