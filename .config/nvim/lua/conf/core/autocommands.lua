@@ -19,11 +19,12 @@ autocmd("Filetype", {
     pattern = {
         "c",
         "cpp",
+        "gleam",
         "haskell",
-        "ocaml",
         "javascript",
-        "typescript",
         "javascriptreact",
+        "ocaml",
+        "typescript",
         "typescriptreact"
     },
     command = "setlocal shiftwidth=2 tabstop=2"
