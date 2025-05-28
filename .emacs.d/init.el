@@ -55,8 +55,8 @@
 
 (put 'donwcase-region 'disabled nil)
 
-;; (add-to-list 'default-frame-alist '(height . 34))
-;; (add-to-list 'default-frame-alist '(width . 102))
+(add-to-list 'default-frame-alist '(height . 32))
+(add-to-list 'default-frame-alist '(width . 124))
 
 (set-frame-font "BlexMono Nerd Font Propo 16" nil t)
 
