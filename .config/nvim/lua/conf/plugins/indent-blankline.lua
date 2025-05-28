@@ -3,5 +3,7 @@ return {
     main = "ibl",
     event = "InsertEnter",
     ---@module "ibl"
-    opts = {},
+    opts = {
+        scope = { enabled = false }
+    },
 }
