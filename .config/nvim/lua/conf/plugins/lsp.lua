@@ -23,6 +23,9 @@ return {
         lspconfig.gleam.setup({ --gleam (*)
             capabilities = capabilities
         })
+        lspconfig.gopls.setup({ -- go (**)
+            capabilities = capabilities
+        })
         lspconfig.hls.setup({ -- haskell (*)
             capabilities = capabilities
         })
