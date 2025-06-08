@@ -2,10 +2,10 @@ return {
     "nvim-tree/nvim-web-devicons",
     opts = {
         override_by_extension = {
-            ["tex"] = {
-                icon = " ",
-                color = "#106612",
-                name = "tex"
+            ["go"] = {
+                icon = "󰟓",
+                color = "#00add8",
+                name = "go"
             },
             ["cpp"] = {
                 icon = "",
@@ -16,7 +16,12 @@ return {
                 icon = "󰌟 ",
                 color = "#6c3e82",
                 name = "php"
-            }
-        }
+            },
+            ["tex"] = {
+                icon = " ",
+                color = "#106612",
+                name = "tex"
+            },
+        },
     }
 }
