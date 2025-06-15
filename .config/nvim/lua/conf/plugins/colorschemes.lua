@@ -7,9 +7,7 @@ return {
     {
         "L-Colombo/oldschool.nvim",
         priority = 1000,
-        opts = {
-            blue = "#0099f8",
-        }
+        opts = {}
     },
     -- { dir = "~/Programming/0_projects/oldschool.nvim", opts = {} }
 }
