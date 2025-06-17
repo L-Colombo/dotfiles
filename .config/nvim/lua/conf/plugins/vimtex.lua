@@ -8,5 +8,7 @@ return {
         vim.g.vimtex_mappings_enabled = 1
         vim.g.vimtex_indent_enabled = 1
         vim.g.vimtex_syntax_enabled = 1
+
+        vim.keymap.set("n", "<leader>c", ":VimtexCompileSS<CR>")
     end
 }
