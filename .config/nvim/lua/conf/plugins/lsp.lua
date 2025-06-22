@@ -64,7 +64,10 @@ return {
         lspconfig.tailwindcss.setup({ -- tailwindcss
             capabilities = capabilities
         })
-        lspconfig.texlab.setup({ -- LaTeX (**)
+        lspconfig.tinymist.setup({ -- typst (**)
+            capabilities = capabilities
+        })
+        lspconfig.texlab.setup({ -- (La)TeX (**)
             capabilities = capabilities
         })
         lspconfig.ts_ls.setup({ -- typescript/javascript

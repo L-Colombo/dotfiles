@@ -4,13 +4,24 @@ return {
         require("namu").setup({
             namu_symbols = {
                 enable = true,
-                options = {},
+                options = {
+                    movement = {
+                        close = {
+                            "<C-c>"
+                        }
+                    }
+                },
             },
             colorscheme = {
-                enable = false,
+                enable = true,
                 options = {
                     persist = false,
                     write_shada = false,
+                    movement = {
+                        close = {
+                            "<C-c>"
+                        }
+                    }
                 },
             },
             ui_select = { enable = true },
