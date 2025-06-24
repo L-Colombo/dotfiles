@@ -17,6 +17,7 @@ return {
                 "lua_ls",
                 "phpactor",
                 "pyright",
+                "ruby_lsp",
                 "ruff",
                 "tailwindcss",
                 "texlab",
