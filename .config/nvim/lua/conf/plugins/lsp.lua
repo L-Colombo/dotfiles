@@ -11,7 +11,7 @@ return {
         lspconfig.clangd.setup({ -- c/c++
             capabilities = capabilities
         })
-        lspconfig.clojure_lsp.setup({ -- clojure (**)
+        lspconfig.clojure_lsp.setup({ -- clojure
             capabilities = capabilities
         })
         lspconfig.cssls.setup({ -- css
@@ -23,7 +23,7 @@ return {
         lspconfig.gleam.setup({ --gleam (*)
             capabilities = capabilities
         })
-        lspconfig.gopls.setup({ -- go (**)
+        lspconfig.gopls.setup({ -- go
             capabilities = capabilities
         })
         lspconfig.hls.setup({ -- haskell (*)
@@ -55,7 +55,7 @@ return {
         lspconfig.ruby_lsp.setup({ -- ruby (*)
             capabilities = capabilities,
         })
-        lspconfig.ruff.setup({ -- python (**)
+        lspconfig.ruff.setup({ -- python
             capabilities = capabilities
         })
         lspconfig.rust_analyzer.setup({ -- rust (*)
@@ -64,10 +64,10 @@ return {
         lspconfig.tailwindcss.setup({ -- tailwindcss
             capabilities = capabilities
         })
-        lspconfig.tinymist.setup({ -- typst (**)
+        lspconfig.tinymist.setup({ --
             capabilities = capabilities
         })
-        lspconfig.texlab.setup({ -- (La)TeX (**)
+        lspconfig.texlab.setup({ -- (La)TeX
             capabilities = capabilities
         })
         lspconfig.ts_ls.setup({ -- typescript/javascript
