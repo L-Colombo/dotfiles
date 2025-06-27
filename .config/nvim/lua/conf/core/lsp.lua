@@ -1,27 +1,29 @@
 local enable = vim.lsp.enable
 
--- Installed with language toolchain
-enable("gleam")
-enable("hls")
-enable("ocamllsp")
-enable("racket_langserver")
-enable("rust_analyzer")
+enable({
+    -- Installed with language toolchain
+    "gleam",
+    "hls",
+    "ocamllsp",
+    "racket_langserver",
+    "rust_analyzer",
 
--- Installed with Mason
-enable("bashls")
-enable("clangd")
-enable("clojure_lsp")
-enable("cssls")
-enable("elixirls")
-enable("emmet_language_server")
-enable("gopls")
-enable("html")
-enable("lua_ls")
-enable("phpactor")
-enable("pyright")
-enable("ruby_lsp")
-enable("ruff")
-enable("tailwindcss")
-enable("texlab")
-enable("ts_ls")
-enable("tinymist")
+    -- Installed with Mason
+    "bashls",
+    "clangd",
+    "clojure_lsp",
+    "cssls",
+    "elixirls",
+    "emmet_language_server",
+    "gopls",
+    "html",
+    "lua_ls",
+    "phpactor",
+    "pyright",
+    "ruby_lsp",
+    "ruff",
+    "tailwindcss",
+    "texlab",
+    "ts_ls",
+    "tinymist",
+})
