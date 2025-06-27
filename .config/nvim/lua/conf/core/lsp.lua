@@ -4,6 +4,7 @@ local enable = vim.lsp.enable
 enable("gleam")
 enable("hls")
 enable("ocamllsp")
+enable("racket_langserver")
 enable("rust_analyzer")
 
 -- Installed with Mason
