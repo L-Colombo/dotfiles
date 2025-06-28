@@ -10,5 +10,6 @@ return {
         vim.g.vimtex_syntax_enabled = 1
 
         vim.keymap.set("n", "<leader>c", ":VimtexCompileSS<CR>")
+        vim.keymap.set("n", "<leader>v", ":VimtexView<CR>")
     end
 }
