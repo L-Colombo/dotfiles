@@ -1,1 +1,1 @@
-{"loop":{"body":["<%= for ${i:1} <- ${range:2} do %>","    ${action:3}","<% end %>","$0"],"prefix":"loop"}}
+{"tag":{"body":"<$1>$2</$1>$0","prefix":"tag"},"loop":{"body":["<%= for ${i:1} <- ${range:2} do %>","    ${action:3}","<% end %>","$0"],"prefix":"loop"}}

@@ -101,7 +101,7 @@
   :defer t
   :ensure t)
 
-(load-theme 'klere t)
+(load-theme 'euphoria t)
 
 
 ;; CUSTOM FUNCTIONS

@@ -9,16 +9,17 @@
 #
 ############### Aliases ##########################
 alias adog="git log --all --decorate --oneline --graph"
-alias nv="nvim"
-alias exa="exa --long --header --color=always --icons --git-ignore --sort=type"
-alias tree="eza --color=always --icons --git-ignore --sort=type -T"
-alias rust_repl="evcxr"
 alias cp="cp -v"
-alias mv="mv -v"
-alias rm="rm -v"
-alias ls="ls --color=always --group-directories-firs"
+alias exa="exa --long --header --color=always --icons --git-ignore --sort=type"
 alias laf="ls --color=always -lhAF --group-directories-first"
+alias ls="ls --color=always --group-directories-firs"
+alias mv="mv -v"
+alias nv="nvim"
 alias orgfetch="onefetch --type prose programming markup data"
+alias rm="rm -v"
+alias rust_repl="evcxr"
+alias scim="sc-im"
+alias tree="eza --color=always --icons --git-ignore --sort=type -T"
 
 ############### Evals ############################
 eval "$(zoxide init zsh)"
