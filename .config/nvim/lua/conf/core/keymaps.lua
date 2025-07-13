@@ -58,25 +58,3 @@ map("n", "<leader>tp", ":tabp<CR>")
 
 -- diagnostic
 map("n", "gf", vim.diagnostic.open_float)
-
--- Easy register yank
-map("v", "<leader>1", '"1y')
-map("v", "<leader>2", '"2y')
-map("v", "<leader>3", '"3y')
-map("v", "<leader>4", '"4y')
-map("v", "<leader>5", '"5y')
-map("v", "<leader>6", '"6y')
-map("v", "<leader>7", '"7y')
-map("v", "<leader>8", '"8y')
-map("v", "<leader>9", '"9y')
-
--- Easy register put
-map("n", "<leader>p1", '"1p')
-map("n", "<leader>p2", '"2p')
-map("n", "<leader>p3", '"3p')
-map("n", "<leader>p4", '"4p')
-map("n", "<leader>p5", '"5p')
-map("n", "<leader>p6", '"6p')
-map("n", "<leader>p7", '"7p')
-map("n", "<leader>p8", '"8p')
-map("n", "<leader>p9", '"9p')
