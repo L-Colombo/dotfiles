@@ -1,1 +1,1 @@
-{"tag":{"body":"<$1>$2</$1>$0","prefix":"tag"}}
+{"tag":{"prefix":"tag","body":"<$1>$2</$1>$0"},"p":{"prefix":"p","body":"|> $0"}}
