@@ -7,7 +7,7 @@ format = '\[[$user](blue)@'
 [hostname]
 ssh_symbol = ' '
 ssh_only = false
-format = '[$hostname](red)\] in '
+format = '[$hostname](red) '
 
 [character]
 success_symbol = '[\$](bold white)'
@@ -19,17 +19,19 @@ disabled = true
 [directory]
 read_only = ' 󰌾'
 truncation_length = 10
-truncate_to_repo = false
+truncate_to_repo = true
+format = '[$path](green)\]'
 
 ####### GIT #######
 
 [git_branch]
 symbol = ' '
 always_show_remote = true
-format = 'on [$symbol$branch ( $remote_name/$remote_branch)]($style) '
+format = ' [$symbol$branch ( $remote_name/$remote_branch)]($style)'
 
 [git_metrics]
 disabled = false
+format = ' ([+$added]($added_style))([-$deleted]($deleted_style) )'
 
 [git_status]
 diverged = '[\($count⇕ \)](green)'
@@ -94,113 +96,149 @@ Windows = '󰍲 '
 
 [aws]
 symbol = '  '
+format = ' [$symbol($version)]($style)'
 
 [buf]
 symbol = ' '
+format = ' [$symbol($version)]($style)'
 
 [c]
 symbol = ' '
+format = ' [$symbol($version)]($style)'
 
 [conda]
 symbol = ' '
+format = ' [$symbol($version)]($style)'
 
 [crystal]
 symbol = ' '
+format = ' [$symbol($version)]($style)'
 
 [dart]
 symbol = ' '
+format = ' [$symbol($version)]($style)'
 
 [docker_context]
 symbol = ' '
+format = ' [$symbol($version)]($style)'
 
 [elixir]
 symbol = ' '
+format = ' [$symbol($version \(OTP $otp_version\))]($style)'
 
 [elm]
 symbol = ' '
+format = ' [$symbol($version)]($style)'
 
 [fennel]
 symbol = ' '
+format = ' [$symbol($version)]($style)'
 
 [fossil_branch]
 symbol = ' '
+format = ' [$symbol($version)]($style)'
 
 [golang]
-symbol = ' '
+symbol = '󰟓 '
+format = ' [$symbol($version)]($style)'
 
 [guix_shell]
 symbol = ' '
+format = ' [$symbol($version)]($style)'
 
 [haskell]
 symbol = ' '
+format = ' [$symbol($version)]($style)'
 
 [haxe]
 symbol = ' '
+format = ' [$symbol($version)]($style)'
 
 [hg_branch]
 symbol = ' '
+format = ' [$symbol($version)]($style)'
 
 # [hostname]
 
 [java]
 symbol = ' '
+format = ' [$symbol($version)]($style)'
 
 [julia]
 symbol = ' '
+format = ' [$symbol($version)]($style)'
 
 [kotlin]
 symbol = ' '
+format = ' [$symbol($version)]($style)'
 
 [lua]
 symbol = ' '
+format = ' [$symbol($version)]($style)'
 
 [memory_usage]
 symbol = '󰍛 '
 
 [meson]
 symbol = '󰔷 '
+format = ' [$symbol($version)]($style)'
 
 [nim]
 symbol = '󰆥 '
+format = ' [$symbol($version)]($style)'
 
 [nix_shell]
 symbol = ' '
+format = ' [$symbol($version)]($style)'
 
 [nodejs]
 symbol = ' '
+format = ' [$symbol($version)]($style)'
 
 [ocaml]
 symbol = ' '
+format = ' [$symbol($version)]($style)'
 
 [package]
 symbol = '󰏗 '
+format = ''
 
 [perl]
 symbol = ' '
+format = ' [$symbol($version)]($style)'
 
 [php]
-symbol = ' '
+symbol = ' '
+format = ' [$symbol($version)]($style)'
 
 [pijul_channel]
 symbol = ' '
+format = ' [$symbol($version)]($style)'
 
 [python]
 symbol = ' '
+format = ' [$symbol($version)]($style)'
 
 [rlang]
 symbol = '󰟔 '
+format = ' [$symbol($version)]($style)'
 
 [ruby]
 symbol = ' '
+format = ' [$symbol($version)]($style)'
 
 [rust]
 symbol = ' '
+format = ' [$symbol($version)]($style)'
 
 [scala]
 symbol = ' '
+format = ' [$symbol($version)]($style)'
 
 [swift]
 symbol = ' '
+format = ' [$symbol($version)]($style)'
 
 [zig]
 symbol = ' '
+format = ' [$symbol($version)]($style)'
