@@ -341,10 +341,8 @@
 (setq org-capture-templates
       '(("a" "Agenda" entry (file+headline "~/Documents/OrgFiles/capture/agenda.org" "Agenda")
          "* %?\n %T %i\n")
-        ("n" "Notes" entry (file+headline  "~/Documents/OrgFiles/capture/notes.org" "Notes")
-         "* %?\nEntered on %U\n %i\n")
         ("t" "Todo" entry (file+headline "~/Documents/OrgFiles/capture/todos.org" "Tasks")
-         "* TODO %?\n SCHEDULED: %T\n %iDEADLINE:  %T\n %i")))
+         "* TODO %?\n SCHEDULED: %T\n %iDEADLINE:  %T\n ENTERED: %U %i")))
 (setq org-agenda-span 'year
       org-agenda-files '("~/Documents/OrgFiles/capture"))
 
@@ -432,9 +430,9 @@
               dashboard-set-file-icons t
               dashboard-agenda-sort-strategy '(time-up)
               dashboard-items '((bookmarks . 5)
-                                (agenda . 5)
-                                (projects . 5)
-                                (recents . 10)))
+                                (agenda . 10)
+                                (recents . 10)
+                                (projects . 5)))
   :config (dashboard-setup-startup-hook))
 (global-set-key (kbd "C-c d o") 'dashboard-open)
 
