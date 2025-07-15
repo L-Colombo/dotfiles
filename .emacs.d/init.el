@@ -276,10 +276,10 @@
   :init (require 'latex)
   (setq TeX-parse-self t
         TeX-view-program-selection '((output-pdf "Zathura"))
-;;        TeX-view-program-list '(("Zathura" TeX-pdf-tools-sync-view))
+        ;; TeX-view-program-list '(("Zathura" TeX-pdf-tools-sync-view))
         TeX-source-correlate-start-server t
         Tex-source-correlate-method '((pdf . synctex)))
-;;  (setq-default TeX-master "main")
+  (setq-default TeX-master "main")
   (TeX-source-correlate-mode)
   (define-key TeX-source-correlate-map [C-down-mouse-1] #'TeX-view-mouse)
   (add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer))
