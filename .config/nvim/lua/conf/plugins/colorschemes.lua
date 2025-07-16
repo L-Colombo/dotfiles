@@ -1,6 +1,7 @@
 return {
     "oprearocks/allhallowseve.nvim",
-    "Koalhack/darcubox-nvim",
+    "myypo/borrowed.nvim",
+    "loctvl842/monokai-pro.nvim",
 
     -- my colorschemes
     "L-Colombo/atlantic-dark.nvim",
