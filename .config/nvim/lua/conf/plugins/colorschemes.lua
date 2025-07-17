@@ -1,7 +1,15 @@
 return {
     "oprearocks/allhallowseve.nvim",
     "myypo/borrowed.nvim",
-    "loctvl842/monokai-pro.nvim",
+    {
+        "loctvl842/monokai-pro.nvim",
+        config = function()
+            require("monokai-pro").setup({
+                filter = "classic",
+                transparent_background = true
+            })
+        end
+    },
 
     -- my colorschemes
     "L-Colombo/atlantic-dark.nvim",
