@@ -319,7 +319,9 @@
               org-ellipsis " "
               org-src-preserve-indentation t
               org-tags-column 0
-              org-capture-bookmark nil)
+              org-capture-bookmark nil
+              org-agenda-skip-deadline-if-done t
+              org-agenda-skip-scheduled-if-done t)
   :hook (org-mode . org-indent-mode))
 (global-set-key (kbd "C-c a") #'org-agenda)
 (global-set-key (kbd "C-c c") #'org-capture)
