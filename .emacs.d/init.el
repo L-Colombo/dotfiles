@@ -42,8 +42,8 @@
       recentf-exclude '("~/dotfiles/.emacs.d/custom.el"
                         "~/dotfiles/.emacs.d/configuration.org"
                         "~/dotfiles/.emacs.d/init.el"
-                        "~/Documents/OrgFiles/capture/todos.org"
-                        "~/Documents/OrgFiles/capture/agenda.org"))
+                        "~/Documents/OrgFiles/agenda/todos.org"
+                        "~/Documents/OrgFiles/agenda/agenda.org"))
 
 (auto-save-mode -1)
 (tool-bar-mode -1)
@@ -334,17 +334,16 @@
   :custom (org-bullets-bullet-list '(""))
   :hook (org-mode . org-bullets-mode))
 
-(unless (file-exists-p "~/Documents/OrgFiles/capture")
-  (make-directory "~/Documents/OrgFiles/capture"))
+(unless (file-exists-p "~/Documents/OrgFiles/agenda")
+  (make-directory "~/Documents/OrgFiles/agenda"))
 
-(setq org-default-notes-file (concat org-directory "capture/notes.org"))
 (setq org-capture-templates
-      '(("a" "Agenda" entry (file+headline "~/Documents/OrgFiles/capture/agenda.org" "Agenda")
+      '(("a" "Agenda" entry (file+headline "~/Documents/OrgFiles/agenda/agenda.org" "Agenda")
          "* %?\n %T %i\n")
-        ("t" "Todo" entry (file+headline "~/Documents/OrgFiles/capture/todos.org" "Tasks")
+        ("t" "Todo" entry (file+headline "~/Documents/OrgFiles/agenda/todos.org" "Tasks")
          "* TODO %?\n SCHEDULED: %T\n %iDEADLINE:  %T\n ENTERED: %U %i")))
 (setq org-agenda-span 'year
-      org-agenda-files '("~/Documents/OrgFiles/capture"))
+      org-agenda-files '("~/Documents/OrgFiles/agenda/"))
 
 (unless (file-exists-p "~/Documents/OrgFiles/org-roam")
   (make-directory "~/Documents/OrgFiles/org-roam"))
