@@ -39,8 +39,6 @@ export WORDCHARS=${WORDCHARS/_}
 ############### Prompt Style #####################
 PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
 
-. "$HOME/.cargo/env"
-
 ############### Other settings ###################
 
 # Smoother tab navigation and autocompletion
@@ -48,11 +46,14 @@ bind 'TAB:menu-complete'
 bind '"\e[Z": menu-complete-backward' # Shift-TAB to cycle backward
 bind 'set menu-complete-display-prefix on'
 bind 'set completion-ignore-case on'
-# bind 'set show-all-if-ambiguous on'
+bind 'set show-all-if-ambiguous on'
 
 # History of searches and commands
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
-[ -f "/home/lc/.ghcup/env" ] && . "/home/lc/.ghcup/env" # ghcup-env
+
+# Source language environments
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
+[ -f "$HOME/.ghcup/env" ] && . "$HOME/.ghcup/env"
