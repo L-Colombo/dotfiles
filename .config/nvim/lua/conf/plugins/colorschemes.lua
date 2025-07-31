@@ -1,6 +1,13 @@
 return {
     "oprearocks/allhallowseve.nvim",
-    "myypo/borrowed.nvim",
+    {
+        "myypo/borrowed.nvim",
+        config = function()
+            require("borrowed").setup({
+                transparent = true
+            })
+        end
+    },
     {
         "loctvl842/monokai-pro.nvim",
         config = function()
