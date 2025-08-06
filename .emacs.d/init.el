@@ -179,7 +179,8 @@
                        (?c "ç" "Ç")
                        (?h "Ḥ" "ḥ")
                        (?n "ñ" "Ñ")
-                       (?s "ß")))
+                       (?s "ß")
+                       (?z "ẓ" "Ẓ")))
          (char-keys (mapcar #'car char-alist))
          (chosen-key (read-char-choice
                       ;; Generate prompt using list of keys from `char-alist'
