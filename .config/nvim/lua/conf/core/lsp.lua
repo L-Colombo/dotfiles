@@ -15,6 +15,7 @@ enable({
     "cssls",
     "elixirls",
     "emmet_language_server",
+    "erlangls",
     "gopls",
     "html",
     "lua_ls",
