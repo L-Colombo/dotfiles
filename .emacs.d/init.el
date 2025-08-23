@@ -101,7 +101,7 @@
   :defer t
   :ensure t)
 
-(load-theme 'gruber-darker t)
+(load-theme 'klere t)
 
 
 ;; CUSTOM FUNCTIONS
