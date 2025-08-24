@@ -179,7 +179,7 @@
                        (?c "ç" "Ç")
                        (?h "ḥ" "Ḥ")
                        (?n "ñ" "Ñ")
-                       (?s "ß" "š" "Š")
+                       (?s "ß" "š" "Š" "ṣ" "Ṣ")
                        (?z "ẓ" "Ẓ")))
          (char-keys (mapcar #'car char-alist))
          (chosen-key (read-char-choice
