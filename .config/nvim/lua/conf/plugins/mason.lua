@@ -10,7 +10,7 @@ return {
                 "clangd",
                 "clojure_lsp",
                 "cssls",
-                "elixirls",
+                "expert",
                 "emmet_language_server",
                 "erlangls",
                 "gopls",
