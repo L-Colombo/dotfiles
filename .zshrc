@@ -9,6 +9,7 @@
 #
 ############### Aliases ##########################
 alias adog="git log --all --decorate --oneline --graph"
+alias bt="Budget_Tracker"
 alias cp="cp -v"
 alias exa="exa --long --header --color=always --icons --git-ignore --sort=type"
 alias laf="ls --color=always -lhAF --group-directories-first"
