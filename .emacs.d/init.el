@@ -276,7 +276,7 @@
   :ensure t
   :init (require 'latex)
   (setq TeX-parse-self t
-        TeX-view-program-selection '((output-pdf "Zathura"))
+        TeX-view-program-selection '((output-pdf "Sioyek"))
         ;; TeX-view-program-list '(("Zathura" TeX-pdf-tools-sync-view))
         TeX-source-correlate-start-server t
         Tex-source-correlate-method '((pdf . synctex)))
@@ -362,7 +362,10 @@
                                  "#+STARTUP: show2levels\n\n*  %^{FullTitle}\nAuthor: %^{Author}\nYear: %^{Year}\nType: %^{Type}\nFull reference: %^{FullReference}\n* Notes\n%?"
                                  :if-new (file+head "${slug}.org" "#+title: ${title}\n#+filetags: ${title}"))
                                 ("p" "Project Notes" plain "#+STARTUP: content\n\n* ${title}\nType: %^{Type}\n\n* Description\n%?\n\n* Structure\n \n\n* Concepts\n"
-                                 :if-new (file+head "2_${slug}.org" "#+title: pj_${title}"))))
+                                 :if-new (file+head "2_${slug}.org" "#+title: pj_${title}"))
+                                ("s" "Source Notes" plain
+                                 "#+STARTUP: show2levels\n\n*  %^{FullTitle}\nAuthor?: %^{Author}\nPeriod: %^{Period}\nType: %^{Type}\nEdited?: %^{?}\n* Notes\n%?"
+                                 :if-new (file+head "3_${slug}.org" "#+title: s_${title}"))))
   :bind (("C-c r d" . org-roam-buffer-display-dedicated)
          ("C-c r f" . org-roam-node-find)
          ("C-c r g" . org-roam-graph)
