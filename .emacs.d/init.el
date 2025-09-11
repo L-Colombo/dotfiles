@@ -58,7 +58,7 @@
 (add-to-list 'default-frame-alist '(height . 32))
 (add-to-list 'default-frame-alist '(width . 124))
 
-(set-frame-font "JetBrains Mono NL 16" nil t)
+(set-frame-font "Iosevka Nerd Font Propo 17" nil t)
 
 ;; WHITESPACE SETTINGS
 (setq-default whitespace-style '(face spaces empty tabs trailing space-mark tab-mark)

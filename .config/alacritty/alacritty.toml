@@ -16,14 +16,14 @@ shape = "Block"
 size = 17.0
 
 [font.bold]
-family = "JetBrains Mono NL"
+family = "Iosevka Nerd Font Propo"
 style = "Bold"
 
 [font.bold_italic]
-family = "JetBrains Mono NL"
+family = "Iosevka Nerd Font Propo"
 
 [font.italic]
-family = "JetBrains Mono NL"
+family = "Iosevka Nerd Font Propo"
 style = "Italic"
 
 [font.normal]
