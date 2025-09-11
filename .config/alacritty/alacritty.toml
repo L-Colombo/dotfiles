@@ -13,7 +13,7 @@ blinking = "Always"
 shape = "Block"
 
 [font]
-size = 16.0
+size = 17.0
 
 [font.bold]
 family = "JetBrains Mono NL"
@@ -27,7 +27,7 @@ family = "JetBrains Mono NL"
 style = "Italic"
 
 [font.normal]
-family = "JetBrains Mono NL"
+family = "Iosevka Nerd Font Propo"
 style = "Regular"
 
 [[keyboard.bindings]]
