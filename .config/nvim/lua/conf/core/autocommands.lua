@@ -30,29 +30,6 @@ autocmd("Filetype", {
     command = "setlocal shiftwidth=2 tabstop=2"
 })
 
--- set indent highlight as block in python and ocaml files
-autocmd("Filetype", {
-    group = augroup("python and haskell indent highlight", { clear = true }),
-    pattern = {
-        "python",
-        "ocaml"
-    },
-    callback = function()
-        local highlight = {
-            "CursorColumn",
-            "Whitespace",
-        }
-        require("ibl").setup {
-            indent = { highlight = highlight, char = "" },
-            whitespace = {
-                highlight = highlight,
-                remove_blankline_trail = false,
-            },
-            scope = { enabled = false },
-        }
-    end
-})
-
 -- set filetype for blade files
 vim.filetype.add({
     pattern = {
