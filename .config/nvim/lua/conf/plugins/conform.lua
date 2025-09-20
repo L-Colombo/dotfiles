@@ -21,7 +21,11 @@ return {
                 ocaml = {
                     "ocamlformat"
                 },
-                python = { "ruff" },
+                python = {
+                    "ruff_fix",
+                    "ruff_format",
+                    "ruff_organize_import"
+                },
                 php = { "pint", lsp_format = "fallback" },
                 rust = { "rustfmt", lsp_format = "fallback" },
             },
