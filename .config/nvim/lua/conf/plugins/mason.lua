@@ -15,6 +15,7 @@ return {
                 "erlangls",
                 "gopls",
                 "html",
+                "jdtls",
                 "lua_ls",
                 "phpactor",
                 "pyright",

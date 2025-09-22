@@ -6,11 +6,17 @@ return {
         config = function()
             require("monokai-pro").setup({
                 filter = "classic",
-                transparent_background = true
             })
         end
     },
-
+    {
+        "kamwitsta/vinyl.nvim",
+        config = function()
+            require("vinyl").setup({
+                variant = "darker"
+            })
+        end
+    },
     -- my colorschemes
     "L-Colombo/atlantic-dark.nvim",
     {
