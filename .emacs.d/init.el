@@ -368,7 +368,7 @@
                                  :if-new (file+head "2_${slug}.org" "#+title: pj_${title}"))
                                 ("s" "Source Notes" plain
                                  "#+STARTUP: show2levels\n\n*  %^{FullTitle}\nAuthor?: %^{Author}\nPeriod: %^{Period}\nType: %^{Type}\nEdited?: %^{Edited}\n* Notes\n%?"
-                                 :if-new (file+head "3_${slug}.org" "#+title: s_${title}"))))
+                                 :if-new (file+head "3_${slug}.org" "#+title: s_${title}\n#+filetags: ${title}"))))
   :bind (("C-c r d" . org-roam-buffer-display-dedicated)
          ("C-c r f" . org-roam-node-find)
          ("C-c r g" . org-roam-graph)
