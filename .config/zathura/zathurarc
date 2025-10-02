@@ -36,4 +36,4 @@ set recolor-reverse-video "true"
 set recolor-keephue "true"
 
 set page-padding 12
-set font "BlexMono Nerd Font Propo 14"
+set font "Iosevka Nerd Font Propo 14"
