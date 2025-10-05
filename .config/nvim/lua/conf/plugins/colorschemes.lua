@@ -1,6 +1,7 @@
 return {
     "oprearocks/allhallowseve.nvim",
     "logannday/gruber-darker-nvim",
+    "Prince-Ramani/crush.nvim",
     {
         "loctvl842/monokai-pro.nvim",
         config = function()
