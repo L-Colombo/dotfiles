@@ -58,3 +58,6 @@ map("n", "<leader>tp", ":tabp<CR>")
 
 -- diagnostic
 map("n", "gf", vim.diagnostic.open_float)
+
+-- Makefiles
+map("n", "<leader><CR>", ":make -k ")
