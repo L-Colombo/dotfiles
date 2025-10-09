@@ -20,7 +20,6 @@ alias onefetch="onefetch --type prose programming markup data"
 alias rm="rm -v"
 alias rsync="rsync --info=progress2 --human-readable -az"
 alias rust-repl="evcxr"
-alias scim="sc-im"
 alias tree="eza --color=always --icons --git-ignore --sort=type -T"
 
 ############### Evals ############################
