@@ -3,4 +3,5 @@ require("conf.core.autocommands")
 require("conf.core.keymaps")
 require("conf.core.lsp")
 require("conf.core.options")
-vim.cmd("colorscheme crush")
+
+vim.cmd("colorscheme gruvbox-high-contrast")
