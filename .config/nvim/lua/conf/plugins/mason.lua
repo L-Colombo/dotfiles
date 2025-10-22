@@ -22,7 +22,6 @@ return {
                 "ruby_lsp",
                 "ruff",
                 "tailwindcss",
-                "texlab",
                 "ts_ls",
                 "tinymist",
             },

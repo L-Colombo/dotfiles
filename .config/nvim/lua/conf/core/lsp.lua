@@ -1,4 +1,5 @@
 local enable = vim.lsp.enable
+local config = vim.lsp.config
 
 enable({
     -- Installed with language toolchain
@@ -17,6 +18,7 @@ enable({
     "emmet_language_server",
     "erlangls",
     "gopls",
+    "harper_ls",
     "html",
     "jdtls",
     "lua_ls",
@@ -28,4 +30,20 @@ enable({
     "texlab",
     "ts_ls",
     "tinymist",
+})
+
+config("harper_ls", {
+    filetypes = {
+        "markdown",
+        "org",
+        "tex",
+        "typst"
+    },
+    settings = {
+        ["harper-ls"] = {
+            linters = {
+                SpellCheck = false
+            }
+        }
+    }
 })
