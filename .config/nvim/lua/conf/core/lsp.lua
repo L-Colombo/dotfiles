@@ -14,7 +14,7 @@ enable({
     "clangd",
     "clojure_lsp",
     "cssls",
-    "expert",
+    "elixirls",
     "emmet_language_server",
     "erlangls",
     "gopls",
@@ -30,6 +30,19 @@ enable({
     "texlab",
     "ts_ls",
     "tinymist",
+})
+
+config("pyright", {
+    settings = {
+        pyright = {
+            disableOrganizeImports = true,
+        },
+        python = {
+            analysis = {
+                ignore = { "*" }
+            }
+        }
+    }
 })
 
 config("harper_ls", {
