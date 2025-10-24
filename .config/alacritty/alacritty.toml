@@ -16,18 +16,18 @@ shape = "Block"
 size = 16.0
 
 [font.bold]
-family = "BlexMono Nerd Font Propo"
+family = "Mononoki Nerd Font Propo"
 style = "Bold"
 
 [font.bold_italic]
-family = "BlexMono Nerd Font Propo"
+family = "Mononoki Nerd Font Propo"
 
 [font.italic]
-family = "BlexMono Nerd Font Propo"
+family = "Mononoki Nerd Font Propo"
 style = "Italic"
 
 [font.normal]
-family = "BlexMono Nerd Font Propo"
+family = "Mononoki Nerd Font Propo"
 style = "Regular"
 
 [[keyboard.bindings]]

@@ -1,6 +1,6 @@
 return {
     "tpope/vim-vividchalk",
-    "vim-scripts/Relaxed-Green",
+    "saran13raj/wheat-fox.nvim",
     "logannday/gruber-darker-nvim",
     "Prince-Ramani/crush.nvim",
     "iibe/gruvbox-high-contrast",
