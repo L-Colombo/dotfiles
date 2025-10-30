@@ -100,11 +100,14 @@
 (use-package gruvbox-theme
   :defer t
   :ensure t)
+(use-package monokai-theme
+  :defer t
+  :ensure t)
 (use-package color-theme-modern
   :defer t
   :ensure t)
 
-(load-theme 'euphoria t)
+(load-theme 'monokai t)
 
 
 ;; CUSTOM FUNCTIONS

@@ -4,4 +4,4 @@ require("conf.core.keymaps")
 require("conf.core.lsp")
 require("conf.core.options")
 
-vim.cmd("colorscheme gruvbox-high-contrast")
+vim.cmd("colorscheme monokai-pro")
