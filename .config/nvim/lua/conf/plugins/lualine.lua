@@ -5,7 +5,7 @@ return {
         -- custom_theme.normal.c.fg = "#cc0d0e"
         require("lualine").setup({
             options = {
-                theme = "auto",
+                theme = "oldschool",
                 -- theme = custom_theme,
                 component_separators = { left = "", right = "" },
                 section_separators = { left = "", right = "" },

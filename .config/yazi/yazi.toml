@@ -1,5 +1,0 @@
-[open]
-rules = [{ name = "*.pdf", use = "pdfreader" }]
-
-[opener]
-pdfreader = [{ run = 'zathura "$@"', desc = "read a pdf" }]
