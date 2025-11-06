@@ -1,0 +1,39 @@
+window {
+    background-color: #31363b;
+}
+
+#input {
+    margin: 5px;
+    border-radius: 0px;
+    border: none;
+    border-bottom: 3px;
+    background-color: #31363b;
+    color: white;
+}
+
+#inner-box {
+    background-color: #31363b;
+
+}
+
+#outer-box {
+    margin: 5px;
+    padding:5px;
+    background-color: #31363b;
+}
+
+#scroll {
+}
+
+#text {
+padding: 2px;
+color: white;
+}
+
+#entry:nth-child(even){
+    background-color: #31363b;
+}
+
+#entry:selected {
+    background-color: #3daee9;
+}
