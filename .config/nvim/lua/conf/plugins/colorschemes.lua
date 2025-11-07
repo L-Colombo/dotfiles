@@ -1,6 +1,6 @@
 return {
     "tpope/vim-vividchalk",
-    "guillermodotn/nvim-earthsong",
+    "kamil-koziol/imperial.nvim",
     "logannday/gruber-darker-nvim",
     "Prince-Ramani/crush.nvim",
     "iibe/gruvbox-high-contrast",
