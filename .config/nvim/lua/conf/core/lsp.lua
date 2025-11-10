@@ -18,7 +18,6 @@ enable({
     "emmet_language_server",
     "erlangls",
     "gopls",
-    "harper_ls",
     "html",
     "jdtls",
     "lua_ls",
@@ -40,22 +39,6 @@ config("pyright", {
         python = {
             analysis = {
                 ignore = { "*" }
-            }
-        }
-    }
-})
-
-config("harper_ls", {
-    filetypes = {
-        "markdown",
-        "org",
-        "tex",
-        "typst"
-    },
-    settings = {
-        ["harper-ls"] = {
-            linters = {
-                SpellCheck = false
             }
         }
     }
