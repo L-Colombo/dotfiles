@@ -107,7 +107,7 @@
   :defer t
   :ensure t)
 
-(load-theme 'monokai t)
+(load-theme 'gruvbox-dark-hard t)
 
 
 ;; CUSTOM FUNCTIONS

@@ -2,8 +2,7 @@ return {
     "tpope/vim-vividchalk",
     "kamil-koziol/imperial.nvim",
     "logannday/gruber-darker-nvim",
-    "Prince-Ramani/crush.nvim",
-    "iibe/gruvbox-high-contrast",
+    "lifepillar/vim-gruvbox8",
     {
         "loctvl842/monokai-pro.nvim",
         config = function()
