@@ -13,7 +13,7 @@ blinking = "Always"
 shape = "Block"
 
 [font]
-size = 16.0
+size = 17.0
 
 [font.bold]
 family = "Iosevka Nerd Font Propo"
