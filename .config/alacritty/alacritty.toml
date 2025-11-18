@@ -1,5 +1,5 @@
 [general]
-import = ["~/.config/alacritty/hyper-theme.toml"]
+import = ["~/.config/alacritty/gruvbox-darker.toml"]
 
 [colors.cursor]
 cursor = "#fc0fc0"
