@@ -107,7 +107,7 @@
   :defer t
   :ensure t)
 
-(load-theme 'gruvbox-dark-hard t)
+(load-theme 'klere t)
 
 
 ;; CUSTOM FUNCTIONS
