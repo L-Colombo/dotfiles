@@ -1,5 +1,5 @@
 [general]
-import = ["~/.config/alacritty/gruvbox-darker.toml"]
+import = ["~/.config/alacritty/pippo.toml"]
 
 [colors.cursor]
 cursor = "#fc0fc0"
