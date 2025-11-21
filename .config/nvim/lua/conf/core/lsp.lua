@@ -23,6 +23,7 @@ enable({
     "lua_ls",
     "phpactor",
     "pyright",
+    "racket_langserver",
     "ruby_lsp",
     "ruff",
     "tailwindcss",

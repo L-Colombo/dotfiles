@@ -444,7 +444,7 @@
               dashboard-items '((bookmarks . 5)
                                 (agenda . 10)
                                 (recents . 10)
-                                (projects . 5)))
+                                (projects . 10)))
   :config (dashboard-setup-startup-hook))
 (global-set-key (kbd "C-c d o") 'dashboard-open)
 
