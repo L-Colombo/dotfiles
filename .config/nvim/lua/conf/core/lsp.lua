@@ -2,7 +2,8 @@ local enable = vim.lsp.enable
 local config = vim.lsp.config
 
 enable({
-    -- Installed with language toolchain
+    -- Installed with language toolchain/system package manager
+    "clojure_lsp",
     "gleam",
     "hls",
     "ocamllsp",
@@ -12,7 +13,6 @@ enable({
     -- Installed with Mason
     "bashls",
     "clangd",
-    "clojure_lsp",
     "cssls",
     "elixirls",
     "emmet_language_server",

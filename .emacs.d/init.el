@@ -466,6 +466,7 @@
     (setq deactivate-mark deactivate)))
 (advice-add 'move-text-up :after 'indent-region-advice)
 (advice-add 'move-text-down :after 'indent-region-advice)
+
 ;; DOOM-MODELINE
 (use-package nerd-icons
   :defer 10
@@ -521,6 +522,18 @@
          ("C-c 5" . #'tagger/locate))
   :init (setq tagger/tagger-directory
               "~/Documents/OrgFiles/org-roam"))
+
+;; Clojure
+(use-package clojure-mode
+  :defer t
+  :ensure t)
+
+(add-hook 'clojure-mode-hook 'eglot-ensure)
+
+(use-package cider
+  :defer t
+  :ensure t)
+
 
 ;; Load the custom-file; we're ready to roll
 (load "~/.emacs.d/custom.el")
