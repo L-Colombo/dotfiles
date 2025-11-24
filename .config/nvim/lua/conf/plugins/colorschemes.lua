@@ -1,5 +1,6 @@
 return {
     "kamil-koziol/imperial.nvim",
+    "ChaseRensberger/christmas.nvim",
     -- my colorschemes
     "L-Colombo/atlantic-dark.nvim",
     "L-Colombo/devel2.nvim",
