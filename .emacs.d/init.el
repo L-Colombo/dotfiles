@@ -523,17 +523,42 @@
   :init (setq tagger/tagger-directory
               "~/Documents/OrgFiles/org-roam"))
 
+;; PROGRAMMING
+(use-package eglot
+  :config
+  (add-hook 'eglot-managed-mode-hook
+            (lambda ()
+              (eglot-inlay-hints-mode -1))))
+
+;; C
+(use-package c-mode
+  :defer t
+  ;; :ensure t no need
+  :hook ((c-mode . eglot-ensure)
+         (c-mode . (lambda ()
+           (add-hook 'before-save-hook 'eglot-format-buffer)))))
+
 ;; Clojure
 (use-package clojure-mode
   :defer t
-  :ensure t)
-
-(add-hook 'clojure-mode-hook 'eglot-ensure)
+  :ensure t
+  :hook (clojure-mode . eglot-ensure))
 
 (use-package cider
   :defer t
   :ensure t)
 
+;; Haskell
+(use-package haskell-mode
+  :defer t
+  :ensure t
+  :hook (haskell-mode . eglot-ensure))
+
+;; Rust
+(use-package rust-mode
+  :defer t
+  :ensure t
+  :hook (rust-mode . eglot-ensure))
 
 ;; Load the custom-file; we're ready to roll
 (load "~/.emacs.d/custom.el")
