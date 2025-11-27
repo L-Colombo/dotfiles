@@ -38,6 +38,7 @@ export PATH="$PATH:$HOME/scripts"
 export WORDCHARS=${WORDCHARS/\/}
 export WORDCHARS=${WORDCHARS/_}
 export MANPAGER="nvim +Man!"
+export HISTIGNORE="cd:mkdir:touch:rm"
 # to fix whatsapp-for-linux errors
 export WEBKIT_DISABLE_COMPOSITING_MODE=1
 
