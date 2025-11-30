@@ -4,4 +4,4 @@ require("conf.core.keymaps")
 require("conf.core.lsp")
 require("conf.core.options")
 
-vim.cmd("colorscheme oldschool")
+vim.cmd("colorscheme modus_vivendi")

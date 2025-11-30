@@ -43,7 +43,8 @@
                         "~/dotfiles/.emacs.d/configuration.org"
                         "~/dotfiles/.emacs.d/init.el"
                         "~/Documents/OrgFiles/agenda/todos.org"
-                        "~/Documents/OrgFiles/agenda/agenda.org"))
+                        "~/Documents/OrgFiles/agenda/agenda.org"
+                        "\\.bib$"))
 
 (auto-save-mode -1)
 (tool-bar-mode -1)
@@ -108,7 +109,7 @@
   :defer t
   :ensure t)
 
-(load-theme 'gruber-darker t)
+(load-theme 'modus-vivendi-deuteranopia t)
 
 
 ;; CUSTOM FUNCTIONS
