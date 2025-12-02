@@ -102,14 +102,8 @@
 (use-package gruvbox-theme
   :defer t
   :ensure t)
-(use-package monokai-theme
-  :defer t
-  :ensure t)
-(use-package color-theme-modern
-  :defer t
-  :ensure t)
 
-(load-theme 'modus-vivendi-deuteranopia t)
+(load-theme 'modus-vivendi-tritanopia t)
 
 
 ;; CUSTOM FUNCTIONS
