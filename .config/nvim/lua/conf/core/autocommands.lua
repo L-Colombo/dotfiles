@@ -39,9 +39,10 @@ vim.filetype.add({
 autocmd("Filetype", {
     group = augroup("setSpell", { clear = true }),
     pattern = {
-        "tex",
+        "gitcommit",
+        "markdown",
         "org",
-        "gitcommit"
+        "tex",
     },
     command = "set spell"
 })
