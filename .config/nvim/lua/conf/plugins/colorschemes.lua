@@ -1,5 +1,5 @@
 return {
-    "kamil-koziol/imperial.nvim",
+    "EdenEast/nightfox.nvim",
     "miikanissi/modus-themes.nvim",
     -- my colorschemes
     "L-Colombo/atlantic-dark.nvim",
