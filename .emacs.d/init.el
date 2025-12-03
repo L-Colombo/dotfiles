@@ -423,7 +423,23 @@
    ("C-c f s" . consult-ripgrep)
    ("C-c f m" . consult-mark)
    ("C-c f b" . consult-buffer)
-   ("C-c f t" . consult-theme)))
+   ("C-c f T" . consult-theme)
+   ("C-c f t" . consult-todo)))
+
+(use-package hl-todo
+  :defer t
+  :ensure t
+  :config (setq hl-todo-keyword-faces
+                '(("TODO"   . "#FF0000")
+                  ("FIXME"  . "#FF0000")
+                  ("DEBUG"  . "#A020F0")
+                  ("GOTCHA" . "#FF4500")
+                  ("STUB"   . "#1E90FF")))
+  :init (global-hl-todo-mode))
+
+(use-package consult-todo
+  :defer t
+  :ensure t)
 
 ;; DASHBOARD
 (use-package all-the-icons
