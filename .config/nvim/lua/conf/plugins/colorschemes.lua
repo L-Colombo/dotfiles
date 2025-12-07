@@ -1,6 +1,6 @@
 return {
     "EdenEast/nightfox.nvim",
-    "miikanissi/modus-themes.nvim",
+    "bluz71/vim-moonfly-colors",
     -- my colorschemes
     "L-Colombo/atlantic-dark.nvim",
     "L-Colombo/devel2.nvim",
