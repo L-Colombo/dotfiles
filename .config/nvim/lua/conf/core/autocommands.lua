@@ -27,6 +27,18 @@ autocmd("Filetype", {
     },
     command = "setlocal shiftwidth=2 tabstop=2"
 })
+--
+-- set indentation to 2 for specific filetypes
+autocmd("Filetype", {
+    group = augroup("setMkprg", { clear = true }),
+    pattern = {
+        "rust"
+    },
+    command = "set makeprg=make"
+})
+
+
+
 
 -- set filetype for blade files
 vim.filetype.add({
