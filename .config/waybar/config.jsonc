@@ -11,6 +11,7 @@
     ],
     "modules-right": [
         "idle_inhibitor",
+        "custom/updates",
         "pulseaudio",
         "memory",
         "battery",
@@ -78,5 +79,11 @@
     // River
     "river/tags": {
         "num-tags": 9
+    },
+    // Custom
+    "custom/updates": {
+        "exec": "arch_checkupdates.sh",
+        "interval": 300,
+        "on-click": "arch_checkupdates.sh"
     }
 }

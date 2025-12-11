@@ -16,26 +16,33 @@
     padding-right: 12px;
 }
 
-#battery {
+#custom-updates {
     background-color: #222222;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+
+#battery {
+    background-color: #666666;
     padding-left: 12px;
     padding-right: 12px;
 }
 
 #clock {
-    background-color: #666666;
-    padding-left: 12px;
-    padding-right: 12px;
-}
-
-#pulseaudio {
     background-color: #222222;
     padding-left: 12px;
     padding-right: 12px;
 }
 
-#memory {
+#pulseaudio {
     background-color: #666666;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+#memory {
+    background-color: #222222;
     padding-left: 12px;
     padding-right: 12px;
 }
