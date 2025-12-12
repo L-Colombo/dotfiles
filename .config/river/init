@@ -4,20 +4,22 @@
 
 #### KEYBINDINGS #######################
 # Apps
-riverctl map normal Super Return spawn alacritty
+riverctl map normal Super Return spawn foot
 riverctl map normal Super E spawn thunar
 riverctl map normal Super F spawn firefox
 riverctl map normal Super G spawn thunderbird
-riverctl map normal Super P spawn "wmenu-run -f 'CaskaydiaCove Nerd Font Propo 17'"
+riverctl map normal Super P spawn "wmenu-run -i -f 'CaskaydiaCove Nerd Font Propo 17'"
 riverctl map normal Super T spawn Telegram
 riverctl map normal Super W spawn wasistlos
 riverctl map normal Super+Shift E spawn emacs
 riverctl map normal Super+Shift R spawn readpdf-wayland.sh
+riverctl map normal Super+Control L spawn "swaylock -c=#222222"
 
 # window management
 riverctl map normal Super+Shift C close
 riverctl map normal Super+Shift Q exit
 
+riverctl map normal Super Tab focus-previous-tags
 riverctl map normal Super J focus-view next
 riverctl map normal Super K focus-view previous
 riverctl map normal Super+Shift J swap next
@@ -132,5 +134,6 @@ rivertile -view-padding 6 -outer-padding 6 -main-ratio 0.55 &
 # STARTUP APPS
 riverctl spawn "waybar"
 riverctl spawn "nm-applet"
+riverctl spawn "dunst"
 riverctl spawn "blueman-applet"
 riverctl spawn "swaybg --mode=stretch --image=${HOME}/Pictures/Wallpaperx/river.jpg"
