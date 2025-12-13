@@ -1,6 +1,8 @@
 #!/bin/sh
 
 
+# Keyboard Layout
+riverctl keyboard-layout -variant "altgr-intl,," -options "grp:shift_caps_toggle" us,it,il
 
 #### KEYBINDINGS #######################
 # Apps
@@ -136,4 +138,4 @@ riverctl spawn "waybar"
 riverctl spawn "nm-applet"
 riverctl spawn "dunst"
 riverctl spawn "blueman-applet"
-riverctl spawn "swaybg --mode=stretch --image=${HOME}/Pictures/Wallpaperx/river.jpg"
+riverctl spawn "swaybg --mode=stretch --image=${HOME}/Pictures/Wallpaperx/astronaut.png"
