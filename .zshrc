@@ -21,7 +21,7 @@ alias rm="rm -v"
 alias rsync="rsync --info=progress2 --human-readable -az"
 alias rust-repl="evcxr"
 alias syu="sudo pacman -Syu --noconfirm"
-alias sua="paru -Sua"
+alias sua="yay -Sua"
 alias tree="eza --color=always --icons --git-ignore --sort=type -T"
 
 ############### Evals ############################

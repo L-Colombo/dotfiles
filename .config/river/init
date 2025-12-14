@@ -117,12 +117,14 @@ done
 # Set background and border color
 riverctl border-color-focused 0x005577
 riverctl border-color-unfocused 0xaaaaaa
-riverctl border-width 4
+riverctl border-width 3
 
 # Set keyboard repeat rate
 riverctl set-repeat 30 400
 
 # Make all views with an app-id that starts with "float" and title "foo" start floating.
+riverctl rule-add ssd
+
 riverctl rule-add -app-id 'thunar' float
 riverctl rule-add -app-id 'wasistlos' tags $((1 << 8))
 riverctl rule-add -app-id 'org.telegram.desktop' tags $((1 << 8))
