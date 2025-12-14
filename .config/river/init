@@ -9,7 +9,7 @@ riverctl keyboard-layout -variant "altgr-intl,," -options "grp:shift_caps_toggle
 riverctl map normal Super Return spawn foot
 riverctl map normal Super E spawn thunar
 riverctl map normal Super F spawn firefox
-riverctl map normal Super G spawn thunderbird
+riverctl map normal Super G spawn "env MOZ_ENABLE_WAYLAND=0 thunderbird"
 riverctl map normal Super P spawn "wmenu-run -i -f 'CaskaydiaCove Nerd Font Propo 17'"
 riverctl map normal Super T spawn Telegram
 riverctl map normal Super W spawn wasistlos
