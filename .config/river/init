@@ -126,6 +126,7 @@ riverctl set-repeat 30 400
 riverctl rule-add ssd
 
 riverctl rule-add -app-id 'thunar' float
+riverctl rule-add -app-id 'org.kde.elisa' float
 riverctl rule-add -app-id 'wasistlos' tags $((1 << 8))
 riverctl rule-add -app-id 'org.telegram.desktop' tags $((1 << 8))
 riverctl rule-add -app-id 'org.mozilla.Thunderbird' tags $((1 << 7))
@@ -140,4 +141,4 @@ riverctl spawn "waybar"
 riverctl spawn "nm-applet"
 riverctl spawn "dunst"
 riverctl spawn "blueman-applet"
-riverctl spawn "swaybg --mode=stretch --image=${HOME}/Pictures/Wallpaperx/astronaut.png"
+riverctl spawn "swaybg --mode=stretch --image=${HOME}/Pictures/Wallpaperx/street_corner.jpg"
