@@ -1,6 +1,5 @@
 return {
-    "EdenEast/nightfox.nvim",
-    "Mofiqul/dracula.nvim",
+    "heavycircle/ronin.nvim",
     -- my colorschemes
     "L-Colombo/atlantic-dark.nvim",
     "L-Colombo/devel2.nvim",
