@@ -63,4 +63,4 @@ map("n", "gf", vim.diagnostic.open_float)
 map("n", "<leader><CR>", ":make -k ")
 
 -- Delete one word forward
-map("i", "<C-q>", '<C-o>"_de')
+map("i", "<C-q>", '<C-o>"_dw')

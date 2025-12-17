@@ -17,6 +17,8 @@ riverctl map normal Super+Shift E spawn emacs
 riverctl map normal Super+Shift R spawn readpdf-wayland.sh
 riverctl map normal Super+Control L spawn "swaylock -c=#222222"
 
+riverctl map normal Super Backslash spawn river-scratchpad.sh
+
 # window management
 riverctl map normal Super+Shift C close
 riverctl map normal Super+Shift Q exit
@@ -130,6 +132,8 @@ riverctl rule-add -app-id 'org.kde.elisa' float
 riverctl rule-add -app-id 'wasistlos' tags $((1 << 8))
 riverctl rule-add -app-id 'org.telegram.desktop' tags $((1 << 8))
 riverctl rule-add -app-id 'org.mozilla.Thunderbird' tags $((1 << 7))
+riverctl rule-add -app-id 'scratchpad' tags $((1 << 20))
+riverctl rule-add -app-id 'scratchpad' float
 
 # Set the default layout generator to be rivertile and start it.
 # River will send the process group of the init executable SIGTERM on exit.
