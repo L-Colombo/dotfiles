@@ -103,7 +103,7 @@
   :defer t
   :ensure t)
 
-(load-theme 'gruber-darker t)
+(load-theme 'modus-vivendi-tritanopia t)
 
 
 ;; CUSTOM FUNCTIONS
