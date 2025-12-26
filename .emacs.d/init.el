@@ -16,6 +16,25 @@
   (shell-command "touch ~/.emacs.d/custom.el"))
 (setq custom-file "~/.emacs.d/custom.el")
 
+(setq-default inhibit-redisplay t
+              inhibit-message t)
+
+(setq gc-cons-threshold most-positive-fixnum
+      gc-cons-percentage 0.6
+      frame-inhibit-implied-resize t
+      inhibit-compacting-font-caches t)
+
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (setq gc-cons-threshold (* 16 1024 1024)
+                  gc-cons-percentage 0.1)))
+
+(add-hook 'window-setup-hook
+          (lambda ()
+            (setq-default inhibit-redisplay nil
+                          inhibit-message nil)
+            (redisplay)))
+
 ;; SETUP PACKAGE REPOSITORIES
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
@@ -97,9 +116,6 @@
   :defer t
   :ensure t)
 (use-package gruber-darker-theme
-  :defer t
-  :ensure t)
-(use-package gruvbox-theme
   :defer t
   :ensure t)
 
