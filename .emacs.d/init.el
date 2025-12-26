@@ -56,6 +56,7 @@
       make-backup-files nil
       mark-ring-max 6
       global-mark-ring-max 8
+      use-short-answers t
       auto-save-default nil
       ring-bell-function 'ignore
       recentf-exclude '("~/dotfiles/.emacs.d/custom.el"
@@ -127,6 +128,14 @@
   "Convenience to set the cursor color"
   (interactive)
   (set-cursor-color "#fc0fc0"))
+
+(defun select-current-line ()
+  "Select the entire line the cursor is on."
+  (interactive)
+  (beginning-of-line)
+  (set-mark (line-beginning-position))
+  (goto-char (line-end-position)))
+(global-set-key (kbd "C-S-l") #'select-current-line)
 
 (defun open-shell-in-split-window ()
   "Open a terminal in a split window"
