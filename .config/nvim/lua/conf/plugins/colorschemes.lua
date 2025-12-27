@@ -1,6 +1,6 @@
 return {
     "heavycircle/ronin.nvim",
-    "i3d/vim-jimbothemes",
+    "oxidescheme/oxide.nvim",
     -- my colorschemes
     "L-Colombo/atlantic-dark.nvim",
     "L-Colombo/devel2.nvim",
