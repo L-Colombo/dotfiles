@@ -120,7 +120,7 @@
   :defer t
   :ensure t)
 
-(load-theme 'modus-vivendi-tritanopia t)
+(load-theme 'klere t)
 
 
 ;; CUSTOM FUNCTIONS

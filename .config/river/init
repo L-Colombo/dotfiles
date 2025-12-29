@@ -14,6 +14,7 @@ riverctl map normal Super P spawn "wmenu-run -i -f 'CaskaydiaCove Nerd Font Prop
 riverctl map normal Super T spawn Telegram
 riverctl map normal Super W spawn wasistlos
 riverctl map normal Super+Shift E spawn emacs
+riverctl map normal Super+Shift M spawn elisa
 riverctl map normal Super+Shift R spawn readpdf-wayland.sh
 riverctl map normal Super+Control L spawn "swaylock -c=#222222"
 
@@ -145,4 +146,4 @@ riverctl spawn "waybar"
 riverctl spawn "nm-applet"
 riverctl spawn "dunst"
 riverctl spawn "blueman-applet"
-riverctl spawn "swaybg --mode=stretch --image=${HOME}/Pictures/Wallpaperx/serene.jpg"
+riverctl spawn "swaybg --mode=stretch --image=${HOME}/Pictures/Wallpaperx/personal_library.jpg"
