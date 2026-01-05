@@ -10,7 +10,6 @@
         "river/tags"
     ],
     "modules-right": [
-        "idle_inhibitor",
         "custom/updates",
         "pulseaudio",
         "memory",
@@ -27,13 +26,6 @@
         "format-icons": {
             "locked": "",
             "unlocked": ""
-        }
-    },
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
         }
     },
     "tray": {
