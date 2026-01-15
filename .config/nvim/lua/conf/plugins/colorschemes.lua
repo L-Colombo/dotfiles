@@ -1,6 +1,7 @@
 return {
     "heavycircle/ronin.nvim",
     "oxidescheme/oxide.nvim",
+    "kamil-koziol/imperial.nvim",
     -- my colorschemes
     "L-Colombo/atlantic-dark.nvim",
     "L-Colombo/devel2.nvim",
