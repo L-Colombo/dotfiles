@@ -119,6 +119,9 @@
 (use-package gruber-darker-theme
   :defer t
   :ensure t)
+(use-package color-theme-modern
+  :defer t
+  :ensure t)
 
 (load-theme 'klere t)
 
