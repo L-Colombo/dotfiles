@@ -20,6 +20,7 @@ enable({
     "gopls",
     "html",
     "jdtls",
+    "jsonls",
     "lua_ls",
     "phpactor",
     "pyright",
