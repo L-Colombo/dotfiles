@@ -37,3 +37,6 @@ set recolor-keephue "true"
 
 set page-padding 12
 set font "CaskaydiaCove Nerd Font Propo 14"
+
+map  <C-n> feedkeys j
+map  <C-p> feedkeys k
