@@ -10,18 +10,17 @@
     background-color: #005577;
 }
 
-#idle_inhibitor {
+#custom-updates {
     background-color: #666666;
     padding-left: 12px;
     padding-right: 12px;
 }
 
-#custom-updates {
+#backlight {
     background-color: #222222;
     padding-left: 12px;
     padding-right: 12px;
 }
-
 
 #battery {
     background-color: #666666;

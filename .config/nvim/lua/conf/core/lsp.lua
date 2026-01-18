@@ -9,6 +9,7 @@ enable({
     "ocamllsp",
     "racket_langserver",
     "rust_analyzer",
+    "zls",
 
     -- Installed with Mason
     "bashls",
