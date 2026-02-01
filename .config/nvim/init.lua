@@ -4,4 +4,4 @@ require("conf.core.keymaps")
 require("conf.core.lsp")
 require("conf.core.options")
 
-vim.cmd("colorscheme devel")
+vim.cmd("colorscheme moonfly")

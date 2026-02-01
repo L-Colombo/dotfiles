@@ -1,6 +1,7 @@
 return {
     "heavycircle/ronin.nvim",
-    "oxidescheme/oxide.nvim",
+    "rockerBOO/boo-colorscheme-nvim",
+    "bluz71/vim-moonfly-colors",
     "kamil-koziol/imperial.nvim",
     -- my colorschemes
     "L-Colombo/atlantic-dark.nvim",
@@ -10,5 +11,6 @@ return {
         priority = 1000,
         opts = {}
     },
+    { dir = "~/Programming/0_projects/academia.nvim" }
     -- { dir = "~/Programming/0_projects/oldschool.nvim", opts = {} }
 }
