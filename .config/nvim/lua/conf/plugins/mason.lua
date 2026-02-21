@@ -8,7 +8,6 @@ return {
             ensure_installed = {
                 "bashls",
                 "clangd",
-                "clojure_lsp",
                 "cssls",
                 "elixirls",
                 "emmet_language_server",

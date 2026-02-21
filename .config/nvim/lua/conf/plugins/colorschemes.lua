@@ -11,6 +11,5 @@ return {
         priority = 1000,
         opts = {}
     },
-    { dir = "~/Programming/0_projects/academia.nvim" }
     -- { dir = "~/Programming/0_projects/oldschool.nvim", opts = {} }
 }
