@@ -36,6 +36,8 @@ export PATH="$PATH:$HOME/.config/composer/vendor/bin/"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/scripts"
 export WORDCHARS=${WORDCHARS/\/}
+export WORDCHARS=${WORDCHARS/-}
+export WORDCHARS=${WORDCHARS/=}
 export WORDCHARS=${WORDCHARS/_}
 export MANPAGER="less"
 export HISTIGNORE="cd:mkdir:touch:rm"
