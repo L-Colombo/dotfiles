@@ -2,7 +2,7 @@
 
 
 # Keyboard Layout
-riverctl keyboard-layout -variant "altgr-intl,," -options "grp:shift_caps_toggle" us,it,il
+riverctl keyboard-layout -variant "altgr-intl," -options "grp:shift_caps_toggle" us,il
 
 #### KEYBINDINGS #######################
 # Apps
@@ -147,4 +147,4 @@ riverctl spawn "nm-applet"
 riverctl spawn "dunst"
 riverctl spawn "dropbox start -i"
 riverctl spawn "blueman-applet"
-riverctl spawn "swaybg --mode=stretch --image=${HOME}/Pictures/Wallpaperx/village_boat.jpg"
+riverctl spawn "swaybg --mode=stretch --image=${HOME}/Pictures/Wallpaperx/purple.jpg"
