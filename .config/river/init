@@ -13,6 +13,7 @@ riverctl map normal Super G spawn "env MOZ_ENABLE_WAYLAND=0 thunderbird"
 riverctl map normal Super P spawn "wmenu-run -i -f 'CaskaydiaCove Nerd Font Propo 17'"
 riverctl map normal Super T spawn Telegram
 riverctl map normal Super W spawn wasistlos
+riverctl map normal Super Z spawn zotero
 riverctl map normal Super+Shift E spawn emacs
 riverctl map normal Super+Shift M spawn elisa
 riverctl map normal Super+Shift R spawn readpdf-wayland.sh
