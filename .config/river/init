@@ -136,6 +136,7 @@ riverctl rule-add -app-id 'org.telegram.desktop' tags $((1 << 8))
 riverctl rule-add -app-id 'org.mozilla.Thunderbird' tags $((1 << 7))
 riverctl rule-add -app-id 'scratchpad' tags $((1 << 20))
 riverctl rule-add -app-id 'scratchpad' float
+riverctl rule-add -title 'Metronome' float
 
 # Set the default layout generator to be rivertile and start it.
 # River will send the process group of the init executable SIGTERM on exit.
@@ -148,4 +149,4 @@ riverctl spawn "nm-applet"
 riverctl spawn "dunst"
 riverctl spawn "dropbox start -i"
 riverctl spawn "blueman-applet"
-riverctl spawn "swaybg --mode=stretch --image=${HOME}/Pictures/Wallpaperx/purple.jpg"
+riverctl spawn "swaybg --mode=stretch --image=${HOME}/Pictures/Wallpaperx/conan_mount_wrath.jpg"

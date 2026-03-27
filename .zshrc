@@ -39,6 +39,7 @@ export WORDCHARS=${WORDCHARS/\/}
 export WORDCHARS=${WORDCHARS/-}
 export WORDCHARS=${WORDCHARS/=}
 export WORDCHARS=${WORDCHARS/_}
+export WORDCHARS=${WORDCHARS/.}
 export MANPAGER="less"
 export HISTIGNORE="cd:mkdir:touch:rm"
 # to fix whatsapp-for-linux errors
