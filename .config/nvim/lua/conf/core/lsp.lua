@@ -9,6 +9,7 @@ enable({
     "ocamllsp",
     "racket_langserver",
     "rust_analyzer",
+    "texlab",
     "zls",
 
     -- Installed with Mason
@@ -29,7 +30,6 @@ enable({
     "ruby_lsp",
     "ruff",
     "tailwindcss",
-    "texlab",
     "ts_ls",
     "tinymist",
 })
