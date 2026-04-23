@@ -9,7 +9,7 @@ return {
                 "bashls",
                 "clangd",
                 "cssls",
-                "elixirls",
+                -- "elixirls",
                 "emmet_language_server",
                 "erlangls",
                 "gopls",
