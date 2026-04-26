@@ -37,9 +37,6 @@ autocmd("Filetype", {
     command = "set makeprg=make"
 })
 
-
-
-
 -- set filetype for blade files
 vim.filetype.add({
     pattern = {
@@ -81,4 +78,17 @@ autocmd("User", {
             end,
         })
     end,
+})
+
+-- Format with lsp
+command("Format",
+    function()
+        vim.lsp.buf.format()
+    end, {})
+
+vim.keymap.set("n", "g=", "<cmd>Format<cr>")
+
+autocmd("BufWritePre", {
+    group = augroup("fmtOnSave", { clear = true }),
+    command = "Format"
 })

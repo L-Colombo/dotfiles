@@ -20,6 +20,7 @@ enable({
     "emmet_language_server",
     "erlangls",
     "gopls",
+    "harper_ls",
     "html",
     "jdtls",
     "jsonls",
