@@ -487,11 +487,6 @@
   :config (dashboard-setup-startup-hook))
 (global-set-key (kbd "C-c d o") 'dashboard-open)
 
-;; MAGIT
-(use-package magit
-  :defer t
-  :ensure t)
-
 ;; MOVE-TEXT
 (use-package move-text
   :defer t
