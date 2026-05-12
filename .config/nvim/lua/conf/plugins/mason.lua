@@ -24,6 +24,7 @@ return {
                 "tailwindcss",
                 "ts_ls",
                 "tinymist",
+                "zls",
             },
         })
     end

@@ -10,7 +10,6 @@ enable({
     "racket_langserver",
     "rust_analyzer",
     "texlab",
-    "zls",
 
     -- Installed with Mason
     "bashls",
@@ -33,6 +32,7 @@ enable({
     "tailwindcss",
     "ts_ls",
     "tinymist",
+    "zls",
 })
 
 config("pyright", {
