@@ -8,6 +8,8 @@
 #
 #
 ############### Aliases ##########################
+alias ..="cd .."
+alias ...="cd ../.."
 alias adog="git log --all --decorate --oneline --graph"
 alias bt="Budget_Tracker"
 alias cp="cp -v"
