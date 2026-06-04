@@ -319,6 +319,12 @@
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
 (setq reftex-plug-into-AUCTeX t)
 
+(use-package auctex-cont-latexmk
+  :defer t
+  :ensure t
+  :after latex
+  :hook (latex-mode . auctex-cont-latexmk-mode))
+
 ;; IDO & VERTICO
 (use-package ido-vertical-mode
   :ensure t
