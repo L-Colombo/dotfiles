@@ -1,0 +1,30 @@
+[general]
+main_file_name = "main.tex"
+papersize = "letterpaper"
+textsize = "12pt"
+
+[templates]
+
+[templates.example]
+bib_file = "bibliography.bib"
+documentclass = { class = "article" }
+packages = [
+    { pkg_name = "fontenc", pkg_opts = ["T1"] },
+    { pkg_name = "hyperref", pkg_opts = ["hidelinks", "hypertexnames=false"] },
+    { pkg_name = "graphicx" }
+]
+
+[templates.article_en]
+bib_file = "bibliography.bib"
+documentclass = { class = "article", class_opts = ["draft"] }
+packages = [
+    { pkg_name = "fontenc", pkg_opts = ["T1"] },
+    { pkg_name = "inputenc", pkg_opts = ["utf8"] },
+    { pkg_name = "hyperref", pkg_opts = ["hidelinks", "hypertexnames=false"] },
+    { pkg_name = "babel", pkg_opts = ["english"] },
+    { pkg_name = "nowidow", pkg_opts = ["defaultlines=2", "all"] },
+    { pkg_name = "CrimsonPro" },
+    { pkg_name = "cjhebrew" },
+    { pkg_name = "csquotes", pkg_opts = ["autostyle", "italian=guillemets"] },
+    { pkg_name = "biblatex-chicago", pkg_opts = ["notes", "backend=biber", "isbn=false", "doi=false"] }
+]
