@@ -16,18 +16,18 @@ shape = "Block"
 size = 16.0
 
 [font.bold]
-family = "CaskaydiaCove Nerd Font Propo"
+family = "JetBrainsMono NL"
 style = "Bold"
 
 [font.bold_italic]
-family = "CaskaydiaCove Nerd Font Propo"
+family = "JetBrainsMono NL"
 
 [font.italic]
-family = "CaskaydiaCove Nerd Font Propo"
+family = "JetBrainsMono NL"
 style = "Italic"
 
 [font.normal]
-family = "CaskaydiaCove Nerd Font Propo"
+family = "JetBrainsMono NL"
 style = "Regular"
 
 [[keyboard.bindings]]
