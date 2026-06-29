@@ -80,7 +80,7 @@
 (add-to-list 'default-frame-alist '(height . 32))
 (add-to-list 'default-frame-alist '(width . 124))
 
-(set-frame-font "CaskaydiaCove Nerd Font Propo 17" nil t)
+(set-frame-font "Terminess Nerd Font Propo 20" nil t)
 
 ;; WHITESPACE SETTINGS
 (setq-default whitespace-style '(face spaces empty tabs trailing space-mark tab-mark)
@@ -127,6 +127,22 @@
 
 
 ;; CUSTOM FUNCTIONS
+;; (defun kb/toggle-window-transparency ()
+;;   "Toggle the value of `alpha-background'.
+;;
+;; Toggles between 100 and 72 by default.  Can choose which value to change
+;; to if called with ARG, or any prefix argument."
+;;   (interactive "P")
+;;   (let ((transparency (pcase arg
+;;                         ((pred numberp) arg)
+;;                         ((pred car) (read-number "Change the transparency to which value (0-100)? "))
+;;                         (_
+;;                          (pcase (frame-parameter nil 'alpha-background)
+;;                            (72 100)
+;;                            (100 72)
+;;                            (t 100))))))
+;;     (set-frame-parameter nil 'alpha-background transparency)))
+
 (defun cursor-color ()
   "Convenience to set the cursor color"
   (interactive)
@@ -210,6 +226,7 @@
                        (?h "ḥ" "Ḥ")
                        (?n "ñ" "Ñ")
                        (?s "ß" "š" "Š" "ṣ" "Ṣ")
+                       (?t "ṭ" "Ṭ")
                        (?z "ẓ" "Ẓ")))
          (char-keys (mapcar #'car char-alist))
          (chosen-key (read-char-choice

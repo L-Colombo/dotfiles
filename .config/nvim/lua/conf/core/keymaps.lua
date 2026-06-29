@@ -62,5 +62,8 @@ map("n", "gf", vim.diagnostic.open_float)
 -- Makefiles
 map("n", "<leader><CR>", ":make -k ")
 
+-- Enhanced register paste
+map("n", "<leader>0", '"0p')
+
 -- Delete one word forward
 map("i", "<C-q>", '<C-o>"_dw')
