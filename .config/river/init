@@ -11,10 +11,10 @@ riverctl map normal Super E spawn thunar
 riverctl map normal Super F spawn firefox
 riverctl map normal Super G spawn "env MOZ_ENABLE_WAYLAND=0 thunderbird"
 riverctl map normal Super P spawn "wmenu-run -i -f 'Terminess Nerd Font Propo 20'"
-riverctl map normal Super Z spawn zotero
+riverctl map normal Super Z spawn "flatpak run org.zotero.Zotero"
 riverctl map normal Super+Shift E spawn emacs
 riverctl map normal Super+Shift M spawn elisa
-riverctl map normal Super+Shift R spawn readpdf-wayland.sh
+riverctl map normal Super+Shift R spawn "~/scripts/readpdf-wayland.sh"
 riverctl map normal Super+Control L spawn "swaylock -c=#222222"
 
 riverctl map normal Super Backslash spawn river-scratchpad.sh
