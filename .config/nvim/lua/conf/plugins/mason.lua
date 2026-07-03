@@ -22,8 +22,9 @@ return {
                 -- "ruby_lsp",
                 "ruff",
                 "tailwindcss",
-                "ts_ls",
+                "texlab",
                 "tinymist",
+                "ts_ls",
                 "zls",
             },
         })
