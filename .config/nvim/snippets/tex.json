@@ -1,1 +1,25 @@
-{"critical":{"body":["\\section{Chapter ${1:chapter}}","","\\beginnumbering","\\autopar","","${2:text...}","","\\endnumbering"],"prefix":"critical"},"lett":{"prefix":"lett","body":["\\item \\label{no_data_${1:num}\\}","","    Senza Data, ${2:intestazione}","","    \\begin{quotation}\\em\\small","    $0   ","","    Link: \\emph{\\url{monumentasymoniniana.org/letters/no_date_${3:slug}}}","    \\end{quotation}"]},"ms":{"prefix":"ms","body":["\\ms{ % Call number","\t$1","}{ % MS Dating","\t$2","}{ % Script","\t$3","}{ % Digital copy?","    $4","}{ % Notes","    $5","}{ % Bibliography","    $6","}"]}}
+{
+  "bibleindex": {
+    "body": "\\index[bib]{${2:Book}!${3:ordinalNumber} @${4:chapter}:${5:verse}}$0",
+    "prefix": "bibleindex"
+  },
+  "item": {
+    "body": "Item .\\emph{${2:letter}}.: \\emph{${3:verse}}.$0",
+    "prefix": "item"
+  },
+  "ledgroup": {
+    "body": [
+      "\\section{Chapter ${1:chapterNumber}}",
+      "",
+      "\\begin{ledgroup}",
+      "    \\beginnumbering",
+      "    \\autopar",
+      "",
+      "    ${2:Chapter} capitulo .\\emph{$3}.: \\emph{$4}.$0",
+      "",
+      "    \\endnumbering",
+      "\\end{ledgroup}"
+    ],
+    "prefix": "ledgroup"
+  }
+}
