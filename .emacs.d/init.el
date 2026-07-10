@@ -595,16 +595,6 @@
          (c-mode . (lambda ()
            (add-hook 'before-save-hook 'eglot-format-buffer)))))
 
-;; Clojure
-(use-package clojure-mode
-  :defer t
-  :ensure t
-  :hook (clojure-mode . eglot-ensure))
-
-(use-package cider
-  :defer t
-  :ensure t)
-
 ;; Haskell
 (use-package haskell-mode
   :defer t
