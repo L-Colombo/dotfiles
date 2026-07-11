@@ -144,6 +144,6 @@ rivertile -view-padding 6 -outer-padding 6 -main-ratio 0.55 &
 riverctl spawn "waybar"
 riverctl spawn "nm-applet"
 riverctl spawn "dunst"
-riverctl spawn "flatpak run com.dropbox.Client start -i"
+riverctl spawn "dropbox start -i"
 riverctl spawn "blueman-applet"
 riverctl spawn "swaybg --mode=stretch --image=${HOME}/Pictures/Wallpaperx/personal_library.jpg"

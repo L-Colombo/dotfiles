@@ -36,7 +36,7 @@ set recolor-reverse-video "true"
 set recolor-keephue "true"
 
 set page-padding 12
-set font "Terminess Nerd Font Propo 16"
+set font "Cascadia Code NF 12"
 
 map  <C-n> feedkeys j
 map  <C-p> feedkeys k
