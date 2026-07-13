@@ -267,6 +267,10 @@
   :ensure t
   :hook (eshell-first-time-mode . lc/configure-eshell))
 
+(use-package exec-path-from-shell
+  :ensure t
+  :init (exec-path-from-shell-initialize))
+
 ;; RAINBOW-DELIMITERS
 (use-package rainbow-delimiters
   :ensure t
