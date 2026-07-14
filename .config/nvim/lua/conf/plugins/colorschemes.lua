@@ -1,7 +1,8 @@
 return {
     "rockerBOO/boo-colorscheme-nvim",
-    "bluz71/vim-moonfly-colors",
+    "iibe/gruvbox-high-contrast",
     "tx3stn/nightjungle.nvim",
+    "czrd/zero.nvim",
     -- my colorschemes
     "L-Colombo/atlantic-dark.nvim",
     "L-Colombo/devel2.nvim",
