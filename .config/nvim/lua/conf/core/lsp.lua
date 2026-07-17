@@ -3,21 +3,14 @@ local config = vim.lsp.config
 
 enable({
     -- Installed with language toolchain/system package manager
-    "clojure_lsp",
-    "gleam",
     "hls",
-    "ocamllsp",
-    "racket_langserver",
     "rust_analyzer",
-    "texlab",
 
     -- Installed with Mason
     "bashls",
     "clangd",
     "cssls",
-    -- "elixirls",
     "emmet_language_server",
-    -- "erlangls",
     "gopls",
     "harper_ls",
     "html",
@@ -26,11 +19,11 @@ enable({
     "lua_ls",
     "phpactor",
     "pyright",
-    "racket_langserver",
     "ruff",
     "tailwindcss",
-    "ts_ls",
+    "texlab",
     "tinymist",
+    "ts_ls",
     "zls",
 })
 

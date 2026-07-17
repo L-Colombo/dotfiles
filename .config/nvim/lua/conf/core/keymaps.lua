@@ -13,6 +13,7 @@ map("n", "<leader>ss", "<cmd>set spell!<cr>")
 map({ "n", "v" }, "<Tab>", "==")
 map("n", "<leader>L", "<cmd>Lazy<cr>")
 map("n", "<leader>tr", "<cmd>hi Normal guibg=None<cr>")
+map("n", "<leader>w", "<cmd>write<cr>")
 
 -- moving and motion
 map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
