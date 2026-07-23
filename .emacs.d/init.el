@@ -77,9 +77,6 @@
 
 (put 'donwcase-region 'disabled nil)
 
-(add-to-list 'default-frame-alist '(height . 32))
-(add-to-list 'default-frame-alist '(width . 124))
-
 (set-frame-font "Cascadia Code NF 17" nil t)
 
 ;; WHITESPACE SETTINGS
@@ -270,6 +267,11 @@
 (use-package exec-path-from-shell
   :ensure t
   :init (exec-path-from-shell-initialize))
+
+;; MAGIT
+(use-package magit
+  :defer t
+  :ensure t)
 
 ;; RAINBOW-DELIMITERS
 (use-package rainbow-delimiters

@@ -21,6 +21,7 @@ return {
                 "tailwindcss",
                 "texlab",
                 "tinymist",
+                "tombi",
                 "ts_ls",
                 "zls",
             },
