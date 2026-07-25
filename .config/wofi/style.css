@@ -18,19 +18,18 @@ window {
 
 #outer-box {
     margin: 5px;
-    padding:5px;
+    padding: 5px;
     background-color: #31363b;
 }
 
-#scroll {
-}
+#scroll {}
 
 #text {
-padding: 2px;
-color: white;
+    padding: 2px;
+    color: white;
 }
 
-#entry:nth-child(even){
+#entry:nth-child(even) {
     background-color: #31363b;
 }
 
