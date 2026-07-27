@@ -130,7 +130,7 @@ riverctl rule-add ssd
 
 riverctl rule-add -app-id 'thunar' float
 riverctl rule-add -app-id 'org.kde.elisa' float
-riverctl rule-add -app-id 'org.mozilla.Thunderbird' tags $((1 << 7))
+riverctl rule-add -app-id 'net.thunderbird.Thunderbird' tags $((1 << 8))
 # riverctl rule-add -app-id 'scratchpad' tags $((1 << 20))
 # riverctl rule-add -app-id 'scratchpad' float
 riverctl rule-add -app-id 'org.kde.yakuake' float
