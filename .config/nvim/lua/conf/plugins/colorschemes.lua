@@ -1,8 +1,12 @@
 return {
-    "rockerBOO/boo-colorscheme-nvim",
-    "iibe/gruvbox-high-contrast",
-    "tx3stn/nightjungle.nvim",
-    "czrd/zero.nvim",
+    {
+        "ellisonleao/gruvbox.nvim",
+        config = function()
+            require("gruvbox").setup({
+                contrast = "hard"
+            })
+        end
+    },
     -- my colorschemes
     "L-Colombo/atlantic-dark.nvim",
     "L-Colombo/devel2.nvim",
