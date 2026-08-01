@@ -79,7 +79,7 @@
 
 (put 'donwcase-region 'disabled nil)
 
-(set-frame-font "Cascadia Code NF 17" nil t)
+(set-frame-font "CaskaydiaCove Nerd Font Propo 15" nil t)
 
 ;; WHITESPACE SETTINGS
 (setq-default whitespace-style '(face spaces empty tabs trailing space-mark tab-mark)
