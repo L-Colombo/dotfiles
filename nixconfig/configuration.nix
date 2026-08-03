@@ -202,21 +202,26 @@
     fzf
     guitarix
     gvfs
+    hunspell
+    hunspellDicts.it-it
     hydrogen
     kdePackages.yakuake
     killall
     kmymoney
     lazygit
+    libreoffice
     networkmanagerapplet
     onefetch
     pandoc
     pamixer
+    papirus-icon-theme
     pavucontrol
     proton-vpn
     qpdf
     ripgrep
     ripgrep-all
     rsync
+    speedtest-cli
     starship
     stow
     thunar
