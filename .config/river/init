@@ -15,10 +15,10 @@ riverctl map normal Super Z spawn "flatpak run org.zotero.Zotero"
 riverctl map normal Super+Shift E spawn emacs
 riverctl map normal Super+Shift M spawn elisa
 riverctl map normal Super+Shift F spawn "firefox --private-window"
-riverctl map normal Super+Shift R spawn "~/scripts/readpdf-wayland.sh"
+riverctl map normal Super+Shift R spawn "${HOME}/scripts/readpdf-wayland.sh"
 riverctl map normal Super+Control L spawn "swaylock -c=#222222"
 
-riverctl map normal Super Backslash spawn yakuake
+riverctl map normal Super Backslash spawn "${HOME}/scripts/river-scatchpad.sh"
 
 # window management
 riverctl map normal Super+Shift C close
@@ -130,10 +130,9 @@ riverctl rule-add ssd
 
 riverctl rule-add -app-id 'thunar' float
 riverctl rule-add -app-id 'org.kde.elisa' float
-riverctl rule-add -app-id 'net.thunderbird.Thunderbird' tags $((1 << 8))
-# riverctl rule-add -app-id 'scratchpad' tags $((1 << 20))
-# riverctl rule-add -app-id 'scratchpad' float
-riverctl rule-add -app-id 'org.kde.yakuake' float
+riverctl rule-add -app-id 'thunderbird' tags $((1 << 8))
+riverctl rule-add -app-id 'scratchpad' tags $((1 << 20))
+riverctl rule-add -app-id 'scratchpad' float
 riverctl rule-add -title 'Metronome' float
 
 # Set the default layout generator to be rivertile and start it.
@@ -145,7 +144,6 @@ rivertile -view-padding 6 -outer-padding 6 -main-ratio 0.55 &
 riverctl spawn "waybar"
 riverctl spawn "nm-applet"
 riverctl spawn "dunst"
-riverctl spawn "yakuake"
 riverctl spawn "dropbox start -i"
 riverctl spawn "blueman-applet"
 riverctl spawn "swaybg --mode=stretch --image=${HOME}/Pictures/Wallpaperx/nix_rainbow.png"

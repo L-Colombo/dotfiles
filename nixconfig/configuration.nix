@@ -104,9 +104,10 @@
     enable = true;
     xwayland.enable = true;
     extraPackages = with pkgs; [
+      foot
+      lswt
       swaylock
       swaybg
-      foot
       waybar
       wofi
     ];
@@ -204,6 +205,7 @@
     networkmanagerapplet
     onefetch
     pandoc
+    pamixer
     pavucontrol
     proton-vpn
     qpdf
