@@ -1,25 +1,34 @@
 { config, pkgs, ... }:
 
 {
-  nix = {
-    settings.experimental-features = [ 
-        "nix-command"
-        "flakes"
-    ];
-  };
-
   imports =
-    [ 
+    [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
 
-  environment.sessionVariables = {
-    MOZ_ENABLE_WAYLAND = "0";
-    WLR_NO_HARDWARE_CURSOR = "1";
-    NIXOS_OZONE_WL = "1";
-  };
+  # Bootloader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  # Use latest kernel.
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  networking.hostName = "nixos";
+  networking.wireless.enable = true;
+  networking.networkmanager.enable = true;
 
   hardware = {
+    graphics.enable = true;
+
+    nvidia = {
+      modesetting.enable = true;
+      powerManagement.enable = false;
+      powerManagement.finegrained = false;
+      open = false;
+      nvidiaSettings = true;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+    };
+
     bluetooth = {
         enable = true;
         powerOnBoot = true;
@@ -31,65 +40,30 @@
             AutoEnable = true;
         };
     };
-
-    graphics.enable = true;
-
-    nvidia = {
-      # Modesetting is required.
-      modesetting.enable = true;
-
-      # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
-      # Enable this if you have graphical corruption issues or application crashes after waking
-      # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead 
-      # of just the bare essentials.
-      powerManagement.enable = false;
-
-      # Fine-grained power management. Turns off GPU when not in use.
-      # Experimental and only works on modern Nvidia GPUs (Turing or newer).
-      powerManagement.finegrained = false;
-
-      # Use the NVidia open source kernel module (not to be confused with the
-      # independent third-party "nouveau" open source driver).
-      # Support is limited to the Turing and later architectures. Full list of 
-      # supported GPUs is at: 
-      # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
-      # Only available from driver 515.43.04+
-      open = false;
-
-      # Enable the Nvidia settings menu,
-	  # accessible via `nvidia-settings`.
-      nvidiaSettings = true;
-
-      # Optionally, you may need to select the appropriate driver version for your specific GPU.
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
-    };
   };
 
-  # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/vda";
-  boot.loader.grub.useOSProber = true;
-
-  networking.hostName = "nixos";
-  networking.wireless.enable = true;
-  networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/Rome";
 
+  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-  console = {
-    font = "Lat2-Terminus16";
-    keyMap = "us";
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "en_US.UTF-8";
+    LC_IDENTIFICATION = "en_US.UTF-8";
+    LC_MEASUREMENT = "en_US.UTF-8";
+    LC_MONETARY = "en_US.UTF-8";
+    LC_NAME = "en_US.UTF-8";
+    LC_NUMERIC = "en_US.UTF-8";
+    LC_PAPER = "en_US.UTF-8";
+    LC_TELEPHONE = "en_US.UTF-8";
+    LC_TIME = "en_US.UTF-8";
   };
 
+  services.xserver.enable = true;
 
-  hardware.nvidia = {
-  };
-
-# Enable the KDE Desktop Environment.
   services = {
+    displayManager.sddm.enable = true;
     desktopManager.plasma6.enable = true;
-    displayManager.plasma-login-manager.enable = true;
   };
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
@@ -97,30 +71,12 @@
     qrca
   ];
 
-# Enable river-classic
-  programs.river-classic = {
-    enable = true;
-    xwayland.enable = true;
-    extraPackages = with pkgs; [
-        swaylock
-        swaybg
-        foot
-        waybar
-        wlr-randr
-        wofi
-    ];
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "";
   };
 
-# Enabled programs
-  programs.firefox = {
-      enable = true;
-      preferences = {
-        "widget.use-xdg-desktop-portal.file-picker" = 1;
-      };
-  };
-  programs.zsh.enable = true;
 
-# Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -131,30 +87,50 @@
     jack.enable = true;
   };
 
-# Enable touchpad support (enabled default in most desktopManager).
-  services.libinput.enable = true;
-
+# Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."pippo" = {
     isNormalUser = true;
     shell = pkgs.zsh;
     description = "pippo";
     extraGroups = [ 
-        "networkmanager"
-        "wheel"
-        "audio"
-        "video"
+      "audio"
+      "networkmanager"
+      "video"
+      "wheel"
     ];
   };
 
-# Allow unfree packages
+  programs.river-classic = {
+    enable = true;
+    xwayland.enable = true;
+    extraPackages = with pkgs; [
+      swaylock
+      swaybg
+      foot
+      waybar
+      wofi
+    ];
+  };
+
+  programs.firefox = {
+    enable = true;
+    preferences = {
+      "widget.use-xdg-desktop-portal.file-picker" = 1;
+    };
+  };
+
+  programs.zsh.enable = true;
+
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-# DEVELOPMENT BASICS
+	# DEVELOPMENT BASICS
     clang
     cmakeMinimal
+    codeberg-cli
     gcc
     git
+    github-cli
     gnumake
     leiningen
     uv
@@ -197,7 +173,7 @@
     zls
 
 # EDITORS
-    emacs
+  emacs
     neovim
     vim
 
@@ -207,7 +183,6 @@
 
 # Others
     brightnessctl
-    birdtray
     brave
     btop
     diff-so-fancy
@@ -222,6 +197,7 @@
     guitarix
     gvfs
     hydrogen
+    kdePackages.yakuake
     killall
     kmymoney
     lazygit
@@ -246,24 +222,23 @@
     unzip
     vlc
     yazi
-    yakuake
     zathura
     zotero
     zoxide
     zsh
-];
+  ];
 
-fonts.packages = with pkgs; [
+  fonts.packages = with pkgs; [
     nerd-fonts.caskaydia-cove
     nerd-fonts.caskaydia-mono
-];
+  ];
 
-# SERVICES
-
+  # SERVICES
   services = {
-      blueman.enable = true;
-      openssh.enable = true;
-      printing.enable = true;
+    blueman.enable = true;
+    libinput.enable = true;
+    openssh.enable = true;
+    printing.enable = true;
   };
 
   # This value determines the NixOS release from which the default
