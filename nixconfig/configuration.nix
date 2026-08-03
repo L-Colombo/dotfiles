@@ -211,7 +211,6 @@
     brave
     btop
     diff-so-fancy
-    dbeaver-bin
     dropbox
     dunst
     dysk
@@ -221,6 +220,7 @@
     foot
     fzf
     guitarix
+    gvfs
     hydrogen
     killall
     kmymoney
