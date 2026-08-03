@@ -19,7 +19,7 @@
 (setq-default inhibit-redisplay t
               inhibit-message t)
 
-(setq default-frame-alist '((undecorated . t)))
+;(setq default-frame-alist '((undecorated . t)))
 
 (setq gc-cons-threshold most-positive-fixnum
       gc-cons-percentage 0.6
