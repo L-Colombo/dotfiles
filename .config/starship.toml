@@ -5,12 +5,12 @@ right_format = "$git_branch$git_metrics$git_status"
 [username]
 disabled = false
 show_always = true
-format = "[$user](yellow)"
+format = "[$user](bold yellow)"
 
 [hostname]
 ssh_symbol = " "
 ssh_only = false
-format = "[$hostname](blue)"
+format = "[$hostname](bold blue)"
 
 [character]
 success_symbol = '[\$](white)'
