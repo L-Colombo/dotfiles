@@ -124,9 +124,3 @@ function tsu() {
         tmux attach-session -t $CURRENT_SESSION;
     fi
 }
-
- # ghcup-env
-[ -f "$HOME/.ghcup/env" ] && . "$HOME/.ghcup/env"
-
-# opam
-[[ ! -r "$HOME/.opam/opam-init/init.zsh" ]] || source "$HOME/.opam/opam-init/init.zsh" > /dev/null 2> /dev/null
