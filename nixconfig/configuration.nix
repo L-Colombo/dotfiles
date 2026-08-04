@@ -152,6 +152,7 @@
     luarocks
     nodejs
     php
+    phpPackages.composer
     python3
     ruby
     zig
