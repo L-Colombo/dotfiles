@@ -125,7 +125,15 @@
     };
   };
 
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    # These settings speed up zsh startup pergormance
+    # config and compinit is done in ~/.zshrc
+    enableCompletion = false;
+    enableGlobalCompInit = false;
+    autosuggestions.enable = false;
+    syntaxHighlighting.enable = false;
+  };
 
   nixpkgs.config.allowUnfree = true;
 
