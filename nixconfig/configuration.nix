@@ -224,6 +224,7 @@
     lazygit
     libreoffice
     networkmanagerapplet
+    ntfs3g
     onefetch
     pandoc
     pamixer

@@ -7,7 +7,6 @@ return {
             })
         end
     },
-    "loctvl842/monokai-pro.nvim",
     -- my colorschemes
     "L-Colombo/atlantic-dark.nvim",
     "L-Colombo/devel2.nvim",
