@@ -148,6 +148,8 @@
     github-cli
     gnumake
     leiningen
+    podman
+    podman-compose
     uv
 
 # PROGRAMMING LANGUAGES 
@@ -189,7 +191,7 @@
     zls
 
 # EDITORS
-  emacs
+    emacs
     neovim
     vim
 
@@ -254,6 +256,7 @@
   fonts.packages = with pkgs; [
     nerd-fonts.caskaydia-cove
     nerd-fonts.caskaydia-mono
+    nerd-fonts.ubuntu-mono
   ];
 
   # SERVICES
