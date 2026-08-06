@@ -213,7 +213,8 @@
     guitarix
     gvfs
     hunspell
-    hunspellDicts.it-it
+    hunspellDicts.en_US
+    hunspellDicts.it_IT
     hydrogen
     kdePackages.yakuake
     killall
