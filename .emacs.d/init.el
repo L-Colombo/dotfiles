@@ -121,8 +121,10 @@
 (use-package color-theme-modern
   :defer t
   :ensure t)
-
 (use-package gruvbox-theme
+  :defer t
+  :ensure t)
+(use-package monokai-pro-theme
   :defer t
   :ensure t)
 

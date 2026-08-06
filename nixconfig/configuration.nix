@@ -111,6 +111,7 @@
     extraPackages = with pkgs; [
       foot
       lswt
+      nwg-look
       swaylock
       swaybg
       waybar
