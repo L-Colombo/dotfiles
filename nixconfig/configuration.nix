@@ -6,21 +6,19 @@
       ./hardware-configuration.nix
     ];
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+    kernelPackages = pkgs.linuxPackages_latest;
+  };
 
-  # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
-  networking.hostName = "nixos";
-  networking.wireless.enable = true;
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "nixos";
+    wireless.enable = true;
+    networkmanager.enable = true;
+  };
 
   hardware = {
     graphics.enable = true;
@@ -35,15 +33,15 @@
     };
 
     bluetooth = {
-        enable = true;
-        powerOnBoot = true;
-        settings.General = {
-            Experimental = true;
-            FastConnectable = true;
-        };
-        settings.Policy = {
-            AutoEnable = true;
-        };
+      enable = true;
+      powerOnBoot = true;
+      settings.General = {
+        Experimental = true;
+        FastConnectable = true;
+      };
+      settings.Policy = {
+        AutoEnable = true;
+      };
     };
   };
 
@@ -51,24 +49,19 @@
   time.timeZone = "Europe/Rome";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
-  };
-
-  services.xserver.enable = true;
-
-  services = {
-    displayManager.sddm.enable = true;
-    desktopManager.plasma6.enable = true;
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    extraLocaleSettings = {
+      LC_ADDRESS = "en_US.UTF-8";
+      LC_IDENTIFICATION = "en_US.UTF-8";
+      LC_MEASUREMENT = "en_US.UTF-8";
+      LC_MONETARY = "en_US.UTF-8";
+      LC_NAME = "en_US.UTF-8";
+      LC_NUMERIC = "en_US.UTF-8";
+      LC_PAPER = "en_US.UTF-8";
+      LC_TELEPHONE = "en_US.UTF-8";
+      LC_TIME = "en_US.UTF-8";
+      };
   };
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
@@ -76,21 +69,7 @@
     qrca
   ];
 
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-
-
-  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-  };
 
 # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."pippo" = {
@@ -139,7 +118,7 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-	# DEVELOPMENT BASICS
+# DEVELOPMENT BASICS
     clang
     cmakeMinimal
     codeberg-cli
@@ -260,12 +239,29 @@
     nerd-fonts.ubuntu-mono
   ];
 
-  # SERVICES
+# SERVICES
   services = {
     blueman.enable = true;
+    desktopManager.plasma6.enable = true;
+    displayManager.sddm.enable = true;
     libinput.enable = true;
     openssh.enable = true;
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      jack.enable = true;
+    };
     printing.enable = true;
+    pulseaudio.enable = false;
+    xserver = {
+      enable = true;
+      xkb = {
+        layout = "us";
+        variant = "";
+      };
+    };
   };
 
   # This value determines the NixOS release from which the default
@@ -275,5 +271,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "26.05"; # Did you read the comment?
-
 }
