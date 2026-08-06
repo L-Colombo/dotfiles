@@ -64,6 +64,8 @@
       };
   };
 
+  environment.sessionVariables.MOZ_ENABLE_WAYLAND = "1";
+
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     kate
     qrca
@@ -101,7 +103,7 @@
   programs.firefox = {
     enable = true;
     preferences = {
-      "widget.use-xdg-desktop-portal.file-picker" = 1;
+      "widget.use-xdg-desktop-portal.file-picker" = 0;
     };
   };
 
