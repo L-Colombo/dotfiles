@@ -149,6 +149,14 @@
     ruby
     zig
 
+# OCaml
+    dune
+    ocaml
+    ocamlformat
+    opam
+    ocamlPackages.ocaml-lsp
+    ocamlPackages.utop
+
 # RUST
     rustc
     cargo

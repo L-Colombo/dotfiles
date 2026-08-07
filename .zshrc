@@ -124,3 +124,6 @@ function tsu() {
         tmux attach-session -t $CURRENT_SESSION;
     fi
 }
+
+# Ocaml
+[[ ! -r '"${HOME}".opam/opam-init/init.zsh' ]] || source '"${HOME}".opam/opam-init/init.zsh' > /dev/null 2> /dev/null

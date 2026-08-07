@@ -10,6 +10,7 @@ enable({
     "jdtls",
     "jsonls",
     "lua_ls",
+    "ocamllsp",
     "phpactor",
     "pyright",
     "ruff",
