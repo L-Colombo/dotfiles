@@ -160,6 +160,7 @@
 # RUST
     rustc
     cargo
+    cargo-binstall
     clippy
     rustfmt
 
