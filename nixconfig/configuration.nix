@@ -1,12 +1,15 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   boot = {
     loader.systemd-boot.enable = true;
@@ -45,7 +48,6 @@
     };
   };
 
-
   time.timeZone = "Europe/Rome";
 
   # Select internationalisation properties.
@@ -61,7 +63,7 @@
       LC_PAPER = "en_US.UTF-8";
       LC_TELEPHONE = "en_US.UTF-8";
       LC_TIME = "en_US.UTF-8";
-      };
+    };
   };
 
   environment.sessionVariables.MOZ_ENABLE_WAYLAND = "1";
@@ -73,12 +75,12 @@
 
   security.rtkit.enable = true;
 
-# Define a user account. Don't forget to set a password with ‘passwd’.
+  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."pippo" = {
     isNormalUser = true;
     shell = pkgs.zsh;
     description = "pippo";
-    extraGroups = [ 
+    extraGroups = [
       "audio"
       "networkmanager"
       "video"
@@ -120,7 +122,7 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-# DEVELOPMENT BASICS
+    # DEVELOPMENT BASICS
     clang
     cmakeMinimal
     codeberg-cli
@@ -133,7 +135,7 @@
     podman-compose
     uv
 
-# PROGRAMMING LANGUAGES 
+    # PROGRAMMING LANGUAGES
     clojure
     elixir
     erlang
@@ -149,7 +151,7 @@
     ruby
     zig
 
-# OCaml
+    # OCaml
     dune
     ocaml
     ocamlformat
@@ -157,20 +159,22 @@
     ocamlPackages.ocaml-lsp
     ocamlPackages.utop
 
-# RUST
+    # RUST
     rustc
     cargo
     cargo-binstall
     clippy
     rustfmt
 
-# LSPs
+    # LSPs
     bash-language-server
     clang-tools # provides clangd
     clojure-lsp
     gopls
     jdt-language-server
     lua-language-server
+    nixd
+    nixfmt
     phpactor
     pyright
     ruff
@@ -180,16 +184,17 @@
     tombi
     zls
 
-# EDITORS
+    # EDITORS
     emacs
     neovim
     vim
+    vscode
 
-# LaTeX
+    # LaTeX
     biber
     texliveFull
 
-# Others
+    # Others
     brightnessctl
     brave
     btop
@@ -250,7 +255,7 @@
     nerd-fonts.ubuntu-mono
   ];
 
-# SERVICES
+  # SERVICES
   services = {
     blueman.enable = true;
     desktopManager.plasma6.enable = true;

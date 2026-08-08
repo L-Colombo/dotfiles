@@ -10,6 +10,7 @@ enable({
     "jdtls",
     "jsonls",
     "lua_ls",
+    "nixd",
     "ocamllsp",
     "phpactor",
     "pyright",
@@ -30,6 +31,19 @@ config("pyright", {
             analysis = {
                 ignore = { "*" }
             }
+        }
+    }
+})
+
+config("nixd", {
+    settings = {
+        nixd = {
+            nixpkgs = {
+                expr = "import <nixpkgs> { }"
+            }
+        },
+        formatting = {
+            command = { "nixfmt" }
         }
     }
 })
