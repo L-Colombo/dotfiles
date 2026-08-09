@@ -174,6 +174,7 @@
     jdt-language-server
     lua-language-server
     nixd
+    nix-init
     nixfmt
     phpactor
     pyright
