@@ -243,6 +243,7 @@
     typst
     unzip
     vlc
+    whatsie
     yazi
     zathura
     zotero

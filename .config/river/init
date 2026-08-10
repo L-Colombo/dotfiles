@@ -11,7 +11,8 @@ riverctl map normal Super E spawn thunar
 riverctl map normal Super F spawn firefox
 riverctl map normal Super G spawn "env MOZ_ENABLE_WAYLAND=0 thunderbird"
 riverctl map normal Super P spawn "wofi --show=drun --allow-images"
-riverctl map normal Super Z spawn "zotero"
+riverctl map normal Super W spawn whatsie
+riverctl map normal Super Z spawn zotero
 riverctl map normal Super+Shift E spawn emacs
 riverctl map normal Super+Shift M spawn elisa
 riverctl map normal Super+Shift F spawn "firefox --private-window"
@@ -130,7 +131,8 @@ riverctl rule-add ssd
 
 riverctl rule-add -app-id 'thunar' float
 riverctl rule-add -app-id 'org.kde.elisa' float
-riverctl rule-add -app-id 'thunderbird' tags $((1 << 8))
+riverctl rule-add -app-id 'com.ktechpit.whatsie' tags $((1 << 8))
+riverctl rule-add -app-id 'thunderbird' tags $((1 << 7))
 riverctl rule-add -app-id 'scratchpad' tags $((1 << 20))
 riverctl rule-add -app-id 'scratchpad' float
 riverctl rule-add -title 'Metronome' float
