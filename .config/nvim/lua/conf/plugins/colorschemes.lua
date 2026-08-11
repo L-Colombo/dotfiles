@@ -7,6 +7,14 @@ return {
             })
         end
     },
+    {
+        "rebelot/kanagawa.nvim",
+        config = function()
+            require("kanagawa").setup({
+                theme = "dragon"
+            })
+        end
+    },
     -- my colorschemes
     "L-Colombo/atlantic-dark.nvim",
     "L-Colombo/devel2.nvim",

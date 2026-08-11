@@ -26,7 +26,6 @@ alias ls="ls --color=always"
 ############### Evals ############################
 eval "$(fzf --bash)"
 eval "$(zoxide init bash)"
-eval "$(~/.rbenv/bin/rbenv init - --no-rehash zsh)"
 
 ############### Variables ########################
 export EDITOR="nvim"
@@ -51,8 +50,6 @@ bind 'set show-all-if-ambiguous on'
 # History of searches and commands
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
-SAVEHIST=$HISTSIZE
-HISTDUP=erase
 
 # Source language environments
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"

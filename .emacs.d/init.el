@@ -19,7 +19,6 @@
 (setq-default inhibit-redisplay t
               inhibit-message t)
 
-;(setq default-frame-alist '((undecorated . t)))
 
 (setq gc-cons-threshold most-positive-fixnum
       gc-cons-percentage 0.6
@@ -79,7 +78,7 @@
 
 (put 'donwcase-region 'disabled nil)
 
-(set-frame-font "CaskaydiaCove Nerd Font Propo 16" nil t)
+(set-frame-font "CaskaydiaCove Nerd Font Propo 18" nil t)
 
 ;; WHITESPACE SETTINGS
 (setq-default whitespace-style '(face spaces empty tabs trailing space-mark tab-mark)
@@ -124,11 +123,11 @@
 (use-package gruvbox-theme
   :defer t
   :ensure t)
-(use-package monokai-pro-theme
+(use-package kanagawa-themes
   :defer t
   :ensure t)
 
-(load-theme  'euphoria t)
+(load-theme  'kanagawa-wave t)
 
 
 ;; CUSTOM FUNCTIONS
