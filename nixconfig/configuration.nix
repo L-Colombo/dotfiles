@@ -255,6 +255,7 @@
     nerd-fonts.caskaydia-cove
     nerd-fonts.caskaydia-mono
     nerd-fonts.ubuntu-mono
+    nerd-fonts.terminess-ttf
   ];
 
   # SERVICES
