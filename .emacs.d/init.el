@@ -105,10 +105,13 @@
 (global-set-key (kbd "C-c DEL") #'kill-buffer-and-window)
 (global-set-key (kbd "C-x C-o") #'window-swap-states)
 
+;; JOIN LINE
+(global-set-key (kbd "C-c j") #'join-line)
+
 ;; MacOs SETTINGS
-(setq mac-option-modifier nil
-      mac-command-modifier 'meta
-      x-select-enable-clipboard t)
+;; (setq mac-option-modifier nil
+;;       mac-command-modifier 'meta
+;;       x-select-enable-clipboard t)
 
 ;; COLOR THEMES
 (use-package klere-theme
