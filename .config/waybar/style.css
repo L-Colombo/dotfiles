@@ -10,12 +10,12 @@
 
 #tags button.occupied {
     /* background-color: #666666; */
-    background-color: #2d4f67;
+    background-color: #957fb8;
 }
 
 #tags button.focused {
     /* background-color: #005577; */
-    background-color: #957fb8;
+    background-color: #2d4f67;
 }
 
 #backlight {
