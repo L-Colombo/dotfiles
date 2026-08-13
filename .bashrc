@@ -51,6 +51,23 @@ bind 'set show-all-if-ambiguous on'
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
 
+# Tmux StartUp. Opens new tmux session in poject with a default window layout
+function tsu() {
+    CURRENT_SESSION=$(basename "$PWD")
+
+    tmux has-session -t "$CURRENT_SESSION" 2>/dev/null
+
+    if (( $? == 0 )); then
+        tmux attach-session -t "$CURRENT_SESSION"
+    else
+        tmux new-session -d -s "$CURRENT_SESSION" nvim;
+        tmux new-window -d -n run;
+        tmux new-window -d lazygit;
+
+        tmux attach-session -t "$CURRENT_SESSION";
+    fi
+}
+
 # Source language environments
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 [ -f "$HOME/.ghcup/env" ] && . "$HOME/.ghcup/env"
