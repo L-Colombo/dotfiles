@@ -246,6 +246,7 @@
     whatsie
     yazi
     zathura
+    zip
     zotero
     zoxide
     zsh
