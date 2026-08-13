@@ -133,6 +133,7 @@
     leiningen
     podman
     podman-compose
+    tree-sitter
     uv
 
     # PROGRAMMING LANGUAGES
