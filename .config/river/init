@@ -17,7 +17,7 @@ riverctl map normal Super+Shift E spawn emacs
 riverctl map normal Super+Shift M spawn elisa
 riverctl map normal Super+Shift F spawn "firefox --private-window"
 riverctl map normal Super+Shift R spawn "${HOME}/scripts/readpdf-wayland.sh"
-riverctl map normal Super+Control L spawn "swaylock -c=#222222"
+riverctl map normal Super+Control L spawn "swaylock --image=${HOME}/Pictures/Wallpaperx/nix_green.png"
 
 riverctl map normal Super Backslash spawn "${HOME}/scripts/river-scatchpad.sh"
 
