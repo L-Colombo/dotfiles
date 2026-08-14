@@ -350,6 +350,7 @@
 
 (require 'reftex)
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+(add-hook 'LaTeX-mode-hook 'eglot-ensure)
 (setq reftex-plug-into-AUCTeX t)
 
 (use-package auctex-cont-latexmk
@@ -601,7 +602,10 @@
   :config
   (add-hook 'eglot-managed-mode-hook
             (lambda ()
-              (eglot-inlay-hints-mode -1))))
+              (eglot-inlay-hints-mode -1)))
+  (with-eval-after-load 'eglot
+    (add-to-list 'eglot-server-programs
+                 '(latex-mode . ("texlab")))))
 
 ;; C
 (use-package c-mode

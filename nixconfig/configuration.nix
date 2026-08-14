@@ -201,6 +201,7 @@
     brave
     btop
     diff-so-fancy
+    drawy
     dropbox
     dunst
     dysk
