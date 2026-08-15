@@ -16,9 +16,9 @@
   (shell-command "touch ~/.emacs.d/custom.el"))
 (setq custom-file "~/.emacs.d/custom.el")
 
+;; Stratup performance enhancments
 (setq-default inhibit-redisplay t
               inhibit-message t)
-
 
 (setq gc-cons-threshold most-positive-fixnum
       gc-cons-percentage 0.6
@@ -40,9 +40,6 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
-
-(unless (package-installed-p 'use-package)
-  (package-install 'use-package))
 
 ;; DEFAULT SETTINGS
 (setq-default word-wrap t
@@ -132,7 +129,6 @@
 
 (load-theme  'kanagawa-wave t)
 
-
 ;; CUSTOM FUNCTIONS
 ;; (defun kb/toggle-window-transparency ()
 ;;   "Toggle the value of `alpha-background'.
@@ -166,7 +162,7 @@
 (defun open-shell-in-split-window ()
   "Open a terminal in a split window"
   (interactive)
-  (let ((buf (term "/usr/bin/zsh")))
+  (let ((buf (eshell)))
     (switch-to-buffer (other-buffer buf))
     (switch-to-buffer-other-window buf)))
 (global-set-key (kbd "C-M-<return>") #'open-shell-in-split-window)
@@ -491,8 +487,8 @@
    ("C-c f s" . consult-ripgrep)
    ("C-c f m" . consult-mark)
    ("C-c f b" . consult-buffer)
-   ("C-c f T" . consult-theme)
-   ("C-c f t" . consult-todo)))
+   ("C-c f t" . consult-theme)
+   ("C-c f T" . consult-todo)))
 
 (use-package hl-todo
   :defer t
@@ -569,24 +565,7 @@
 (add-hook 'nroff-mode-hook 'flyspell-mode)
 (add-hook 'flyspell-mode-hook (lambda () (unbind-key "C-." 'flyspell-mode-map)))
 
-;; LANGUAGETOOL
-(use-package languagetool
-  :ensure t
-  :defer t
-  :commands (languagetool-check
-             languagetool-clear-suggestions
-             languagetool-correct-at-point
-             languagetool-correct-buffer
-             languagetool-set-language
-             languagetool-server-mode
-             languagetool-server-start
-             languagetool-server-stop)
-  :config
-  (setq languagetool-java-arguments '("-Dfile.encoding=UTF-8"
-                                    "-cp" "/usr/share/languagetool:/usr/share/java/languagetool/*")
-      languagetool-console-command "org.languagetool.commandline.Main"
-      languagetool-server-command "org.languagetool.server.HTTPServer"))
-
+;; TAGGER
 (use-package tagger
   :load-path "~/Programming/0_projects/tagger-emacs-wrapper"
   :bind (("C-c 1" . #'tagger/search)

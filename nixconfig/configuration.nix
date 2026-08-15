@@ -217,6 +217,7 @@
     hunspellDicts.it_IT
     hydrogen
     kdePackages.yakuake
+    kdePackages.kcalc
     killall
     kmymoney
     lazygit
