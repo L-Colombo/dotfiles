@@ -15,7 +15,8 @@ return {
             })
         end
     },
-    "ofirgall/ofirkai.nvim",
+    "tahayvr/matteblack.nvim",
+    "dickbrouwer/Vim-Colorschemes",
     -- my colorschemes
     "L-Colombo/atlantic-dark.nvim",
     "L-Colombo/devel2.nvim",

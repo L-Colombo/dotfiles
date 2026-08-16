@@ -197,6 +197,7 @@
     texliveFull
 
     # Others
+    bat
     brightnessctl
     brave
     btop

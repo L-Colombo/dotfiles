@@ -4,4 +4,4 @@ require("conf.core.keymaps")
 require("conf.core.lsp")
 require("conf.core.options")
 
-vim.cmd("colorscheme ofirkai-darkblue")
+vim.cmd("colorscheme kanagawa")
