@@ -211,6 +211,7 @@
     fd
     foot
     fzf
+    gimp
     guitarix
     gvfs
     hunspell
@@ -221,6 +222,7 @@
     kdePackages.kcalc
     killall
     kmymoney
+    krita
     lazygit
     libreoffice
     networkmanagerapplet
