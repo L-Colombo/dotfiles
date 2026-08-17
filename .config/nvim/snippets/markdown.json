@@ -1,0 +1,6 @@
+{
+  "link": {
+    "body": "[${1:name}](${2:link})$0",
+    "prefix": "link"
+  }
+}
