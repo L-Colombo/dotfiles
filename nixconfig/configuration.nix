@@ -256,11 +256,13 @@
     zotero
     zoxide
     zsh
+
+    times-newer-roman
   ];
 
   fonts.packages = with pkgs; [
     nerd-fonts.caskaydia-cove
-    nerd-fonts.caskaydia-mono
+    nerd-fonts.iosevka
     nerd-fonts.ubuntu-mono
     nerd-fonts.terminess-ttf
   ];
