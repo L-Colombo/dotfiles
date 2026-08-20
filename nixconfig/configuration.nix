@@ -256,8 +256,6 @@
     zotero
     zoxide
     zsh
-
-    times-newer-roman
   ];
 
   fonts.packages = with pkgs; [

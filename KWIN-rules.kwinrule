@@ -1,0 +1,30 @@
+[emacs-size]
+Description=emacs-size
+Enabled=false
+size=1800,1000
+sizerule=2
+wmclass=emacs
+wmclasscomplete=true
+wmclassmatch=3
+
+[firefox-size]
+Description=firefox-size
+size=1800,1000
+sizerule=3
+wmclass=firefox
+wmclasscomplete=true
+wmclassmatch=3
+
+[spawn thunderbird on desktop 4]
+Description=spawn thunderbird on desktop 4
+desktops=9bf8f299-605b-4dc3-b9d9-fe480bd5fd05
+desktopsrule=3
+wmclass=thunderbird
+wmclassmatch=3
+
+[spawn whatsie on desktop 4]
+Description=spawn whatsie on desktop 4
+desktops=9bf8f299-605b-4dc3-b9d9-fe480bd5fd05
+desktopsrule=3
+wmclass=whatsie
+wmclassmatch=3

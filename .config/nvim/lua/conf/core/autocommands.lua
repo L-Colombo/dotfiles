@@ -27,7 +27,20 @@ autocmd("Filetype", {
     },
     command = "setlocal shiftwidth=2 tabstop=2"
 })
---
+-- start highlight with treesitter
+
+autocmd("Filetype", {
+    pattern = {
+        "bash",
+        "lua",
+        "python",
+        "rust",
+    },
+    callback = function()
+        vim.treesitter.start()
+    end
+})
+
 -- set indentation to 2 for specific filetypes
 autocmd("Filetype", {
     group = augroup("setMkprg", { clear = true }),

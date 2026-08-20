@@ -46,11 +46,6 @@ opt.splitbelow = true
 
 opt.iskeyword:append("-")
 
--- folding authomatically enabled
-opt.foldmethod = "expr"
-opt.foldexpr = "nvim_treesitter#foldexpr()"
-opt.foldlevelstart = 99
-
 -- diagnostic
 vim.diagnostic.config({
     virtual_text = true

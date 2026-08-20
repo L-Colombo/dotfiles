@@ -18,8 +18,8 @@ riverctl map normal Super+Shift M spawn elisa
 riverctl map normal Super+Shift F spawn "firefox --private-window"
 riverctl map normal Super+Shift R spawn "${HOME}/scripts/readpdf-wayland.sh"
 riverctl map normal Super+Control L spawn "swaylock --image=${HOME}/Pictures/Wallpaperx/nix_green.png"
-
 riverctl map normal Super Backslash spawn "${HOME}/scripts/river-scatchpad.sh"
+riverctl map normal None XF86Calculator spawn kcalc
 
 # window management
 riverctl map normal Super+Shift C close
@@ -131,6 +131,7 @@ riverctl rule-add ssd
 
 riverctl rule-add -app-id 'thunar' float
 riverctl rule-add -app-id 'org.kde.elisa' float
+riverctl rule-add -app-id 'org.kde.kcalc' float
 riverctl rule-add -app-id 'com.ktechpit.whatsie' tags $((1 << 8))
 riverctl rule-add -app-id 'thunderbird' tags $((1 << 7))
 riverctl rule-add -app-id 'scratchpad' tags $((1 << 20))
