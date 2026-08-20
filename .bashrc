@@ -13,15 +13,17 @@
 [[ $- != *i* ]] && return
 
 ############### Aliases ##########################
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
-alias nv="nvim"
-alias exa="exa --all --long --header --color=always --icons --git-ignore --sort=type"
-alias tree="eza --long --header --color=always --icons --git-ignore --sort=type -T"
+alias adog="git log --all --decorate --oneline --graph"
 alias cp="cp -v"
+alias exa="eza --long --header --color=always --icons --git-ignore --sort=type"
+alias grep='grep --color=auto'
+alias laf="ls --color=always -lhAF --group-directories-first"
+alias ls="ls --color=always --group-directories-firs"
 alias mv="mv -v"
+alias nv="nvim"
+alias onefetch="onefetch --type prose programming markup data"
 alias rm="rm -v"
-alias ls="ls --color=always"
+alias tree="eza --long --header --color=always --icons --git-ignore --sort=type -T"
 
 ############### Evals ############################
 eval "$(fzf --bash)"
