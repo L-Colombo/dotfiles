@@ -48,7 +48,7 @@
     };
   };
 
-  time.timeZone = "Europe/Rome";
+  time.timeZone = "America/New_York";
 
   # Select internationalisation properties.
   i18n = {
