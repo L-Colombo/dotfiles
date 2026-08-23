@@ -218,8 +218,9 @@
     hunspellDicts.en_US
     hunspellDicts.it_IT
     hydrogen
-    kdePackages.yakuake
     kdePackages.kcalc
+    kdePackages.yakuake
+    kdePackages.partitionmanager
     killall
     kmymoney
     krita
