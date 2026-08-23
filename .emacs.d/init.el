@@ -66,7 +66,7 @@
 
 (auto-save-mode -1)
 (tool-bar-mode -1)
-(menu-bar-mode -1)
+(menu-bar-mode 1)
 (scroll-bar-mode -1)
 (electric-pair-mode 1)
 (global-display-line-numbers-mode 1)
@@ -114,15 +114,6 @@
 (use-package klere-theme
   :defer t
   :ensure t)
-(use-package gruber-darker-theme
-  :defer t
-  :ensure t)
-(use-package color-theme-modern
-  :defer t
-  :ensure t)
-(use-package gruvbox-theme
-  :defer t
-  :ensure t)
 (use-package kanagawa-themes
   :defer t
   :ensure t)
@@ -130,22 +121,6 @@
 (load-theme  'kanagawa-wave t)
 
 ;; CUSTOM FUNCTIONS
-;; (defun kb/toggle-window-transparency ()
-;;   "Toggle the value of `alpha-background'.
-;;
-;; Toggles between 100 and 72 by default.  Can choose which value to change
-;; to if called with ARG, or any prefix argument."
-;;   (interactive "P")
-;;   (let ((transparency (pcase arg
-;;                         ((pred numberp) arg)
-;;                         ((pred car) (read-number "Change the transparency to which value (0-100)? "))
-;;                         (_
-;;                          (pcase (frame-parameter nil 'alpha-background)
-;;                            (72 100)
-;;                            (100 72)
-;;                            (t 100))))))
-;;     (set-frame-parameter nil 'alpha-background transparency)))
-
 (defun cursor-color ()
   "Convenience to set the cursor color"
   (interactive)
@@ -259,7 +234,7 @@
   (flyspell-buffer))
 
 ;; PACKAGES AND MODES
-;; ESHELL
+;; Eshell
 (defun lc/configure-eshell ()
   (add-hook 'eshell-pre-command-hook 'eshell-save-some-history)
   (setq eshell-history-size         10000
@@ -274,19 +249,19 @@
   :ensure t
   :init (exec-path-from-shell-initialize))
 
-;; MAGIT
+;; Magit
 (use-package magit
   :defer t
   :ensure t)
 
-;; RAINBOW-DELIMITERS
+;; Rainbow-Delimiters
 (use-package rainbow-delimiters
   :ensure t
   :defer t
   :hook ((lisp-mode . rainbow-delimiters-mode)
          (emacs-lisp-mode . rainbow-delimiters-mode)))
 
-;; HELPFUL
+;; Helpful
 (use-package helpful
   :ensure t
   :bind (("C-h f" . helpful-callable)
@@ -295,14 +270,14 @@
          ("C-h x" . helpful-command)
          ("C-h ." . helpful-at-point)))
 
-;; MARGINALIA
+;; Marginalia
 (use-package marginalia
   :defer t
   :ensure t
   :init
   (marginalia-mode))
 
-;; GIT
+;; Git
 (use-package git-gutter
   :ensure t
   :bind (("C-c p" . 'git-gutter:previous-hunk)
@@ -311,20 +286,20 @@
          ("C-c g r" . 'git-gutter:revert-hunk))
   :config (global-git-gutter-mode 1))
 
-;; EXPAND-REGION
+;; Expand-Region
 (use-package expand-region
   :defer 2
   :ensure t
   :init (pending-delete-mode t)
   :bind ("C-." . er/expand-region))
 
-;; AVY
+;; Avy
 (use-package avy
   :defer 3
   :ensure t
   :bind ("C-c SPC" . 'avy-goto-char))
 
-;; MARKDOWN
+;; Markdown
 (use-package markdown-mode
   :defer t
   :ensure t)
@@ -355,7 +330,7 @@
   :after latex
   :hook (LaTeX-mode . auctex-cont-latexmk-mode))
 
-;; IDO & VERTICO
+;; Ido & Vertico
 (use-package ido-vertical-mode
   :ensure t
   :init (setq ido-vertical-define-keys 'C-n-and-C-p-only)
@@ -370,7 +345,7 @@
 (keymap-set minibuffer-local-map "C-n" #'vertico-next)
 (keymap-set minibuffer-local-map "C-p" #'vertico-previous)
 
-;; ORG & RELATED
+;; Org & Related
 (unless (file-exists-p "~/Documents/OrgFiles")
   (make-directory "~/Documents/OrgFiles"))
 
@@ -416,6 +391,7 @@
 
 (unless (file-exists-p "~/Documents/OrgFiles/org-roam")
   (make-directory "~/Documents/OrgFiles/org-roam"))
+
 (use-package org-roam
   :defer t
   :ensure t
@@ -442,11 +418,7 @@
   (org-roam-db-autosync-mode)
   (require 'org-roam-protocol))
 
-(use-package org-roam-ui
-  :ensure t
-  :after org-mode)
-
-;; COMPLETIONS
+;; Completions
 (use-package corfu
   :defer 3
   :ensure t
@@ -478,7 +450,7 @@
                 completion-category-defaults nil
                 completion-category-overrides nil))
 
-;; CONSULT
+;; Consult
 (use-package consult
   :defer
   :ensure t
@@ -505,7 +477,7 @@
   :defer t
   :ensure t)
 
-;; DASHBOARD
+;; Dashboard
 (use-package all-the-icons
   :defer 10
   :ensure t)
@@ -523,7 +495,7 @@
   :config (dashboard-setup-startup-hook))
 (global-set-key (kbd "C-c d o") 'dashboard-open)
 
-;; MOVE-TEXT
+;; Move-Text
 (use-package move-text
   :defer t
   :ensure t
@@ -537,7 +509,7 @@
 (advice-add 'move-text-up :after 'indent-region-advice)
 (advice-add 'move-text-down :after 'indent-region-advice)
 
-;; DOOM-MODELINE
+;; Doom-Modeline
 (use-package nerd-icons
   :defer 10
   :ensure t)
@@ -547,14 +519,14 @@
   (doom-modeline-mode 1)
   (setq doom-modeline-enable-word-count t))
 
-;; WRAP-REGION
+;; Wrap-Region
 (use-package wrap-region
   :defer t
   :ensure t
   :init (setq wrap-region-except-modes 'dired-mode)
   :config (wrap-region-mode t))
 
-;; SPELL-CHECK
+;; Spell-Check
 (unless (eq system-type 'darwin)
   (setq ispell-program-name "hunspell"))
 ;; fixes error popping up during autocompletion
@@ -565,7 +537,7 @@
 (add-hook 'nroff-mode-hook 'flyspell-mode)
 (add-hook 'flyspell-mode-hook (lambda () (unbind-key "C-." 'flyspell-mode-map)))
 
-;; TAGGER
+;; Tagger
 (use-package tagger
   :load-path "~/Programming/0_projects/tagger-emacs-wrapper"
   :bind (("C-c 1" . #'tagger/search)
@@ -576,7 +548,7 @@
   :init (setq tagger/tagger-directory
               "~/Documents/OrgFiles/org-roam"))
 
-;; PROGRAMMING
+;; Eglot
 (use-package eglot
   :config
   (add-hook 'eglot-managed-mode-hook
@@ -586,26 +558,8 @@
     (add-to-list 'eglot-server-programs
                  '(latex-mode . ("texlab")))))
 
-;; C
-(use-package c-mode
-  :defer t
-  ;; :ensure t no need
-  :hook ((c-mode . eglot-ensure)
-         (c-mode . (lambda ()
-           (add-hook 'before-save-hook 'eglot-format-buffer)))))
 
-;; Haskell
-(use-package haskell-mode
-  :defer t
-  :ensure t
-  :hook (haskell-mode . eglot-ensure))
-
-;; Rust
-(use-package rust-mode
-  :defer t
-  :ensure t
-  :hook (rust-mode . eglot-ensure))
-
-;; Load the custom-file; we're ready to roll
+;; Load the custom-file and local themes
 (load "~/.emacs.d/custom.el")
+(load "~/.emacs.d/xemacs-theme.el")
 (cursor-color)
