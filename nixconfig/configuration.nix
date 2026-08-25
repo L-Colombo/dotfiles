@@ -109,6 +109,16 @@
     };
   };
 
+  programs.thunar = {
+    enable = true;
+    plugins = with pkgs; [
+      thunar-archive-plugin
+      thunar-volman
+    ];
+  };
+  # To save thunar configs
+  programs.xfconf.enable = true;
+
   programs.zsh = {
     enable = true;
     # These settings speed up zsh startup pergormance
@@ -241,7 +251,6 @@
     speedtest-cli
     starship
     stow
-    thunar
     thunderbird
     tldr
     tmux
@@ -270,7 +279,9 @@
   services = {
     blueman.enable = true;
     desktopManager.plasma6.enable = true;
+    devmon.enable = true;
     displayManager.sddm.enable = true;
+    gvfs.enable = true;
     libinput.enable = true;
     openssh.enable = true;
     pipewire = {
@@ -282,6 +293,7 @@
     };
     printing.enable = true;
     pulseaudio.enable = false;
+    udisks2.enable = true;
     xserver = {
       enable = true;
       xkb = {
