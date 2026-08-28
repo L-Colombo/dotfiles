@@ -48,7 +48,7 @@
               indent-tabs-mode nil
               set-mark-comand-repeat nil)
 
-(setq display-line-numbers-type 'relative
+(setq display-line-numbers-type 'visual
       inhibit-startup-screen 't
       message-log-max nil ;; prints message to echo area, but does not creat a *Messages* buffer
       make-backup-files nil
@@ -311,18 +311,23 @@
   :init (require 'latex)
   (setq TeX-parse-self t
         TeX-view-program-selection '((output-pdf "Zathura"))
-        ;; TeX-view-program-list '(("Zathura" TeX-pdf-tools-sync-view))
         TeX-source-correlate-start-server t
         Tex-source-correlate-method '((pdf . synctex)))
   (setq-default TeX-master "main")
   (TeX-source-correlate-mode)
-  (define-key TeX-source-correlate-map [C-down-mouse-1] #'TeX-view-mouse)
-  (add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer))
+  (define-key TeX-source-correlate-map [C-down-mouse-1] #'TeX-view-mouse))
 
-(require 'reftex)
-(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
-(add-hook 'LaTeX-mode-hook 'eglot-ensure)
-(setq reftex-plug-into-AUCTeX t)
+(use-package latex
+  :defer t
+  ;; builtin, no need to :ensure
+  :hook ((LaTeX-mode . turn-on-reftex)
+         (LaTeX-mode . eglot-ensure)))
+
+(use-package reftex
+  :defer t
+  ;; bultin, no need to :ensure
+  :ensure t
+  :init (setq reftex-plug-into-AUCTeX t))
 
 (use-package auctex-cont-latexmk
   :defer t

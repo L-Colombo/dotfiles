@@ -6,6 +6,7 @@ enable({
     "rust_analyzer",
     "bashls",
     "clangd",
+    "clojure_lsp",
     "gopls",
     "jdtls",
     "jsonls",

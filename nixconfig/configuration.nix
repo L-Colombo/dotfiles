@@ -216,6 +216,7 @@
     dropbox
     dunst
     dysk
+    easytag
     eza
     fastfetch
     fd
@@ -261,8 +262,10 @@
     vlc
     whatsie
     yazi
+    yt-dlp
     zathura
     zip
+    zoom-us
     zotero
     zoxide
     zsh
