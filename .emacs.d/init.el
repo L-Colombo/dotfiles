@@ -320,8 +320,7 @@
 (use-package latex
   :defer t
   ;; builtin, no need to :ensure
-  :hook ((LaTeX-mode . turn-on-reftex)
-         (LaTeX-mode . eglot-ensure)))
+  :hook ((LaTeX-mode . turn-on-reftex)))
 
 (use-package reftex
   :defer t

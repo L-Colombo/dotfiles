@@ -52,6 +52,7 @@ bind 'set show-all-if-ambiguous on'
 # History of searches and commands
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
+HISTCONTROL=ignoreboth
 
 # Tmux StartUp. Opens new tmux session in poject with a default window layout
 function tsu() {
