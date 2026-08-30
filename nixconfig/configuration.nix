@@ -232,7 +232,6 @@
     kdePackages.kcalc
     kdePackages.yakuake
     kdePackages.partitionmanager
-    killall
     kmymoney
     krita
     lazygit

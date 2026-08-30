@@ -66,7 +66,7 @@
 
 (auto-save-mode -1)
 (tool-bar-mode -1)
-(menu-bar-mode 1)
+(menu-bar-mode -1)
 (scroll-bar-mode -1)
 (electric-pair-mode 1)
 (global-display-line-numbers-mode 1)
@@ -75,7 +75,7 @@
 
 (put 'donwcase-region 'disabled nil)
 
-(set-frame-font "Iosevka Nerd Font Propo 18" nil t)
+(set-frame-font "CaskaydiaCove Nerd Font Propo 16" nil t)
 
 ;; WHITESPACE SETTINGS
 (setq-default whitespace-style '(face spaces empty tabs trailing space-mark tab-mark)
@@ -83,7 +83,9 @@
                                             (tab-mark ?\t [187 ?\t] [62 ?\t])))
 (custom-set-faces
  `(whitespace-space ((t (:foreground "#555555"))))
- `(whitespace-tab   ((t (:foreground "#555555" :bold t)))))
+ `(whitespace-tab   ((t (:foreground "#555555" :bold t))))
+ `(line-number-current-line ((t (:foreground "#ff4500")))))
+
 (global-set-key (kbd "C-c w w") 'whitespace-mode)
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
@@ -118,7 +120,7 @@
   :defer t
   :ensure t)
 
-(load-theme  'kanagawa-wave t)
+(load-theme  'klere t)
 
 ;; CUSTOM FUNCTIONS
 (defun cursor-color ()
@@ -241,6 +243,7 @@
         eshell-buffer-maximum-lines 10000
         eshell-hist-ignoredups t
         eshell-scroll-to-bottom-on-input t))
+
 (use-package eshell
   :ensure t
   :hook (eshell-first-time-mode . lc/configure-eshell))
@@ -293,12 +296,6 @@
   :init (pending-delete-mode t)
   :bind ("C-." . er/expand-region))
 
-;; Avy
-(use-package avy
-  :defer 3
-  :ensure t
-  :bind ("C-c SPC" . 'avy-goto-char))
-
 ;; Markdown
 (use-package markdown-mode
   :defer t
@@ -320,19 +317,20 @@
 (use-package latex
   :defer t
   ;; builtin, no need to :ensure
-  :hook ((LaTeX-mode . turn-on-reftex)))
+  :hook ((LaTeX-mode . turn-on-reftex)
+         (LaTeX-mode . visual-line-mode)
+         (LaTeX-mode . menu-bar-mode)))
 
 (use-package reftex
   :defer t
-  ;; bultin, no need to :ensure
   :ensure t
   :init (setq reftex-plug-into-AUCTeX t))
 
-(use-package auctex-cont-latexmk
-  :defer t
-  :ensure t
-  :after latex
-  :hook (LaTeX-mode . auctex-cont-latexmk-mode))
+;; (use-package auctex-cont-latexmk
+;;   :defer t
+;;   :ensure t
+;;   :after latex
+;;   :hook (LaTeX-mode . auctex-cont-latexmk-mode))
 
 ;; Ido & Vertico
 (use-package ido-vertical-mode
@@ -368,7 +366,9 @@
               org-capture-bookmark nil
               org-agenda-skip-deadline-if-done t
               org-agenda-skip-scheduled-if-done t)
-  :hook (org-mode . org-indent-mode))
+  :hook ((org-mode . org-indent-mode)
+         (org-mode . visual-line-mode)
+         (org-mode . menu-bar-mode)))
 (global-set-key (kbd "C-c a") #'org-agenda)
 (global-set-key (kbd "C-c c") #'org-capture)
 
@@ -466,21 +466,6 @@
    ("C-c f t" . consult-theme)
    ("C-c f T" . consult-todo)))
 
-(use-package hl-todo
-  :defer t
-  :ensure t
-  :config (setq hl-todo-keyword-faces
-                '(("TODO"   . "#FF0000")
-                  ("FIXME"  . "#FF0000")
-                  ("DEBUG"  . "#A020F0")
-                  ("GOTCHA" . "#FF4500")
-                  ("STUB"   . "#1E90FF")))
-  :init (global-hl-todo-mode))
-
-(use-package consult-todo
-  :defer t
-  :ensure t)
-
 ;; Dashboard
 (use-package all-the-icons
   :defer 10
@@ -567,3 +552,4 @@
 (load "~/.emacs.d/custom.el")
 (load "~/.emacs.d/xemacs-theme.el")
 (cursor-color)
+(redisplay)
