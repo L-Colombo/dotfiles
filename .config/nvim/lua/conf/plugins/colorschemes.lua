@@ -15,6 +15,7 @@ return {
             })
         end
     },
+    "miikanissi/modus-themes.nvim",
     -- my colorschemes
     "L-Colombo/atlantic-dark.nvim",
     "L-Colombo/devel2.nvim",

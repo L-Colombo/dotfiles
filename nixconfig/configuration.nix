@@ -223,12 +223,14 @@
     foot
     fzf
     gimp
+    groff
     guitarix
     gvfs
     hunspell
     hunspellDicts.en_US
     hunspellDicts.it_IT
     hydrogen
+    hygg
     kdePackages.kcalc
     kdePackages.yakuake
     kdePackages.partitionmanager

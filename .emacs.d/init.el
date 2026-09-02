@@ -120,7 +120,7 @@
   :defer t
   :ensure t)
 
-(load-theme  'klere t)
+(load-theme  'modus-vivendi-tritanopia t)
 
 ;; CUSTOM FUNCTIONS
 (defun cursor-color ()
@@ -236,6 +236,15 @@
   (flyspell-buffer))
 
 ;; PACKAGES AND MODES
+
+;; Multiple cursors
+(use-package multiple-cursors
+  :defer t
+  :ensure t
+  :bind (("C->" . mc/mark-next-like-this-word)
+         ("C-<" . mc/mark-previous-like-this-word)
+         ("C-c C-<" . mc/mark-all-like-this)))
+
 ;; Eshell
 (defun lc/configure-eshell ()
   (add-hook 'eshell-pre-command-hook 'eshell-save-some-history)
