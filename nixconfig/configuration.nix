@@ -18,7 +18,7 @@
   };
 
   networking = {
-    hostName = "nixos";
+    hostName = "nixos-desk";
     wireless.enable = true;
     networkmanager.enable = true;
   };
@@ -26,14 +26,14 @@
   hardware = {
     graphics.enable = true;
 
-    nvidia = {
-      modesetting.enable = true;
-      powerManagement.enable = false;
-      powerManagement.finegrained = false;
-      open = false;
-      nvidiaSettings = true;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
-    };
+    # nvidia = {
+    #   modesetting.enable = true;
+    #   powerManagement.enable = false;
+    #   powerManagement.finegrained = false;
+    #   open = false;
+    #   nvidiaSettings = true;
+    #   package = config.boot.kernelPackages.nvidiaPackages.stable;
+    # };
 
     bluetooth = {
       enable = true;
@@ -199,7 +199,7 @@
     emacs
     neovim
     vim
-    vscode
+    # vscode
 
     # LaTeX
     biber
@@ -215,7 +215,7 @@
     dropbox
     dunst
     dysk
-    easytag
+    # easytag
     eza
     fastfetch
     fd
@@ -223,18 +223,18 @@
     fzf
     gimp
     groff
-    guitarix
+    # guitarix
     gvfs
     hunspell
     hunspellDicts.en_US
     hunspellDicts.it_IT
-    hydrogen
+    # hydrogen
     hygg
     kdePackages.kcalc
     kdePackages.yakuake
     kdePackages.partitionmanager
-    kmymoney
-    krita
+    # kmymoney
+    # krita
     lazygit
     libreoffice
     networkmanagerapplet
@@ -244,19 +244,19 @@
     pamixer
     papirus-icon-theme
     pavucontrol
-    proton-vpn
+    # proton-vpn
     qpdf
     ripgrep
     ripgrep-all
     rsync
-    speedtest-cli
+    # speedtest-cli
     starship
     stow
     thunderbird
     tldr
     tmux
-    tradingview
-    tuxguitar
+    # tradingview
+    # tuxguitar
     typst
     unzip
     vlc
