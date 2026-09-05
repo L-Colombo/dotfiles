@@ -44,8 +44,8 @@ riverctl map normal Super M toggle-fullscreen
 riverctl map normal Super H send-layout-cmd rivertile "main-ratio -0.05"
 riverctl map normal Super L send-layout-cmd rivertile "main-ratio +0.05"
 
-riverctl map normal Super D send-layout-cmd rivertile "main-count +1"
-riverctl map normal Super I send-layout-cmd rivertile "main-count -1"
+riverctl map normal Super D send-layout-cmd rivertile "main-count -1"
+riverctl map normal Super I send-layout-cmd rivertile "main-count +1"
 
 riverctl map normal Super Left move left 100
 riverctl map normal Super Down move down 100
