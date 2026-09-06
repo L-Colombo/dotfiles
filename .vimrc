@@ -22,9 +22,9 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 
-set list
-set listchars=tab:\ \ ┊
-set listchars=multispace:\ \ ┊
+" set list
+" set listchars=tab:\ \ ┊
+" set listchars=multispace:\ \ ┊
 
 let g:netrw_winsize=30
 let g:netrw_liststyle=3
