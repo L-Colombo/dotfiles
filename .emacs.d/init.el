@@ -515,6 +515,7 @@
   :ensure t
   :config
   (doom-modeline-mode 1)
+  (display-time)
   (setq doom-modeline-enable-word-count t))
 
 ;; Wrap-Region
