@@ -15,6 +15,15 @@ return {
             })
         end
     },
+    {
+        "blazkowolf/gruber-darker.nvim",
+        opts = {
+            italic = {
+                strings = false,
+                comments = false
+            }
+        }
+    },
     "miikanissi/modus-themes.nvim",
     -- my colorschemes
     "L-Colombo/atlantic-dark.nvim",
