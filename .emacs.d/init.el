@@ -119,8 +119,11 @@
 (use-package kanagawa-themes
   :defer t
   :ensure t)
+(use-package gruber-darker-theme
+  :defer t
+  :ensure t)
 
-(load-theme  'modus-vivendi-tritanopia t)
+(load-theme  'gruber-darker t)
 
 ;; CUSTOM FUNCTIONS
 (defun cursor-color ()
