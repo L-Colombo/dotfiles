@@ -539,15 +539,15 @@
 (add-hook 'nroff-mode-hook 'flyspell-mode)
 (add-hook 'flyspell-mode-hook (lambda () (unbind-key "C-." 'flyspell-mode-map)))
 
-;; Tagger
-(use-package tagger
-  :load-path "~/Programming/0_projects/tagger-emacs-wrapper"
-  :bind (("C-c 1" . #'tagger/search)
-         ("C-c 2" . #'tagger/tags-all)
-         ("C-c 3" . #'tagger/tags-file)
-         ("C-c 4" . #'tagger/refile)
-         ("C-c 5" . #'tagger/locate))
-  :init (setq tagger/tagger-directory
+;; Tgr
+(use-package tgr
+  :load-path "~/Programming/0_projects/tgr-emacs-wrapper"
+  :bind (("C-c 1" . #'tgr/search)
+         ("C-c 2" . #'tgr/tags-all)
+         ("C-c 3" . #'tgr/tags-file)
+         ("C-c 4" . #'tgr/refile)
+         ("C-c 5" . #'tgr/locate))
+  :init (setq tgr/tgr-directory
               "~/Documents/OrgFiles/org-roam"))
 
 ;; Eglot
