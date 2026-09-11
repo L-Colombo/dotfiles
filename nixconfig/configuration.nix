@@ -130,146 +130,134 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  environment.systemPackages = with pkgs; [
-    # DEVELOPMENT BASICS
-    clang
-    cmakeMinimal
-    codeberg-cli
-    gcc
-    git
-    github-cli
-    gnumake
-    leiningen
-    podman
-    podman-compose
-    tree-sitter
-    uv
+  environment.systemPackages =
+    with pkgs;
+    let
+      boilertex = pkgs.callPackage /etc/nixos/boilertex.nix { };
+      tgr = pkgs.callPackage /etc/nixos/tgr.nix { };
+    in
+    [
+      # DEVELOPMENT BASICS
+      clang
+      cmakeMinimal
+      codeberg-cli
+      gcc
+      git
+      github-cli
+      gnumake
+      tree-sitter
+      uv
 
-    # PROGRAMMING LANGUAGES
-    clojure
-    elixir
-    erlang
-    gleam
-    go
-    jdk
-    lua
-    luarocks
-    nodejs
-    php
-    phpPackages.composer
-    python3
-    ruby
-    zig
+      # PROGRAMMING LANGUAGES
+      go
+      jdk
+      lua
+      luarocks
+      nodejs
+      php
+      phpPackages.composer
+      python3
+      zig
 
-    # OCaml
-    dune
-    ocaml
-    ocamlformat
-    opam
-    ocamlPackages.ocaml-lsp
-    ocamlPackages.utop
+      # RUST
+      rustc
+      cargo
+      cargo-binstall
+      clippy
+      rustfmt
 
-    # RUST
-    rustc
-    cargo
-    cargo-binstall
-    clippy
-    rustfmt
+      # LSPs
+      bash-language-server
+      clang-tools # provides clangd
+      gopls
+      jdt-language-server
+      lua-language-server
+      nixd
+      nixfmt
+      phpactor
+      pyright
+      ruff
+      rust-analyzer
+      texlab
+      tinymist
+      tombi
+      zls
 
-    # LSPs
-    bash-language-server
-    clang-tools # provides clangd
-    clojure-lsp
-    gopls
-    jdt-language-server
-    lua-language-server
-    nixd
-    nix-init
-    nixfmt
-    phpactor
-    pyright
-    ruff
-    rust-analyzer
-    texlab
-    tinymist
-    tombi
-    zls
+      # EDITORS
+      emacs
+      neovim
+      vim
+      vscode
 
-    # EDITORS
-    emacs
-    neovim
-    vim
-    vscode
+      # LaTeX
+      biber
+      texliveFull
 
-    # LaTeX
-    biber
-    texliveFull
+      # Others
+      bat
+      brightnessctl
+      brave
+      btop
+      diff-so-fancy
+      dropbox
+      dunst
+      dysk
+      easytag
+      eza
+      fastfetch
+      fd
+      foot
+      fzf
+      gimp
+      groff
+      guitarix
+      gvfs
+      hunspell
+      hunspellDicts.en_US
+      hunspellDicts.it_IT
+      kdePackages.kcalc
+      kdePackages.yakuake
+      kdePackages.partitionmanager
+      kmymoney
+      lazygit
+      libreoffice
+      networkmanagerapplet
+      nix-init
+      ntfs3g
+      onefetch
+      pandoc
+      pamixer
+      papirus-icon-theme
+      pavucontrol
+      proton-vpn
+      qpdf
+      ripgrep
+      ripgrep-all
+      rsync
+      speedtest-cli
+      starship
+      stow
+      thunderbird
+      tldr
+      tmux
+      tradingview
+      tuxguitar
+      typst
+      unzip
+      whatsie
+      yazi
+      yt-dlp
+      zathura
+      zip
+      zoom-us
+      zotero
+      zoxide
+      zsh
 
-    # Others
-    bat
-    brightnessctl
-    brave
-    btop
-    diff-so-fancy
-    drawy
-    dropbox
-    dunst
-    dysk
-    easytag
-    eza
-    fastfetch
-    fd
-    foot
-    fzf
-    gimp
-    groff
-    guitarix
-    gvfs
-    hunspell
-    hunspellDicts.en_US
-    hunspellDicts.it_IT
-    hydrogen
-    hygg
-    kdePackages.kcalc
-    kdePackages.yakuake
-    kdePackages.partitionmanager
-    kmymoney
-    krita
-    lazygit
-    libreoffice
-    networkmanagerapplet
-    ntfs3g
-    onefetch
-    pandoc
-    pamixer
-    papirus-icon-theme
-    pavucontrol
-    proton-vpn
-    qpdf
-    ripgrep
-    ripgrep-all
-    rsync
-    speedtest-cli
-    starship
-    stow
-    thunderbird
-    tldr
-    tmux
-    tradingview
-    tuxguitar
-    typst
-    unzip
-    vlc
-    whatsie
-    yazi
-    yt-dlp
-    zathura
-    zip
-    zoom-us
-    zotero
-    zoxide
-    zsh
-  ];
+      # Custom packages
+      boilertex
+      tgr
+    ];
 
   fonts.packages = with pkgs; [
     nerd-fonts.caskaydia-cove
