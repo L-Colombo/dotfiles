@@ -66,7 +66,10 @@
     };
   };
 
-  environment.sessionVariables.MOZ_ENABLE_WAYLAND = "1";
+  environment.sessionVariables = {
+    MOZ_ENABLE_WAYLAND = "1";
+    QT_QPA_PLATFORMTHEME = "kde";
+  };
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     kate
@@ -107,16 +110,6 @@
       "widget.use-xdg-desktop-portal.file-picker" = 0;
     };
   };
-
-  programs.thunar = {
-    enable = true;
-    plugins = with pkgs; [
-      thunar-archive-plugin
-      thunar-volman
-    ];
-  };
-  # To save thunar configs
-  programs.xfconf.enable = true;
 
   programs.zsh = {
     enable = true;
@@ -216,8 +209,8 @@
       hunspellDicts.en_US
       hunspellDicts.it_IT
       kdePackages.kcalc
-      kdePackages.yakuake
       kdePackages.partitionmanager
+      kdePackages.yakuake
       kmymoney
       lazygit
       libreoffice

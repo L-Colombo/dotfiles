@@ -7,7 +7,7 @@ riverctl keyboard-layout -variant "altgr-intl," -options "grp:shift_caps_toggle"
 #### KEYBINDINGS #######################
 # Apps
 riverctl map normal Super Return spawn foot
-riverctl map normal Super E spawn thunar
+riverctl map normal Super E spawn dolphin
 riverctl map normal Super F spawn firefox
 riverctl map normal Super G spawn "env MOZ_ENABLE_WAYLAND=0 thunderbird"
 riverctl map normal Super P spawn "wofi --show=drun --allow-images"
@@ -129,14 +129,13 @@ riverctl set-repeat 30 400
 # Make all views with an app-id that starts with "float" and title "foo" start floating.
 riverctl rule-add ssd
 
-riverctl rule-add -app-id 'thunar' float
+riverctl rule-add -app-id 'org.kde.dolphin' float
 riverctl rule-add -app-id 'org.kde.elisa' float
 riverctl rule-add -app-id 'org.kde.kcalc' float
 riverctl rule-add -app-id 'com.ktechpit.whatsie' tags $((1 << 8))
 riverctl rule-add -app-id 'thunderbird' tags $((1 << 7))
 riverctl rule-add -app-id 'scratchpad' tags $((1 << 20))
 riverctl rule-add -app-id 'scratchpad' float
-riverctl rule-add -title 'Metronome' float
 
 # Set the default layout generator to be rivertile and start it.
 # River will send the process group of the init executable SIGTERM on exit.
