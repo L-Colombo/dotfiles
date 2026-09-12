@@ -75,6 +75,9 @@
     kate
     qrca
   ];
+  # This allows dolphin to find app launchers also when running in a WM
+  environment.etc."xdg/menus/applications.menu".source =
+    "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
 
   security.rtkit.enable = true;
 
