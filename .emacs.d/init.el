@@ -564,5 +564,5 @@
 ;; Load the custom-file and local themes
 (load "~/.emacs.d/custom.el")
 (load "~/.emacs.d/xemacs-theme.el")
-(cursor-color)
+;; (cursor-color)
 (redisplay)

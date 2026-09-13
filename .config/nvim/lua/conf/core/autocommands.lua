@@ -29,12 +29,13 @@ autocmd("Filetype", {
     },
     command = "setlocal shiftwidth=2 tabstop=2"
 })
--- start highlight with treesitter
 
+-- start highlight with treesitter
 autocmd("Filetype", {
     pattern = {
         "bash",
         "c",
+        "haskell",
         "lua",
         "python",
         "rust",
