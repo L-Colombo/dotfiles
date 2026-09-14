@@ -72,6 +72,7 @@
 (global-display-line-numbers-mode 1)
 (column-number-mode 1)
 (repeat-mode 1)
+(delete-selection-mode 1)
 
 (put 'donwcase-region 'disabled nil)
 
@@ -300,13 +301,6 @@
          ("C-c g s" . 'git-gutter:stage-hunk)
          ("C-c g r" . 'git-gutter:revert-hunk))
   :config (global-git-gutter-mode 1))
-
-;; Expand-Region
-(use-package expand-region
-  :defer 2
-  :ensure t
-  :init (pending-delete-mode t)
-  :bind ("C-." . er/expand-region))
 
 ;; Markdown
 (use-package markdown-mode
@@ -537,7 +531,6 @@
 (add-hook 'markdown-mode-hook 'flyspell-mode)
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
 (add-hook 'nroff-mode-hook 'flyspell-mode)
-(add-hook 'flyspell-mode-hook (lambda () (unbind-key "C-." 'flyspell-mode-map)))
 
 ;; Tgr
 (use-package tgr
