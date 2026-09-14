@@ -107,6 +107,8 @@
 
 ;; JOIN LINE
 (global-set-key (kbd "C-c j") #'join-line)
+;; Find file at point
+(global-set-key (kbd "C-x C-. C-f") #'find-file-at-point)
 
 ;; MacOs SETTINGS
 ;; (setq mac-option-modifier nil
