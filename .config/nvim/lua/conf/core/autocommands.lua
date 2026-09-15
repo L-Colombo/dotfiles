@@ -37,6 +37,7 @@ autocmd("Filetype", {
         "c",
         "haskell",
         "lua",
+        "nix",
         "python",
         "rust",
     },

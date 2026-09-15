@@ -258,6 +258,7 @@
   fonts.packages = with pkgs; [
     nerd-fonts.caskaydia-cove
     nerd-fonts.iosevka
+    nerd-fonts.iosevka-term-slab
     nerd-fonts.ubuntu-mono
     nerd-fonts.terminess-ttf
   ];

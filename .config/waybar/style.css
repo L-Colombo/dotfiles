@@ -1,5 +1,5 @@
 * {
-    font-family: "UbuntuMono Nerd Font Propo";
+    font-family: "IosevkaTermSlab Nerd Font Propo";
     font-size: 20px;
 }
 
@@ -9,8 +9,8 @@
 }
 
 #tags button.occupied {
-    /* background-color: #666666; */
-    background-color: #957fb8;
+    background-color: #666666;
+    /* background-color: #957fb8; */
 }
 
 #tags button.focused {
