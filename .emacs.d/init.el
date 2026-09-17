@@ -104,6 +104,8 @@
 (global-set-key (kbd "C-c <down>") #'windmove-down)
 (global-set-key (kbd "C-c DEL") #'kill-buffer-and-window)
 (global-set-key (kbd "C-x C-o") #'window-swap-states)
+(global-set-key (kbd "C-<down>") (lambda () (interactive) (scroll-down 1)))
+(global-set-key (kbd "C-<up>") (lambda () (interactive) (scroll-up 1)))
 
 ;; JOIN LINE
 (global-set-key (kbd "C-c j") #'join-line)
