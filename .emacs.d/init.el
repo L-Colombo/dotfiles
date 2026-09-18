@@ -120,7 +120,9 @@
 ;; COLOR THEMES
 (use-package klere-theme
   :defer t
-  :ensure t)
+  :ensure t
+  :config
+  (cursor-color))
 (use-package kanagawa-themes
   :defer t
   :ensure t)
@@ -129,9 +131,11 @@
   :ensure t
   :config
   (custom-set-faces
-   `(org-level-2 ((t (:foreground "#73c936"))))))
+   `(org-level-2 ((t (:foreground "#73c936"))))
+   `(org-block (( t (:background "#303540"))))
+   `(org-quote (( t (:background "#303540"))))))
 
-(load-theme  'klere t)
+(load-theme  'gruber-darker t)
 
 ;; CUSTOM FUNCTIONS
 
@@ -408,7 +412,8 @@ selects backward.)"
               org-tags-column 0
               org-capture-bookmark nil
               org-agenda-skip-deadline-if-done t
-              org-agenda-skip-scheduled-if-done t)
+              org-agenda-skip-scheduled-if-done t
+              org-fontify-quote-and-verse-blocks t)
   :hook ((org-mode . org-indent-mode)
          (org-mode . visual-line-mode)
          (org-mode . menu-bar-mode)))
