@@ -1,0 +1,16 @@
+cursor-style               = block
+cursor-style-blink         = true
+cursor-color               = #fc0fc0
+cursor-text                = #000000
+shell-integration-features = no-cursor
+
+
+font-size               = 18
+font-family             = "IosevkaTermSlab Nerd Font Propo"
+font-family-bold        = "IosevkaTermSlab Nerd Font Propo"
+font-family-italic      = "IosevkaTermSlab Nerd Font Propo"
+font-family-bold-italic = "IosevkaTermSlab Nerd Font Propo"
+
+
+background-opacity = 0.90
+window-theme       = dark

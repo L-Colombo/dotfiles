@@ -204,6 +204,7 @@
       fd
       foot
       fzf
+      ghostty
       gimp
       groff
       guitarix
