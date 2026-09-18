@@ -6,7 +6,7 @@ riverctl keyboard-layout -variant "altgr-intl," -options "grp:shift_caps_toggle"
 
 #### KEYBINDINGS #######################
 # Apps
-riverctl map normal Super Return spawn foot
+riverctl map normal Super Return spawn ghostty
 riverctl map normal Super E spawn dolphin
 riverctl map normal Super F spawn firefox
 riverctl map normal Super G spawn "env MOZ_ENABLE_WAYLAND=0 thunderbird"
