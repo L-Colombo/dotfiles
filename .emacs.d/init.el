@@ -126,9 +126,12 @@
   :ensure t)
 (use-package gruber-darker-theme
   :defer t
-  :ensure t)
+  :ensure t
+  :config
+  (custom-set-faces
+   `(org-level-2 ((t (:foreground "#73c936"))))))
 
-(load-theme  'gruber-darker t)
+(load-theme  'klere t)
 
 ;; CUSTOM FUNCTIONS
 
@@ -406,9 +409,6 @@ selects backward.)"
               org-capture-bookmark nil
               org-agenda-skip-deadline-if-done t
               org-agenda-skip-scheduled-if-done t)
-  (when (eq (car custom-enabled-themes) 'gruber-darker)
-    (custom-set-faces
-     `(org-level-2 ((t (:foreground "#73c936"))))))
   :hook ((org-mode . org-indent-mode)
          (org-mode . visual-line-mode)
          (org-mode . menu-bar-mode)))

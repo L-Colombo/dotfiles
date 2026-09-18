@@ -14,3 +14,5 @@ font-family-bold-italic = "IosevkaTermSlab Nerd Font Propo"
 
 background-opacity = 0.90
 window-theme       = dark
+window-decoration  = none
+theme              = Gruber Darker
