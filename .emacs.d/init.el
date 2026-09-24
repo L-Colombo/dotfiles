@@ -87,7 +87,6 @@
  `(whitespace-tab   ((t (:foreground "#555555" :bold t))))
  `(line-number-current-line ((t (:foreground "#ff4500")))))
 
-(global-set-key (kbd "C-c w w") 'whitespace-mode)
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
 ;; DIRED SETTINGS
@@ -97,6 +96,7 @@
 (unless (eq system-type 'darwin)
   (setq dired-listing-switches "--group-directories-first -alhF"))
 
+;; GLOBAL KEYBINDINGS
 ;; WINDOW
 (global-set-key (kbd "C-c <right>") #'windmove-right)
 (global-set-key (kbd "C-c <left>") #'windmove-left)
@@ -106,11 +106,14 @@
 (global-set-key (kbd "C-x C-o") #'window-swap-states)
 (global-set-key (kbd "C-<up>") (lambda () (interactive) (scroll-down 1)))
 (global-set-key (kbd "C-<down>") (lambda () (interactive) (scroll-up 1)))
-
 ;; JOIN LINE
 (global-set-key (kbd "C-c j") #'join-line)
-;; Find file at point
+;; WHITESPACE
+(global-set-key (kbd "C-c w w") 'whitespace-mode)
+;; FIND FILE AT POINT
 (global-set-key (kbd "C-x C-. C-f") #'find-file-at-point)
+;; MENU-BAR-MODE
+(global-set-key (kbd "M-*") #'menu-bar-mode)
 
 ;; MacOs SETTINGS
 ;; (setq mac-option-modifier nil
@@ -365,8 +368,7 @@ selects backward.)"
   :defer t
   ;; builtin, no need to :ensure
   :hook ((LaTeX-mode . turn-on-reftex)
-         (LaTeX-mode . visual-line-mode)
-         (LaTeX-mode . menu-bar-mode)))
+         (LaTeX-mode . visual-line-mode)))
 
 (use-package reftex
   :defer t
@@ -415,8 +417,7 @@ selects backward.)"
               org-agenda-skip-scheduled-if-done t
               org-fontify-quote-and-verse-blocks t)
   :hook ((org-mode . org-indent-mode)
-         (org-mode . visual-line-mode)
-         (org-mode . menu-bar-mode)))
+         (org-mode . visual-line-mode)))
 (global-set-key (kbd "C-c a") #'org-agenda)
 (global-set-key (kbd "C-c c") #'org-capture)
 
