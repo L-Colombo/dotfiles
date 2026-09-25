@@ -183,7 +183,6 @@
       emacs
       neovim
       vim
-      vscode
 
       # LaTeX
       biber
