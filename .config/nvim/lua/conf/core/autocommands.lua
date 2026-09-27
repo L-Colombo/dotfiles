@@ -35,6 +35,7 @@ autocmd("Filetype", {
     pattern = {
         "bash",
         "c",
+        "cpp",
         "haskell",
         "lua",
         "nix",
