@@ -312,7 +312,8 @@ selects backward.)"
 ;; Magit
 (use-package magit
   :defer t
-  :ensure t)
+  :ensure t
+  :bind (("M-g M-i M-t" . #'magit)))
 
 ;; Rainbow-Delimiters
 (use-package rainbow-delimiters
