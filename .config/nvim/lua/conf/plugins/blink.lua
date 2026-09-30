@@ -10,16 +10,16 @@ return {
         },
         keymap = {
             preset = "super-tab",
-            ['<A-1>'] = { function(cmp) cmp.accept({ index = 1 }) end },
-            ['<A-2>'] = { function(cmp) cmp.accept({ index = 2 }) end },
-            ['<A-3>'] = { function(cmp) cmp.accept({ index = 3 }) end },
-            ['<A-4>'] = { function(cmp) cmp.accept({ index = 4 }) end },
-            ['<A-5>'] = { function(cmp) cmp.accept({ index = 5 }) end },
-            ['<A-6>'] = { function(cmp) cmp.accept({ index = 6 }) end },
-            ['<A-7>'] = { function(cmp) cmp.accept({ index = 7 }) end },
-            ['<A-8>'] = { function(cmp) cmp.accept({ index = 8 }) end },
-            ['<A-9>'] = { function(cmp) cmp.accept({ index = 9 }) end },
-            ['<A-0>'] = { function(cmp) cmp.accept({ index = 10 }) end },
+            ["<A-1>"] = { function(cmp) cmp.accept({ index = 1 }) end },
+            ["<A-2>"] = { function(cmp) cmp.accept({ index = 2 }) end },
+            ["<A-3>"] = { function(cmp) cmp.accept({ index = 3 }) end },
+            ["<A-4>"] = { function(cmp) cmp.accept({ index = 4 }) end },
+            ["<A-5>"] = { function(cmp) cmp.accept({ index = 5 }) end },
+            ["<A-6>"] = { function(cmp) cmp.accept({ index = 6 }) end },
+            ["<A-7>"] = { function(cmp) cmp.accept({ index = 7 }) end },
+            ["<A-8>"] = { function(cmp) cmp.accept({ index = 8 }) end },
+            ["<A-9>"] = { function(cmp) cmp.accept({ index = 9 }) end },
+            ["<A-0>"] = { function(cmp) cmp.accept({ index = 10 }) end },
 
             -- custom
             ["<A-space>"] = { "show",
@@ -38,9 +38,10 @@ return {
             },
             menu = {
                 -- This prevent blink from being active in the command line
-                auto_show = function(ctx)
-                    return ctx.mode ~= "cmdline"
-                end,
+                -- auto_show = function(ctx)
+                --     return ctx.mode ~= "cmdline"
+                -- end,
+                auto_show = true,
                 border = "single",
                 draw = {
                     columns = {
