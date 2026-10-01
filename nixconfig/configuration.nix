@@ -235,6 +235,7 @@
       starship
       stow
       thunderbird
+      tokei
       tldr
       tmux
       tradingview
