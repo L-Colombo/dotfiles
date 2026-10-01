@@ -230,6 +230,7 @@
       ripgrep
       ripgrep-all
       rsync
+      sioyek
       speedtest-cli
       starship
       stow
