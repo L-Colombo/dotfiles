@@ -189,6 +189,7 @@
       texliveFull
 
       # Others
+      asciiquarium
       bat
       brightnessctl
       brave
@@ -215,6 +216,7 @@
       kdePackages.partitionmanager
       kdePackages.yakuake
       kmymoney
+      krusader
       lazygit
       libreoffice
       networkmanagerapplet
