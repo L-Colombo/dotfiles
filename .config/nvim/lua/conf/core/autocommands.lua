@@ -107,7 +107,7 @@ command("Format",
 
 vim.keymap.set("n", "g=", "<cmd>Format<cr>")
 
-autocmd("BufWritePre", {
-    group = augroup("fmtOnSave", { clear = true }),
-    command = "Format"
-})
+-- autocmd("BufWritePre", {
+--     group = augroup("fmtOnSave", { clear = true }),
+--     command = "Format"
+-- })

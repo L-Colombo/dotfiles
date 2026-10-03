@@ -12,7 +12,7 @@ font-family-italic         = "CaskaydiaCove Nerd Font Propo"
 font-family-bold-italic    = "CaskaydiaCove Nerd Font Propo"
 
 
-background-opacity         = 0.90
+background-opacity         = 0.85
 window-theme               = dark
 # window-decoration        = none
-theme                      = Gruber Darker
+theme                      = Modus Vivendi

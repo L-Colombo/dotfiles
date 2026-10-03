@@ -138,7 +138,7 @@
    `(org-block (( t (:background "#303540"))))
    `(org-quote (( t (:background "#303540"))))))
 
-(load-theme  'gruber-darker t)
+(load-theme  'modus-vivendi-tritanopia t)
 
 ;; CUSTOM FUNCTIONS
 
