@@ -62,6 +62,8 @@
                         "~/dotfiles/.emacs.d/init.el"
                         "~/Documents/OrgFiles/agenda/todos.org"
                         "~/Documents/OrgFiles/agenda/agenda.org"
+                        "~/Dropbox/OrgFiles/agenda.org"
+                        "~/Dropbox/OrgFiles/todos.org"
                         "\\.bib$"))
 
 (auto-save-mode -1)
@@ -398,16 +400,13 @@ selects backward.)"
 (keymap-set minibuffer-local-map "C-p" #'vertico-previous)
 
 ;; Org & Related
-(unless (file-exists-p "~/Documents/OrgFiles")
-  (make-directory "~/Documents/OrgFiles"))
-
 (use-package org
   :defer t
   :ensure t
   :init (setq org-hide-emphasis-markers t
               org-startup-folded 'content
               org-startup-truncated nil
-              org-directory "~/Documents/OrgFiles"
+              org-directory "~/Dropbox/OrgFiles"
               org-edit-src-content-indentation 0
               org-src-tab-acts-natively t
               org-ellipsis " "
@@ -432,16 +431,13 @@ selects backward.)"
   :custom (org-bullets-bullet-list '(""))
   :hook (org-mode . org-bullets-mode))
 
-(unless (file-exists-p "~/Documents/OrgFiles/agenda")
-  (make-directory "~/Documents/OrgFiles/agenda"))
-
 (setq org-capture-templates
-      '(("a" "Agenda" entry (file+headline "~/Documents/OrgFiles/agenda/agenda.org" "Agenda")
+      '(("a" "Agenda" entry (file+headline "~/Dropbox/OrgFiles/agenda.org" "Agenda")
          "* %?\n %T %i\n")
-        ("t" "Todo" entry (file+headline "~/Documents/OrgFiles/agenda/todos.org" "Tasks")
+        ("t" "Todo" entry (file+headline "~/Dropbox/OrgFiles/todos.org" "Tasks")
          "* TODO %?\n SCHEDULED: %T\n %iDEADLINE:  %T\n ENTERED: %U %i")))
 (setq org-agenda-span 'year
-      org-agenda-files '("~/Documents/OrgFiles/agenda/"))
+      org-agenda-files '("~/Dropbox/OrgFiles/agenda.org" "~/Dropbox/OrgFiles/todos.org"))
 
 (unless (file-exists-p "~/Documents/OrgFiles/org-roam")
   (make-directory "~/Documents/OrgFiles/org-roam"))
