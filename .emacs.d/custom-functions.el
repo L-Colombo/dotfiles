@@ -37,7 +37,6 @@ selects backward.)"
 (defun select-current-line ()
   "Select the entire line the cursor is on."
   (interactive)
-  (beginning-of-line)
   (set-mark (line-beginning-position))
   (goto-char (line-end-position)))
 (global-set-key (kbd "C-S-l") #'select-current-line)
@@ -95,10 +94,10 @@ selects backward.)"
   "Substitutes all undescore in the current line with whitespace"
   (interactive)
   (save-excursion
-    (let ((beg (point)))
-      (replace-region-contents beg (beginning-of-line)
-                               (query-replace "_" " ")))))
-(global-set-key (kbd "C-c C-x SPC") #'deundescore)
+    (let ((beg (progn (beginning-of-line) (point)))
+          (end (progn (end-of-line) (point))))
+      (replace-string "_" " " nil beg end nil nil))))
+(global-set-key (kbd "C-c C-x C-SPC") #'deundescore)
 
 (defun accented ()
   "Easily inser an accented character"
