@@ -24,6 +24,7 @@ autocmd("Filetype", {
         "javascript",
         "javascriptreact",
         "ocaml",
+        "tex",
         "typescript",
         "typescriptreact"
     },
