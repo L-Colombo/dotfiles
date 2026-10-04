@@ -376,7 +376,9 @@ selects backward.)"
 (use-package reftex
   :defer t
   :ensure t
-  :init (setq reftex-plug-into-AUCTeX t))
+  :init
+  (setq reftex-plug-into-AUCTeX t
+        reftex-cite-prompt-optional-args t))
 
 ;; (use-package auctex-cont-latexmk
 ;;   :defer t
