@@ -183,7 +183,7 @@
       emacs
       neovim
       vim
-      zed
+      zed-editor
 
       # LaTeX
       biber

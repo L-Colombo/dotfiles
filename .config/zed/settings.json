@@ -1,0 +1,36 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "git": {
+    "blame": {
+      "show_avatar": false
+    },
+    "inline_blame": {
+      "enabled": false
+    }
+  },
+  "cursor_shape": "block",
+  "ui_font_family": "CaskaydiaCove Nerd Font Propo",
+  "buffer_font_family": "CaskaydiaCove Nerd Font Propo",
+  "auto_update": false,
+  "restore_on_startup": "last_workspace",
+  "disable_ai": true,
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+  },
+  "session": {
+    "trust_all_worktrees": true,
+  },
+  "base_keymap": "Emacs",
+  "icon_theme": "Zed (Default)",
+  "ui_font_size": 18.0,
+  "buffer_font_size": 18.0,
+  "theme": "Gruvbox Dark Hard",
+}
