@@ -91,13 +91,6 @@
 
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
-;; DIRED SETTINGS
-(put 'dired-find-alternate-file 'disabled nil)
-(add-hook 'dired-mode-hook
-		  (lambda () (local-set-key (kbd "RET") #'dired-find-alternate-file)))
-(unless (eq system-type 'darwin)
-  (setq dired-listing-switches "--group-directories-first -alhF"))
-
 ;; GLOBAL KEYBINDINGS
 ;; WINDOW
 (global-set-key (kbd "C-c <right>") #'windmove-right)
@@ -286,6 +279,15 @@ selects backward.)"
   (flyspell-buffer))
 
 ;; PACKAGES AND MODES
+
+;; Dired
+(use-package dired
+  :ensure nil
+  :defer t
+  :init (put 'dired-find-alternate-file 'disabled nil)
+  :bind (:map dired-mode-map ("RET" . #'dired-find-alternate-file))
+  :config (setq dired-listing-switches "--group-directories-first -alhF")
+  :hook ((dired-mode . dired-hide-details-mode)))
 
 ;; Multiple cursors
 (use-package multiple-cursors
