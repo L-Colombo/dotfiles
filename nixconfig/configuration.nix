@@ -183,6 +183,7 @@
       emacs
       neovim
       vim
+      zed
 
       # LaTeX
       biber
@@ -216,7 +217,6 @@
       kdePackages.partitionmanager
       kdePackages.yakuake
       kmymoney
-      krusader
       lazygit
       libreoffice
       networkmanagerapplet
@@ -246,7 +246,6 @@
       unzip
       whatsie
       yazi
-      yt-dlp
       zathura
       zip
       zoom-us
