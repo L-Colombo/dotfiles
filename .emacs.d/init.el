@@ -143,7 +143,9 @@
   :defer t
   :init (put 'dired-find-alternate-file 'disabled nil)
   :bind (:map dired-mode-map ("RET" . #'dired-find-alternate-file))
-  :config (setq dired-listing-switches "--group-directories-first -alhF")
+  :config
+  (setq dired-listing-switches "--group-directories-first -alhF")
+  (global-set-key (kbd "C-x C-j") #'dired-jump-other-window)
   :hook ((dired-mode . dired-hide-details-mode)))
 
 ;; Multiple cursors
