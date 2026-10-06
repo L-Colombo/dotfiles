@@ -50,7 +50,7 @@
 
 (setq display-line-numbers-type 'visual
       inhibit-startup-screen 't
-      message-log-max nil ;; prints message to echo area, but does not creat a *Messages* buffer
+      message-log-max nil ;; prints to echo area, but not create *Messages* buffer
       make-backup-files nil
       mark-ring-max 6
       global-mark-ring-max 8
@@ -78,7 +78,7 @@
 
 (put 'donwcase-region 'disabled nil)
 
-(set-frame-font "CaskaydiaCove Nerd Font Propo 18" nil t)
+(set-frame-font "CaskaydiaCove Nerd Font Propo 16" nil t)
 
 ;; WHITESPACE SETTINGS
 (setq-default whitespace-style '(face spaces empty tabs trailing space-mark tab-mark)
