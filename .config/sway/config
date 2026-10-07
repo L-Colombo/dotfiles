@@ -38,7 +38,7 @@ input type:touchpad {
     bindsym $mod+Shift+m exec elisa
     bindsym $mod+Shift+e exec emacs
     bindsym $mod+Shift+r exec ~/scripts/readpdf-wayland.sh
-
+    bindsym $mod+Ctrl+l exec swaylock --image=~/Pictures/Wallpaperx/nix-log.png
 
 # Basics:
     # Reload the configuration file
