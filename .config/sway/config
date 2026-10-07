@@ -51,7 +51,10 @@ input type:touchpad {
     floating_modifier $mod normal
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+q exec swaynag --message "Do you really want to exit sway?" --button-no-terminal "Yes, exit sway" "swaymsg exit"
+    
+    # Power off the computer
+    bindsym $mod+Shift+p exec swaynag --background="#ff0000" --message "Power off the computer?" --button-no-terminal "Yes, Power Off" "poweroff"
 #
 # Moving around:
 #
