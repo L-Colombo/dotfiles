@@ -29,6 +29,7 @@ input type:touchpad {
 
     bindsym $mod+Return exec $term
 
+    bindsym XF86Calculator exec kcalc
     bindsym $mod+e exec dolphin
     bindsym $mod+f exec firefox
     bindsym $mod+g exec thunderbird
