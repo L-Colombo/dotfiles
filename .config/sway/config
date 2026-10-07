@@ -31,7 +31,7 @@ input type:touchpad {
     bindsym $mod+Shift+c kill
 
     # Start your launcher
-    bindsym $mod+d exec $menu
+    bindsym $mod+p exec $menu
 
     # Start a terminal
     bindsym $mod+Return exec $term
@@ -114,10 +114,9 @@ input type:touchpad {
 
     # Toggle the current focus between tiling and floating mode
     bindsym $mod+o floating toggle
-    # TODO: review config from here down
 
     # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
+    bindsym $mod+Shift+o focus mode_toggle
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
@@ -187,5 +186,10 @@ bindsym $mod+r mode "resize"
 bar {
     swaybar_command waybar
 }
+
+exec nm-applet
+exec dropbox start -i
+exec dunst
+exec blueman-applet
 
 include /etc/sway/config.d/*
