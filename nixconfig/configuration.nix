@@ -200,6 +200,7 @@
       brightnessctl
       brave
       btop
+      collabora-desktop
       diff-so-fancy
       dropbox
       dunst
