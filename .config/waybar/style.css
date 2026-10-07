@@ -37,6 +37,12 @@
     background-color: #2d4f67;
 }
 
+
+#scratchpad {
+    background-color: #2d4f67;
+    padding-right: 8px;
+}
+
 #mode {
     background-color: #2d4f67;
     padding: 8px;
