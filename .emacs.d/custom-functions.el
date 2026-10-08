@@ -1,5 +1,11 @@
 ;; CUSTOM FUNCTIONS
 
+(defun quit-magit ()
+  "Kill all buffer created by magit"
+  (interactive)
+  (mapc #'kill-buffer (magit-mode-get-buffers)))
+(global-set-key (kbd "M-#") #'quit-magit)
+
 (defun mark-whole-word (&optional arg allow-extend)
   "Like `mark-word', but selects whole words and skips over whitespace.
 If you use a negative prefix arg then select words backward.
