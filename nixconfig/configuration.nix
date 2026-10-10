@@ -96,7 +96,7 @@
 
   programs.river-classic = {
     enable = true;
-    xwayland.enable = true;
+    xwayland.enable = false;
     extraPackages = with pkgs; [
       foot
       lswt
