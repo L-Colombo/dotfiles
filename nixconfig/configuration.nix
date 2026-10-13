@@ -150,6 +150,7 @@
       uv
 
       # PROGRAMMING LANGUAGES
+      babashka
       go
       jdk
       lua
@@ -163,13 +164,14 @@
       # RUST
       rustc
       cargo
-      cargo-binstall
+      cargo-nextest
       clippy
       rustfmt
 
       # LSPs
       bash-language-server
       clang-tools # provides clangd
+      clojure-lsp
       gopls
       jdt-language-server
       lua-language-server
