@@ -136,6 +136,7 @@
     let
       boilertex = pkgs.callPackage /etc/nixos/boilertex.nix { };
       tgr = pkgs.callPackage /etc/nixos/tgr.nix { };
+      toc = pkgs.callPackage /etc/nixos/toc.nix { };
     in
     [
       # DEVELOPMENT BASICS
@@ -264,6 +265,7 @@
       # Custom packages
       boilertex
       tgr
+      toc
     ];
 
   fonts.packages = with pkgs; [
