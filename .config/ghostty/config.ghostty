@@ -15,4 +15,4 @@ font-family-bold-italic    = "CaskaydiaCove Nerd Font Propo"
 background-opacity         = 0.85
 window-theme               = dark
 # window-decoration        = none
-theme                      = Modus Vivendi
+theme                      = Monokai Remastered

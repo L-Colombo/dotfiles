@@ -124,6 +124,9 @@
 (use-package kanagawa-themes
   :defer t
   :ensure t)
+(use-package monokai-theme
+  :defer t
+  :ensure t)
 (use-package gruber-darker-theme
   :defer t
   :ensure t
@@ -133,7 +136,7 @@
    `(org-block (( t (:background "#303540"))))
    `(org-quote (( t (:background "#303540"))))))
 
-(load-theme  'modus-vivendi-tritanopia t)
+(load-theme  'monokai t)
 
 ;; PACKAGES AND MODES
 
