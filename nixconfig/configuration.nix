@@ -69,6 +69,8 @@
   environment.sessionVariables = {
     MOZ_ENABLE_WAYLAND = "1";
     QT_QPA_PLATFORMTHEME = "kde";
+    # for deadkeys to work properly on Ghostty
+    GTK_IM_MODULE = "simple";
   };
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
