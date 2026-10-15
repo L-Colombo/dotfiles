@@ -126,7 +126,10 @@
   :ensure t)
 (use-package monokai-theme
   :defer t
-  :ensure t)
+  :ensure t
+  :config
+  (custom-set-faces
+   `(italic (( t (:italic t))))))
 (use-package gruber-darker-theme
   :defer t
   :ensure t
