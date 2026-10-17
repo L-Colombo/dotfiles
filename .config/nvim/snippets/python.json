@@ -1,10 +1,20 @@
 {
   "def": {
     "body": [
-      "def ${1:func}(${2:args}):",
-      "    ${3:pass}",
+      "def ${1:func}(${2:args}) -> ${3:type}:",
+      "    ${4:pass}",
+      "",
       "$0"
     ],
     "prefix": "def"
+  },
+  "defm": {
+    "body": [
+      "def ${1:name}(self, ${2:args}) -> ${3:type}:",
+      "    ${4:pass}",
+      "",
+      "$0"
+    ],
+    "prefix": "defm"
   }
 }

@@ -78,7 +78,7 @@
 
 (put 'donwcase-region 'disabled nil)
 
-(set-frame-font "CaskaydiaCove Nerd Font Propo 16" nil t)
+(set-frame-font "IosevkaTermSlab Nerd Font Propo 18" nil t)
 
 ;; WHITESPACE SETTINGS
 (setq-default whitespace-style '(face spaces empty tabs trailing space-mark tab-mark)
@@ -139,7 +139,7 @@
    `(org-block (( t (:background "#303540"))))
    `(org-quote (( t (:background "#303540"))))))
 
-(load-theme  'monokai t)
+(load-theme  'gruber-darker t)
 
 ;; PACKAGES AND MODES
 
