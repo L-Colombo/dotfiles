@@ -3,7 +3,8 @@
 (defun quit-magit ()
   "Kill all buffer created by magit"
   (interactive)
-  (mapc #'kill-buffer (magit-mode-get-buffers)))
+  (mapc #'kill-buffer (magit-mode-get-buffers))
+  (delete-other-windows))
 (global-set-key (kbd "M-#") #'quit-magit)
 
 (defun mark-whole-word (&optional arg allow-extend)
