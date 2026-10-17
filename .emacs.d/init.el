@@ -466,4 +466,4 @@
 ;; Final setup
 (load "~/.emacs.d/custom.el")
 (load "~/.emacs.d/custom-functions.el")
-(cursor-color)
+;; (cursor-color)
