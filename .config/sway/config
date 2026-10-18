@@ -11,7 +11,7 @@ set $right l
 set $term ghostty
 set $menu wofi --show=drun --allow-images
 
-output * bg ~/Pictures/Wallpaperx/conan_mount_wrath.jpg fill
+output * bg ~/Pictures/Wallpaperx/pine.jpg fill
 ### Input configuration
 input type:touchpad {
     tap enabled

@@ -1,5 +1,19 @@
 ;; CUSTOM FUNCTIONS
 
+(defun my-ping ()
+  "Ping 8.8.8.8 ten times"
+  (interactive)
+  (if (eq nil (member "*Ping 8.8.8.8*" (mapcar #'buffer-name (buffer-list))))
+      (ping "8.8.8.8" '("-c 10"))
+    (progn
+      ;; all this just to kill the buffer w/out confitmation
+      (setq kill-buffer-query-functions
+            (delq 'process-kill-buffer-query-function
+                  kill-buffer-query-functions))
+      (kill-buffer "*Ping 8.8.8.8*")
+      (delete-other-windows))))
+(global-set-key (kbd "M-_") #'my-ping)
+
 (defun quit-magit ()
   "Kill all buffer created by magit"
   (interactive)
