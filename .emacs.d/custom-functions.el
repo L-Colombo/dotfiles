@@ -4,6 +4,7 @@
   "Upgrade NixOS system"
   (interactive)
   (async-shell-command "sudo nixos-rebuild switch --upgrade"))
+(global-set-key (kbd "C-S-u") #'nix-upgrade)
 
 (defun my-ping ()
   "Ping 8.8.8.8 ten times"
