@@ -1,5 +1,10 @@
 ;; CUSTOM FUNCTIONS
 
+(defun nix-upgrade ()
+  "Upgrade NixOS system"
+  (interactive)
+  (async-shell-command "sudo nixos-rebuild switch --upgrade"))
+
 (defun my-ping ()
   "Ping 8.8.8.8 ten times"
   (interactive)
