@@ -87,7 +87,7 @@
 (custom-set-faces
  `(whitespace-space ((t (:foreground "#555555"))))
  `(whitespace-tab   ((t (:foreground "#555555" :bold t))))
- `(line-number-current-line ((t (:foreground "#ff4500")))))
+ `(line-number-current-line ((t (:foreground "#000000" :background "#fc0fc0")))))
 
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
@@ -137,6 +137,7 @@
   (custom-set-faces
    `(org-level-2 ((t (:foreground "#73c936"))))
    `(org-block (( t (:background "#303540"))))
+   `(font-latex-sedate-face ((t (:foreground "#73c936" :bold t))))
    `(org-quote (( t (:background "#303540"))))))
 
 (load-theme  'gruber-darker t)

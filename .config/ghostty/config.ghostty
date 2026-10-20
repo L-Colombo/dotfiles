@@ -1,3 +1,5 @@
+foreground                 = #73c936
+
 cursor-style               = block
 cursor-style-blink         = true
 cursor-color               = #fc0fc0
