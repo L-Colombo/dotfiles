@@ -1,9 +1,14 @@
 [ActivityManager][Global Shortcuts]
+switch-to-activity-768d6ffd-18ba-4b7c-a698-df5fccca10df=
 switch-to-activity-979446bb-58a5-4bf1-bfa0-56804d55594e=
 
 [Custom Commands][net.local.readpdf-wayland.sh.desktop]
-Exec=/home/lc/scripts/readpdf-wayland.sh
+Exec=/home/pippo/scripts/readpdf-wayland.sh
 Name=readpdf-wayland
+
+[Custom Commands][net.local.wofi-2.desktop]
+Exec=wofi --show=drun -I
+Name=wofi
 
 [Custom Commands][net.local.wofi.desktop]
 Exec=wofi --show=drun -I
@@ -24,17 +29,17 @@ Activate Next Tab=Ctrl+]; Ctrl+PgDown
 Activate Previous Tab=Ctrl+[; Ctrl+PgUp
 ActualSize=Ctrl+0
 AddBookmark=Ctrl+B
-Back=Alt+Left; Back
+Back=Back; Alt+Left
 BackwardWord=Ctrl+Left
 Begin=Ctrl+Home
 BeginningOfLine=Home
 Clear=
-Close=Ctrl+Esc; Ctrl+W
+Close=Ctrl+W; Ctrl+Esc
 ConfigureNotifications=
 ConfigureToolbars=
 Copy=Ctrl+Ins; Ctrl+C
 CreateFolder=Ctrl+Shift+N
-Cut=Ctrl+X; Shift+Del
+Cut=Shift+Del; Ctrl+X
 DeleteFile=Shift+Del
 DeleteWordBack=Ctrl+Backspace
 DeleteWordForward=Ctrl+Del
@@ -51,7 +56,7 @@ FindPrev=Shift+F3
 FitToHeight=
 FitToPage=
 FitToWidth=
-Forward=Forward; Alt+Right
+Forward=Alt+Right; Forward
 ForwardWord=Ctrl+Right
 FullScreen=Ctrl+Shift+F
 Goto=
@@ -103,8 +108,26 @@ Zoom=
 ZoomIn=Ctrl+=; Ctrl++
 ZoomOut=Ctrl+-
 
+[com.ktechpit.whatsie.desktop][Global Shortcuts]
+About=
+Chat=
+Lock=
+Settings=
+Theme=
+_launch=Meta+W
+
+[com.mitchellh.ghostty.desktop][Global Shortcuts]
+_launch=Meta+Return
+new-window=
+
 [emacs.desktop][Global Shortcuts]
 _launch=Meta+Shift+E
+
+[firefox.desktop][Global Shortcuts]
+_launch=Meta+F
+new-private-window=Meta+Shift+F
+new-window=
+profile-manager-window=
 
 [kaccess][Global Shortcuts]
 Toggle Screen Reader On and Off=Meta+Alt+S
@@ -122,7 +145,7 @@ push_to_talk=
 
 [ksmserver][Global Shortcuts]
 Halt Without Confirmation=
-Lock Session=Screensaver; Meta+L
+Lock Session=Meta+Ctrl+L; Screensaver
 Log Out=Ctrl+Alt+Del
 Log Out Without Confirmation=
 LogOut=
@@ -137,8 +160,8 @@ Cycle Overview Opposite=
 Decrease Opacity=
 Edit Tiles=Meta+T
 Expose=Meta+F9; Ctrl+F9
-ExposeAll=Launch (C); Ctrl+F10; Meta+F10
-ExposeClass=Ctrl+F7; Meta+F7
+ExposeAll=Ctrl+F10; Launch (C); Meta+F10
+ExposeClass=Meta+F7; Ctrl+F7
 ExposeClassCurrentDesktop=
 Grid View=
 Increase Opacity=
@@ -180,7 +203,7 @@ Switch to Desktop 23=
 Switch to Desktop 24=
 Switch to Desktop 25=
 Switch to Desktop 3=Meta+3
-Switch to Desktop 4=Meta+4; Meta+9
+Switch to Desktop 4=Meta+9; Meta+4
 Switch to Desktop 5=
 Switch to Desktop 6=
 Switch to Desktop 7=
@@ -206,11 +229,11 @@ Toggle Night Color=
 Toggle Window Raise/Lower=
 ToggleMouseClick=Meta+*
 Walk Through Windows=Alt+Tab; Meta+J
-Walk Through Windows (Reverse)=Meta+K; Alt+Shift+Tab
+Walk Through Windows (Reverse)=Alt+Shift+Tab; Meta+K; Meta+L
 Walk Through Windows Alternative=
 Walk Through Windows Alternative (Reverse)=
 Walk Through Windows of Current Application=Meta+`; Alt+`
-Walk Through Windows of Current Application (Reverse)=Meta+~; Alt+~
+Walk Through Windows of Current Application (Reverse)=Alt+~; Meta+~
 Walk Through Windows of Current Application Alternative=
 Walk Through Windows of Current Application Alternative (Reverse)=
 Window Above Other Windows=
@@ -317,6 +340,9 @@ stopmedia=Media Stop
 [net.local.readpdf-wayland.sh.desktop][Global Shortcuts]
 _launch=Meta+Shift+R
 
+[net.local.wofi-2.desktop][Global Shortcuts]
+_launch=
+
 [net.local.wofi.desktop][Global Shortcuts]
 _launch=Meta+P
 
@@ -364,12 +390,12 @@ RecordScreen=Meta+Alt+R
 RecordWindow=Meta+Ctrl+R
 RectangularRegionScreenShot=Meta+Shift+Print
 WindowUnderCursorScreenShot=Meta+Ctrl+Print
-_launch=Meta+Shift+S; Print
+_launch=Print; Meta+Shift+S
 
 [org.kde.touchpadshortcuts.desktop][Global Shortcuts]
 DisableTouchpad=Touchpad Off
 EnableTouchpad=Touchpad On
-ToggleTouchpad=Meta+Ctrl+Touchpad Toggle; Touchpad Toggle; Meta+Ctrl+Zenkaku Hankaku
+ToggleTouchpad=Meta+Ctrl+Zenkaku Hankaku; Meta+Ctrl+Touchpad Toggle; Touchpad Toggle
 
 [org.mozilla.firefox.desktop][Global Shortcuts]
 _launch=Meta+F
@@ -390,11 +416,11 @@ PowerOff=Power Off
 Sleep=Sleep
 Toggle Keyboard Backlight=Keyboard Light On/Off
 Turn Off Screen=
-powerProfile=Meta+B; Battery
+powerProfile=Battery; Meta+B
 
 [plasmashell][Global Shortcuts]
 Slideshow Wallpaper Next Image=
-activate application launcher=Alt+F1; Meta
+activate application launcher=Meta; Alt+F1
 activate task manager entry 1=
 activate task manager entry 10=
 activate task manager entry 2=
@@ -424,12 +450,19 @@ switch to previous activity=
 toggle do not disturb=
 
 [systemsettings.desktop][Global Shortcuts]
-_launch=Tools; Meta+I
+_launch=Meta+I; Tools
 kcm-kscreen=
 kcm-lookandfeel=
 kcm-powerdevilprofilesconfig=
 kcm-screenlocker=
 kcm-users=
 
+[thunderbird.desktop][Global Shortcuts]
+_launch=Meta+G
+profile-manager-window=
+
 [yakuake][Global Shortcuts]
 toggle-window-state=Meta+\\
+
+[zotero.desktop][Global Shortcuts]
+_launch=Meta+Z
