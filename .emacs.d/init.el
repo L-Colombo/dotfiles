@@ -109,6 +109,8 @@
 (global-set-key (kbd "C-x C-. C-f") #'find-file-at-point)
 ;; Toggle menu-bar-mode
 (global-set-key (kbd "M-*") #'menu-bar-mode)
+;; Disable downcase-region keybinding
+(global-set-key (kbd "C-x C-l") nil)
 
 ;; MacOs SETTINGS
 ;; (setq mac-option-modifier nil
