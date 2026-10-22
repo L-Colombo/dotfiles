@@ -9,7 +9,7 @@ set $up k
 set $right l
 
 set $term ghostty
-set $menu wofi --show=drun --allow-images
+set $menu wofi --show=drun --allow-images --matching=fuzzy
 
 output * bg ~/Pictures/Wallpaperx/pine.jpg fill
 ### Input configuration

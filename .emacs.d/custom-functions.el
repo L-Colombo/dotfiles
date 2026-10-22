@@ -1,4 +1,79 @@
 ;; CUSTOM FUNCTIONS
+;; (defun rgrep (regexp &optional files dir confirm)
+;;   "Recursively grep for REGEXP in FILES in directory tree rooted at DIR.
+;; The search is limited to file names matching shell pattern FILES.
+;; FILES may use abbreviations defined in `grep-files-aliases', e.g.
+;; entering `ch' is equivalent to `*.[ch]'.  As whitespace triggers
+;; completion when entering a pattern, including it requires
+;; quoting, e.g. `\\[quoted-insert]<space>'.
+
+;; With \\[universal-argument] prefix, you can edit the constructed shell command line
+;; before it is executed.
+;; With two \\[universal-argument] prefixes, directly edit and run `grep-find-command'.
+
+;; Collect output in the \"*grep*\" buffer.  While the recursive grep is running,
+;; you can use \\[next-error] (M-x next-error), or \\<grep-mode-map>\\[compile-goto-error] \
+;; in the grep output buffer,
+;; to visit the lines where matches were found.  To kill the job
+;; before it finishes, type \\[kill-compilation].
+
+;; This command shares argument histories with \\[lgrep] and \\[grep-find].
+
+;; When called programmatically and FILES is nil, REGEXP is expected
+;; to specify a command to run.
+
+;; If CONFIRM is non-nil, the user will be given an opportunity to edit the
+;; command before it's run.
+
+;; Interactively, the user can use \
+;; \\<read-regexp-map>\\[read-regexp-toggle-case-fold] \
+;; while entering the regexp
+;; to indicate whether the grep should be case sensitive or not."
+;;   (interactive
+;;    (progn
+;;      (grep-compute-defaults)
+;;      (cond
+;;       ((and grep-find-command (equal current-prefix-arg '(16)))
+;;        (list (read-from-minibuffer "Run: " grep-find-command
+;; 				   nil nil 'grep-find-history)))
+;;       ((not grep-find-template)
+;;        (error "grep.el: No `grep-find-template' available"))
+;;       (t (let* ((regexp (grep-read-regexp))
+;; 		(files (grep-read-files regexp))
+;; 		(dir (read-directory-name "Base directory: "
+;; 					  nil default-directory t))
+;; 		(confirm (equal current-prefix-arg '(4))))
+;; 	   (list regexp files dir confirm))))))
+;;   ;; If called non-interactively, also compute the defaults if we
+;;   ;; haven't already.
+;;   (unless grep-find-template
+;;     (grep-compute-defaults))
+;;   (when (and (stringp regexp) (> (length regexp) 0))
+;;     (unless (and dir (file-accessible-directory-p dir))
+;;       (setq dir default-directory))
+;;     (unless (string-equal (file-remote-p dir) (file-remote-p default-directory))
+;;       (let ((default-directory dir))
+;;         (grep-compute-defaults)))
+;;     (if (null files)
+;; 	(if (not (string= regexp (if (consp grep-find-command)
+;; 				     (car grep-find-command)
+;; 				   grep-find-command)))
+;; 	    (compilation-start regexp #'grep-mode))
+;;       (setq dir (file-name-as-directory (expand-file-name dir)))
+;;       (let* ((case-fold-search (read-regexp-case-fold-search regexp))
+;;              (command (rgrep-default-command regexp files nil)))
+;; 	(when command
+;; 	  (if confirm
+;; 	      (setq command
+;; 		    (read-from-minibuffer "Confirm: "
+;; 					  command nil nil 'grep-find-history))
+;; 	    (add-to-history 'grep-find-history command))
+;;           (grep--save-buffers)
+;; 	  (let ((default-directory dir))
+;; 	    (compilation-start command #'grep-mode))
+;; 	  ;; Set default-directory if we started rgrep in the *grep* buffer.
+;; 	  (if (eq next-error-last-buffer (current-buffer))
+;; 	      (setq default-directory dir)))))))
 
 (defun nix-upgrade ()
   "Upgrade NixOS system"

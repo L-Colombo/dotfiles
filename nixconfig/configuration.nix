@@ -225,6 +225,8 @@
       hunspellDicts.en_US
       hunspellDicts.it_IT
       kdePackages.kcalc
+      kdePackages.oxygen
+      kdePackages.oxygen-icons
       kdePackages.partitionmanager
       kdePackages.yakuake
       kmymoney
