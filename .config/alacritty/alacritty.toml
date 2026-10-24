@@ -16,18 +16,18 @@ shape = "Block"
 size = 16.0
 
 [font.bold]
-family = "CaskaydiaCove Nerd Font Propo"
+family = "Terminess Nerd Font Propo"
 style = "Bold"
 
 [font.bold_italic]
-family = "CaskaydiaCove Nerd Font Propo"
+family = "Terminess Nerd Font Propo"
 
 [font.italic]
-family = "CaskaydiaCove Nerd Font Propo"
+family = "Terminess Nerd Font Propo"
 style = "Italic"
 
 [font.normal]
-family = "CaskaydiaCove Nerd Font Propo"
+family = "Terminess Nerd Font Propo"
 style = "Regular"
 
 [[keyboard.bindings]]
@@ -41,7 +41,7 @@ key = "Left"
 mods = "Alt"
 
 [window]
-decorations = "Full"
+decorations = "full"
 opacity = 0.8
 
 [window.padding]

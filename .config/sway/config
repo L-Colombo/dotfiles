@@ -11,7 +11,9 @@ set $right l
 set $term ghostty
 set $menu wofi --show=drun --allow-images --matching=fuzzy
 
-output * bg ~/Pictures/Wallpaperx/pine.jpg fill
+font pango:Terminess Nerd Font Propo 14
+
+output * bg ~/Pictures/Wallpaperx/dark-forest2.jpg fill
 ### Input configuration
 input type:touchpad {
     tap enabled

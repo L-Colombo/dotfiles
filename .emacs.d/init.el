@@ -78,7 +78,7 @@
 
 (put 'donwcase-region 'disabled nil)
 
-(set-frame-font "IosevkaTermSlab Nerd Font Propo 18" nil t)
+(set-frame-font "Terminess Nerd Font Propo 20" nil t)
 
 ;; WHITESPACE SETTINGS
 (setq-default whitespace-style '(face spaces empty tabs trailing space-mark tab-mark)
@@ -122,7 +122,8 @@
   :defer t
   :ensure t
   :config
-  (cursor-color))
+  (custom-set-faces
+   `(cursor ((t (:background "#1D8B15"))))))
 (use-package kanagawa-themes
   :defer t
   :ensure t)
@@ -131,7 +132,7 @@
   :ensure t
   :config
   (custom-set-faces
-   `(italic (( t (:italic t))))))
+   `(italic ((t (:italic t))))))
 (use-package gruber-darker-theme
   :defer t
   :ensure t
@@ -142,7 +143,7 @@
    `(font-latex-sedate-face ((t (:foreground "#73c936" :bold t))))
    `(org-quote (( t (:background "#303540"))))))
 
-(load-theme  'gruber-darker t)
+(load-theme  'klere t)
 
 ;; PACKAGES AND MODES
 

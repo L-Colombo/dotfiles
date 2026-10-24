@@ -19,6 +19,7 @@
         "battery",
         "battery#bat2",
         "clock",
+        "sway/language",
         "tray"
     ],
     // Modules configuration
@@ -93,5 +94,8 @@
             "9": [],
             // "10": []
         }
+    },
+    "sway/language": {
+        "format": "{flag}"
     }
 }
