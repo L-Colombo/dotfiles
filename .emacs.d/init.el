@@ -252,8 +252,7 @@
                 (right-bound (region-end)))
             (goto-char left-bound)
             (insert left-insert)
-            (goto-char right-bound)
-            (forward-char offset)
+            (goto-char (+ right-bound offset))
             (insert right-insert)))
 
       (progn
