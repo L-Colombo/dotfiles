@@ -123,7 +123,8 @@
   :ensure t
   :config
   (custom-set-faces
-   `(cursor ((t (:background "#1D8B15"))))))
+   `(cursor ((t (:background "#1D8B15"))))
+   `(font-latex-sedate-face ((t (:foreground "#1D8B15" :bold t))))))
 (use-package kanagawa-themes
   :defer t
   :ensure t)
@@ -143,7 +144,7 @@
    `(font-latex-sedate-face ((t (:foreground "#73c936" :bold t))))
    `(org-quote (( t (:background "#303540"))))))
 
-(load-theme  'klere t)
+(load-theme  'modus-vivendi-tritanopia t)
 
 ;; PACKAGES AND MODES
 
@@ -239,11 +240,39 @@
   (TeX-source-correlate-mode)
   (define-key TeX-source-correlate-map [C-down-mouse-1] #'TeX-view-mouse))
 
+
+(defun latex-smart-quotes (&optional double)
+  "A smarter way to inser quotes in LaTeX and/or wrap a region with quotes"
+  (interactive)
+  (let ((left-char (if double "``" "`"))
+        (right-char (if double "''" "'")))
+
+    (if (region-active-p)
+        (let* ((left-bound (region-beginning))
+               (right-bound (region-end))
+               (offset (if double 2 1)))
+            (progn ;;save-excursion
+              (goto-char left-bound)
+              (insert left-char)
+              (goto-char right-bound)
+              (forward-char offset)
+              (insert right-char)))
+
+      (progn
+        (insert left-char)
+        (insert right-char)
+        (if double
+            (backward-char 2)
+          (backward-char))))))
+
 (use-package latex
   :defer t
   ;; builtin, no need to :ensure
   :hook ((LaTeX-mode . turn-on-reftex)
-         (LaTeX-mode . visual-line-mode)))
+         (LaTeX-mode . visual-line-mode))
+  :bind (:map LaTeX-mode-map
+              (("'" . #'latex-smart-quotes)
+               ("\"" . (lambda () (interactive) (latex-smart-quotes t))))))
 
 (use-package reftex
   :defer t
