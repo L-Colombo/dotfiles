@@ -78,8 +78,6 @@
 
 (put 'donwcase-region 'disabled nil)
 
-(set-frame-font "Terminess Nerd Font Propo 20" nil t)
-
 ;; WHITESPACE SETTINGS
 (setq-default whitespace-style '(face spaces empty tabs trailing space-mark tab-mark)
               whitespace-display-mappings '((space-mark 32 [183] [46])
@@ -499,4 +497,4 @@
 ;; Final setup
 (load "~/.emacs.d/custom.el")
 (load "~/.emacs.d/custom-functions.el")
-;; (cursor-color)
+(set-frame-font "Terminess Nerd Font Propo 20" nil t)
