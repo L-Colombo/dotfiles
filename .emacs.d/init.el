@@ -242,22 +242,22 @@
 (defun latex-smart-quotes (&optional double)
   "A smarter way to inser quotes in LaTeX and/or wrap a region with quotes"
   (interactive)
-  (let* ((left-insert (if double "``" "`"))
-         (right-insert (if double "''" "'"))
+  (let* ((left-quote (if double "``" "`"))
+         (right-quote (if double "''" "'"))
          (offset (if double 2 1)))
 
     (if (region-active-p)
         (progn
-          (let ((left-bound (region-beginning))
-                (right-bound (region-end)))
-            (goto-char left-bound)
-            (insert left-insert)
-            (goto-char (+ right-bound offset))
-            (insert right-insert)))
+          (let ((region-left-buondary (region-beginning))
+                (region-right-boundary (region-end)))
+            (goto-char region-left-buondary)
+            (insert left-quote)
+            (goto-char (+ region-right-boundary offset))
+            (insert right-quote)))
 
       (progn
-        (insert left-insert)
-        (insert right-insert)
+        (insert left-quote)
+        (insert right-quote)
         (backward-char offset)))))
 
 (use-package latex
