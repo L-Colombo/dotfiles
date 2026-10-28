@@ -266,7 +266,7 @@
   :hook ((LaTeX-mode . turn-on-reftex)
          (LaTeX-mode . visual-line-mode))
   :bind (:map LaTeX-mode-map
-              (("'" . #'latex-smart-quotes)
+              (("`" . #'latex-smart-quotes)
                ("\"" . (lambda () (interactive) (latex-smart-quotes t))))))
 
 (use-package reftex
@@ -442,15 +442,15 @@
 (advice-add 'move-text-down :after 'indent-region-advice)
 
 ;; Doom-Modeline
-(use-package nerd-icons
-  :defer 10
-  :ensure t)
-(use-package doom-modeline
-  :ensure t
-  :config
-  (doom-modeline-mode 1)
-  (display-time)
-  (setq doom-modeline-enable-word-count t))
+;; (use-package nerd-icons
+;;   :defer 10
+;;   :ensure t)
+;; (use-package doom-modeline
+;;   :ensure t
+;;   :config
+;;   (doom-modeline-mode 1)
+;;   (display-time)
+;;   (setq doom-modeline-enable-word-count t))
 
 ;; Wrap-Region
 (use-package wrap-region
