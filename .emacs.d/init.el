@@ -410,16 +410,18 @@
    ("C-c f t" . consult-theme)))
 
 ;; Dashboard
-(use-package all-the-icons
-  :defer 10
-  :ensure t)
+;; (use-package all-the-icons
+;;   :defer 10
+;;   :ensure t)
 
 (use-package dashboard
   :ensure t
-  :init (setq dashboard-icon-type 'all-the-icons
+  :init (setq dashboard-startup-banner 'logo
               dashboard-set-heading-icons nil
-              dashboard-set-file-icons t
+              dashboard-set-file-icons nil
+              ;; dashboard-icon-type 'all-the-icons
               dashboard-agenda-sort-strategy '(time-up)
+              dashboard-footer-messages '("")
               dashboard-items '((bookmarks . 5)
                                 (agenda . 10)
                                 (recents . 10)
