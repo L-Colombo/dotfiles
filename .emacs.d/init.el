@@ -419,6 +419,8 @@
   :init (setq dashboard-startup-banner 'logo
               dashboard-set-heading-icons nil
               dashboard-set-file-icons nil
+              dashboard-center-content t
+              dashboard-vertically-center-content t
               ;; dashboard-icon-type 'all-the-icons
               dashboard-agenda-sort-strategy '(time-up)
               dashboard-footer-messages '("")
