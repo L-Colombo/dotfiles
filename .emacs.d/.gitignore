@@ -3,5 +3,6 @@
 !configuration.org
 !early-init.el
 !init.el
+!euphoria-theme.el
 !README.md
 !custom-functions.el

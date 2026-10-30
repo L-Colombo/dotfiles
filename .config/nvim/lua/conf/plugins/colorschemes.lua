@@ -24,7 +24,7 @@ return {
             }
         }
     },
-    "justinsgithub/oh-my-monokai.nvim",
+    "HenriMalahieude/xterm-tmux.nvim",
     "miikanissi/modus-themes.nvim",
     -- my colorschemes
     "L-Colombo/atlantic-dark.nvim",

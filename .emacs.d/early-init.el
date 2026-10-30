@@ -20,5 +20,5 @@
 (delete-selection-mode 1)
 (put 'donwcase-region 'disabled nil)
 
-(load-theme  'modus-vivendi-tritanopia t)
+(load-theme  'euphoria t)
 ;; (set-face-attribute 'default nil :height 200)
