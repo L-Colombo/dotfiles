@@ -1,6 +1,7 @@
 *
 !.gitignore
 !configuration.org
+!early-init.el
 !init.el
 !README.md
 !custom-functions.el

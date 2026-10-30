@@ -1,56 +1,12 @@
-;;  _     ____           _____
-;; | |   / ___|         | ____|_ __ ___   __ _  ___ ___
-;; | |  | |      _____  |  _| | '_ ` _ \ / _` |/ __/ __|
-;; | |__| |___  |_____| | |___| | | | | | (_| | (__\__ \
-;; |_____\____|         |_____|_| |_| |_|\__,_|\___|___/
-;;   ____             __ _
-;;  / ___|___  _ __  / _(_) __ _
-;; | |   / _ \| '_ \| |_| |/ _` |
-;; | |__| (_) | | | |  _| | (_| |
-;;  \____\___/|_| |_|_| |_|\__, |
-;;                         |___/
+;;; -*- lexical-binding: t; -*-
 
-
-;; Create custom-file if does not exist
-(unless (file-exists-p "~/.emacs.d/custom.el")
-  (shell-command "touch ~/.emacs.d/custom.el"))
-(setq custom-file "~/.emacs.d/custom.el")
-
-;; Stratup performance enhancments
-(setq-default inhibit-redisplay t
-              inhibit-message t)
-
-(setq gc-cons-threshold most-positive-fixnum
-      gc-cons-percentage 0.6
-      frame-inhibit-implied-resize t
-      inhibit-compacting-font-caches t)
-
-(add-hook 'emacs-startup-hook
-          (lambda ()
-            (setq gc-cons-threshold (* 16 1024 1024)
-                  gc-cons-percentage 0.1)))
-
-(add-hook 'window-setup-hook
-          (lambda ()
-            (setq-default inhibit-redisplay nil
-                          inhibit-message nil)
-            (redisplay)))
-
-;; SETUP PACKAGE REPOSITORIES
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(package-initialize)
-
-;; DEFAULT SETTINGS
 (setq-default word-wrap t
               tab-width 4
               isearch-lazy-count t
               indent-tabs-mode nil
               set-mark-comand-repeat nil)
 
-(setq display-line-numbers-type 'visual
-      inhibit-startup-screen 't
-      message-log-max nil ;; prints to echo area, but not create *Messages* buffer
+(setq message-log-max nil ;; prints to echo area, but not create *Messages* buffer
       make-backup-files nil
       mark-ring-max 6
       global-mark-ring-max 8
@@ -66,31 +22,12 @@
                         "~/Dropbox/OrgFiles/todos.org"
                         "\\.bib$"))
 
-(auto-save-mode -1)
-(tool-bar-mode -1)
-(menu-bar-mode -1)
-(scroll-bar-mode -1)
-(electric-pair-mode 1)
-(global-display-line-numbers-mode 1)
-(column-number-mode 1)
-(repeat-mode 1)
-(delete-selection-mode 1)
+;; Create custom-file if does not exist
+(unless (file-exists-p "~/.emacs.d/custom.el")
+  (shell-command "touch ~/.emacs.d/custom.el"))
+(setq custom-file "~/.emacs.d/custom.el")
 
-(put 'donwcase-region 'disabled nil)
-
-;; WHITESPACE SETTINGS
-(setq-default whitespace-style '(face spaces empty tabs trailing space-mark tab-mark)
-              whitespace-display-mappings '((space-mark 32 [183] [46])
-                                            (tab-mark ?\t [187 ?\t] [62 ?\t])))
-(custom-set-faces
- `(whitespace-space ((t (:foreground "#555555"))))
- `(whitespace-tab   ((t (:foreground "#555555" :bold t))))
- `(line-number-current-line ((t (:foreground "#000000" :background "#fc0fc0")))))
-
-(add-hook 'before-save-hook 'whitespace-cleanup)
-
-;; GLOBAL KEYBINDINGS
-;; Window
+;; Global key-bindings
 (global-set-key (kbd "C-c <right>") #'windmove-right)
 (global-set-key (kbd "C-c <left>") #'windmove-left)
 (global-set-key (kbd "C-c <up>") #'windmove-up)
@@ -99,14 +36,9 @@
 (global-set-key (kbd "C-x C-o") #'window-swap-states)
 (global-set-key (kbd "C-<up>") (lambda () (interactive) (scroll-down 1))) ;; Respect natural scrolling
 (global-set-key (kbd "C-<down>") (lambda () (interactive) (scroll-up 1))) ;; Respect natural scrolling
-;; Join Line
 (global-set-key (kbd "C-c j") #'join-line)
-;; Toggle Whitespace
 (global-set-key (kbd "C-c w w") 'whitespace-mode)
-;; Find File at Point
 (global-set-key (kbd "C-x C-. C-f") #'find-file-at-point)
-;; Toggle menu-bar-mode
-(global-set-key (kbd "M-*") #'menu-bar-mode)
 ;; Disable downcase-region keybinding
 (global-set-key (kbd "C-x C-l") nil)
 
@@ -114,6 +46,13 @@
 ;; (setq mac-option-modifier nil
 ;;       mac-command-modifier 'meta
 ;;       x-select-enable-clipboard t)
+
+;; PACKAGES
+
+;; Add Melpa packages repository
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
 
 ;; Color Themes
 (use-package klere-theme
@@ -142,9 +81,19 @@
    `(font-latex-sedate-face ((t (:foreground "#73c936" :bold t))))
    `(org-quote (( t (:background "#303540"))))))
 
-(load-theme  'modus-vivendi-tritanopia t)
-
-;; PACKAGES AND MODES
+;; Whitespace
+(use-package whitepace
+  :ensure nil
+  :defer t
+  :init
+  (setq-default whitespace-style '(face spaces empty tabs trailing space-mark tab-mark)
+              whitespace-display-mappings '((space-mark 32 [183] [46])
+                                            (tab-mark ?\t [187 ?\t] [62 ?\t])))
+  (custom-set-faces
+ `(whitespace-space ((t (:foreground "#555555"))))
+ `(whitespace-tab   ((t (:foreground "#555555" :bold t))))
+ `(line-number-current-line ((t (:foreground "#000000" :background "#fc0fc0")))))
+  (add-hook 'before-save-hook 'whitespace-cleanup))
 
 ;; Dired
 (use-package dired
@@ -156,30 +105,6 @@
   (setq dired-listing-switches "--group-directories-first -alhF")
   (global-set-key (kbd "C-x C-j") #'dired-jump-other-window)
   :hook ((dired-mode . dired-hide-details-mode)))
-
-;; Multiple cursors
-(use-package multiple-cursors
-  :defer t
-  :ensure t
-  :bind (("C->" . mc/mark-next-like-this-word)
-         ("C-<" . mc/mark-previous-like-this-word)
-         ("C-c C-<" . mc/mark-all-like-this)))
-
-;; Eshell
-(defun lc/configure-eshell ()
-  (add-hook 'eshell-pre-command-hook 'eshell-save-some-history)
-  (setq eshell-history-size         10000
-        eshell-buffer-maximum-lines 10000
-        eshell-hist-ignoredups t
-        eshell-scroll-to-bottom-on-input t))
-
-(use-package eshell
-  :ensure t
-  :hook (eshell-first-time-mode . lc/configure-eshell))
-
-(use-package exec-path-from-shell
-  :ensure t
-  :init (exec-path-from-shell-initialize))
 
 ;; Magit
 (use-package magit
@@ -238,7 +163,6 @@
   (TeX-source-correlate-mode)
   (define-key TeX-source-correlate-map [C-down-mouse-1] #'TeX-view-mouse))
 
-
 (defun latex-smart-quotes (&optional double)
   "A smarter way to inser quotes in LaTeX and/or wrap a region with quotes"
   (interactive)
@@ -276,12 +200,6 @@
   (setq reftex-plug-into-AUCTeX t
         reftex-cite-prompt-optional-args t))
 
-;; (use-package auctex-cont-latexmk
-;;   :defer t
-;;   :ensure t
-;;   :after latex
-;;   :hook (LaTeX-mode . auctex-cont-latexmk-mode))
-
 ;; Ido & Vertico
 (use-package ido-vertical-mode
   :ensure t
@@ -292,10 +210,10 @@
 
 (use-package vertico
   :ensure t
-  :config (vertico-mode 1))
-
-(keymap-set minibuffer-local-map "C-n" #'vertico-next)
-(keymap-set minibuffer-local-map "C-p" #'vertico-previous)
+  :config
+  (vertico-mode 1)
+  :bind (:map minibuffer-local-map (("C-n" . #'vertico-next)
+                                    ("C-p" . #'vertico-previous))))
 
 ;; Org & Related
 (use-package org
@@ -319,10 +237,6 @@
 (global-set-key (kbd "C-c a") #'org-agenda)
 (global-set-key (kbd "C-c c") #'org-capture)
 
-(use-package citeproc
-  :defer t
-  :ensure t)
-
 (use-package org-bullets
   :defer 3
   :ensure t
@@ -336,9 +250,6 @@
          "* TODO %?\n SCHEDULED: %T\n %iDEADLINE:  %T\n ENTERED: %U %i")))
 (setq org-agenda-span 'year
       org-agenda-files '("~/Dropbox/OrgFiles/agenda.org" "~/Dropbox/OrgFiles/todos.org"))
-
-(unless (file-exists-p "~/Documents/OrgFiles/org-roam")
-  (make-directory "~/Documents/OrgFiles/org-roam"))
 
 (use-package org-roam
   :defer t
@@ -409,11 +320,6 @@
    ("C-c f b" . consult-buffer)
    ("C-c f t" . consult-theme)))
 
-;; Dashboard
-;; (use-package all-the-icons
-;;   :defer 10
-;;   :ensure t)
-
 (use-package dashboard
   :ensure t
   :init (setq dashboard-startup-banner 'logo
@@ -428,8 +334,8 @@
                                 (agenda . 10)
                                 (recents . 10)
                                 (projects . 10)))
-  :config (dashboard-setup-startup-hook))
-(global-set-key (kbd "C-c d o") 'dashboard-open)
+  :config (dashboard-setup-startup-hook)
+  :bind ("C-c d o" . #'dashboard-open))
 
 ;; Move-Text
 (use-package move-text
@@ -444,17 +350,6 @@
     (setq deactivate-mark deactivate)))
 (advice-add 'move-text-up :after 'indent-region-advice)
 (advice-add 'move-text-down :after 'indent-region-advice)
-
-;; Doom-Modeline
-;; (use-package nerd-icons
-;;   :defer 10
-;;   :ensure t)
-;; (use-package doom-modeline
-;;   :ensure t
-;;   :config
-;;   (doom-modeline-mode 1)
-;;   (display-time)
-;;   (setq doom-modeline-enable-word-count t))
 
 ;; Wrap-Region
 (use-package wrap-region
@@ -494,8 +389,11 @@
     (add-to-list 'eglot-server-programs
                  '(latex-mode . ("texlab")))))
 
-
-;; Final setup
-(load "~/.emacs.d/custom.el")
 (load "~/.emacs.d/custom-functions.el")
+
+;; Create custom-file if does not exist
+(unless (file-exists-p "~/.emacs.d/custom.el")
+  (shell-command "touch ~/.emacs.d/custom.el"))
+(setq custom-file "~/.emacs.d/custom.el")
+
 (set-frame-font "Terminess Nerd Font Propo 20" nil t)
