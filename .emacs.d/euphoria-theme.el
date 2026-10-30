@@ -34,7 +34,7 @@
 
  '(default ((t (:background "black" :foreground "#00ff00"))))
  '(mouse ((t (:background "yellow"))))
- '(cursor ((t (:background "yellow"))))
+ '(cursor ((t (:background "#fc0fc0"))))
  '(border ((t (:background "black"))))
 
  '(help-highlight-face ((t (:underline t))))
