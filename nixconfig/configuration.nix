@@ -104,8 +104,6 @@
       lswt
       swaylock
       swaybg
-      waybar
-      wofi
     ];
   };
 
@@ -193,7 +191,6 @@
       emacs
       neovim
       vim
-      zed-editor
 
       # LaTeX
       biber
@@ -257,7 +254,9 @@
       tuxguitar
       typst
       unzip
+      waybar
       whatsie
+      wofi
       yazi
       zathura
       zip
@@ -292,7 +291,7 @@
     pipewire = {
       enable = true;
       alsa.enable = true;
-      alsa.support32Bit = true;
+      alsa.support32Bit = false;
       pulse.enable = true;
       jack.enable = true;
     };
@@ -300,11 +299,11 @@
     pulseaudio.enable = false;
     udisks2.enable = true;
     xserver = {
-      enable = true;
-      xkb = {
-        layout = "us";
-        variant = "";
-      };
+      enable = false;
+      # xkb = {
+      #   layout = "us";
+      #   variant = "";
+      # };
     };
   };
 
