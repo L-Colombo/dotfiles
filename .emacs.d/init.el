@@ -37,7 +37,8 @@
 (global-set-key (kbd "C-x C-o") #'window-swap-states)
 (global-set-key (kbd "C-<up>") (lambda () (interactive) (scroll-down 1))) ;; Respect natural scrolling
 (global-set-key (kbd "C-<down>") (lambda () (interactive) (scroll-up 1))) ;; Respect natural scrolling
-(global-set-key (kbd "C-c j") #'join-line)
+(global-set-key (kbd "C-c j") (lambda () (interactive) (join-line 1)))    ;: Join current line with line below
+(global-set-key (kbd "C-c J") #'join-line)                                ;; Join current line with line above
 (global-set-key (kbd "C-c w w") 'whitespace-mode)
 (global-set-key (kbd "C-x C-. C-f") #'find-file-at-point)
 ;; Disable downcase-region keybinding
