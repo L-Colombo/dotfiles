@@ -14,7 +14,7 @@ font-family-italic         = "Terminess Nerd Font Propo"
 font-family-bold-italic    = "Terminess Nerd Font Propo"
 
 
-background-opacity         = 1
+background-opacity         = 0.80
 window-theme               = dark
 # window-decoration        = none
 theme                      = Deep

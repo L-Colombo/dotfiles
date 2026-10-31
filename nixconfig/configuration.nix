@@ -254,6 +254,7 @@
       tuxguitar
       typst
       unzip
+      vlc
       waybar
       whatsie
       wofi
