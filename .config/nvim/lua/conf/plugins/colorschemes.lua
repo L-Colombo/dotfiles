@@ -24,11 +24,15 @@ return {
             }
         }
     },
-    "HenriMalahieude/xterm-tmux.nvim",
     "miikanissi/modus-themes.nvim",
     -- my colorschemes
     "L-Colombo/atlantic-dark.nvim",
     "L-Colombo/devel2.nvim",
+    {
+        "L-Colombo/greenery.nvim",
+        priority = 1000,
+        opts = {}
+    },
     {
         "L-Colombo/fuzz.nvim",
         priority = 1000,
@@ -41,4 +45,5 @@ return {
     },
     -- { dir = "~/Programming/0_projects/oldschool.nvim", opts = {} }
     -- { dir = "~/Programming/0_projects/fuzz.nvim", opts = {} }
+    -- { dir = "~/Programming/0_projects/greenery.nvim", opts = {} }
 }
