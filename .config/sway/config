@@ -12,6 +12,7 @@ set $term ghostty
 set $menu wofi --show=drun --allow-images --matching=fuzzy
 
 font pango:Terminess Nerd Font Propo 14
+client.focused #026c45 #026c45 #dddddd
 
 output * bg ~/Pictures/Wallpaperx/dark-forest2.jpg fill
 ### Input configuration

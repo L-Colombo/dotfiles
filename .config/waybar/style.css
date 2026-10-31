@@ -17,7 +17,8 @@
 
 #tags button.focused {
     /* background-color: #005577; */
-    background-color: #2d4f67;
+    /* background-color: #2d4f67; */
+    background-color: #026c45;
 }
 
 /* for Sway */
@@ -34,17 +35,20 @@
 
 #workspaces button.focused {
     /* background-color: #005577; */
-    background-color: #2d4f67;
+    /* background-color: #2d4f67; */
+    background-color: #026c45;
 }
 
 
 #scratchpad {
-    background-color: #2d4f67;
+    /* background-color: #2d4f67; */
+    background-color: #026c45;
     padding-right: 8px;
 }
 
 #mode {
-    background-color: #2d4f67;
+    /* background-color: #2d4f67; */
+    background-color: #026c45;
     padding: 8px;
 }
 
@@ -52,7 +56,8 @@
 
 #backlight {
     /* background-color: #666666; */
-    background-color: #2d4f67;
+    /* background-color: #2d4f67; */
+    background-color: #026c45;
     padding-left: 12px;
     padding-right: 12px;
 }
@@ -66,7 +71,8 @@
 
 #clock {
     /* background-color: #666666; */
-    background-color: #2d4f67;
+    /* background-color: #2d4f67; */
+    background-color: #026c45;
     padding-left: 12px;
     padding-right: 12px;
 }
@@ -80,12 +86,14 @@
 
 #memory {
     /* background-color: #666666; */
-    background-color: #2d4f67;
+    /* background-color: #2d4f67; */
+    background-color: #026c45;
     padding-left: 12px;
     padding-right: 12px;
 }
 
 #tray {
+    background-color: #026c45;
     padding-left: 12px;
     padding-right: 12px;
 }
