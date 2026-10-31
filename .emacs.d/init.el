@@ -16,6 +16,7 @@
       recentf-exclude '("~/dotfiles/.emacs.d/custom.el"
                         "~/dotfiles/.emacs.d/configuration.org"
                         "~/dotfiles/.emacs.d/init.el"
+                        "~/dotfiles/.emacs.d/early-init.el"
                         "~/Documents/OrgFiles/agenda/todos.org"
                         "~/Documents/OrgFiles/agenda/agenda.org"
                         "~/Dropbox/OrgFiles/agenda.org"
