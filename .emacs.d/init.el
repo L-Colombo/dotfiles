@@ -1,5 +1,9 @@
 ;;; -*- lexical-binding: t; -*-
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Default settings
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (setq-default word-wrap t
               tab-width 4
               isearch-lazy-count t
@@ -23,12 +27,10 @@
                         "~/Dropbox/OrgFiles/todos.org"
                         "\\.bib$"))
 
-;; Create custom-file if does not exist
-(unless (file-exists-p "~/.emacs.d/custom.el")
-  (shell-command "touch ~/.emacs.d/custom.el"))
-(setq custom-file "~/.emacs.d/custom.el")
-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Global key-bindings
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (global-set-key (kbd "C-c <right>") #'windmove-right)
 (global-set-key (kbd "C-c <left>") #'windmove-left)
 (global-set-key (kbd "C-c <up>") #'windmove-up)
@@ -49,14 +51,18 @@
 ;;       mac-command-modifier 'meta
 ;;       x-select-enable-clipboard t)
 
-;; PACKAGES
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Package repositories
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; Add Melpa packages repository
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Color Themes
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (use-package klere-theme
   :defer t
   :ensure t
@@ -83,7 +89,10 @@
    `(font-latex-sedate-face ((t (:foreground "#73c936" :bold t))))
    `(org-quote (( t (:background "#303540"))))))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Whitespace
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (use-package whitepace
   :ensure nil
   :defer t
@@ -93,11 +102,14 @@
                                             (tab-mark ?\t [187 ?\t] [62 ?\t])))
   (custom-set-faces
  `(whitespace-space ((t (:foreground "#555555"))))
- `(whitespace-tab   ((t (:foreground "#555555" :bold t))))
- `(line-number-current-line ((t (:foreground "#000000" :background "#fc0fc0")))))
+ `(whitespace-tab   ((t (:foreground "#555555" :bold t)))))
+
   (add-hook 'before-save-hook 'whitespace-cleanup))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Dired
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (use-package dired
   :ensure nil
   :defer t
@@ -108,20 +120,29 @@
   (global-set-key (kbd "C-x C-j") #'dired-jump-other-window)
   :hook ((dired-mode . dired-hide-details-mode)))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Magit
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (use-package magit
   :defer t
   :ensure t
   :bind (("M-g M-i M-t" . #'magit)))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Rainbow-Delimiters
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (use-package rainbow-delimiters
   :ensure t
   :defer t
   :hook ((lisp-mode . rainbow-delimiters-mode)
          (emacs-lisp-mode . rainbow-delimiters-mode)))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Helpful
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (use-package helpful
   :ensure t
   :bind (("C-h f" . helpful-callable)
@@ -129,15 +150,20 @@
          ("C-h k" . helpful-key)
          ("C-h x" . helpful-command)
          ("C-h ." . helpful-at-point)))
-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Marginalia
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (use-package marginalia
   :defer t
   :ensure t
   :init
   (marginalia-mode))
 
-;; Git
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Git-gutter
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (use-package git-gutter
   :ensure t
   :bind (("C-c p" . 'git-gutter:previous-hunk)
@@ -146,12 +172,18 @@
          ("C-c g r" . 'git-gutter:revert-hunk))
   :config (global-git-gutter-mode 1))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Markdown
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (use-package markdown-mode
   :defer t
   :ensure t)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; LaTeX
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (use-package auctex
   :defer t
   :ensure t
@@ -202,7 +234,10 @@
   (setq reftex-plug-into-AUCTeX t
         reftex-cite-prompt-optional-args t))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Ido & Vertico
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (use-package ido-vertical-mode
   :ensure t
   :init (setq ido-vertical-define-keys 'C-n-and-C-p-only)
@@ -216,8 +251,10 @@
   (vertico-mode 1)
   :bind (:map minibuffer-local-map (("C-n" . #'vertico-next)
                                     ("C-p" . #'vertico-previous))))
-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Org & Related
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (use-package org
   :defer t
   :ensure t
@@ -279,7 +316,10 @@
   (org-roam-db-autosync-mode)
   (require 'org-roam-protocol))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Completions
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (use-package corfu
   :defer 3
   :ensure t
@@ -311,7 +351,10 @@
                 completion-category-defaults nil
                 completion-category-overrides nil))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Consult
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (use-package consult
   :defer
   :ensure t
@@ -321,6 +364,10 @@
    ("C-c f m" . consult-mark)
    ("C-c f b" . consult-buffer)
    ("C-c f t" . consult-theme)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Dashboard
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package dashboard
   :ensure t
@@ -339,7 +386,10 @@
   :config (dashboard-setup-startup-hook)
   :bind ("C-c d o" . #'dashboard-open))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Move-Text
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (use-package move-text
   :defer t
   :ensure t
@@ -353,14 +403,20 @@
 (advice-add 'move-text-up :after 'indent-region-advice)
 (advice-add 'move-text-down :after 'indent-region-advice)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Wrap-Region
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (use-package wrap-region
   :defer t
   :ensure t
   :init (setq wrap-region-except-modes 'dired-mode)
   :config (wrap-region-mode t))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Spell-Check
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (unless (eq system-type 'darwin)
   (setq ispell-program-name "hunspell"))
 ;; fixes error popping up during autocompletion
@@ -370,7 +426,10 @@
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
 (add-hook 'nroff-mode-hook 'flyspell-mode)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Tgr
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (use-package tgr
   :load-path "~/Programming/0_projects/tgr-emacs-wrapper"
   :bind (("C-c 1" . #'tgr/search)
@@ -381,7 +440,10 @@
   :init (setq tgr/tgr-directory
               "~/Documents/OrgFiles/org-roam"))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Eglot
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (use-package eglot
   :config
   (add-hook 'eglot-managed-mode-hook
@@ -391,11 +453,14 @@
     (add-to-list 'eglot-server-programs
                  '(latex-mode . ("texlab")))))
 
-(load "~/.emacs.d/custom-functions.el")
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Final setup
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; Create custom-file if does not exist
 (unless (file-exists-p "~/.emacs.d/custom.el")
   (shell-command "touch ~/.emacs.d/custom.el"))
 (setq custom-file "~/.emacs.d/custom.el")
 
+(load "~/.emacs.d/custom-functions.el")
 (set-frame-font "Terminess Nerd Font Propo 20" nil t)
