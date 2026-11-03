@@ -4,6 +4,11 @@
 ;; Default settings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;; Create custom-file if does not exist
+(unless (file-exists-p "~/.emacs.d/custom.el")
+  (shell-command "touch ~/.emacs.d/custom.el"))
+(setq custom-file "~/.emacs.d/custom.el")
+
 (setq-default word-wrap t
               tab-width 4
               isearch-lazy-count t
@@ -43,6 +48,7 @@
 (global-set-key (kbd "C-c J") #'join-line)                                ;; Join current line with line above
 (global-set-key (kbd "C-c w w") 'whitespace-mode)
 (global-set-key (kbd "C-x C-. C-f") #'find-file-at-point)
+(global-set-key (kbd "M-=") #'count-words)
 ;; Disable downcase-region keybinding
 (global-set-key (kbd "C-x C-l") nil)
 
@@ -431,14 +437,14 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package tgr
-  :load-path "~/Programming/0_projects/tgr-emacs-wrapper"
+  :vc (:url "https://github.com/L-Colombo/tgr-emacs-wrapper"
+            :rev :newest)
   :bind (("C-c 1" . #'tgr/search)
          ("C-c 2" . #'tgr/tags-all)
          ("C-c 3" . #'tgr/tags-file)
          ("C-c 4" . #'tgr/refile)
          ("C-c 5" . #'tgr/locate))
-  :init (setq tgr/tgr-directory
-              "~/Documents/OrgFiles/org-roam"))
+  :init (setq tgr/tgr-directory "~/Documents/OrgFiles/org-roam"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Eglot
@@ -457,10 +463,6 @@
 ;; Final setup
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; Create custom-file if does not exist
-(unless (file-exists-p "~/.emacs.d/custom.el")
-  (shell-command "touch ~/.emacs.d/custom.el"))
-(setq custom-file "~/.emacs.d/custom.el")
-
+(load (expand-file-name custom-file))
 (load "~/.emacs.d/custom-functions.el")
 (set-frame-font "Terminess Nerd Font Propo 20" nil t)

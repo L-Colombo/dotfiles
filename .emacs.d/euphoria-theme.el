@@ -32,9 +32,9 @@
 (custom-theme-set-faces
  'euphoria
 
- '(default ((t (:background "black" :foreground "#00ff00"))))
+ '(default ((t (:background "black" :foreground "#33ff00"))))
  '(mouse ((t (:background "yellow"))))
- '(cursor ((t (:background "#fc0fc0"))))
+ '(cursor ((t (:background "deeppink"))))
  '(border ((t (:background "black"))))
 
  '(help-highlight-face ((t (:underline t))))
