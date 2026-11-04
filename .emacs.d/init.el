@@ -46,11 +46,10 @@
 (global-set-key (kbd "C-<down>") (lambda () (interactive) (scroll-up 1))) ;; Respect natural scrolling
 (global-set-key (kbd "C-c j") (lambda () (interactive) (join-line 1)))    ;: Join current line with line below
 (global-set-key (kbd "C-c J") #'join-line)                                ;; Join current line with line above
+(global-set-key (kbd "C-x C-l") nil)                                      ;; Disable downcase-region keybinding
 (global-set-key (kbd "C-c w w") 'whitespace-mode)
 (global-set-key (kbd "C-x C-. C-f") #'find-file-at-point)
 (global-set-key (kbd "M-=") #'count-words)
-;; Disable downcase-region keybinding
-(global-set-key (kbd "C-x C-l") nil)
 
 ;; MacOs SETTINGS
 ;; (setq mac-option-modifier nil
