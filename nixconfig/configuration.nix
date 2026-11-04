@@ -245,7 +245,6 @@
       sioyek
       speedtest-cli
       starship
-      stow
       thunderbird
       tokei
       tldr

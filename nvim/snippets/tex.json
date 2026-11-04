@@ -1,0 +1,25 @@
+{
+  "bibleindex": {
+    "body": "\\index[bib]{${2:Book}!${3:ordinalNumber} @${4:chapter}:${5:verse}}$0",
+    "prefix": "bibleindex"
+  },
+  "item": {
+    "body": "Item .\\emph{${2:letter}}.: \\emph{${3:verse}}.$0",
+    "prefix": "item"
+  },
+  "ledgroup": {
+    "body": [
+      "\\section{Chapter ${1:chapterNumber}}",
+      "",
+      "\\begin{ledgroup}",
+      "    \\beginnumbering",
+      "    \\autopar",
+      "",
+      "    ${2:Chapter} capitulo .\\emph{$3}.: \\emph{$4}.$0",
+      "",
+      "    \\endnumbering",
+      "\\end{ledgroup}"
+    ],
+    "prefix": "ledgroup"
+  }
+}

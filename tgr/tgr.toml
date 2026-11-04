@@ -1,0 +1,5 @@
+org_directory = "~/Documents/OrgFiles/org-roam/"
+exclude_patterns = [
+    "^.#", # GNU Emacs temp files
+    "^[0-2,4-9]"
+]

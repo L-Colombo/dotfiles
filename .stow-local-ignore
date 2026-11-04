@@ -6,5 +6,7 @@
 
 KDE-keybinds.kksrc
 KWIN-rules.kwinrule
+Manifest.toml
+deploy.py
 
 /nixconfig

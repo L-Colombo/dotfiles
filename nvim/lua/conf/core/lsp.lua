@@ -1,0 +1,50 @@
+local enable = vim.lsp.enable
+local config = vim.lsp.config
+
+enable({
+    "hls",
+    "rust_analyzer",
+    "bashls",
+    "clangd",
+    "clojure_lsp",
+    "gopls",
+    "jdtls",
+    "jsonls",
+    "lua_ls",
+    "nixd",
+    "ocamllsp",
+    "phpactor",
+    "pyright",
+    "ruff",
+    "texlab",
+    "tinymist",
+    "tombi",
+    "ts_ls",
+    "zls",
+})
+
+config("pyright", {
+    settings = {
+        pyright = {
+            disableOrganizeImports = true,
+        },
+        python = {
+            analysis = {
+                ignore = { "*" }
+            }
+        }
+    }
+})
+
+config("nixd", {
+    settings = {
+        nixd = {
+            nixpkgs = {
+                expr = "import <nixpkgs> { }"
+            }
+        },
+        formatting = {
+            command = { "nixfmt" }
+        }
+    }
+})

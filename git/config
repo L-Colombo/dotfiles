@@ -1,0 +1,35 @@
+[user]
+    name = Lorenzo Colombo
+    email = colombo.bb.lorenzo@gmail.com
+
+[core]
+    editor = nvim
+    compression = 9
+    preloadindex = true
+
+[color]
+    ui = true
+
+[diff]
+    context = 3
+    renames = copies
+    interHunkContext = 10
+
+[diff-so-fancy]
+    markEmptyLines = false
+
+[log]
+    abbrevCommit = true
+
+[pager]
+    diff = diff-so-fancy | less
+
+[push]
+    autoSetupRemote = true
+    followTags = true
+
+[url "git@github.com:L-Colombo/"]
+    insteadOf = "hub:"
+
+[url "git@codeberg.org:L-Colombo/"]
+    insteadOf = "berg:"
