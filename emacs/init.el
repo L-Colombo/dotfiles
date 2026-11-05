@@ -75,7 +75,7 @@
   (custom-set-faces
    `(cursor ((t (:background "#1D8B15"))))
    `(font-latex-sedate-face ((t (:foreground "#1D8B15" :bold t))))))
-(use-package kanagawa-themes
+(use-package doom-themes
   :defer t
   :ensure t)
 (use-package monokai-theme
@@ -465,3 +465,4 @@
 (load (expand-file-name custom-file))
 (load "~/.emacs.d/custom-functions.el")
 (set-frame-font "Terminess Nerd Font Propo 20" nil t)
+(load-theme  'doom-gruvbox t)
