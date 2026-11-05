@@ -7,6 +7,7 @@ enable({
     "bashls",
     "clangd",
     "clojure_lsp",
+    "cssls",
     "gopls",
     "jdtls",
     "jsonls",

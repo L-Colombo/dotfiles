@@ -185,6 +185,8 @@
       texlab
       tinymist
       tombi
+      vscode-css-languageserver
+      vscode-json-languageserver
       zls
 
       # EDITORS
