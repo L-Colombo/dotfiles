@@ -31,5 +31,10 @@ with open("Manifest.toml", "rb") as manifest_file:
             case "home":
                 destpath = Path(HOME).joinpath(name)
 
-        print(f'Symlinking "\033[35m{name}\033[0m" to "\033[35m{destpath}\033[0m"')
-        symlink(entry, destpath)
+        if destpath.exists():
+            print(
+                f'"\033[35m{entry}\033[0m" is already symlinked to "\033[35m{destpath}\033[0m"'
+            )
+        else:
+            print(f'Symlinking "\033[35m{name}\033[0m" to "\033[35m{destpath}\033[0m"')
+            symlink(entry, destpath)
