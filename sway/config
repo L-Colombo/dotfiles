@@ -13,7 +13,7 @@ set $menu wofi --show=drun --allow-images --matching=fuzzy
 
 font pango:Terminess Nerd Font Propo 14
 # client.focused #026c45 #026c45 #dddddd
-client.focused #076678 #076678 #fbf1c7
+client.focused #076678 #076678 #dddddd
 
 output * bg ~/Pictures/Wallpaperx/astronaut.png fill
 ### Input configuration

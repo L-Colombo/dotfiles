@@ -202,7 +202,6 @@
       asciiquarium
       bat
       brightnessctl
-      brave
       btop
       collabora-desktop
       diff-so-fancy
