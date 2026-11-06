@@ -22,10 +22,10 @@
       use-short-answers t
       auto-save-default nil
       ring-bell-function 'ignore
-      recentf-exclude '("~/dotfiles/.emacs.d/custom.el"
-                        "~/dotfiles/.emacs.d/configuration.org"
-                        "~/dotfiles/.emacs.d/init.el"
-                        "~/dotfiles/.emacs.d/early-init.el"
+      recentf-exclude '("~/dotfiles/emacs/custom.el"
+                        "~/dotfiles/emacs/configuration.org"
+                        "~/dotfiles/emacs/init.el"
+                        "~/dotfiles/emacs/early-init.el"
                         "~/Documents/OrgFiles/agenda/todos.org"
                         "~/Documents/OrgFiles/agenda/agenda.org"
                         "~/Dropbox/OrgFiles/agenda.org"
