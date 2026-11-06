@@ -15,7 +15,7 @@ font pango:Terminess Nerd Font Propo 14
 # client.focused #026c45 #026c45 #dddddd
 client.focused #076678 #076678 #fbf1c7
 
-output * bg ~/Pictures/Wallpaperx/village_boat.jpg fill
+output * bg ~/Pictures/Wallpaperx/astronaut.png fill
 ### Input configuration
 input type:touchpad {
     tap enabled
