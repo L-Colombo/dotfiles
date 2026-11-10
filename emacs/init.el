@@ -368,6 +368,7 @@
    ("C-c f s" . consult-ripgrep)
    ("C-c f m" . consult-mark)
    ("C-c f b" . consult-buffer)
+   ("C-c f r" . consult-recent-file)
    ("C-c f t" . consult-theme)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
