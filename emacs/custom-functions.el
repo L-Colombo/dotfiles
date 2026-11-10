@@ -4,7 +4,7 @@
   "Insert a timestamp in YYYY-MM-DD format"
   (interactive)
   (insert
-   (s-trim (shell-command-to-string "date +%Y-%M-%d"))))
+   (s-trim (shell-command-to-string "date +%Y-%m-%d"))))
 (global-set-key (kbd "C-S-d") #'insert-timestamp)
 
 (defun nix-upgrade ()
