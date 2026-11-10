@@ -37,6 +37,7 @@ autocmd("Filetype", {
         "bash",
         "c",
         "cpp",
+        "go",
         "haskell",
         "lua",
         "nix",
