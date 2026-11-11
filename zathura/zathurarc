@@ -21,12 +21,12 @@ set notification-warning-bg "#AC4142" #08
 set notification-warning-fg "#151515" #00
 
 set completion-highlight-fg "#151515" #02
-set completion-highlight-bg "#fc0fc0" #0C
+set completion-highlight-bg "#239db8" #0C
 
 set completion-bg "#303030" #02
 set completion-fg "#E0E0E0" #0C
 
-set notification-bg "#fc0fc0" #0B
+set notification-bg "#239db8" #0B
 set notification-fg "#151515" #00
 
 set recolor "true"
