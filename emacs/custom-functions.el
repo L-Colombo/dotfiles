@@ -3,6 +3,7 @@
 (defun insert-timestamp ()
   "Insert a timestamp in YYYY-MM-DD format"
   (interactive)
+  (require 's)
   (insert
    (s-trim (shell-command-to-string "date +%Y-%m-%d"))))
 (global-set-key (kbd "C-S-d") #'insert-timestamp)

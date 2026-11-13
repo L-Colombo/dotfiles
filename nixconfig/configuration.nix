@@ -212,6 +212,7 @@
       eza
       fastfetch
       fd
+      file
       foot
       fzf
       ghostty
@@ -235,6 +236,7 @@
       ntfs3g
       onefetch
       pandoc
+      haskellPackages.pandoc-crossref
       pamixer
       papirus-icon-theme
       pavucontrol
