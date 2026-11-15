@@ -38,6 +38,8 @@ autocmd("Filetype", {
         "c",
         "cpp",
         "go",
+        "gomod",
+        "gosum",
         "haskell",
         "lua",
         "nix",
