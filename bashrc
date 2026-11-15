@@ -31,6 +31,7 @@ eval "$(zoxide init bash)"
 
 ############### Variables ########################
 export EDITOR="nvim"
+export GOPATH="$HOME/.go/"
 export PATH="$HOME/.local/share/gem/ruby/3.2.0/bin/:$PATH"
 export PATH="$PATH:$HOME/.config/composer/vendor/bin/"
 export PATH="$PATH:$HOME/scripts"
