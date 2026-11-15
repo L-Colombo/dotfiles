@@ -228,7 +228,7 @@
       kdePackages.oxygen-icons
       kdePackages.partitionmanager
       kdePackages.yakuake
-      kmymoney
+      # kmymoney
       lazygit
       libreoffice
       networkmanagerapplet
