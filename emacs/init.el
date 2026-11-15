@@ -379,6 +379,7 @@
   :ensure t
   :init (setq dashboard-startup-banner 'logo
               dashboard-set-heading-icons nil
+              dashboard-bookmarks-item-format "%s"
               dashboard-set-file-icons nil
               dashboard-center-content t
               dashboard-vertically-center-content t
@@ -466,4 +467,4 @@
 (load (expand-file-name custom-file))
 (load "~/.emacs.d/custom-functions.el")
 (set-frame-font "Terminess Nerd Font Propo 20" nil t)
-(load-theme  'doom-gruvbox t)
+(load-theme  'gruber-darker t)

@@ -17,4 +17,4 @@ font-family-bold-italic    = "Terminess Nerd Font Propo"
 background-opacity         = 0.90
 window-theme               = dark
 # window-decoration        = none
-theme                      = Gruvbox Dark Hard
+theme                      = Gruber Darker
