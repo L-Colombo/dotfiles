@@ -134,9 +134,17 @@
   environment.systemPackages =
     with pkgs;
     let
-      boilertex = pkgs.callPackage /etc/nixos/boilertex.nix { };
-      tgr = pkgs.callPackage /etc/nixos/tgr.nix { };
-      toc = pkgs.callPackage /etc/nixos/toc.nix { };
+      # Unstable packages
+      unstable = import <nixos-unstable> {
+        config = {
+          allowUnfree = true;
+        };
+      };
+
+      # Custom packages
+      boilertex = pkgs.callPackage /etc/nixos/custompkgs/boilertex.nix { };
+      tgr = pkgs.callPackage /etc/nixos/custompkgs/tgr.nix { };
+      toc = pkgs.callPackage /etc/nixos/custompkgs/toc.nix { };
     in
     [
       # DEVELOPMENT BASICS
@@ -263,10 +271,12 @@
       yazi
       zathura
       zip
-      zoom-us
       zotero
       zoxide
       zsh
+
+      # Unstable packages
+      unstable.zoom-us
 
       # Custom packages
       boilertex
