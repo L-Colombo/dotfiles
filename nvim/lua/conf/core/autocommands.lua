@@ -35,6 +35,7 @@ autocmd("Filetype", {
 autocmd("Filetype", {
     pattern = {
         "bash",
+        "blade",
         "c",
         "cpp",
         "go",
@@ -43,6 +44,7 @@ autocmd("Filetype", {
         "haskell",
         "lua",
         "nix",
+        "php",
         "python",
         "rust",
     },
