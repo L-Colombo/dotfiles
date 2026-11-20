@@ -211,7 +211,7 @@
       bat
       brightnessctl
       btop
-      collabora-desktop
+      # collabora-desktop
       diff-so-fancy
       dropbox
       dunst
