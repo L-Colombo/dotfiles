@@ -155,6 +155,7 @@
       git
       github-cli
       gnumake
+      sqlite
       tree-sitter
       uv
 
@@ -238,7 +239,7 @@
       kdePackages.yakuake
       # kmymoney
       lazygit
-      libreoffice
+      libreoffice-qt
       networkmanagerapplet
       nix-init
       ntfs3g
