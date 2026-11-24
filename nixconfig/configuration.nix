@@ -286,6 +286,7 @@
     ];
 
   fonts.packages = with pkgs; [
+    culmus
     nerd-fonts.caskaydia-cove
     nerd-fonts.iosevka
     nerd-fonts.iosevka-term-slab
