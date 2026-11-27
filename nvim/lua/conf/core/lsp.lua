@@ -11,6 +11,7 @@ enable({
     "gopls",
     "jdtls",
     "jsonls",
+    "laravel_lsp",
     "lua_ls",
     "nixd",
     "ocamllsp",
