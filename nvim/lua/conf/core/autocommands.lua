@@ -41,12 +41,14 @@ autocmd("Filetype", {
         "go",
         "gomod",
         "gosum",
+        "javascript",
         "haskell",
         "lua",
         "nix",
         "php",
         "python",
         "rust",
+        "typescript",
     },
     callback = function()
         vim.treesitter.start()

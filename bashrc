@@ -13,6 +13,8 @@
 [[ $- != *i* ]] && return
 
 ############### Aliases ##########################
+alias ..="cd .."
+alias ...="cd ../.."
 alias adog="git log --all --decorate --oneline --graph"
 alias cp="cp -v"
 alias exa="eza --long --header --color=always --icons --git-ignore --sort=type"

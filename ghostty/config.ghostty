@@ -7,11 +7,11 @@ cursor-style-blink         = true
 # cursor-text                = #000000
 
 
-font-size                  = 20
-font-family                = "Terminess Nerd Font Propo"
-font-family-bold           = "Terminess Nerd Font Propo"
-font-family-italic         = "Terminess Nerd Font Propo"
-font-family-bold-italic    = "Terminess Nerd Font Propo"
+font-size                  = 16
+font-family                = "CaskaydiaCove Nerd Font Propo"
+font-family-bold           = "CaskaydiaCove Nerd Font Propo"
+font-family-italic         = "CaskaydiaCove Nerd Font Propo"
+font-family-bold-italic    = "CaskaydiaCove Nerd Font Propo"
 
 
 background-opacity         = 0.90
@@ -19,4 +19,4 @@ window-theme               = dark
 window-width               = 88
 window-height              = 24
 # window-decoration        = none
-theme                      = Gruber Darker
+theme                      = Modus Vivendi

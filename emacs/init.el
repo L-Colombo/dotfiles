@@ -460,5 +460,5 @@
 
 (load (expand-file-name custom-file))
 (load "~/.emacs.d/custom-functions.el")
-(set-frame-font "Terminess Nerd Font Propo 20" nil t)
-(load-theme  'gruber-darker t)
+(set-frame-font "CaskaydiaCove Nerd Font Propo 18" nil t)
+(load-theme  'doom-zenburn t)
