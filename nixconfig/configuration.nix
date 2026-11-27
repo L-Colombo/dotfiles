@@ -202,6 +202,7 @@
       emacs
       neovim
       vim
+      vscode
 
       # LaTeX
       biber
@@ -232,12 +233,13 @@
       hunspell
       hunspellDicts.en_US
       hunspellDicts.it_IT
+      hyphenDicts.en_US
+      hyphenDicts.it_IT
       kdePackages.kcalc
       kdePackages.oxygen
       kdePackages.oxygen-icons
       kdePackages.partitionmanager
       kdePackages.yakuake
-      # kmymoney
       lazygit
       libreoffice-qt
       networkmanagerapplet
